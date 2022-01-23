@@ -15,5 +15,9 @@ export class SignupComponent implements OnInit {
     
     this.router.navigateByUrl(`/header`);
   }
+  userregister='';
+  user_login(){
+    this.router.navigateByUrl(`/login`);
+  }
 
 }
