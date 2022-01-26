@@ -6,6 +6,16 @@
     background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/12005/agsquare.png);
     padding-top: 20%;
   }
+
+
+  .heading h1{
+    text-align: center;
+    background-color: white;
+
+  }
+  .login label{
+    margin: 0 0 7px;
+  }
   
   h1,
   .login,
@@ -27,6 +37,7 @@
   .login {
     background-color: rgba(191, 216, 227, .4);
     border: 1px solid rgba(191, 216, 227, .8);
+    border-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     padding: 10px;
@@ -57,14 +68,28 @@
   .actions a {
     font-size: 80%;
   }
-
+  
   .button {
+    width: 100%;
     background-color: #4CAF50; /* Green */
     border: none;
+    border-radius: 5px;
     color: white;
-    padding: 15px 32px;
+    padding: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+  }
+
+  .logo{
+    padding: 30px 0 20px 0;
+  }
+
+  .logo img{
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    padding: 30px 0 20px 0;
   }

@@ -1,23 +1,44 @@
 <ion-row>
   <ion-col size="4"></ion-col>
   <ion-col size="4">
+<div class="logo">
+  <img src="" alt="">
+</div>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col size="4"></ion-col>
+  <ion-col size="4">
+<div class="heading">
+  <h1>Sign in to GitHub</h1>
+</div>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col size="4"></ion-col>
+  <ion-col size="4">
     <form class="login">
       <ion-row></ion-row>
-      <div><label for="username">Username</label>
+      <div><label for="username">Username or email address</label>
         <input id="username" placeholder="Username" type="text" name="username" formControlName="userName">
       </div>
-      <div><label for="password">Password</label>
+      <div><label for="password">Password</label><a class="forgotPassword" href="">Forgot password?</a>
         <input id="password" placeholder="password" type="password" name="password" formControlName="password">
-      </div>
+      </div> 
       <button class="button" [disabled]="loginForm.form.invalid" (click)="goToLogin()">
         Login
       </button>
     </form>
-    <div class="account">
-      <p>Create a new account <a href="">here</a>.</p>
-    </div>
-    <div class="contact">
-      <p>If you need any other help, please contact the helpdesk.</p>
-    </div>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col size="4"></ion-col>
+  <ion-col size="4">
+<div class="account">
+  <p>Create a new account <a href="">here</a>.</p>
+</div>
+<div class="contact">
+  <p>If you need any other help, please contact the helpdesk.</p>
+</div>
   </ion-col>
 </ion-row>
