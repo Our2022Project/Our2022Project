@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -7,17 +8,29 @@ import { Router} from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private router: Router) { }
+ 
 
-  ngOnInit(): void {
-  }
-  goToLogin(){
+    constructor(private router: Router, private fb: FormBuilder) { }
+  
+    SignupForm: any;
     
-    this.router.navigateByUrl(`/header`);
+    ngOnInit(): void {
+      this.initializeForm();
+    }
+  
+    initializeForm(): void {
+      this. SignupForm= this.fb.group({
+        userName: ['', Validators.required],
+        password: ['', Validators.required],
+      });
+    }
+  
+    goToLogin(){
+      this.router.navigateByUrl('/signup');
+    }
+  
+    user_register(){
+      this.router.navigateByUrl('/signup');
+    }
+  
   }
-  userregister='';
-  user_login(){
-    this.router.navigateByUrl(`/login`);
-  }
-
-}

@@ -1,74 +1,51 @@
-<html>
-
-<body>
-  <div class="page-holder align-items-center py-4 bg-gray-100 vh-100">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 px-lg-4" style='z-index: 1'>
-          <div class="card">
-            <div class="card-header px-lg-5">
-              <div class="card-heading text-primary">Register</div>
-            </div>
-            <div class="card-body p-lg-5">
-              <h3 class="mb-4">Get started with Chamkila</h3>
-              <form action="index.html">
-                <div class="form-floating mb-3">
-                  <input class="form-control" id="username" type="email" placeholder="name@example.com" required>
-                  <label for="username">Username</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input class="form-control" id="floatingInput" type="email" placeholder="name@example.com" required>
-                  <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input class="form-control" id="floatingPassword" type="password" placeholder="Password" required>
-                  <label for="floatingPassword">Password</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input class="form-control" id="floatingPassword" type="password" placeholder="Password" required>
-                  <label for="floatingPassword">Confirm Password</label>
-                </div>
-                <div class="card-header px-3">
-                  <div class="card-heading text-primary">Contact Information</div>
-                </div>
-                <div class="form-floating mb-3">
-                  <input class="form-control" id="firstname" type="text" placeholder="name@example.com" required>
-                  <label for="firstname">First Name</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input class="form-control" id="lastname" type="text" placeholder="name@example.com" required>
-                  <label for="lastname">Last Name</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input class="form-control" id="address" type="text" placeholder="name@example.com" required>
-                  <label for="address">Address</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input class="form-control" id="phonenumber" type="text" placeholder="name@example.com" required>
-                  <label for="phonenumber">Phone Number</label>
-                </div>
-                <div class="form-group">
-                  <button class="btn btn-primary" id="regidter" type="button" name="registerSubmit"
-                    (click)="goToLogin()">Register</button>
-                </div>
-              </form>
-            </div>
-            <div class="card-footer px-lg-5 py-lg-4">
-              <div class="text-sm text-muted">Already have an account? <a (click)="user_login()">Login</a>.</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-xl-5 ms-xl-auto px-lg-4 text-center text-primary"><img class="img-fluid mb-4"
-            width="300" src="https://therichpost.com/wp-content/uploads/2021/06/login_page_image.png" alt=""
-            style="transform: rotate(10deg)">
-          <h1 class="mb-4">Therichpost.com <br class="d-none d-lg-inline">free code snippets.</h1>
-          <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-            incididunt ut labore.</p>
-        </div>
+<app-footer> </app-footer>
+<ion-row>
+  <ion-col size="4"></ion-col>
+  <ion-col size="4">
+    <form class="login">
+      <ion-row></ion-row>
+      <div><label for="FirstName">First Name</label>
+        <input id="FirstName" placeholder="First Name" type="text" name="FirstName" formControlName="FirstName">
       </div>
+      <div><label for="Last Name">Last Name</label>
+        <input id="Last Name" placeholder="Last Name" type="text" name="LastName" formControlName="LastName">
+        <br>
+
+        <label for="Company">Company</label>
+        <input id="Company" placeholder="Company" type="text" name="Company" formControlName="Company">
+        <label for="Country/Territory"> Country/Territory</label>
+        <input id="Country/Territory" placeholder="Country/Territory" type="text" name="Country/Territory" formControlName="Country/Territory">
+       
+        <label for="Address 1">Address 1</label>
+        <input id="Address 1" placeholder="Adress 1" type="text" name="Address 1" formControlName="Address 1">
+        <label for="City">City</label>
+        <input id="City" placeholder="City" type="text" name="City" formControlName="City">
+        <label for="State/Province">State/Province </label>
+        
+        
+        <label for="Email"> Email</label>
+        <input id="Email" placeholder="Email" type="text" name="Email" formControlName="Email">
+        <label for="Re-enter e-mail">Re-enter e-mail </label>
+        <input id="Re-enter e-mail" placeholder="Re-enter E-mail" type="text" name="Re-enter e-mail" formControlName="Re-enter e-mail">
+        <label for="Phone">Phone </label>
+        <input id="Phone" placeholder="Phone" type="text" name="Phone" formControlName="Phone">
+      </div>
+      
+
+    </form>
+    <div class="account">
+      <p>Create a new account <a href="">here</a>.</p>
     </div>
-  </div>
+    <div class="contact">
+      <p>If you need any other help, please contact the helpdesk.</p>
+    </div>
+  </ion-col>
+</ion-row>
 
-</body>
 
-</html>
+
+
+
+
+
+

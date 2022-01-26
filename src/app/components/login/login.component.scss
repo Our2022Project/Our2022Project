@@ -23,6 +23,8 @@
   .contact{
     width:80%;
     margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
   }
   
   h1 {
@@ -109,4 +111,14 @@
   }
   .password a{
     float: right;
+  }
+
+  .images {
+    border-radius: 10%;
+    width: 20%;
+    text-align: center;
+  }
+
+  .marginFix {
+    margin-top: 2%;
   }

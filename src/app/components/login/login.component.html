@@ -1,44 +1,47 @@
-<ion-row>
+<app-header></app-header>
+<ion-row class="marginFix">
   <ion-col size="4"></ion-col>
-  <ion-col size="4">
-<div class="logo">
-  <img src="" alt="">
-</div>
+  <ion-col size="4" class="images">
+    <img class="images" src="./../../../assets/./img/delivery-man.png" />
   </ion-col>
+  <ion-col size="4"></ion-col>
 </ion-row>
 <ion-row>
   <ion-col size="4"></ion-col>
   <ion-col size="4">
-<div class="heading">
-  <h1>Sign in to GitHub</h1>
-</div>
+    <div class="heading">
+      <h1>Login in to Courier Service</h1>
+    </div>
   </ion-col>
+  <ion-col size="4"></ion-col>
 </ion-row>
 <ion-row>
-  <ion-col size="4"></ion-col>
-  <ion-col size="4">
+  <ion-col size="4.5"></ion-col>
+  <ion-col size="3">
     <form class="login">
       <ion-row></ion-row>
-      <div><label for="username">Username or email address</label>
-        <input id="username" placeholder="Username" type="text" name="username" formControlName="userName">
+      <div><label for="username">Username or Email Address</label>
+        <input class="marginFix" id="username" placeholder="Username" type="text" name="username" formControlName="userName">
       </div>
       <div class="password"><label for="password">Password</label><a class="forgotPassword" href="">Forgot password?</a>
-        <input id="password" placeholder="password" type="password" name="password" formControlName="password">
-      </div> 
-      <button class="button" [disabled]="loginForm.form.invalid" (click)="goToLogin()">
+        <input class="marginFix" id="password" placeholder="Password" type="password" name="password" formControlName="password">
+      </div>
+      <button class="button marginFix" [disabled]="loginForm.form.invalid" (click)="goToLogin()">
         Login
       </button>
     </form>
   </ion-col>
+  <ion-col size="4.5"></ion-col>
 </ion-row>
 <ion-row>
-  <ion-col size="4"></ion-col>
-  <ion-col size="4">
-<div class="account">
-  <p>Create a new account <a href="">here</a>.</p>
-</div>
-<div class="contact">
-  <p>If you need any other help, please contact the helpdesk.</p>
-</div>
+  <ion-col size="4.5"></ion-col>
+  <ion-col size="3">
+    <div class="account">
+      <p>Create a new account <a href="">here</a>.</p>
+    </div>
+    <div class="contact">
+      <p>If you need any other help, please contact the helpdesk.</p>
+    </div>
   </ion-col>
+  <ion-col size="4.5"></ion-col>
 </ion-row>

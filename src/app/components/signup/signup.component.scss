@@ -1,68 +1,70 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&amp;display=swap");
-.card-header:first-child {
-    border-radius: calc(1rem - 1px) calc(1rem - 1px) 0 0;
-    }
-    .card-header {
-    position: relative;
-    padding: 2rem 2rem;
-    border-bottom: none;
-    background-color: white;
-    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
-    z-index: 2;
-    }
-    .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: none;
-    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
-    border-radius: 1rem;
-    }
-    .card-body{
-        height: 450px;
-        overflow: auto;
-    }
-    .bg-gray-100 {
-    background-color: #f8f9fa !important;
-    }
-    body{
-    font-family: 'Poppins'!important;
-    }
-    .text-primary {
-    color: #4650dd !important;
-    }
-    h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-    
-    font-weight: 700;
-    line-height: 1.2;
-    }
-    .text-muted {
-    color: #6c757d !important;
-    }
-    .lead {
-    font-size: 1.125rem;
-    font-weight: 300;
-    }
-    .text-sm {
-    font-size: .7875rem !important;
-    }
-    h3, .h3 {
-    font-size: 1.575rem;
-    }
-    .page-holder {
-    display: flex;
-    overflow-x: hidden;
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/12005/agsquare.png);
+    padding-top: 20%;
+  }
+  
+  h1,
+  .login,
+  .account,
+  .contact{
+    width:80%;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    background-color: rgba(191, 216, 227, 0.8);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 10px;
+    font-size: 24px;
+    line-height: 1.4;
+  }
+  
+  .login {
+    background-color: rgba(191, 216, 227, .4);
+    border: 1px solid rgba(191, 216, 227, .8);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .login > div {
+    padding: 5px 0;
+  }
+  
+  input[type="submit"] {
+    border: 1px solid rgba(191, 216, 227, .8);
+    border-radius: 5px;
+    color: #fff;
+    background-color: rgb(54, 134, 169);
+    font-size: 110%;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    border: 1px solid rgba(191, 216, 227, .8);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 110%;
     width: 100%;
-    min-height: calc(100vh - 72px);
-    
-    flex-wrap: wrap;
-    }
-    a {
-    color: #4650dd!important;
-    text-decoration: underline!important;
-    cursor: pointer;
-    }
+  }
+  
+  .actions a {
+    font-size: 80%;
+  }
+
+  .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
