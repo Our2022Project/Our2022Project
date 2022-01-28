@@ -46,5 +46,9 @@ export class SignupComponent implements OnInit {
     user_register(){
       this.router.navigateByUrl('/signup');
     }
-  
+    
+    dashBoard(){
+      this.router.navigateByUrl('/dashboard');
+    }
+
   }

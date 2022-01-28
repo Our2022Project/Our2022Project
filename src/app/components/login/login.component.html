@@ -21,15 +21,15 @@
     <form class="login" [formGroup]="loginForm">
       <ion-row></ion-row>
       <div><label for="username">Username or Email Address</label>
-        <input class="marginFix" id="username" placeholder="Username" type="text" name="username"
+        <input class="marginFix" id="username" autocomplete="off" placeholder="Username" type="text" name="username"
           formControlName="userName">
       </div>
       <div class="password"><label for="password">Password</label><a class="forgotPassword" href="">Forgot password?</a>
-        <input class="marginFix" id="password" placeholder="Password" type="password" name="password"
+        <input class="marginFix" id="password" autocomplete="off" placeholder="Password" type="password" name="password"
           formControlName="password">
       </div>
       <button class="button marginFix" [disabled]="!loginForm.valid" (click)="goToLogin()">
-        Login
+        Log in
       </button>
     </form>
   </ion-col>
@@ -39,7 +39,7 @@
   <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
   <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
     <div class="account">
-      <p>Create a new account <a href="">here</a>.</p>
+      <p>Create a new account <a routerLink="/signup" >here</a>.</p>
     </div>
     <div class="contact">
       <p>If you need any other help, please contact the helpdesk.</p>

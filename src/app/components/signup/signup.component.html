@@ -17,17 +17,17 @@
   <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
     <form class="login" [formGroup]="SignupForm">
       <div><label for="email">Enter your email</label>
-        <input class="marginFix" id="email" placeholder="Email" type="text" name="email" formControlName="email">
+        <input class="marginFix" id="email" autocomplete="off" placeholder="Email" type="text" name="email" formControlName="email">
         <button class="marginFix" *ngIf="isPasswordShow" (click)="continue()">Continue</button>
       </div>
       <div *ngIf="isPassword"><label for="password">Create a password</label>
-        <input class="marginFix" id="password" placeholder="Password" type="password" name="password" formControlName="password">
+        <input class="marginFix" id="password" autocomplete="off" placeholder="Password" type="password" name="password" formControlName="password">
         <button class="marginFix" *ngIf="isUserNameShow" (click)="continue1()">Continue</button>
 
       </div>
       <div *ngIf="isUserName"><label for="userName">Create a username</label>
-        <input class="marginFix" id="userName" placeholder="Username" type="text" name="userName" formControlName="userName">
-        <button class="marginFix" class="button marginFix" [disabled]="!SignupForm.valid">Continue</button>
+        <input class="marginFix" id="userName" autocomplete="off" placeholder="Username" type="text" name="userName" formControlName="userName">
+        <button class="marginFix" class="button marginFix" [disabled]="!SignupForm.valid" (click)="dashBoard()">Sign in</button>
 
       </div>
     </form>
@@ -37,7 +37,7 @@
   <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
   <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
     <div class="account">
-      <p>Already have an account? <a href="">Sign in</a>.</p>
+      <p>Already have an account? <a routerLink="/login">Log in</a>.</p>
     </div>
     <div class="contact">
       <p>If you need any other help, please contact the helpdesk.</p>
