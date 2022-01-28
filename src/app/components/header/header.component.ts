@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,9 +11,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
-  goToLogin(){
-    
+
+  goToLogin() {
+
     this.router.navigateByUrl(`/footer`);
   }
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +11,7 @@ export class LoginComponent {
   constructor(private router: Router, private fb: FormBuilder) { }
 
   loginForm: any;
-  
+
   ngOnInit(): void {
     this.initializeForm();
   }
@@ -23,11 +23,11 @@ export class LoginComponent {
     });
   }
 
-  goToLogin(){
+  goToLogin() {
     this.router.navigateByUrl('/signup');
   }
 
-  user_register(){
+  user_register() {
     this.router.navigateByUrl('/signup');
   }
 
