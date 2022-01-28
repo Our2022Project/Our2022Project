@@ -1,51 +1,47 @@
 <app-footer> </app-footer>
 <ion-row>
-  <ion-col size="4"></ion-col>
-  <ion-col size="4">
-    <form class="login">
-      <ion-row></ion-row>
-      <div><label for="FirstName">First Name</label>
-        <input id="FirstName" placeholder="First Name" type="text" name="FirstName" formControlName="FirstName">
+  <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+  <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+  </ion-col>
+  <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+</ion-row>
+<ion-row class="marginFix">
+  <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+  <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12" class="images">
+    <h1>Welcome to GitHub</h1>
+  </ion-col>
+  <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+</ion-row>
+<ion-row>
+  <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+  <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+    <form class="login" [formGroup]="SignupForm">
+      <div><label for="email">Enter your email</label>
+        <input class="marginFix" id="email" placeholder="Email" type="text" name="email" formControlName="email">
+        <button class="marginFix" *ngIf="isPasswordShow" (click)="continue()">Continue</button>
       </div>
-      <div><label for="Last Name">Last Name</label>
-        <input id="Last Name" placeholder="Last Name" type="text" name="LastName" formControlName="LastName">
-        <br>
+      <div *ngIf="isPassword"><label for="password">Create a password</label>
+        <input class="marginFix" id="password" placeholder="Password" type="password" name="password" formControlName="password">
+        <button class="marginFix" *ngIf="isUserNameShow" (click)="continue1()">Continue</button>
 
-        <label for="Company">Company</label>
-        <input id="Company" placeholder="Company" type="text" name="Company" formControlName="Company">
-        <label for="Country/Territory"> Country/Territory</label>
-        <input id="Country/Territory" placeholder="Country/Territory" type="text" name="Country/Territory" formControlName="Country/Territory">
-       
-        <label for="Address 1">Address 1</label>
-        <input id="Address 1" placeholder="Adress 1" type="text" name="Address 1" formControlName="Address 1">
-        <label for="City">City</label>
-        <input id="City" placeholder="City" type="text" name="City" formControlName="City">
-        <label for="State/Province">State/Province </label>
-        
-        
-        <label for="Email"> Email</label>
-        <input id="Email" placeholder="Email" type="text" name="Email" formControlName="Email">
-        <label for="Re-enter e-mail">Re-enter e-mail </label>
-        <input id="Re-enter e-mail" placeholder="Re-enter E-mail" type="text" name="Re-enter e-mail" formControlName="Re-enter e-mail">
-        <label for="Phone">Phone </label>
-        <input id="Phone" placeholder="Phone" type="text" name="Phone" formControlName="Phone">
       </div>
-      
+      <div *ngIf="isUserName"><label for="userName">Create a username</label>
+        <input class="marginFix" id="userName" placeholder="Username" type="text" name="userName" formControlName="userName">
+        <button class="marginFix" class="button marginFix" [disabled]="!SignupForm.valid">Continue</button>
 
+      </div>
     </form>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+  <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
     <div class="account">
-      <p>Create a new account <a href="">here</a>.</p>
+      <p>Already have an account? <a href="">Sign in</a>.</p>
     </div>
     <div class="contact">
       <p>If you need any other help, please contact the helpdesk.</p>
     </div>
   </ion-col>
+  <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
 </ion-row>
-
-
-
-
-
-
-
-

@@ -13,16 +13,30 @@ export class SignupComponent implements OnInit {
     constructor(private router: Router, private fb: FormBuilder) { }
   
     SignupForm: any;
+    isPassword:boolean = false;
+    isUserName:boolean = false;
+    isPasswordShow:boolean = true;
+    isUserNameShow:boolean = true;
     
     ngOnInit(): void {
       this.initializeForm();
     }
   
     initializeForm(): void {
-      this. SignupForm= this.fb.group({
-        userName: ['', Validators.required],
+      this.SignupForm= this.fb.group({
+        email: ['', Validators.required],
         password: ['', Validators.required],
+        userName: ['', Validators.required],
       });
+    }
+
+    continue(){
+      this.isPasswordShow = false;
+      this.isPassword = true;
+    }
+    continue1(){
+      this.isUserNameShow = false;
+      this.isUserName = true;
     }
   
     goToLogin(){
