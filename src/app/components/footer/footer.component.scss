@@ -1,16 +1,12 @@
 
-.browser > h2, p {
-    margin: 14px;
-    font-size: 50%;
-  }
   
-  .ft {
-	align-items: center;
-	background-color: #140b0b;
+.footer {
+    align-items: center;
+	background-color: #21262d;
 	bottom: 0;
-	color: #9c1e1e;
+	color: white;
 	display: flex;
-	font-size: 2em;
+	font-size: 1.5em;
 	height: 40px;
 	justify-content: center;
 	position: fixed;
@@ -18,12 +14,9 @@
 	width: 100%;
 	z-index: 5;
 }
-.fbt{
-background-color: #b9e444;
-padding: 5px 30px;
-border-radius: 10px;
-font-size: 23px;
-text-transform: uppercase;
+.footer p{
+    margin: 14px;
+    font-size: 50%;
+	color: #c9d1d9;
 
-
-}
+  }

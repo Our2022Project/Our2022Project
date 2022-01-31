@@ -1,33 +1,24 @@
 <html>
-
 <body>
-  <div class="navbar">
-    <a href="#home">About</a>
-    <a href="#news">News</a>
-    <a href="#about">Home </a>
-    <div class="dropdown">
-      <button class="dropbtn">Themes
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <button type="button" onclick="document.body.style.backgroundColor = 'skyblue';"> <a href="#"> Blue Theme <input
-              type="radio" name="Link"></a> </button> <br>
-        <button type="button" onclick="document.body.style.backgroundColor = 'rgb(144,238,144)';"><a href="#"> Green
-            Theme <input type="radio" name="Link"></a> </button><br>
-        <button type="button" onclick="document.body.style.backgroundColor = 'pink';"> <a href="#"> Pink Theme <input
-              type="radio" name="Link"></a> </button>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
+  <nav class="navbar" >
+    <ul>
+        <p style="float: left;"><a href="#" class="logo"><img src="">(Brand Name)</a></p>
+        <Button style="float: right;" class="button" (click)="onclick()">Menu</Button>
+        <Button style="float: right;" class="button" >Dark Mode</Button>
+        <li><Button class="dark">Dark Mode</Button></li>
+        <li><a href="#" >Contact</a></li>
+        <li><a href="#" >About</a></li>
+        <li><a href="#" >Home</a></li>
+        <li style="float: left;"><a href="#" ><img src="">(Brand Name)</a></li>
+    </ul>
+</nav>
+<nav class="navbarMobile" >
+<ul *ngIf="navShow">
+    <li><a href="#" >Home</a></li>
+    <li><a href="#" >About</a></li>
+    <li><a href="#" >Contact</a></li>
+</ul>
+</nav>
 </body>
 
 </html>

@@ -9,12 +9,22 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  navShow: boolean = false;
+
   ngOnInit(): void {
   }
 
   goToLogin() {
 
     this.router.navigateByUrl(`/footer`);
+  }
+
+  onclick() {
+    if (this.navShow == false) {
+      this.navShow = true;
+    } else {
+      this.navShow = false;
+    }
   }
 
 }

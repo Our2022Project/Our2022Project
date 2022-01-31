@@ -23,8 +23,8 @@ export class LoginComponent {
     });
   }
 
-  goToLogin() {
-    this.router.navigateByUrl('/signup');
+  goToDashboard() {
+    this.router.navigateByUrl('/dashboard');
   }
 
   user_register() {

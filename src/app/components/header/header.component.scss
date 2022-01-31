@@ -1,69 +1,80 @@
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 0;
+ margin: 0;
+    
   }
-  
-  .navbar {
-    overflow: hidden;
-    background-color: #333;
+.navbar{
     width: 100%;
+    background-color: #21262d;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
     
-  }
-  
-  .navbar a {
-    float: right;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    
-  }
-  
-  .dropdown {
-    float: right;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
   }
-  
-  .dropdown .dropbtn {
-    font-size: 16px;  
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
+  li {
+    float: right;
   }
-  
-  .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: rgba(187, 255, 0, 0.384);
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    float: none;
-  
-    color: black;
-    padding: 12px 26px;
+  li a {
+    display: block;
+    margin: 8px;
+    padding: 10px;
     text-decoration: none;
-    display: block;
-    text-align: right;
+    font-size: 16px;
+    font-weight: bolder;
+    color: #c9d1d9;
   }
-  
-  .dropdown-content a:hover {
-    background-color: #ddd;
+  .navbar .button{
+    display: none;
+}
+  .navbar .logo{
+    display: none;
   }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
+  .dark{
+    margin: 8px;
+    padding: 10px;
   }
-  
+  @media screen and (max-width: 480px){
+    .navbar .button{
+          display: block;
+          padding: 10px;
+          margin: 10px 10px 10px 0;
+      }
+      .navbar ul li{
+          display: none;
+      }
+
+      .navbar .logo{
+        display: block;
+        padding: 10px;
+        margin: 10px 10px 10px 0;
+        text-decoration: none;
+        color: #c9d1d9;
+
+      }
+
+      .navbarMobile{
+        background-color: #21262d;
+      }
+      .navbarMobile li{
+          float: none;
+          text-align: center;
+      }
+      
+     .navbarMobile li a {
+        display: block;
+        margin: 8px;
+        padding: 10px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bolder;
+        color: #c9d1d9;
+      }
+      
+  }

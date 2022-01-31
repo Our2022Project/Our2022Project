@@ -1,22 +1,28 @@
 * {
     box-sizing: border-box;
+    color: #c9d1d9;
   }
   
   body {
     background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/12005/agsquare.png);
     padding-top: 20%;
+    
   }
   
   h1,
-  .login,
+  .signup,
   .account,
   .contact{
     width:80%;
     margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .marginFix {
+    margin-top: 2%;
   }
   .header{
     text-align: center;
-    margin-bottom: 2%;
+    margin-top: 5%;
   }
   h1 {
     border-top-right-radius: 5px;
@@ -27,34 +33,23 @@
   }
   
   .signup {
-    background-color: rgba(191, 216, 227, .4);
-    border: 1px solid rgba(191, 216, 227, .8);
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
+    background-color: #21262d;
+    border: 1px solid #30363d;
     padding: 10px;
     margin-bottom: 10px;
-    border: 2px solid rgba(8, 8, 8, 0.8);
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+    border-radius: 6px;
     }
-  .login > div {
+  .signup > div {
     padding: 5px 0;
   }
   
-  input[type="submit"] {
-    border: 1px solid rgba(191, 216, 227, .8);
-    border-radius: 5px;
-    color: #fff;
-    background-color: rgb(54, 134, 169);
-    font-size: 110%;
-  }
   
   input[type="text"],
   input[type="password"] {
-    border: 1px solid rgba(191, 216, 227, .8);
+    border: 1px solid #30363d;
+    background-color: #161b22;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 6px;
     width: 100%;
   }
   
@@ -64,10 +59,10 @@
 
   .button {
     width: 100%;
-    background-color: #4CAF50; /* Green */
+    background-color: #238636; /* Green */
     border: none;
-    border-radius: 5px;
-    color: white;
+    border-radius: 6px;
+    color: #fff;
     padding: 10px;
     margin: 7px 0 7px 0;
     text-align: center;
@@ -76,27 +71,41 @@
     font-size: 16px;
     cursor: pointer;
   }
-
-  .marginFix {
-    margin-top: 2%;
+  .button:hover{
+    background-color: #3fb950;
   }
+
   .account{
-    border: 2px solid rgba(8, 8, 8, 0.8);
-    border-radius: 5px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
     text-align: center;
     padding: 10px;
-    width: 100%;
-  }
-
-  .contact{
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 10px;
   }
 
   .account p {
     margin: 0;
     font-weight: bolder;
     font-size: 15px;
-    width: 100%;
+  }
+  .account a{
+    text-decoration: none;
+    color: #58a6ff;
+  }
+  .contact{
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    color: #c9d1d9;
+  }
+  .email{
+    font-weight: bolder;
+  }
+  .password{
+    font-weight: bolder;
+  }
+  .username{
+    font-weight: bolder;
+    
   }

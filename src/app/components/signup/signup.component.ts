@@ -40,15 +40,7 @@ export class SignupComponent implements OnInit {
   }
 
   goToLogin() {
-    this.router.navigateByUrl('/signup');
-  }
-
-  user_register() {
-    this.router.navigateByUrl('/signup');
-  }
-
-  goTodashBoard() {
-    this.router.navigateByUrl('/dashboard');
+    this.router.navigateByUrl('/login');
   }
 
 }
