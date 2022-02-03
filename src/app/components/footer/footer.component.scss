@@ -1,22 +1,29 @@
-
-  
-.footer {
-    align-items: center;
-	background-color: #21262d;
-	bottom: 0;
-	color: white;
-	display: flex;
-	font-size: 1.5em;
-	height: 40px;
-	justify-content: center;
-	position: fixed;
-	text-transform: uppercase;
+.footer{
+	position: absolute;
 	width: 100%;
-	z-index: 5;
+	bottom: 0;
+	font-size: 12px;
+	padding: 16px 15px;
+	background-color: #4d148c;
+	color: #fff;
+	line-height: 16px;
+	font-family: "Dangrek",sans-serif;
+	box-sizing: border-box;
+	text-align: center;
 }
-.footer p{
-    margin: 14px;
-    font-size: 50%;
-	color: #c9d1d9;
+.footer a{
+	font-size: 14px;
+	color: #fff;
+	text-decoration: none;
 
-  }
+}
+.seprate{
+	margin: 10px 10px;
+}
+
+@media screen and (max-width: 765px){
+	.brand{
+		margin: 0 0 10px 0;
+
+	}
+}

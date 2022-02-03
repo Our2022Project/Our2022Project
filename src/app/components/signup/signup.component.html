@@ -1,5 +1,4 @@
 <app-header></app-header>
-<app-footer></app-footer>
 <ion-row class="marginFix header">
   <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
   <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12" class="images">
@@ -11,24 +10,36 @@
   <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
   <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
     <form class="signup" [formGroup]="SignupForm">
-      <div class="email" ><label for="email">Enter your email</label>
+      <div class="email"><label for="email">Enter your email</label>
         <input class="marginFix" id="email" autocomplete="off" placeholder="Email" type="text" name="email"
           formControlName="email">
-        <button [disabled]="this.SignupForm.controls['email'].invalid" class="marginFix button marginFix" *ngIf="isPasswordShow" (click)="continue()">Continue</button>
       </div>
-      <div class="password" *ngIf="isPassword"><label for="password">Create a password</label>
-        <input class="marginFix" id="password" autocomplete="off" placeholder="Password" type="password" name="password"
-          formControlName="password">
-        <button [disabled]="this.SignupForm.controls['password'].invalid" class="marginFix button marginFix" *ngIf="isUserNameShow" (click)="continue1()">Continue</button>
-
-      </div>
-      <div class="username" *ngIf="isUserName"><label for="userName">Create a username</label>
+      <div class="username"><label for="userName">Create a username</label>
         <input class="marginFix" id="userName" autocomplete="off" placeholder="Username" type="text" name="userName"
           formControlName="userName">
-        <button class="marginFix button marginFix" [disabled]="!SignupForm.valid" (click)="goToLogin()">Sign
-          in</button>
-
       </div>
+      <div class="password"><label for="password">Create a password</label>
+        <input class="marginFix" id="password" autocomplete="off" placeholder="Password" type="password" name="password"
+          formControlName="password">
+      </div>
+      <div class="Address1	"><label for="Address1">Address1	</label>
+        <input class="marginFix" id="Address1	" autocomplete="off" placeholder="Address1	" type="text" name="Address1	"
+          formControlName="Address1	">
+      </div>
+      <div class="Address2"><label for="Address2">Address2</label>
+        <input class="marginFix" id="Address2" autocomplete="off" placeholder="Address2" type="text" name="Address2"
+          formControlName="Address2">
+      </div>
+      <div class="City"><label for="City">City</label>
+        <input class="marginFix" id="City" autocomplete="off" placeholder="City" type="text" name="City"
+          formControlName="City">
+      </div>
+      <div class="ZIP"><label for="ZIP/Postal">ZIP/Postal</label>
+        <input class="marginFix" id="ZIP/Postal" autocomplete="off" placeholder="ZIP/Postal" type="text" name="ZIP/Postal"
+          formControlName="ZIP/Postal">
+      </div>
+      <button class="marginFix button marginFix" [disabled]="!SignupForm.valid" (click)="goToLogin()">Sign
+        in</button>
     </form>
   </ion-col>
   <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
@@ -45,3 +56,4 @@
   </ion-col>
   <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
 </ion-row>
+<app-footer></app-footer>

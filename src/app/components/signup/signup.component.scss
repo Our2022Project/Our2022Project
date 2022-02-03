@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    color: #c9d1d9;
+    color: #000;
   }
   
   body {
@@ -33,7 +33,7 @@
   }
   
   .signup {
-    background-color: #21262d;
+    background-color: #e5e5e5;
     border: 1px solid #30363d;
     padding: 10px;
     margin-bottom: 10px;
@@ -47,7 +47,7 @@
   input[type="text"],
   input[type="password"] {
     border: 1px solid #30363d;
-    background-color: #161b22;
+    background-color: #fff;
     padding: 5px;
     border-radius: 6px;
     width: 100%;
@@ -59,7 +59,7 @@
 
   .button {
     width: 100%;
-    background-color: #238636; /* Green */
+    background-color: #660099; /* Green */
     border: none;
     border-radius: 6px;
     color: #fff;
@@ -71,12 +71,9 @@
     font-size: 16px;
     cursor: pointer;
   }
-  .button:hover{
-    background-color: #3fb950;
-  }
 
   .account{
-    background-color: #161b22;
+    background-color: #e5e5e5;
     border: 1px solid #30363d;
     border-radius: 6px;
     text-align: center;
@@ -90,14 +87,14 @@
   }
   .account a{
     text-decoration: none;
-    color: #58a6ff;
+    color: #660099;
   }
   .contact{
     text-align: center;
     padding: 10px;
     margin-bottom: 10px;
     font-weight: bolder;
-    color: #c9d1d9;
+    color: #000;
   }
   .email{
     font-weight: bolder;
@@ -108,4 +105,16 @@
   .username{
     font-weight: bolder;
     
+  }
+  .Address1{
+    font-weight: bolder;
+  }
+  .Address2{
+    font-weight: bolder;
+  }
+  .City{
+    font-weight: bolder;
+  }
+  .ZIP{
+    font-weight: bolder;
   }
