@@ -9,8 +9,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  navShow: boolean = false;
-
+  check: boolean = false;
   ngOnInit(): void {
   }
 
@@ -20,15 +19,13 @@ export class HeaderComponent implements OnInit {
   }
 
   onclick() {
-    if (this.navShow == false) {
-      this.navShow = true;
-    } else {
-      this.navShow = false;
+    if(this.check == true){
+      this.check = false;
+    }else{
+      this.check = true;
     }
+    
   }
-
 }
-
-
 
 

@@ -1,24 +1,34 @@
 <html>
+
 <body>
-  <nav class="navbar" >
-    <ul>
-        <p style="float: left;"><a href="#" class="logo"><img src="">(Brand Name)</a></p>
-        <Button style="float: right;" class="button" (click)="onclick()">Menu</Button>
-        <Button style="float: right;" class="button" >Dark Mode</Button>
-        <li><Button class="dark">Dark Mode</Button></li>
-        <li><a href="#" >Contact</a></li>
-        <li><a href="#" >About</a></li>
-        <li><a href="#" >Home</a></li>
-        <li style="float: left;"><a href="#" ><img src="">(Brand Name)</a></li>
-    </ul>
-</nav>
-<nav class="navbarMobile" >
-<ul *ngIf="navShow">
-    <li><a href="#" >Home</a></li>
-    <li><a href="#" >About</a></li>
-    <li><a href="#" >Contact</a></li>
-</ul>
-</nav>
+
+    <head>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <div class="topnav" [class.responsive]="check">
+        <a href="#home" class="active">Brand</a>
+        <a style="float: right;" class="search-container">
+            <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </a>
+        <a href="#">Shipping<span><i class="fa fa-angle-down" style="font-size:15px"></i></span></a>
+        <a href="#">Tracking<span><i class="fa fa-angle-down" style="font-size:15px"></i></span></a>
+        <a href="#">Support<span><i class="fa fa-angle-down" style="font-size:15px"></i></span></a>
+        <a href="#">Account<span><i class="fa fa-angle-down" style="font-size:15px"></i></span></a>
+
+        <a href="#" style="float: right; display: none;" class="Login-icon">Sign Up/Log In<span><i
+                    class="fa fa-user-circle-o" style="font-size:17;"></i></span></a>
+        <a class="icon" (click)="onclick()">
+            <i class="fa fa-bars"></i>
+        </a>
+        <a class="Sign-icon" style="display: block; float: right;" href="#">Sign Up/Log In<span><i
+                    class="fa fa-user-circle-o" style="font-size:17;"></i></span>
+        </a>
+
+    </div>
 </body>
 
 </html>

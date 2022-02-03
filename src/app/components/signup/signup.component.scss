@@ -34,10 +34,9 @@
   
   .signup {
     background-color: #e5e5e5;
-    border: 1px solid #30363d;
     padding: 10px;
     margin-bottom: 10px;
-    border-radius: 6px;
+
     }
   .signup > div {
     padding: 5px 0;
@@ -46,7 +45,7 @@
   
   input[type="text"],
   input[type="password"] {
-    border: 1px solid #30363d;
+    border: 1px solid #e5e5e5;
     background-color: #fff;
     padding: 5px;
     border-radius: 6px;
@@ -74,8 +73,6 @@
 
   .account{
     background-color: #e5e5e5;
-    border: 1px solid #30363d;
-    border-radius: 6px;
     text-align: center;
     padding: 10px;
   }
