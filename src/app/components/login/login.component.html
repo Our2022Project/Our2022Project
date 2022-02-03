@@ -20,7 +20,7 @@
   <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
     <form class="login" [formGroup]="loginForm">
       <ion-row></ion-row>
-      <div><label for="username">Username or Email Address</label>
+      <div><label for="username">Email Address</label>
         <input class="marginFix" id="username" autocomplete="off" placeholder="Username" type="text" name="username"
           formControlName="userName">
       </div>
@@ -28,7 +28,7 @@
         <input class="marginFix" id="password" autocomplete="off" placeholder="Password" type="password" name="password"
           formControlName="password">
       </div>
-      <button class="button marginFix" [disabled]="!loginForm.valid" (click)="goToDashboard()">
+      <button [ngClass]="{'validButton': loginForm.valid, 'inValidButton': !loginForm.valid}" class="button marginFix" [disabled]="!loginForm.valid" (click)="goToDashboard()">
         Log in
       </button>
     </form>
