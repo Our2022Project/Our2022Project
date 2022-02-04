@@ -20,30 +20,36 @@
   <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
     <form class="login" [formGroup]="loginForm">
       <ion-row></ion-row>
-      
+
       <div><label for="username">Email Address</label>
-        <input class="marginFix" id="username" autocomplete="off" placeholder="Email Address" type="text" name="username"
-          formControlName="userName">
-          <div   style="color:red;"  *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)" class="alert">
-            <div *ngIf="loginForm.controls['userName'].errors.required">
-            Please enter Email <Address></Address>
+        <input class="marginFix" id="username" autocomplete="off" placeholder="Email Address" type="text"
+          name="username" formControlName="userName">
+        <div style="color:red; font-size: 12px; padding: 7px;"
+          *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)"
+          class="alert">
+          <div *ngIf="loginForm.controls['userName'].errors.required">
+            Please enter email address
           </div>
-          </div>
+        </div>
       </div>
       <div class="password"><label for="password">Password</label>
-        
+
         <a class="forgotPassword" href="">Forgot password?</a>
         <input class="marginFix showPass" id="password" autocomplete="off" placeholder="Password"
-          [type]="fieldTextType ? 'text' : 'password'" name="password" formControlName="password"> <div   style="color:red;"  *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="alert">
-            <div *ngIf="loginForm.controls['password'].errors.required">
+          [type]="fieldTextType ? 'text' : 'password'" name="password" formControlName="password">
+        <span><i class="eyeIcon fa" [ngClass]="{
+            'fa-eye-slash': !fieldTextType,
+            'fa-eye': fieldTextType
+          }" (click)="toggleFieldTextType()"></i>
+        </span>
+        <div style="color:red; font-size: 12px; padding: 7px;"
+          *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+          class="alert">
+          <div *ngIf="loginForm.controls['password'].errors.required">
             Please enter password<Address></Address>
           </div>
-          </div>
-          <span><i
-            class="eyeIcon fa" [ngClass]="{
-              'fa-eye-slash': !fieldTextType,
-              'fa-eye': fieldTextType
-            }" (click)="toggleFieldTextType()"></i></span>
+        </div>
+
       </div>
       <button [ngClass]="{'validButton': loginForm.valid, 'inValidButton': !loginForm.valid}" class="button marginFix"
         [disabled]="!loginForm.valid" (click)="goToDashboard()">
@@ -66,5 +72,3 @@
   <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
 </ion-row>
 <app-footer></app-footer>
-
-
