@@ -14,15 +14,16 @@
         <input class="marginFix" id="email" autocomplete="off" placeholder="Email" type="text" name="email"
           formControlName="email">
       </div>
-      <div class="username"><label for="userName">Create a username</label>
-        <input class="marginFix" id="userName" autocomplete="off" placeholder="Username" type="text" name="userName"
-          formControlName="userName">
-      </div>
+
       <div class="password"><label for="password">Create a password</label>
         <input class="marginFix" id="password" autocomplete="off" placeholder="Password" type="password" name="password"
           formControlName="password">
       </div>
-      <div class="Address1	"><label for="Address1">Address1	</label>
+      <div class="username"><label for="userName">Confirm password </label>
+        <input class="marginFix" id="password" autocomplete="off" placeholder="Confirm password" type="password"
+          name="Confirm password" formControlName="Confirm password">
+      </div>
+      <div class="Address1	"><label for="Address1">Address1 </label>
         <input class="marginFix" id="Address1	" autocomplete="off" placeholder="Address1	" type="text" name="Address1	"
           formControlName="Address1	">
       </div>
@@ -35,11 +36,12 @@
           formControlName="City">
       </div>
       <div class="ZIP"><label for="ZIP/Postal">ZIP/Postal</label>
-        <input class="marginFix" id="ZIP/Postal" autocomplete="off" placeholder="ZIP/Postal" type="text" name="ZIP/Postal"
-          formControlName="ZIP/Postal">
+        <input class="marginFix" id="ZIP/Postal" autocomplete="off" placeholder="ZIP/Postal" type="text"
+          name="ZIP/Postal" formControlName="ZIP/Postal">
       </div>
-      <button class="marginFix button marginFix" [disabled]="!SignupForm.valid" (click)="goToLogin()">Sign
-        in</button>
+      <button class="marginFix button marginFix" type="submit"
+        [ngClass]="{'validButton':SignupForm.valid, 'inValidButton':!SignupForm.valid}"  disabled= "!SignupForm.valid"
+        (click)="goToLogin()">Sign In</button>
     </form>
   </ion-col>
   <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
