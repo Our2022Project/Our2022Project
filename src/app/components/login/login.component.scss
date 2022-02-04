@@ -47,13 +47,27 @@
     padding: 5px 0;
   }
  
-  input[type="text"],
-  input[type="password"] {
+  input[type="text"]{
     border: 1px solid #e5e5e5;
     background-color: #fff;
     padding: 5px;
     border-radius: 6px;
     width: 100%;
+  }
+  .password input[type="text"]{
+    width: 84%;
+  }
+  input[type="password"] {
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 6px;
+    width: 84%;
+  }
+  .eyeIcon{
+    padding: 5px 10px 5px 10px;
+    background: none;
+
   }
   
   .actions a {

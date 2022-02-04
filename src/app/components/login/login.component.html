@@ -25,8 +25,15 @@
           formControlName="userName">
       </div>
       <div class="password"><label for="password">Password</label><a class="forgotPassword" href="">Forgot password?</a>
-        <input class="marginFix" id="password" autocomplete="off" placeholder="Password" type="password" name="password"
-          formControlName="password">
+        <input class="marginFix showPass" id="password" autocomplete="off" placeholder="Password" [type]="fieldTextType ? 'text' : 'password'" name="password"
+          formControlName="password"><span><i
+            class="eyeIcon fa"
+            [ngClass]="{
+              'fa-eye-slash': !fieldTextType,
+              'fa-eye': fieldTextType
+            }"
+            (click)="toggleFieldTextType()"
+          ></i></span>
       </div>
       <button [ngClass]="{'validButton': loginForm.valid, 'inValidButton': !loginForm.valid}" class="button marginFix" [disabled]="!loginForm.valid" (click)="goToDashboard()">
         Log in
