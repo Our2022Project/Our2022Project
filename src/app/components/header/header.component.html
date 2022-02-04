@@ -10,9 +10,11 @@
         <a href="#home" class="active">Brand</a>
         <a style="float: right;" class="search-container">
             <form action="#">
-                <input [class.search-txt]="searchBox" type="text" placeholder="Search.." name="search">
-                <button (click)="search()" class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+                <input [class.search-txt]="searchBox" type="text" placeholder="Search or Tracking Numbers" name="search">
+                <button class="searchBtn" [class.search-btn]="searchBox"><i class="fa fa-search"></i></button>
             </form>
+            <button class="searchBtnShow" style="cursor: pointer;" [class.search-BtnShow]="searchBox" (click)="search()"><i class="open fa fa-search" [class.search-open]="searchBox"></i><i class="close fa fa-close" [class.search-close]="searchBox" ></i></button>
+
         </a>
         <a (click)="dropBtn1()">Shipping<span><i class="fa fa-angle-down" style="font-size:15px"></i></span>
             <span class="droplink1" [class.droplinkshow1]="showDroplink1"><ul>
