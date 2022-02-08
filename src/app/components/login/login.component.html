@@ -30,6 +30,7 @@
           <div *ngIf="loginForm.controls['userName'].errors.required">
             Please enter email address
           </div>
+          <div *ngIf="loginForm.controls['userName'].errors.pattern" > Invaild Email Address</div>
         </div>
       </div>
       <div class="password"><label for="password">Password</label>
@@ -48,6 +49,7 @@
           <div *ngIf="loginForm.controls['password'].errors.required">
             Please enter password<Address></Address>
           </div>
+          <div *ngIf="loginForm.controls['password'].errors.pattern" >  </div>
         </div>
 
       </div>
