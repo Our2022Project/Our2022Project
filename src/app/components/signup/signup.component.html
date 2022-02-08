@@ -13,6 +13,14 @@
       <div class="email"><label for="email">Enter your email</label>
         <input class="marginFix" id="email" autocomplete="off" placeholder="Email" type="text" name="email"
           formControlName="email">
+          <div style="color:red; font-size: 12px; padding: 7px;"
+          *ngIf="SignupForm.controls['email'].invalid && (SignupForm.controls['email'].dirty || SignupForm.controls['email'].touched)"
+          class="alert">
+          <div *ngIf="SignupForm.controls['email'].errors.required">
+            Please enter email address
+          </div>
+          <div *ngIf="SignupForm.controls['email'].errors.pattern" > Invaild Email Address</div>
+        </div>
       </div>
 
       <div class="password"><label for="password">Create a password</label>
@@ -21,15 +29,15 @@
       </div>
       <div class="username"><label for="userName">Confirm password </label>
         <input class="marginFix" id="password" autocomplete="off" placeholder="Confirm password" type="password"
-          name="Confirm password" formControlName="Confirm password">
+          name="Confirm password" formControlName="ConfirmPassword">
       </div>
       <div class="Address1	"><label for="Address1">Address1 </label>
-        <input class="marginFix" id="Address1	" autocomplete="off" placeholder="Address1	" type="text" name="Address1	"
-          formControlName="Address1	">
+        <input class="marginFix" id="Address1	" autocomplete="off" placeholder="Address1" type="text" name="Address1"
+          formControlName="AddressF">
       </div>
       <div class="Address2"><label for="Address2">Address2</label>
         <input class="marginFix" id="Address2" autocomplete="off" placeholder="Address2" type="text" name="Address2"
-          formControlName="Address2">
+          formControlName="AddressS">
       </div>
       <div class="City"><label for="City">City</label>
         <input class="marginFix" id="City" autocomplete="off" placeholder="City" type="text" name="City"
@@ -39,9 +47,8 @@
         <input class="marginFix" id="ZIP" autocomplete="off" placeholder="ZIP/Postal" type="text"
           name="ZIP" formControlName="ZIP">
       </div>
-      <button class="marginFix button marginFix" type="submit"
-        [ngClass]="{'validButton':SignupForm.valid, 'inValidButton':!SignupForm.valid}"  disabled= "!SignupForm.valid"
-        (click)="goToLogin()">Sign In</button>
+      <button [ngClass]="{'validButton': SignupForm.valid, 'inValidButton': !SignupForm.valid}" class="marginFix button"  [disabled]="!SignupForm.valid"
+        (click)="goToLogin()">Sign Up</button>
     </form>
   </ion-col>
   <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
