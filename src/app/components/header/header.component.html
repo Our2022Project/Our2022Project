@@ -7,64 +7,22 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <div class="topnav" [class.responsive]="check">
-        <a href="#home" class="active">Brand</a>
+        <a href="#home" class="active" style="padding: 5px 16px;"><img class="images" src="./../../../assets/./img/delivery-man.png" /></a>
         <a style="float: right;" class="search-container">
             <form action="#">
-                <input [class.search-txt]="searchBox" type="text" placeholder="Search or Tracking Numbers" name="search">
+                <input [class.search-txt]="searchBox" type="text" placeholder="Search or Tracking Numbers"
+                    name="search">
                 <button class="searchBtn" [class.search-btn]="searchBox"><i class="fa fa-search"></i></button>
             </form>
-            <button class="searchBtnShow" style="cursor: pointer;" [class.search-BtnShow]="searchBox" (click)="search()"><i class="open fa fa-search" [class.search-open]="searchBox"></i><i class="close fa fa-close" [class.search-close]="searchBox" ></i></button>
+            <button class="searchBtnShow" style="cursor: pointer;" [class.search-BtnShow]="searchBox"
+                (click)="search()"><i class="open fa fa-search" [class.search-open]="searchBox"></i><i
+                    class="close fa fa-close" [class.search-close]="searchBox"></i></button>
 
         </a>
-        <a (click)="dropBtn1()">Shipping<span><i class="fa fa-angle-down" style="font-size:15px"></i></span>
-            <span class="droplink1" [class.droplinkshow1]="showDroplink1"><ul>
-                <li><a>Create a Shipment</a></li>
-                <li><a>Ship Quick & Simple</a></li>
-                <li><a>Shipping tools</a></li>
-                <li><a>Shipping Rates and Delivery Times</a></li>
-                <li><a>Schedule & Manage Pickups</a></li>
-                <li><a>Packaging & Shipping Supplies</a></li>
-                <li><a>E-Commerce</a></li>
-                <li><a>Get Quote for Heavy Shipment</a></li>
-                <li><a>FedEx Delivery Manager</a></li>
-                <li><a>ALL SHIPPING SERVICES</a></li>
-               </ul></span>
-        </a>
-        <a (click)="dropBtn2()">Tracking<span><i class="fa fa-angle-down" style="font-size:15px"></i></span>
-            <span class="droplink2" [class.droplinkshow2]="showDroplink2"><ul>
-                <li><a>Advanced Shipment Tracking</a></li>
-                 <li><a>FedEx Insight</a></li>
-                 <li><a>Obtain Proof Of Delivery</a></li>
-                 <li><a>Track by FedEx Desktop</a></li>
-                 <li><a>Track by Email</a></li>
-                 <li><a>ALL TRACKING SERVICES</a></li>
-               </ul></span>
-        </a>
-        <a (click)="dropBtn3()">Support<span><i class="fa fa-angle-down" style="font-size:15px"></i></span>
-            <span class="droplink3" [class.droplinkshow3]="showDroplink3"><ul>
-                <li><a>New Customer Center</a></li>
-                 <li><a>Small Business Center</a></li>
-                 <li><a>File a Claim</a></li>
-                 <li><a>View Bills Online</a></li>
-                 <li><a>Billing /Invoice Forms</a></li>
-                 <li><a>Custom Tools</a></li>
-                 <li><a>Goods and Services Tax (GST)</a></li>
-                 <li><a>Find FedEx Locations</a></li>
-                 <li><a>Customer Support</a></li>
-               </ul></span>
-        </a>
-        <a (click)="dropBtn4()">Account<span><i class="fa fa-angle-down" style="font-size:15px"></i></span>
-            <span class="droplink4" [class.droplinkshow4]="showDroplink4"><ul>
-                <li><a>Manage Reporting Online</a></li>
-                <li><a>FedEx Administration</a></li>
-                <li><a>My Profile</a></li>
-                <li><a>Address Book</a></li>
-                <li><a>KYC submission</a></li>
-                <li><a>Email preferences</a></li>
-                <li><a>FedEx eNewsletter</a></li>
-                <li><a>OPEN AN ACCOUNT</a></li>
-               </ul></span>
-        </a>
+        <a href="#">Rate & Ship</a>
+        <a href="#">Location</a>
+        <a href="#">Track</a>
+        <a href="#">Account</a>
 
         <a href="#" style="float: right; display: none;" class="Login-icon">Sign Up/Log In<span><i
                     class="fa fa-user-circle-o" style="font-size:17;"></i></span></a>

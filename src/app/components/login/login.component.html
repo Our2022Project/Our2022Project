@@ -1,5 +1,5 @@
 <app-header></app-header>
-<ion-row class="marginFix">
+<ion-row class="marginFix imageRow">
   <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
   <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12" class="images">
     <img class="images" src="./../../../assets/./img/delivery-man.png" />
@@ -35,9 +35,9 @@
       <div class="password"><label for="password">Password</label>
 
         <a class="forgotPassword" href="">Forgot password?</a>
-        <input class="marginFix showPass" id="password" autocomplete="off" placeholder="Password"
+        <span><input class="marginFix showPass" id="password" autocomplete="off" placeholder="Password"
           [type]="fieldTextType ? 'text' : 'password'" name="password" formControlName="password">
-        <span><i class="eyeIcon fa" [ngClass]="{
+        <i class="eyeIcon fa" [ngClass]="{
             'fa-eye-slash': !fieldTextType,
             'fa-eye': fieldTextType
           }" (click)="toggleFieldTextType()"></i>

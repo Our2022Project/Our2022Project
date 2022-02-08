@@ -11,6 +11,10 @@
 	box-sizing: border-box;
 	text-align: center;
 }
+.footer .images{
+	width: 30px;
+	height: 30px;
+  }
 .footer a{
 	font-size: 14px;
 	color: #fff;
@@ -19,6 +23,9 @@
 }
 .seprate{
 	margin: 10px 10px;
+}
+.footer .secondRow{
+	line-height: 32px;
 }
 
 @media screen and (max-width: 765px){
