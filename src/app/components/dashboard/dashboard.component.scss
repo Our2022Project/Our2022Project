@@ -16,6 +16,17 @@
     font-weight: 300;
     box-sizing: border-box;
 }
+.mainContent .links svg{
+    width: 45px;
+    height: 65px;
+}
+.mainContent .links svg:hover path {
+    fill: #fff !important;
+  }
+.mainContent .links span{
+    display: block;
+    padding: 0;
+}
 .mainContent .links ul{
     display: flex;
     box-sizing: border-box;
@@ -69,10 +80,11 @@
     font-weight: 300;
     font-family: "Roboto", sans-serif;
     text-align: center;
+    padding: 15px 0;
 }
 .mainContent .rateTransit label{
     font-size: 20px;
-    padding: 10px;
+    padding: 10px 10px 10px 0;
 }
 .mainContent .rateTransit input[type=text]{
     width: 100%;
@@ -131,5 +143,13 @@
     padding: 10px;
     margin: 10px 0px 10px 0px;
     box-sizing: border-box;
+}
+.mainContent .links svg{
+    width: calc((100vw - 40px) / 8);
+    height: calc(((100vw - 40px) / 3) - 75px);
+     
+}
+.mainContent .links span{
+    padding: 10px;
 }
 }
