@@ -35,7 +35,7 @@
       <div class="password"><label for="password">Password</label>
 
         <a class="forgotPassword" href="">Forgot password?</a>
-        <span><input class="marginFix showPass" id="password" autocomplete="off" placeholder="Password"
+        <span class="passEye"><input class="marginFix showPass" id="password" autocomplete="off" placeholder="Password"
           [type]="fieldTextType ? 'text' : 'password'" name="password" formControlName="password">
         <i class="eyeIcon fa" [ngClass]="{
             'fa-eye-slash': !fieldTextType,
