@@ -46,6 +46,19 @@
           class="alert">
           <div *ngIf="SignupForm.controls['ConfirmPassword'].errors.required">
             <small style="color:red; font-size: 12px; padding: 7px;">Please re-enter password</small>
+            <div *ngIf="SignupForm.ConfirmPassword.errors.MustMatch"> Password Is not Macthed</div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="Phonenumber	"><label for="Phonenumber">Mobile NO. </label>
+        <input class="marginFix" id="Phonenumber	" autocomplete="off" placeholder="Mobile " type="text" name="Phonenumber"
+          formControlName="Phonenumber">
+          <div style="color:red; font-size: 12px; padding: 7px;"
+          *ngIf="SignupForm.controls['Phonenumber'].invalid && (SignupForm.controls['Phonenumber'].dirty || SignupForm.controls['Phonenumber'].touched)"
+          class="alert">
+          <div *ngIf="SignupForm.controls['Phonenumber'].errors.required">
+            <small style="color:red; font-size: 12px; padding: 7px;"> This is a required Fields</small>
             
           </div>
         </div>
@@ -63,16 +76,9 @@
         </div>
       </div>
       <div class="Address2"><label for="Address2">Address2</label>
-        <input class="marginFix" id="Address2" autocomplete="off" placeholder="Address2" type="text" name="Address2"
+        <input class="marginFix" id="Address2" autocomplete="off" placeholder="Address2 is Optinal" type="text" name="Address2"
           formControlName="Address2">
-          <div style="color:red; font-size: 12px; padding: 7px;"
-          *ngIf="SignupForm.controls['Address2'].invalid && (SignupForm.controls['Address2'].dirty || SignupForm.controls['Address2'].touched)"
-          class="alert">
-          <div *ngIf="SignupForm.controls['Address2'].errors.required">
-            <small style="color:red; font-size: 12px; padding: 7px;"> This is a required Fields</small>
-            
-          </div>
-        </div>
+         
       </div>
       <div class="City"><label for="City">City</label>
         <input class="marginFix" id="City" autocomplete="off" placeholder="City" type="text" name="City"

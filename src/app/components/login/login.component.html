@@ -48,9 +48,9 @@
           *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
           class="alert">
           <div *ngIf="loginForm.controls['password'].errors.required">
-            Please enter password<Address></Address>
+            Please enter password
           </div>
-          <div *ngIf="loginForm.controls['password'].errors.pattern" >  </div>
+          <div *ngIf="loginForm.controls['password'].errors.pattern" > Please enter Strong Password </div>
         </div>
 
       </div>
