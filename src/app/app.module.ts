@@ -9,6 +9,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RateTranistComponent } from '../app/components/rate-tranist/rate-tranist.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     SignupComponent,
     DashboardComponent,
-    FooterComponent
+    FooterComponent,
+    RateTranistComponent
   ],
   imports: [
     BrowserModule,
