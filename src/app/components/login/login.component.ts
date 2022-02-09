@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   constructor(private router: Router, private fb: FormBuilder) { }
-
   loginForm: any;
   fieldTextType: boolean = false;
 
@@ -35,5 +34,6 @@ export class LoginComponent {
   user_register() {
     this.router.navigateByUrl('/signup');
   }
+
 
 }

@@ -1,3 +1,4 @@
+
 .mainContent{
     position: absolute;
     top: 48px;
@@ -20,16 +21,13 @@
     width: 45px;
     height: 65px;
 }
-.mainContent .links svg:hover path {
-    fill: #fff !important;
-  }
 .mainContent .links span{
     display: block;
     padding: 0;
 }
 .mainContent .links ul{
     display: flex;
-    box-sizing: border-box;
+    align-items: center;
 }
 .mainContent .links ul li{
     list-style: none;
@@ -37,17 +35,24 @@
 .mainContent .links button{
     width: 158px;
     height: 120px;
-    background-color: #4d148c;
+    background-color: #fafafa;
     border: none;
     cursor: pointer;
     font-size: 14px;
     font-weight: 700;
     font-family: "Roboto",sans-serif;
-    color: #fff;
-    box-sizing: border-box;
+    color: #333;
 }
-
-
+.mainContent .links button:focus{
+    height:140px;
+    background-color: #4d148c;
+    transition: .25s ease background-color,.25s ease height;
+    border: none;
+    color:#fff;
+}
+.mainContent .links button:focus svg path {
+    fill: #fff !important;
+  }
 @media screen and (max-width: 767px){
 .mainContent{
     height: 490px;
