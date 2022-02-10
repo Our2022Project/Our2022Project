@@ -73,13 +73,15 @@
   input[type="password"] {
     border: none;
     background-color: #fff;
-    padding: 5px;
+    padding: 7px;
     margin-top: 0;
     width: 100%;
   }
   .eyeIcon{
     padding: 5px 10px 5px 10px;
-    background: none;
+    border-radius: 6px;
+    border: 1px solid black;
+    background: #e5e5e5;
 
   }
   .actions a {
@@ -88,7 +90,6 @@
   
   .button {
     width: 100%;
-    background-color: #ff6200; /* Green */
     border: none;
     border-radius: 6px;
     color: #fff;
@@ -161,10 +162,12 @@
 
   .validButton {
     cursor: pointer;
+    background-color: green;
   }
 
   .inValidButton {
     cursor: no-drop;
+    background-color: grey;
   }
   @media screen and (max-width: 320px){
     .forgotPassword{
