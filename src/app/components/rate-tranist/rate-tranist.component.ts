@@ -17,14 +17,14 @@ export class RateTranistComponent implements OnInit {
   }
   initializeForm(): void {
     this.checkRateForm = this.fb.group({
-      Address1: ['', Validators.required],
-      Address2: ['', Validators.required],
+      Address1: ['', [Validators.required, Validators.minLength(10)]],
+      Address2: ['', [Validators.required, Validators.minLength(10)]],
       City: ['', Validators.required],
-      ZIP: ['', Validators.required],
-      Add1: ['', Validators.required],
-      Add2: ['', Validators.required],
+      ZIP: ['',[ Validators.required,Validators.pattern("[0-9]{6}")]],
+      Add1: ['', [Validators.required, Validators.minLength(10)]],
+      Add2: ['', [Validators.required, Validators.minLength(10)]],
       city: ['', Validators.required],
-      zip: ['', Validators.required],
+      zip: ['',[ Validators.required,Validators.pattern("[0-9]{6}")]],
       }
     );
   }

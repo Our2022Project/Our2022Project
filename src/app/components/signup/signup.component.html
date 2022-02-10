@@ -23,7 +23,6 @@
             <div class="errorMsg" *ngIf="SignupForm.controls['email'].errors.pattern"> Invaild Email Address</div>
           </div>
         </div>
-
         <div class="password"><label for="password">Create a password</label>
           <span class="passEye"><input class="marginFix" id="password" autocomplete="off" placeholder="Password"
               [type]="fieldTextType ? 'text' : 'password'" name="password" formControlName="password">
@@ -47,7 +46,6 @@
               'fa-eye': fieldType
             }" (click)="toggleTextType()"></i>
           </span>
-
           <div class="errorMsg"
             *ngIf="SignupForm.controls['ConfirmPassword'].invalid && (SignupForm.controls['ConfirmPassword'].dirty || SignupForm.controls['ConfirmPassword'].touched)">
             <div *ngIf="SignupForm.controls['ConfirmPassword'].errors.required">
@@ -71,7 +69,6 @@
               <div class="errorMsg">Invaild Mobile Number </div>
             </div>
           </div>
-
         </div>
         <div class="Address1"><label for="Address1">Address1 </label>
           <input class="marginFix" id="Address1	" autocomplete="off" placeholder="Address1" type="text" name="Address1"
@@ -86,7 +83,6 @@
         <div class="Address2"><label for="Address2">Address2</label>
           <input class="marginFix" id="Address2" autocomplete="off" placeholder="Address2 is Optinal" type="text"
             name="Address2" formControlName="Address2">
-
         </div>
         <div class="City"><label for="City">City</label>
           <input class="marginFix" id="City" autocomplete="off" placeholder="City" type="text" name="City"
@@ -98,26 +94,22 @@
             </div>
           </div>
         </div>
-        <div  class="ZIP"><label for="ZIP">ZIP/Postal</label>
+        <div class="ZIP"><label for="ZIP">ZIP/Postal</label>
           <input class="marginFix" id="ZIP" autocomplete="off" placeholder="ZIP/Postal" type="text" name="ZIP"
             formControlName="ZIP">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['ZIP'].invalid && (SignupForm.controls['ZIP'].dirty || SignupForm.controls['ZIP'].touched)">
             <div *ngIf="SignupForm.controls['ZIP'].errors.required">
               <div class="errorMsg">This is a required Fields</div>
-
+            </div>
+          </div>
+          <div class="errorMsg"
+            *ngIf="SignupForm.controls['ZIP'].invalid && (SignupForm.controls['ZIP'].dirty || SignupForm.controls['ZIP'].touched)">
+            <div *ngIf="SignupForm.controls['ZIP'].errors.pattern">
+              <div class="errorMsg">Invaild ZIP</div>
             </div>
           </div>
         </div>
-        <div class="errorMsg" 
-          *ngIf="SignupForm.controls['ZIP'].invalid && (SignupForm.controls['ZIP'].dirty || SignupForm.controls['ZIP'].touched)">
-          <div *ngIf="SignupForm.controls['ZIP'].errors.pattern">
-            <div class="errorMsg">Invaild ZIP</div>
-
-          </div>
-        </div>
-
-
         <button [ngClass]="{'validButton': SignupForm.valid, 'inValidButton': !SignupForm.valid}"
           class="marginFix button" [disabled]="!SignupForm.valid" (click)="goToLogin()">Sign Up</button>
       </form>

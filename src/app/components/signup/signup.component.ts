@@ -29,10 +29,11 @@ export class SignupComponent implements OnInit {
       password: ['', [Validators.required, Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
       ConfirmPassword: [null, [Validators.required,]],
       Phonenumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      Address1: ['', Validators.required, Validators.minLength(10),],
+      Address1: ['', [Validators.required, Validators.minLength(10)]],
       Address2: ['', Validators.required],
-      City: ['', Validators.required],
-      ZIP: ['', Validators.required,Validators.pattern("[0-9]{4}")],
+      City: ['', [Validators.required,]],
+      ZIP: ['',[ Validators.required,Validators.pattern("[0-9]{6}")]],
+    
     }
     );
   }
