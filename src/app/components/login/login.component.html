@@ -23,7 +23,7 @@
       <ion-row></ion-row>
 
       <div><label for="username">Email Address</label>
-        <input class="marginFix" id="username" autocomplete="off" placeholder="Email Address" type="text"
+        <input class="marginFix" id="username" autocomplete="off" placeholder="Enter your email" type="text"
           name="username" formControlName="userName">
         <div class="errorMsg"
           *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)"
@@ -37,7 +37,7 @@
       <div class="password"><label for="password">Password</label>
 
         <a class="forgotPassword" href="">Forgot password?</a>
-        <span class="passEye"><input class="marginFix showPass" id="password" autocomplete="off" placeholder="Password"
+        <span class="passEye"><input class="marginFix showPass" id="password" autocomplete="off" placeholder="Enter your password"
           [type]="fieldTextType ? 'text' : 'password'" name="password" formControlName="password">
         <i class="eyeIcon fa" [ngClass]="{
             'fa-eye-slash': !fieldTextType,
@@ -50,7 +50,7 @@
           <div *ngIf="loginForm.controls['password'].errors.required">
             Please enter password
           </div>
-          <div *ngIf="loginForm.controls['password'].errors.pattern" > Please enter Strong Password </div>
+          <div *ngIf="loginForm.controls['password'].errors.pattern" > Password contains atleast 8 characters with one special, number, uppercase & lowercase </div>
         </div>
 
       </div>
