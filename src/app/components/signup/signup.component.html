@@ -36,8 +36,10 @@
             <div *ngIf="SignupForm.controls['password'].errors.required">
               <div class="errorMsg">Please enter password</div>
             </div>
+            <div class="errorMsg" *ngIf="SignupForm.controls['password'].errors.pattern">Password contains atleast 8
+              characters with one special, number, uppercase & lowercase </div>
           </div>
-          <div class="errorMsg" *ngIf="SignupForm.controls['password'].errors.pattern" > Password contains atleast 8 characters with one special, number, uppercase & lowercase </div>
+          
         </div>
         <div class="ConfirmPassword"><label for="userName">Confirm password </label>
           <span class="passEye"><input class="marginFix" id="password" autocomplete="off" placeholder="Confirm password"
@@ -52,13 +54,14 @@
             <div *ngIf="SignupForm.controls['ConfirmPassword'].errors.required">
               <div class="errorMsg">Please re-enter password</div>
             </div>
+            <div class="errorMsg" *ngIf="SignupForm.controls['ConfirmPassword'].errors.pattern">Password contains atleast 8
+              characters with one special, number, uppercase & lowercase </div>
+              <div class="errorMsg"
+              *ngIf="SignupForm.controls['ConfirmPassword'].invalid && SignupForm.controls['password'].value !== SignupForm.controls['ConfirmPassword'].value ">
+              <div class="errorMsg">Password Is not Macthed</div>
+            </div>
           </div>
-          <div class="errorMsg" *ngIf="SignupForm.controls['ConfirmPassword'].errors.pattern" > Password contains atleast 8 characters with one special, number, uppercase & lowercase </div>
-          <div class="errorMsg"
-            *ngIf="SignupForm.controls['ConfirmPassword'].invalid && SignupForm.controls['password'].value != SignupForm.controls['ConfirmPassword'].value ">
-            <div class="errorMsg">Password Is not Macthed</div>
-          </div>
-        
+             
         </div>
         <div class="Phonenumber"><label for="Phonenumber">Mobile NO.</label>
           <input class="marginFix" id="Phonenumber" autocomplete="off" placeholder="Mobile" type="text"
