@@ -109,7 +109,7 @@
             </div>
           </div>
         </div>
-        <div class="errorMsg" pattern="[0-9]{4}"
+        <div class="errorMsg" 
           *ngIf="SignupForm.controls['ZIP'].invalid && (SignupForm.controls['ZIP'].dirty || SignupForm.controls['ZIP'].touched)">
           <div *ngIf="SignupForm.controls['ZIP'].errors.pattern">
             <div class="errorMsg">Invaild ZIP</div>
