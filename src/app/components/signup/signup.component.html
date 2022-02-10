@@ -52,21 +52,23 @@
             *ngIf="SignupForm.controls['ConfirmPassword'].invalid && (SignupForm.controls['ConfirmPassword'].dirty || SignupForm.controls['ConfirmPassword'].touched)">
             <div *ngIf="SignupForm.controls['ConfirmPassword'].errors.required">
               <div class="errorMsg">Please re-enter password</div>
-              <div class="errorMsg" *ngIf="SignupForm.ConfirmPassword.errors.MustMatch"> Password Is not Macthed</div>
+              <div class="errorMsg" *ngIf="SignupForm.ConfirmPassword.errors.MustMatch">Password Is not Macthed</div>
             </div>
           </div>
         </div>
-        <div class="Phonenumber	"><label for="Phonenumber">Mobile NO.</label>
-          <input class="marginFix" id="Phonenumber	" autocomplete="off" placeholder="Mobile " type="text"
+        <div class="Phonenumber"><label for="Phonenumber">Mobile NO.</label>
+          <input class="marginFix" id="Phonenumber" autocomplete="off" placeholder="Mobile" type="text"
             name="Phonenumber" formControlName="Phonenumber">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['Phonenumber'].invalid && (SignupForm.controls['Phonenumber'].dirty || SignupForm.controls['Phonenumber'].touched)">
             <div *ngIf="SignupForm.controls['Phonenumber'].errors.required">
               <div class="errorMsg">This is a required Fields</div>
+              <div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="Address1	"><label for="Address1">Address1 </label>
+        <div class="Address1"><label for="Address1">Address1 </label>
           <input class="marginFix" id="Address1	" autocomplete="off" placeholder="Address1" type="text" name="Address1"
             formControlName="Address1">
           <div class="errorMsg"

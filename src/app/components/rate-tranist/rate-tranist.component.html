@@ -1,66 +1,72 @@
 <div class="main">
+  <ion-row>
+    <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="12" size-xs="12"></ion-col>
+    <ion-col size-xl="8" size-lg="8" size-md="8" size-sm="12" size-xs="12">
+      <div class="heading">
+        <h1>Calculate FedEx shipping rates.</h1>
+      </div>
+    </ion-col>
+    <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="12" size-xs="12"></ion-col>
+  </ion-row>
   <ion-row class="rateTransit">
-    <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="2" size-xs="2"></ion-col>
-    <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="8" size-xs="8">
+    <ion-col size-xl="4" size-lg="4" size-md="3" size-sm="2" size-xs="2"></ion-col>
+    <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="8" size-xs="8">
       <form class="checkRate" [formGroup]="checkRateForm">
-        <div>
-          <h1>Calculate FedEx shipping rates.</h1>
-        </div>
-        <div><label>From</label></div>
-        <div><input type="text" placeholder="Address 1" name="Address1" formControlName="Address1">
-          <div style="color:red; font-size: 12px; padding: 7px 0;"
+        <div class="label"><label>From</label></div>
+        <div><input type="text" placeholder="Address 1" name="Address1" autocomplete="off" formControlName="Address1">
+          <div class="errorMsg"
             *ngIf="checkRateForm.controls['Address1'].invalid && (checkRateForm.controls['Address1'].dirty || checkRateForm.controls['Address1'].touched)"
             class="alert">
             <div *ngIf="checkRateForm.controls['Address1'].errors.required">
-              <small style="color:red; font-size: 12px; padding: 7px 0;"> This is a required Fields</small>
+              <div class="errorMsg"> This is a required Fields</div>
             </div>
           </div>
         </div>
-        <div><input type="text" placeholder="Address 2" name="Address2" formControlName="Address2"></div>
+        <div><input type="text" placeholder="Address 2" name="Address2" autocomplete="off" formControlName="Address2"></div>
         <div><input type="text" placeholder="City" name="City" formControlName="City">
-          <div style="color:red; font-size: 12px; padding: 7px 0;"
+          <div class="errorMsg"
             *ngIf="checkRateForm.controls['City'].invalid && (checkRateForm.controls['City'].dirty || checkRateForm.controls['City'].touched)"
             class="alert">
             <div *ngIf="checkRateForm.controls['City'].errors.required">
-              <small style="color:red; font-size: 12px; padding: 7px 0;"> This is a required Fields</small>
+              <div class="errorMsg"> This is a required Fields</div>
             </div>
           </div>
         </div>
-        <div><input type="text" placeholder="Zip/Postal" name="ZIP" formControlName="ZIP">
-          <div style="color:red; font-size: 12px; padding: 7px 0;"
+        <div><input type="text" placeholder="Zip/Postal" name="ZIP" autocomplete="off" formControlName="ZIP">
+          <div class="errorMsg"
             *ngIf="checkRateForm.controls['ZIP'].invalid && (checkRateForm.controls['ZIP'].dirty || checkRateForm.controls['ZIP'].touched)"
             class="alert">
             <div *ngIf="checkRateForm.controls['ZIP'].errors.required">
-              <small style="color:red; font-size: 12px; padding: 7px 0;"> This is a required Fields</small>
+              <div class="errorMsg"> This is a required Fields</div>
             </div>
           </div>
         </div>
-        <div><label>To</label></div>
-        <div><input type="text" placeholder="Address 1" name="Address1" formControlName="Add1">
-          <div style="color:red; font-size: 12px; padding: 7px 0;"
+        <div class="label"><label>To</label></div>
+        <div><input type="text" placeholder="Address 1" name="Address1" autocomplete="off" formControlName="Add1">
+          <div class="errorMsg"
             *ngIf="checkRateForm.controls['Add1'].invalid && (checkRateForm.controls['Add1'].dirty || checkRateForm.controls['Add1'].touched)"
             class="alert">
             <div *ngIf="checkRateForm.controls['Add1'].errors.required">
-              <small style="color:red; font-size: 12px; padding: 7px 0;"> This is a required Fields</small>
+              <div class="errorMsg"> This is a required Fields</div>
             </div>
           </div>
         </div>
-        <div><input type="text" placeholder="Address 2" name="Address2" formControlName="Add2"></div>
+        <div><input type="text" placeholder="Address 2" name="Address2" autocomplete="off" formControlName="Add2"></div>
         <div><input type="text" placeholder="City" name="City" formControlName="city">
-          <div style="color:red; font-size: 12px; padding: 7px 0;"
+          <div class="errorMsg"
             *ngIf="checkRateForm.controls['city'].invalid && (checkRateForm.controls['city'].dirty || checkRateForm.controls['city'].touched)"
             class="alert">
             <div *ngIf="checkRateForm.controls['city'].errors.required">
-              <small style="color:red; font-size: 12px; padding: 7px 0;"> This is a required Fields</small>
+              <div class="errorMsg"> This is a required Fields</div>
             </div>
           </div>
         </div>
-        <div><input type="text" placeholder="Zip/Postal" name="ZIP" formControlName="zip">
-          <div style="color:red; font-size: 12px; padding: 7px 0;"
+        <div><input type="text" placeholder="Zip/Postal" name="ZIP" autocomplete="off" formControlName="zip">
+          <div class="errorMsg"
             *ngIf="checkRateForm.controls['zip'].invalid && (checkRateForm.controls['zip'].dirty || checkRateForm.controls['zip'].touched)"
             class="alert">
             <div *ngIf="checkRateForm.controls['zip'].errors.required">
-              <small style="color:red; font-size: 12px; padding: 7px 0;"> This is a required Fields</small>
+              <div class="errorMsg"> This is a required Fields</div>
             </div>
           </div>
         </div>
@@ -68,6 +74,6 @@
            [disabled]="!checkRateForm.valid" (click)="checkRate()">Check Rate</button>
       </form>
     </ion-col>
-    <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="2" size-xs="2"></ion-col>
+    <ion-col size-xl="4" size-lg="4" size-md="3" size-sm="2" size-xs="2"></ion-col>
   </ion-row>
 </div>

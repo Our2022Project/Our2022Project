@@ -13,6 +13,7 @@
 .mainContent .heading h1{
     text-align: center;
     padding: 75px 20px 30px 20px;
+    margin: 50px 0 0 0;
     font-size: 45px;
     font-family: "Roboto",sans-serif;
     font-weight: 300;
@@ -56,7 +57,7 @@
   }
 @media screen and (max-width: 767px){
 .mainContent{
-    height: 490px;
+    height: 355px;
 }
 
 .mainContent .links button{
