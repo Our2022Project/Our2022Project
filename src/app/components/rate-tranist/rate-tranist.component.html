@@ -23,7 +23,7 @@
           </div>
         </div>
         <div><input type="text" placeholder="Address 2" name="Address2" autocomplete="off" formControlName="Address2"></div>
-        <div><input type="text" placeholder="City" name="City" formControlName="City">
+        <div><input type="text" placeholder="City" name="City" autocomplete="off" formControlName="City">
           <div class="errorMsg"
             *ngIf="checkRateForm.controls['City'].invalid && (checkRateForm.controls['City'].dirty || checkRateForm.controls['City'].touched)"
             class="alert">
@@ -52,7 +52,7 @@
           </div>
         </div>
         <div><input type="text" placeholder="Address 2" name="Address2" autocomplete="off" formControlName="Add2"></div>
-        <div><input type="text" placeholder="City" name="City" formControlName="city">
+        <div><input type="text" placeholder="City" name="City" autocomplete="off" formControlName="city">
           <div class="errorMsg"
             *ngIf="checkRateForm.controls['city'].invalid && (checkRateForm.controls['city'].dirty || checkRateForm.controls['city'].touched)"
             class="alert">
