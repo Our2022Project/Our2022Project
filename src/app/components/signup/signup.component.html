@@ -14,14 +14,14 @@
       <div class="email"><label for="email">Enter your email</label>
         <input class="marginFix" id="email" autocomplete="off" placeholder="Email" type="text" name="email"
           formControlName="email">
-          <div style="color:red; font-size: 12px; padding: 7px;"
+          <div class="errorMsg"
           *ngIf="SignupForm.controls['email'].invalid && (SignupForm.controls['email'].dirty || SignupForm.controls['email'].touched)"
           class="alert">
           <div *ngIf="SignupForm.controls['email'].errors.required">
-            <small style="color:red; font-size: 12px; padding: 7px;">Please enter email address</small>
+            <div class="errorMsg">Please enter email address</div>
             
           </div>
-          <div   style="color:red; font-size: 12px; padding: 7px;" *ngIf="SignupForm.controls['email'].errors.pattern" > Invaild Email Address</div>
+          <div   class="errorMsg" *ngIf="SignupForm.controls['email'].errors.pattern" > Invaild Email Address</div>
         </div>
       </div>
 
@@ -29,11 +29,11 @@
         <input class="marginFix" id="password" autocomplete="off" placeholder="Password" type="password" name="password"
           formControlName="password">
           
-          <div style="color:red; font-size: 12px; padding: 7px;"
+          <div class="errorMsg"
           *ngIf="SignupForm.controls['password'].invalid && (SignupForm.controls['password'].dirty || SignupForm.controls['password'].touched)"
           class="alert">
           <div *ngIf="SignupForm.controls['password'].errors.required">
-            <small style="color:red; font-size: 12px; padding: 7px;">Please enter password</small>
+            <div class="errorMsg">Please enter password</div>
             
           </div>
         </div>
@@ -41,24 +41,24 @@
       <div class="username"><label for="userName">Confirm password </label>
         <input class="marginFix" id="password" autocomplete="off" placeholder="Confirm password" type="password"
           name="Confirm password" formControlName="ConfirmPassword">
-          <div style="color:red; font-size: 12px; padding: 7px;"
+          <div class="errorMsg"
           *ngIf="SignupForm.controls['ConfirmPassword'].invalid && (SignupForm.controls['ConfirmPassword'].dirty || SignupForm.controls['ConfirmPassword'].touched)"
           class="alert">
           <div *ngIf="SignupForm.controls['ConfirmPassword'].errors.required">
-            <small style="color:red; font-size: 12px; padding: 7px;">Please re-enter password</small>
+            <div class="errorMsg">Please re-enter password</div>
             <div *ngIf="SignupForm.ConfirmPassword.errors.MustMatch"> Password Is not Macthed</div>
             
           </div>
         </div>
       </div>
-      <div class="Phonenumber	"><label for="Phonenumber">Mobile NO. </label>
+      <div class="Phonenumber	"><label for="Phonenumber">Mobile NO.</label>
         <input class="marginFix" id="Phonenumber	" autocomplete="off" placeholder="Mobile " type="text" name="Phonenumber"
           formControlName="Phonenumber">
-          <div style="color:red; font-size: 12px; padding: 7px;"
+          <div class="errorMsg"
           *ngIf="SignupForm.controls['Phonenumber'].invalid && (SignupForm.controls['Phonenumber'].dirty || SignupForm.controls['Phonenumber'].touched)"
           class="alert">
           <div *ngIf="SignupForm.controls['Phonenumber'].errors.required">
-            <small style="color:red; font-size: 12px; padding: 7px;"> This is a required Fields</small>
+            <div class="errorMsg">This is a required Fields</div>
             
           </div>
         </div>
@@ -66,11 +66,11 @@
       <div class="Address1	"><label for="Address1">Address1 </label>
         <input class="marginFix" id="Address1	" autocomplete="off" placeholder="Address1" type="text" name="Address1"
           formControlName="Address1">
-          <div style="color:red; font-size: 12px; padding: 7px;"
+          <div class="errorMsg"
           *ngIf="SignupForm.controls['Address1'].invalid && (SignupForm.controls['Address1'].dirty || SignupForm.controls['Address1'].touched)"
           class="alert">
           <div *ngIf="SignupForm.controls['Address1'].errors.required">
-            <small style="color:red; font-size: 12px; padding: 7px;"> This is a required Fields</small>
+            <div class="errorMsg"> This is a required Fields</div>
             
           </div>
         </div>
@@ -83,24 +83,22 @@
       <div class="City"><label for="City">City</label>
         <input class="marginFix" id="City" autocomplete="off" placeholder="City" type="text" name="City"
           formControlName="City">
-          <div style="color:red; font-size: 12px; padding: 7px;"
+          <div class="errorMsg"
           *ngIf="SignupForm.controls['Address2'].invalid && (SignupForm.controls['City'].dirty || SignupForm.controls['City'].touched)"
           class="alert">
           <div *ngIf="SignupForm.controls['City'].errors.required">
-            <small style="color:red; font-size: 12px; padding: 7px;"> This is a required Fields</small>
-            
+            <div class="errorMsg"> This is a required Fields</div>
           </div>
         </div>
       </div>
       <div class="ZIP"><label for="ZIP">ZIP/Postal</label>
         <input class="marginFix" id="ZIP" autocomplete="off" placeholder="ZIP/Postal" type="text"
           name="ZIP" formControlName="ZIP">
-          <div style="color:red; font-size: 12px; padding: 7px;"
+          <div class="errorMsg"
           *ngIf="SignupForm.controls['ZIP'].invalid && (SignupForm.controls['ZIP'].dirty || SignupForm.controls['ZIP'].touched)"
           class="alert">
           <div *ngIf="SignupForm.controls['ZIP'].errors.required">
-            <small style="color:red; font-size: 12px; padding: 7px;"> This is a required Fields</small>
-            
+            <div class="errorMsg"> This is a required Fields</div>
           </div>
         </div>
       </div>

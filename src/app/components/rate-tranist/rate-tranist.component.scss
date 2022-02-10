@@ -21,7 +21,14 @@
 .rateTransit button{
     padding: 20px 40px;
     cursor: pointer;
-    margin: 10px;
+    margin: 10px 0;
+}
+.validButton{
+    cursor: pointer;
+}
+
+.inValidButton{
+    cursor: no-drop;
 }
 @media screen and (max-width: 767px){
     .rateTransit{

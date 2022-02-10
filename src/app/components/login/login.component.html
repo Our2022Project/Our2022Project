@@ -25,9 +25,9 @@
       <div><label for="username">Email Address</label>
         <input class="marginFix" id="username" autocomplete="off" placeholder="Email Address" type="text"
           name="username" formControlName="userName">
-        <div style="color:red; font-size: 12px; padding: 7px;"
+        <div class="errorMsg"
           *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)"
-          class="alert">
+          >
           <div *ngIf="loginForm.controls['userName'].errors.required">
             Please enter email address
           </div>
@@ -44,9 +44,9 @@
             'fa-eye': fieldTextType
           }" (click)="toggleFieldTextType()"></i>
         </span>
-        <div style="color:red; font-size: 12px; padding: 7px;"
+        <div class="errorMsg"
           *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
-          class="alert">
+          >
           <div *ngIf="loginForm.controls['password'].errors.required">
             Please enter password
           </div>

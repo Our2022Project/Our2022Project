@@ -11,9 +11,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  goToLogin() {
-
-    this.router.navigateByUrl(`/login`);
+  checkrate() {
+    this.router.navigateByUrl(`/rate-transit`);
   }
 
 }
