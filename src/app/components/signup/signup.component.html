@@ -63,10 +63,15 @@
             *ngIf="SignupForm.controls['Phonenumber'].invalid && (SignupForm.controls['Phonenumber'].dirty || SignupForm.controls['Phonenumber'].touched)">
             <div *ngIf="SignupForm.controls['Phonenumber'].errors.required">
               <div class="errorMsg">This is a required Fields</div>
-              <div>
-              </div>
             </div>
           </div>
+          <div class="errorMsg"
+            *ngIf="SignupForm.controls['Phonenumber'].invalid && (SignupForm.controls['Phonenumber'].dirty || SignupForm.controls['Phonenumber'].touched)">
+            <div *ngIf="SignupForm.controls['Phonenumber'].errors.pattern">
+              <div class="errorMsg">Invaild Mobile Number </div>
+            </div>
+          </div>
+
         </div>
         <div class="Address1"><label for="Address1">Address1 </label>
           <input class="marginFix" id="Address1	" autocomplete="off" placeholder="Address1" type="text" name="Address1"
@@ -93,16 +98,26 @@
             </div>
           </div>
         </div>
-        <div class="ZIP"><label for="ZIP">ZIP/Postal</label>
+        <div  class="ZIP"><label for="ZIP">ZIP/Postal</label>
           <input class="marginFix" id="ZIP" autocomplete="off" placeholder="ZIP/Postal" type="text" name="ZIP"
             formControlName="ZIP">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['ZIP'].invalid && (SignupForm.controls['ZIP'].dirty || SignupForm.controls['ZIP'].touched)">
             <div *ngIf="SignupForm.controls['ZIP'].errors.required">
               <div class="errorMsg">This is a required Fields</div>
+
             </div>
           </div>
         </div>
+        <div class="errorMsg" pattern="[0-9]{4}"
+          *ngIf="SignupForm.controls['ZIP'].invalid && (SignupForm.controls['ZIP'].dirty || SignupForm.controls['ZIP'].touched)">
+          <div *ngIf="SignupForm.controls['ZIP'].errors.pattern">
+            <div class="errorMsg">Invaild ZIP</div>
+
+          </div>
+        </div>
+
+
         <button [ngClass]="{'validButton': SignupForm.valid, 'inValidButton': !SignupForm.valid}"
           class="marginFix button" [disabled]="!SignupForm.valid" (click)="goToLogin()">Sign Up</button>
       </form>
