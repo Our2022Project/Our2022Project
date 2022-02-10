@@ -1,124 +1,123 @@
 <app-header></app-header>
 <div class="main">
-<ion-row class="marginFix header">
-  <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
-  <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12" class="images">
-    <h1>Welcome To Signup</h1>
-  </ion-col>
-  <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
-</ion-row>
-<ion-row>
-  <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
-  <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
-    <form class="signup" [formGroup]="SignupForm">
-      <div class="email"><label for="email">Enter your email</label>
-        <input class="marginFix" id="email" autocomplete="off" placeholder="Email" type="text" name="email"
-          formControlName="email">
+  <ion-row class="marginFix header">
+    <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+    <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12" class="images">
+      <h1>Welcome To Signup</h1>
+    </ion-col>
+    <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+    <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+      <form class="signup" [formGroup]="SignupForm">
+        <div class="email"><label for="email">Enter your email</label>
+          <input class="marginFix" id="email" autocomplete="off" placeholder="Email" type="text" name="email"
+            formControlName="email">
           <div class="errorMsg"
-          *ngIf="SignupForm.controls['email'].invalid && (SignupForm.controls['email'].dirty || SignupForm.controls['email'].touched)"
-          class="alert">
-          <div *ngIf="SignupForm.controls['email'].errors.required">
-            <div class="errorMsg">Please enter email address</div>
-            
-          </div>
-          <div   class="errorMsg" *ngIf="SignupForm.controls['email'].errors.pattern" > Invaild Email Address</div>
-        </div>
-      </div>
+            *ngIf="SignupForm.controls['email'].invalid && (SignupForm.controls['email'].dirty || SignupForm.controls['email'].touched)">
+            <div *ngIf="SignupForm.controls['email'].errors.required">
+              <div class="errorMsg">Please enter email address</div>
 
-      <div class="password"><label for="password">Create a password</label>
-        <input class="marginFix" id="password" autocomplete="off" placeholder="Password" type="password" name="password"
-          formControlName="password">
-          
-          <div class="errorMsg"
-          *ngIf="SignupForm.controls['password'].invalid && (SignupForm.controls['password'].dirty || SignupForm.controls['password'].touched)"
-          class="alert">
-          <div *ngIf="SignupForm.controls['password'].errors.required">
-            <div class="errorMsg">Please enter password</div>
-            
+            </div>
+            <div class="errorMsg" *ngIf="SignupForm.controls['email'].errors.pattern"> Invaild Email Address</div>
           </div>
         </div>
-      </div>
-      <div class="username"><label for="userName">Confirm password </label>
-        <input class="marginFix" id="password" autocomplete="off" placeholder="Confirm password" type="password"
-          name="Confirm password" formControlName="ConfirmPassword">
+
+        <div class="password"><label for="password">Create a password</label>
+          <span class="passEye"><input class="marginFix" id="password" autocomplete="off" placeholder="Password"
+              [type]="fieldTextType ? 'text' : 'password'" name="password" formControlName="password">
+            <i class="eyeIcon fa" [ngClass]="{
+              'fa-eye-slash': !fieldTextType,
+              'fa-eye': fieldTextType
+            }" (click)="toggleFieldTextType()"></i>
+          </span>
           <div class="errorMsg"
-          *ngIf="SignupForm.controls['ConfirmPassword'].invalid && (SignupForm.controls['ConfirmPassword'].dirty || SignupForm.controls['ConfirmPassword'].touched)"
-          class="alert">
-          <div *ngIf="SignupForm.controls['ConfirmPassword'].errors.required">
-            <div class="errorMsg">Please re-enter password</div>
-            <div *ngIf="SignupForm.ConfirmPassword.errors.MustMatch"> Password Is not Macthed</div>
-            
+            *ngIf="SignupForm.controls['password'].invalid && (SignupForm.controls['password'].dirty || SignupForm.controls['password'].touched)">
+            <div *ngIf="SignupForm.controls['password'].errors.required">
+              <div class="errorMsg">Please enter password</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="Phonenumber	"><label for="Phonenumber">Mobile NO.</label>
-        <input class="marginFix" id="Phonenumber	" autocomplete="off" placeholder="Mobile " type="text" name="Phonenumber"
-          formControlName="Phonenumber">
+        <div class="ConfirmPassword"><label for="userName">Confirm password </label>
+          <span class="passEye"><input class="marginFix" id="password" autocomplete="off" placeholder="Confirm password"
+              [type]="fieldType ? 'text' : 'password'" name="Confirm password" formControlName="ConfirmPassword">
+            <i class="eyeIcon fa" [ngClass]="{
+              'fa-eye-slash': !fieldType,
+              'fa-eye': fieldType
+            }" (click)="toggleTextType()"></i>
+          </span>
+
           <div class="errorMsg"
-          *ngIf="SignupForm.controls['Phonenumber'].invalid && (SignupForm.controls['Phonenumber'].dirty || SignupForm.controls['Phonenumber'].touched)"
-          class="alert">
-          <div *ngIf="SignupForm.controls['Phonenumber'].errors.required">
-            <div class="errorMsg">This is a required Fields</div>
-            
+            *ngIf="SignupForm.controls['ConfirmPassword'].invalid && (SignupForm.controls['ConfirmPassword'].dirty || SignupForm.controls['ConfirmPassword'].touched)">
+            <div *ngIf="SignupForm.controls['ConfirmPassword'].errors.required">
+              <div class="errorMsg">Please re-enter password</div>
+              <div class="errorMsg" *ngIf="SignupForm.ConfirmPassword.errors.MustMatch"> Password Is not Macthed</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="Address1	"><label for="Address1">Address1 </label>
-        <input class="marginFix" id="Address1	" autocomplete="off" placeholder="Address1" type="text" name="Address1"
-          formControlName="Address1">
+        <div class="Phonenumber	"><label for="Phonenumber">Mobile NO.</label>
+          <input class="marginFix" id="Phonenumber	" autocomplete="off" placeholder="Mobile " type="text"
+            name="Phonenumber" formControlName="Phonenumber">
           <div class="errorMsg"
-          *ngIf="SignupForm.controls['Address1'].invalid && (SignupForm.controls['Address1'].dirty || SignupForm.controls['Address1'].touched)"
-          class="alert">
-          <div *ngIf="SignupForm.controls['Address1'].errors.required">
-            <div class="errorMsg"> This is a required Fields</div>
-            
+            *ngIf="SignupForm.controls['Phonenumber'].invalid && (SignupForm.controls['Phonenumber'].dirty || SignupForm.controls['Phonenumber'].touched)">
+            <div *ngIf="SignupForm.controls['Phonenumber'].errors.required">
+              <div class="errorMsg">This is a required Fields</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="Address2"><label for="Address2">Address2</label>
-        <input class="marginFix" id="Address2" autocomplete="off" placeholder="Address2 is Optinal" type="text" name="Address2"
-          formControlName="Address2">
-         
-      </div>
-      <div class="City"><label for="City">City</label>
-        <input class="marginFix" id="City" autocomplete="off" placeholder="City" type="text" name="City"
-          formControlName="City">
+        <div class="Address1	"><label for="Address1">Address1 </label>
+          <input class="marginFix" id="Address1	" autocomplete="off" placeholder="Address1" type="text" name="Address1"
+            formControlName="Address1">
           <div class="errorMsg"
-          *ngIf="SignupForm.controls['Address2'].invalid && (SignupForm.controls['City'].dirty || SignupForm.controls['City'].touched)"
-          class="alert">
-          <div *ngIf="SignupForm.controls['City'].errors.required">
-            <div class="errorMsg"> This is a required Fields</div>
+            *ngIf="SignupForm.controls['Address1'].invalid && (SignupForm.controls['Address1'].dirty || SignupForm.controls['Address1'].touched)">
+            <div *ngIf="SignupForm.controls['Address1'].errors.required">
+              <div class="errorMsg"> This is a required Fields</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="ZIP"><label for="ZIP">ZIP/Postal</label>
-        <input class="marginFix" id="ZIP" autocomplete="off" placeholder="ZIP/Postal" type="text"
-          name="ZIP" formControlName="ZIP">
+        <div class="Address2"><label for="Address2">Address2</label>
+          <input class="marginFix" id="Address2" autocomplete="off" placeholder="Address2 is Optinal" type="text"
+            name="Address2" formControlName="Address2">
+
+        </div>
+        <div class="City"><label for="City">City</label>
+          <input class="marginFix" id="City" autocomplete="off" placeholder="City" type="text" name="City"
+            formControlName="City">
           <div class="errorMsg"
-          *ngIf="SignupForm.controls['ZIP'].invalid && (SignupForm.controls['ZIP'].dirty || SignupForm.controls['ZIP'].touched)"
-          class="alert">
-          <div *ngIf="SignupForm.controls['ZIP'].errors.required">
-            <div class="errorMsg"> This is a required Fields</div>
+            *ngIf="SignupForm.controls['City'].invalid && (SignupForm.controls['City'].dirty || SignupForm.controls['City'].touched)">
+            <div *ngIf="SignupForm.controls['City'].errors.required">
+              <div class="errorMsg"> This is a required Fields</div>
+            </div>
           </div>
         </div>
+        <div class="ZIP"><label for="ZIP">ZIP/Postal</label>
+          <input class="marginFix" id="ZIP" autocomplete="off" placeholder="ZIP/Postal" type="text" name="ZIP"
+            formControlName="ZIP">
+          <div class="errorMsg"
+            *ngIf="SignupForm.controls['ZIP'].invalid && (SignupForm.controls['ZIP'].dirty || SignupForm.controls['ZIP'].touched)">
+            <div *ngIf="SignupForm.controls['ZIP'].errors.required">
+              <div class="errorMsg">This is a required Fields</div>
+            </div>
+          </div>
+        </div>
+        <button [ngClass]="{'validButton': SignupForm.valid, 'inValidButton': !SignupForm.valid}"
+          class="marginFix button" [disabled]="!SignupForm.valid" (click)="goToLogin()">Sign Up</button>
+      </form>
+    </ion-col>
+    <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+    <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+      <div class="account">
+        <p>Already have an account? <a routerLink="/login">Log in</a>.</p>
       </div>
-      <button [ngClass]="{'validButton': SignupForm.valid, 'inValidButton': !SignupForm.valid}" class="marginFix button"  [disabled]="!SignupForm.valid"
-        (click)="goToLogin()">Sign Up</button>
-    </form>
-  </ion-col>
-  <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
-</ion-row>
-<ion-row>
-  <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
-  <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
-    <div class="account">
-      <p>Already have an account? <a routerLink="/login">Log in</a>.</p>
-    </div>
-    <div class="contact">
-      <p>If you need any other help, please contact the helpdesk.</p>
-    </div>
-  </ion-col>
-  <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
-</ion-row>
+      <div class="contact">
+        <p>If you need any other help, please contact the helpdesk.</p>
+      </div>
+    </ion-col>
+    <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+  </ion-row>
 </div>
 <app-footer></app-footer>

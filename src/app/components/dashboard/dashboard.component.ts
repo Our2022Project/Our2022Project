@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   constructor(private router: Router) { }
-
+  showComponent:Boolean = false;
   ngOnInit(): void {
   }
   checkrate() {
-    this.router.navigateByUrl(`/rate-transit`);
+    this.showComponent = !this.showComponent;
   }
 
 }
