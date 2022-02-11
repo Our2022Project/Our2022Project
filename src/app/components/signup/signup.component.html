@@ -19,7 +19,7 @@
             <div *ngIf="SignupForm.controls['userName'].errors.required">
               <div class="errorMsg">Please enter Username address</div>
             </div>
-            <div class="errorMsg" *ngIf="SignupForm.controls['userName'].errors.pattern">Invaild Username Address</div>
+            <div class="errorMsg" *ngIf="SignupForm.controls['userName'].errors.pattern">Username Minimum lenght 8</div>
           </div>
         </div>
         <div class="password"><label class="label" for="password">Password</label>
@@ -49,6 +49,13 @@
             </div>
           </div>
         </div>
+        <div class="errorMsg"
+        *ngIf="SignupForm.controls['firstName'].invalid && (SignupForm.controls['firstName'].dirty || SignupForm.controls['firstName'].touched)">
+        <div *ngIf="SignupForm.controls['firstName'].errors.pattern">
+          <div class="errorMsg">First Alphabet Should be captial</div>
+        </div>
+      </div>
+    
         <div class="lastName"><label class="label" for="lastName">Last Name</label>
           <input class="marginFix" id="lastName" autocomplete="off" placeholder="Last Name" type="text" name="lastName"
             formControlName="lastName">
@@ -59,6 +66,12 @@
             </div>
           </div>
         </div>
+        <div class="errorMsg" 
+        *ngIf="SignupForm.controls['lastName'].invalid && (SignupForm.controls['lastName'].dirty || SignupForm.controls['lastName'].touched)">
+        <div *ngIf="SignupForm.controls['lastName'].errors.pattern">
+          <div class="errorMsg">First Alphabet Should be captial</div>
+        </div>
+      </div>
         <div class="emailId"><label class="label" for="emailId">Email Id</label>
           <input class="marginFix" id="emailId" autocomplete="off" placeholder="Email Id" type="text" name="emailId"
             formControlName="emailId">

@@ -22,8 +22,8 @@
     <form class="login" [formGroup]="loginForm">
       <ion-row></ion-row>
 
-      <div><label for="username">Email Address</label>
-        <input class="marginFix" id="username" autocomplete="off" placeholder="Enter your email" type="text"
+      <div><label for="username">Username</label>
+        <input class="marginFix" id="username" autocomplete="off" placeholder="Username" type="text"
           name="username" formControlName="userName">
         <div class="errorMsg"
           *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)"
@@ -31,7 +31,7 @@
           <div *ngIf="loginForm.controls['userName'].errors.required">
             Please enter email address
           </div>
-          <div *ngIf="loginForm.controls['userName'].errors.pattern">Invaild Email Address</div>
+          <div *ngIf="loginForm.controls['userName'].errors.pattern">Invaild Username</div>
         </div>
       </div>
       <div class="password"><label for="password">Password</label>
