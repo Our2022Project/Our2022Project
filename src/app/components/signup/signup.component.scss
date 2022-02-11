@@ -43,19 +43,12 @@
   .signup > div {
     padding: 5px 0;
   }
-  
-  
   input[type="text"]{
     border: 1px solid #e5e5e5;
     background-color: #fff;
     padding: 5px;
     border-radius: 6px;
     width: 100%;
-  }
-  .ConfirmPassword input[type="text"]{
-    width: 100%;
-    border: none;
-    margin-top: 0;
   }
   .password input[type="text"]{
     width: 100%;
@@ -69,14 +62,14 @@
     margin-top: 0;
     width: 100%;
   }
-  .password .passEye{
-    display: flex;
-    padding: 1px;
-    background: #fff;
-    margin-top: 1.5%;
+  .select{
+    width: 100%;
+    padding: 5px;
+    margin-top: 2%;
+    border: 1px solid #e5e5e5;
     border-radius: 6px;
   }
-  .ConfirmPassword .passEye{
+  .password .passEye{
     display: flex;
     padding: 1px;
     background: #fff;
@@ -88,7 +81,6 @@
     border-radius: 6px;
     border: 1px solid black;
     background: #e5e5e5;
-
   }
   .errorMsg{
     font-size: 12px;
@@ -111,15 +103,12 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-   
   }
-
   .account{
     background-color: #e5e5e5;
     text-align: center;
     padding: 10px;
   }
-
   .account p {
     margin: 0;
     font-weight: bolder;
@@ -136,37 +125,15 @@
     font-weight: bolder;
     color: #000;
   }
-  .email{
-    font-weight: bolder;
-  }
-  .password{
-    font-weight: bolder;
-  }
-  .ConfirmPassword{
-    font-weight: bolder;
-    
-  }
-  .Address1{
-    font-weight: bolder;
-  }
-  .Address2{
-    font-weight: bolder;
-  }
-  .City{
-    font-weight: bolder;
-  }
-  .ZIP{
+  .label{
     font-weight: bolder;
   }
   .validButton {
     cursor: pointer;
     background-color: green;
   }
-
   .inValidButton {
     cursor: no-drop;
     background-color: grey;
   }
-  .Phonenumber{
-    font-weight: bolder;
-  }
+  

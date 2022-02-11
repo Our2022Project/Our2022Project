@@ -24,14 +24,19 @@ export class SignupComponent implements OnInit {
 
   initializeForm(): void {
     this.SignupForm = this.fb.group({
-      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      userName: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       password: ['', [Validators.required, Validators.minLength(8),Validators.pattern('(?=.*[A-Z][A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
-      ConfirmPassword: ['', [Validators.required, Validators.minLength(8),Validators.pattern('(?=.*[A-Z][A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
-      Phonenumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      Address1: ['', [Validators.required, Validators.minLength(10)]],
-      Address2: ['', Validators.required],
-      City: ['', [Validators.required,]],
-      ZIP: ['',[ Validators.required,Validators.pattern("[0-9]{6}")]],
+      firstName: ['', [Validators.required,]],
+      lastName: ['', [Validators.required,]],
+      emailId: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      phoneNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      addressLine1: ['', [Validators.required, Validators.minLength(10)]],
+      city: ['', [Validators.required,]],
+      state: ['', [Validators.required,]],
+      zipCode: ['',[ Validators.required,Validators.pattern("[0-9]{6}")]],
+      country: ['', [Validators.required,]],
+      addressType: ['', [Validators.required,]],
+      
     
     }
     );
