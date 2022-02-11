@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RateTranistComponent } from '../app/components/rate-tranist/rate-tranist.component';
+import { sharedService } from './Service/sharedService.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { RateTranistComponent } from '../app/components/rate-tranist/rate-tranis
     IonicModule.forRoot(),
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [sharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
