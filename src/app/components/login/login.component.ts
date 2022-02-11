@@ -1,6 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { sharedService } from 'src/app/Service/sharedService.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 
 export class LoginComponent {
 
-  constructor(private router: Router, private fb: FormBuilder ) { }
+  constructor(private router: Router, private fb: FormBuilder , private sharedService: sharedService) { }
   loginForm: any;
   fieldTextType: boolean = false;
 
@@ -20,8 +21,8 @@ export class LoginComponent {
 
   initializeForm(): void {
     this.loginForm = this.fb.group({
-      userName: ['', [Validators.required, Validators.pattern('^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$')]],
-      password: ['', [Validators.required, Validators.minLength(8),Validators.pattern('(?=.*[A-Z][A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
+      userName: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 
@@ -30,7 +31,11 @@ export class LoginComponent {
   }
 
   goToDashboard() {
-    this.router.navigateByUrl('/dashboard');
+    this.sharedService.login(this.loginForm.controls['userName'].value,this.loginForm.controls['password'].value).subscribe(data => {
+      this.router.navigateByUrl('/dashboard');
+    },
+    (error) => {
+    });
   }
 
   user_register() {

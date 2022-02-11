@@ -11,6 +11,7 @@ import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RateTranistComponent } from '../app/components/rate-tranist/rate-tranist.component';
 import { sharedService } from './Service/sharedService.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { sharedService } from './Service/sharedService.service';
     AppRoutingModule,
     IonicModule.forRoot(),
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [sharedService],
   bootstrap: [AppComponent]

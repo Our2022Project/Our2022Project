@@ -23,13 +23,13 @@
       <ion-row></ion-row>
 
       <div><label for="username">Username</label>
-        <input class="marginFix" id="username" autocomplete="off" placeholder="Username" type="text"
+        <input class="marginFix" id="username" autocomplete="off" placeholder="Enter your username" type="text"
           name="username" formControlName="userName">
         <div class="errorMsg"
           *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)"
           >
           <div *ngIf="loginForm.controls['userName'].errors.required">
-            Please enter email address
+            Please enter username
           </div>
           <div *ngIf="loginForm.controls['userName'].errors.pattern">Invaild Username</div>
         </div>
