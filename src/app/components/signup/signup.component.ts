@@ -30,12 +30,12 @@ export class SignupComponent implements OnInit {
       lastName: ['', [Validators.required,Validators.pattern('^([A-Z][a-z][a-z]+)$')]],
       emailId: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       phoneNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      addressLine1: ['', [Validators.required, Validators.minLength(10)]],
-      city: ['', [Validators.required,]],
-      state: ['', [Validators.required,]],
+      addressLine1: ['', [Validators.required, Validators.minLength(10),Validators.pattern('^([a-z][a-z]+)$')]],
+      city: ['', [Validators.required,Validators.pattern('^([a-z][a-z]+)$')]],
+      state: ['', [Validators.required,Validators.pattern('^([a-z][a-z]+)$')]],
       zipCode: ['',[ Validators.required,Validators.pattern("[0-9]{6}")]],
-      country: ['', [Validators.required,]],
-      addressType: ['', [Validators.required,]],
+      country: ['', [Validators.required,Validators.pattern('^([a-z][a-z]+)$')]],
+      addressType: ['', [Validators.required,Validators.pattern('^([a-z][a-z]+)$')]],
       
     
     }
