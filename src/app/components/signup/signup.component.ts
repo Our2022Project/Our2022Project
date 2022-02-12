@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmailValidator, FormBuilder, Validators } from '@angular/forms';
+import { sharedService } from 'src/app/Service/sharedService.service';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -10,7 +12,7 @@ export class SignupComponent implements OnInit {
 
 
 
-  constructor(private router: Router, private fb: FormBuilder) { }
+  constructor(private router: Router, private fb: FormBuilder, private sharedService: sharedService) { }
 
   SignupForm: any;
   fieldTextType: boolean = false;
@@ -24,20 +26,21 @@ export class SignupComponent implements OnInit {
 
   initializeForm(): void {
     this.SignupForm = this.fb.group({
-      userName: ['', [Validators.required, Validators.pattern( '^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$')]],
-      password: ['', [Validators.required, Validators.minLength(8),Validators.pattern('(?=.*[A-Z][A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
-      firstName: ['', [Validators.required,Validators.pattern('^([A-Z][a-z][a-z]+)$')]],
-      lastName: ['', [Validators.required,Validators.pattern('^([A-Z][a-z][a-z]+)$')]],
-      emailId: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      phoneNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      addressLine1: ['', [Validators.required, Validators.minLength(10),Validators.pattern('^([a-z][a-z]+)$')]],
-      city: ['', [Validators.required,Validators.pattern('^([a-z][a-z]+)$')]],
-      state: ['', [Validators.required,Validators.pattern('^([a-z][a-z]+)$')]],
-      zipCode: ['',[ Validators.required,Validators.pattern("[0-9]{6}")]],
-      country: ['', [Validators.required,Validators.pattern('^([a-z][a-z]+)$')]],
-      addressType: ['', [Validators.required,Validators.pattern('^([a-z][a-z]+)$')]],
-      
-    
+      userName: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      emailId: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required]],
+      addressLine1: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      state: ['', [Validators.required]],
+      zipCode: ['', [Validators.required]],
+      country: ['', [Validators.required]],
+      addressType: ['', [Validators.required]],
+      roles: ['', [Validators.required]],
+
+
     }
     );
   }
@@ -49,8 +52,14 @@ export class SignupComponent implements OnInit {
     this.fieldType = !this.fieldType;
   }
   goToLogin() {
-    this.router.navigateByUrl('/login');
+    //this.router.navigateByUrl('/login');
+    this.sharedService.register(this.SignupForm.controls['userName'].value, this.SignupForm.controls['password'].value, this.SignupForm.controls['firstName'].value, this.SignupForm.controls['lastName'].value, this.SignupForm.controls['emailId'].value, this.SignupForm.controls['phoneNumber'].value, this.SignupForm.controls['addressLine1'].value, this.SignupForm.controls['city'].value, this.SignupForm.controls['state'].value, this.SignupForm.controls['zipCode'].value, this.SignupForm.controls['country'].value, this.SignupForm.controls['addressType'].value, this.SignupForm.controls['roles'].value).subscribe(data => {
+      this.router.navigateByUrl('/login');
+    },
+      (error) => {
+      });
   }
+
 
 
 }

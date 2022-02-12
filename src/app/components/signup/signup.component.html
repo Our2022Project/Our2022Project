@@ -167,6 +167,19 @@
             </div>
           </div>
         </div>
+        <div class="roles"><label class="label" for="roles">Role's</label>
+          <input class="marginFix" id="roles" autocomplete="off" placeholder="Role's" type="text"
+            name="roles" formControlName="roles">
+          <div class="errorMsg"
+            *ngIf="SignupForm.controls['roles'].invalid && (SignupForm.controls['roles'].dirty || SignupForm.controls['roles'].touched)">
+            <div *ngIf="SignupForm.controls['roles'].errors.required">
+              <div class="errorMsg">This is a required Fields</div>
+            </div>
+            <div *ngIf="SignupForm.controls['roles'].errors.pattern">
+              <div class="errorMsg">Only characters are allowed</div>
+            </div>
+          </div>
+        </div>
         <button [ngClass]="{'validButton': SignupForm.valid, 'inValidButton': !SignupForm.valid}"
           class="marginFix button" [disabled]="!SignupForm.valid" (click)="goToLogin()">Sign Up</button>
       </form>
