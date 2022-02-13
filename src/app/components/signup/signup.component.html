@@ -56,10 +56,13 @@
               <div class="errorMsg">This is a required Fields</div>
             </div>
             <div *ngIf="SignupForm.controls['firstName'].errors.pattern">
-              <div class="errorMsg">First Alphabet Should be captial</div>
+              <div class="errorMsg">only Alphabet is required</div>
             </div>
             <div *ngIf="SignupForm.controls['firstName'].errors.maxlength">
-              <div class="errorMsg">First name needs to be between 2 and 20 characters long</div>
+              <div class="errorMsg">20 characters long Only</div>
+            </div>
+            <div *ngIf="SignupForm.controls['firstName'].errors.minlength">
+              <div class="errorMsg"> Minimum 3 Chatcter are Required</div>
             </div>
           </div>
         </div>
@@ -72,10 +75,13 @@
               <div class="errorMsg">This is a required Fields</div>
             </div>
             <div *ngIf="SignupForm.controls['lastName'].errors.pattern">
-              <div class="errorMsg">First Alphabet Should be captial</div>
+              <div class="errorMsg">only Alphabet is required</div>
             </div>
             <div *ngIf="SignupForm.controls['lastName'].errors.maxlength">
-              <div class="errorMsg">Last name needs to be between 2 and 20 characters long</div>
+              <div class="errorMsg"> 20 characters long Only</div>
+            </div>
+            <div *ngIf="SignupForm.controls['lastName'].errors.minlength">
+              <div class="errorMsg">Minimum 3 Chatcter are Required</div>
             </div>
           </div>
         </div>
@@ -131,8 +137,12 @@
               <div class="errorMsg">Only characters are allowed</div>
             </div>
             <div *ngIf="SignupForm.controls['city'].errors.maxlength">
-              <div class="errorMsg">City needs to be between 3 and 35 characters long</div>
+              <div class="errorMsg">35 characters long Long Only</div>
             </div>
+            <div *ngIf="SignupForm.controls['city'].errors.minlength">
+              <div class="errorMsg"> Minimum Alphabet is 3</div>
+            </div>
+            
           </div>
         </div>
         <div class="state"><label class="label" for="state">State</label>
@@ -147,7 +157,10 @@
               <div class="errorMsg">Only characters are allowed</div>
             </div>
             <div *ngIf="SignupForm.controls['state'].errors.maxlength">
-              <div class="errorMsg">State needs to be between 3 and 35 characters long</div>
+              <div class="errorMsg">Only 35 characters long</div>
+            </div>
+            <div *ngIf="SignupForm.controls['state'].errors.minlength">
+              <div class="errorMsg">minimum 3  characters required</div>
             </div>
           </div>
         </div>
