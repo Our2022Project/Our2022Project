@@ -4,6 +4,9 @@
     <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
     <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12" class="images">
       <h1>Welcome To Signup</h1>
+      <div *ngIf="this.sharedService.isUserAlreadyExsits">
+        <p class="error">User Already Exists</p>
+      </div>
     </ion-col>
     <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
   </ion-row>

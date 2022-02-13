@@ -11,7 +11,7 @@ import { sharedService } from 'src/app/Service/sharedService.service';
 
 export class LoginComponent {
 
-  constructor(private router: Router, private fb: FormBuilder, private sharedService: sharedService) { }
+  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) { }
   loginForm: any;
   fieldTextType: boolean = false;
 
@@ -33,7 +33,13 @@ export class LoginComponent {
 
   goToDashboard() {
     this.sharedService.login(this.loginForm.controls['userName'].value, this.loginForm.controls['password'].value).subscribe(data => {
-      this.router.navigateByUrl('/dashboard');
+      if(data.accessToken === undefined) {
+        this.initializeForm();
+        this.sharedService.isValidToken = true;
+      } else {
+        this.sharedService.isValidToken = false;
+        this.router.navigateByUrl('/dashboard');
+      }
     },
       (error) => {
       });

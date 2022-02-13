@@ -13,6 +13,12 @@
     <div class="heading">
       <h1>Login in to Shipping Service</h1>
     </div>
+    <div *ngIf="this.sharedService.isValidToken" class="heading error">
+      <p>Invalid Username/Password</p>
+    </div>
+    <div *ngIf="this.sharedService.isRegistrationDone" class="heading success">
+      <p>User Registered Successfully</p>
+    </div>
   </ion-col>
   <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
 </ion-row>

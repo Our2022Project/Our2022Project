@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
 
 
 
-  constructor(private router: Router, private fb: FormBuilder, private sharedService: sharedService) { }
+  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) { }
 
   SignupForm: any;
   fieldTextType: boolean = false;
@@ -47,12 +47,20 @@ export class SignupComponent implements OnInit {
   toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
   }
+
   goToLogin() {
     this.mappingData();
     this.sharedService.register(this.registerObj).subscribe(data => {
-      this.router.navigateByUrl('/login');
+        this.sharedService.isRegistrationDone = false;
+        this.sharedService.isUserAlreadyExsits = true;
+        this.registerObj.roles = [];
+        this.registerObj.userAddressRequestList = [];
+        this.initializeForm();
     },
       (error) => {
+        this.sharedService.isRegistrationDone = true;
+        this.sharedService.isUserAlreadyExsits = false;
+        this.router.navigateByUrl('/login');
       });
   }
 
