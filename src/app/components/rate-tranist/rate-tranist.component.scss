@@ -37,10 +37,13 @@
     box-sizing: border-box;
     background-color: #f2f2f2;
     outline: none;
-    border-left: 3px solid #de002e;
+    border-left:none;
     border-bottom: none;
     border-top: none;
     border-right: none;
+    border-radius: 5px;
+    
+    
 
 }
 .rateTransit .errorMsg{
@@ -48,18 +51,19 @@
     color: red;
 
 }
-.rateTransit input:focus{
-    border-left: 3px solid #4d148c;
-    transition: .25s ease;
-}
+
+
 .rateTransit button{
-    padding: 20px 40px;
+    padding: 20px 20px;
     margin: 10px 0;
     color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    border-width: 0;
 }
 .validButton {
     cursor: pointer;
-    background-color: green;
+    background-color: #ff6200;
   }
 
   .inValidButton {

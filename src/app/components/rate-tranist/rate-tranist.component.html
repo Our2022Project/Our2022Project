@@ -17,38 +17,38 @@
       <form class="checkRate" [formGroup]="checkRateForm">
         <div class="label"><label>From</label></div>
         <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off"
-            formControlName="Address1">
+            formControlName="FromAddress1">
           <div class="errorMsg"
-            *ngIf="checkRateForm.controls['Address1'].invalid && (checkRateForm.controls['Address1'].dirty || checkRateForm.controls['Address1'].touched)"
+            *ngIf="checkRateForm.controls['FromAddress1'].invalid && (checkRateForm.controls['FromAddress1'].dirty || checkRateForm.controls['FromAddress1'].touched)"
             class="alert">
-            <div *ngIf="checkRateForm.controls['Address1'].errors.required">
+            <div *ngIf="checkRateForm.controls['FromAddress1'].errors.required">
               <div class="errorMsg"> This is a required Fields</div>
             </div>
           </div>
         </div>
         <div><input type="text" placeholder="Address 2 (Optional)" name="Address2" autocomplete="off"
-            formControlName="Address2"></div>
+            formControlName="FromAddress2"></div>
         <div class="cityZip">
-          <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="City">
+          <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="FromCity">
             <div class="errorMsg"
-              *ngIf="checkRateForm.controls['City'].invalid && (checkRateForm.controls['City'].dirty || checkRateForm.controls['City'].touched)"
+              *ngIf="checkRateForm.controls['FromCity'].invalid && (checkRateForm.controls['FromCity'].dirty || checkRateForm.controls['FromCity'].touched)"
               class="alert">
-              <div *ngIf="checkRateForm.controls['City'].errors.required">
+              <div *ngIf="checkRateForm.controls['FromCity'].errors.required">
                 <div class="errorMsg"> This is a required Fields</div>
               </div>
             </div>
           </div>
           <div class="zip"><input type="text" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off"
-              formControlName="ZIP">
+              formControlName="FromZIP">
             <div class="errorMsg"
-              *ngIf="checkRateForm.controls['ZIP'].invalid && (checkRateForm.controls['ZIP'].dirty || checkRateForm.controls['ZIP'].touched)">
-              <div *ngIf="checkRateForm.controls['ZIP'].errors.required">
+              *ngIf="checkRateForm.controls['FromZIP'].invalid && (checkRateForm.controls['FromZIP'].dirty || checkRateForm.controls['FromZIP'].touched)">
+              <div *ngIf="checkRateForm.controls['FromZIP'].errors.required">
                 <div class="errorMsg">This is a required Fields</div>
               </div>
             </div>
             <div class="errorMsg"
-              *ngIf="checkRateForm.controls['ZIP'].invalid && (checkRateForm.controls['ZIP'].dirty || checkRateForm.controls['ZIP'].touched)">
-              <div *ngIf="checkRateForm.controls['ZIP'].errors.pattern">
+              *ngIf="checkRateForm.controls['FromZIP'].invalid && (checkRateForm.controls['FromZIP'].dirty || checkRateForm.controls['FromZIP'].touched)">
+              <div *ngIf="checkRateForm.controls['FromZIP'].errors.pattern">
                 <div class="errorMsg">Invaild ZIP</div>
               </div>
             </div>
@@ -56,11 +56,11 @@
         </div>
         <div class="label"><label>To</label></div>
         <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off"
-            formControlName="Add1">
+            formControlName="ToAdd1">
           <div class="errorMsg"
-            *ngIf="checkRateForm.controls['Add1'].invalid && (checkRateForm.controls['Add1'].dirty || checkRateForm.controls['Add1'].touched)"
+            *ngIf="checkRateForm.controls['ToAdd1'].invalid && (checkRateForm.controls['ToAdd1'].dirty || checkRateForm.controls['ToAdd1'].touched)"
             class="alert">
-            <div *ngIf="checkRateForm.controls['Add1'].errors.required">
+            <div *ngIf="checkRateForm.controls['ToAdd1'].errors.required">
               <div class="errorMsg"> This is a required Fields</div>
             </div>
           </div>
@@ -69,26 +69,29 @@
             formControlName="Add2">
         </div>
         <div class="cityZip">
-          <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="city">
+          <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="Tocity">
             <div class="errorMsg"
-              *ngIf="checkRateForm.controls['city'].invalid && (checkRateForm.controls['city'].dirty || checkRateForm.controls['city'].touched)"
+              *ngIf="checkRateForm.controls['Tocity'].invalid && (checkRateForm.controls['Tocity'].dirty || checkRateForm.controls['Tocity'].touched)"
               class="alert">
-              <div *ngIf="checkRateForm.controls['city'].errors.required">
+              <div *ngIf="checkRateForm.controls['Tocity'].errors.required">
                 <div class="errorMsg"> This is a required Fields</div>
+              </div>
+              <div *ngIf="checkRateForm.controls['Tocity'].errors.pattern">
+                <div class="errorMsg"> This is</div>
               </div>
             </div>
           </div>
           <div class="zip"><input type="text" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off"
-              formControlName="zip">
+              formControlName="Tozip">
             <div class="errorMsg"
-              *ngIf="checkRateForm.controls['zip'].invalid && (checkRateForm.controls['zip'].dirty || checkRateForm.controls['zip'].touched)">
-              <div *ngIf="checkRateForm.controls['zip'].errors.required">
+              *ngIf="checkRateForm.controls['Tozip'].invalid && (checkRateForm.controls['Tozip'].dirty || checkRateForm.controls['Tozip'].touched)">
+              <div *ngIf="checkRateForm.controls['Tozip'].errors.required">
                 <div class="errorMsg">This is a required Fields</div>
               </div>
             </div>
             <div class="errorMsg"
-              *ngIf="checkRateForm.controls['zip'].invalid && (checkRateForm.controls['zip'].dirty || checkRateForm.controls['zip'].touched)">
-              <div *ngIf="checkRateForm.controls['zip'].errors.pattern">
+              *ngIf="checkRateForm.controls['Tozip'].invalid && (checkRateForm.controls['Tozip'].dirty || checkRateForm.controls['Tozip'].touched)">
+              <div *ngIf="checkRateForm.controls['Tozip'].errors.pattern">
                 <div class="errorMsg">Invaild ZIP</div>
               </div>
             </div>
