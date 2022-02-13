@@ -35,9 +35,9 @@ export class SignupComponent implements OnInit {
       lastName: ['', [Validators.required,Validators.minLength(2),Validators.maxLength(20),Validators.pattern('^([A-Z][a-z][a-z]+)$')]],
       emailId: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       phoneNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      addressLine1: ['', [Validators.required, Validators.minLength(10),Validators.pattern('^([a-z][a-z]+)$')]],
+      addressLine1: ['', [Validators.required, Validators.minLength(10),Validators.pattern(".*\\S.*[a-zA-z0-9 ]")]],
       city: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern('^([a-z][a-z]+)$')]],
-      state: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern('^([a-z][a-z]+)$')]],
+      state: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern(".*\\S.*[a-zA-z ]")]],
       zipCode: ['',[ Validators.required,Validators.pattern("[0-9]{6}")]],
       country: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern('^([a-z][a-z]+)$')]],
     }
