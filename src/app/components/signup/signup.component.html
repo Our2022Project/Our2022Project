@@ -112,7 +112,10 @@
               <div class="errorMsg">This is a required Fields</div>
             </div>
             <div *ngIf="SignupForm.controls['addressLine1'].errors.pattern">
-              <div class="errorMsg">Only characters are allowed, Address contains atleast 8 characters</div>
+              <div class="errorMsg">Only alphanumeric characters are allowed</div>
+            </div>
+            <div *ngIf="SignupForm.controls['addressLine1'].errors.minlength">
+              <div class="errorMsg">Address contains atleast 10 characters</div>
             </div>
           </div>
         </div>
