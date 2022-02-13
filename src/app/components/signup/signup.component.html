@@ -180,7 +180,7 @@
         <div class="country"><label class="label" for="country">Country</label>
           <input class="marginFix" id="country" autocomplete="off" placeholder="Enter your country" type="text"
             name="country" formControlName="country">
-          <div class="errorMsg"
+            <div class="errorMsg"
             *ngIf="SignupForm.controls['country'].invalid && (SignupForm.controls['country'].dirty || SignupForm.controls['country'].touched)">
             <div *ngIf="SignupForm.controls['country'].errors.required">
               <div class="errorMsg">This is a required Fields</div>
@@ -189,7 +189,10 @@
               <div class="errorMsg">Only characters are allowed</div>
             </div>
             <div *ngIf="SignupForm.controls['country'].errors.maxlength">
-              <div class="errorMsg">Country needs to be between 3 and 35 characters long</div>
+              <div class="errorMsg">Only 35 characters long</div>
+            </div>
+            <div *ngIf="SignupForm.controls['country'].errors.minlength">
+              <div class="errorMsg">minimum 3  characters required</div>
             </div>
           </div>
         </div>
