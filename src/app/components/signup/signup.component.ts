@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
       phoneNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       addressLine1: ['', [Validators.required, Validators.minLength(10),Validators.pattern(".*\\S.*[a-zA-z0-9 ]")]],
       city: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern('[a-zA-Z]+$')]],
-      state: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern('[a-zA-Z]+$')]],
+      state: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern('^[a-zA-Z +\\-\']+')]],
       zipCode: ['',[ Validators.required,Validators.pattern("[0-9]{6}")]],
       country: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern('[a-zA-Z]+$')]],
     }
