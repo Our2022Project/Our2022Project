@@ -13,34 +13,35 @@ export class RateTranistComponent implements OnInit {
   checkRateForm: any;
   drop: boolean = false;
   check: boolean = false;
+  showRateUI: Boolean = false;
 
   ngOnInit(): void {
     this.initializeForm();
   }
   initializeForm(): void {
     this.checkRateForm = this.fb.group({
-      
-FromAddress1: ['', [Validators.required, Validators.minLength(10)]],
-FromAddress2: [null],
-FromCity: ['', Validators.required],
-FromZIP: ['',[ Validators.required,Validators.pattern("[0-9]{6}")]],
-ToAdd1: ['', [Validators.required, Validators.minLength(10)]],
-ToAdd2: [null],
-Tocity: ['', Validators.required,[Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern('[a-zA-Z]+$')]],
-Tozip: ['',[ Validators.required,Validators.pattern("[0-9]{6}")]],
-      }
+
+      FromAddress1: ['', [Validators.required, Validators.minLength(10)]],
+      FromAddress2: [null],
+      FromCity: ['', Validators.required],
+      FromZIP: ['', [Validators.required, Validators.pattern("[0-9]{6}")]],
+      ToAdd1: ['', [Validators.required, Validators.minLength(10)]],
+      ToAdd2: [null],
+      Tocity: ['', Validators.required, [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('[a-zA-Z]+$')]],
+      Tozip: ['', [Validators.required, Validators.pattern("[0-9]{6}")]],
+    }
     );
   }
   checkRate() {
-    this.router.navigateByUrl('/signup');
+    this.showRateUI = !this.showRateUI;
   }
-  dropbtn(){
+  dropbtn() {
     this.drop = !this.drop;
-    if(this.check == true){
+    if (this.check == true) {
       this.check = false;
-    }else{
+    } else {
       this.check = true;
-    } 
+    }
   }
-  
+
 }
