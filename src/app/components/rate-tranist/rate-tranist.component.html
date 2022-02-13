@@ -1,3 +1,6 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <div class="main">
   <ion-row>
     <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="12" size-xs="12"></ion-col>
@@ -13,7 +16,8 @@
     <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="8" size-xs="8">
       <form class="checkRate" [formGroup]="checkRateForm">
         <div class="label"><label>From</label></div>
-        <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off" formControlName="Address1">
+        <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off"
+            formControlName="Address1">
           <div class="errorMsg"
             *ngIf="checkRateForm.controls['Address1'].invalid && (checkRateForm.controls['Address1'].dirty || checkRateForm.controls['Address1'].touched)"
             class="alert">
@@ -25,32 +29,34 @@
         <div><input type="text" placeholder="Address 2 (Optional)" name="Address2" autocomplete="off"
             formControlName="Address2"></div>
         <div class="cityZip">
-        <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="City">
-          <div class="errorMsg"
-            *ngIf="checkRateForm.controls['City'].invalid && (checkRateForm.controls['City'].dirty || checkRateForm.controls['City'].touched)"
-            class="alert">
-            <div *ngIf="checkRateForm.controls['City'].errors.required">
-              <div class="errorMsg"> This is a required Fields</div>
+          <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="City">
+            <div class="errorMsg"
+              *ngIf="checkRateForm.controls['City'].invalid && (checkRateForm.controls['City'].dirty || checkRateForm.controls['City'].touched)"
+              class="alert">
+              <div *ngIf="checkRateForm.controls['City'].errors.required">
+                <div class="errorMsg"> This is a required Fields</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="zip"><input type="text" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off" formControlName="ZIP">
-          <div class="errorMsg"
-            *ngIf="checkRateForm.controls['ZIP'].invalid && (checkRateForm.controls['ZIP'].dirty || checkRateForm.controls['ZIP'].touched)">
-            <div *ngIf="checkRateForm.controls['ZIP'].errors.required">
-              <div class="errorMsg">This is a required Fields</div>
+          <div class="zip"><input type="text" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off"
+              formControlName="ZIP">
+            <div class="errorMsg"
+              *ngIf="checkRateForm.controls['ZIP'].invalid && (checkRateForm.controls['ZIP'].dirty || checkRateForm.controls['ZIP'].touched)">
+              <div *ngIf="checkRateForm.controls['ZIP'].errors.required">
+                <div class="errorMsg">This is a required Fields</div>
+              </div>
+            </div>
+            <div class="errorMsg"
+              *ngIf="checkRateForm.controls['ZIP'].invalid && (checkRateForm.controls['ZIP'].dirty || checkRateForm.controls['ZIP'].touched)">
+              <div *ngIf="checkRateForm.controls['ZIP'].errors.pattern">
+                <div class="errorMsg">Invaild ZIP</div>
+              </div>
             </div>
           </div>
-          <div class="errorMsg"
-            *ngIf="checkRateForm.controls['ZIP'].invalid && (checkRateForm.controls['ZIP'].dirty || checkRateForm.controls['ZIP'].touched)">
-            <div *ngIf="checkRateForm.controls['ZIP'].errors.pattern">
-              <div class="errorMsg">Invaild ZIP</div>
-            </div>
-          </div>
-        </div>
         </div>
         <div class="label"><label>To</label></div>
-        <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off" formControlName="Add1">
+        <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off"
+            formControlName="Add1">
           <div class="errorMsg"
             *ngIf="checkRateForm.controls['Add1'].invalid && (checkRateForm.controls['Add1'].dirty || checkRateForm.controls['Add1'].touched)"
             class="alert">
@@ -63,34 +69,88 @@
             formControlName="Add2">
         </div>
         <div class="cityZip">
-        <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="city">
-          <div class="errorMsg"
-            *ngIf="checkRateForm.controls['city'].invalid && (checkRateForm.controls['city'].dirty || checkRateForm.controls['city'].touched)"
-            class="alert">
-            <div *ngIf="checkRateForm.controls['city'].errors.required">
-              <div class="errorMsg"> This is a required Fields</div>
+          <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="city">
+            <div class="errorMsg"
+              *ngIf="checkRateForm.controls['city'].invalid && (checkRateForm.controls['city'].dirty || checkRateForm.controls['city'].touched)"
+              class="alert">
+              <div *ngIf="checkRateForm.controls['city'].errors.required">
+                <div class="errorMsg"> This is a required Fields</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="zip"><input type="text" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off" formControlName="zip">
-          <div class="errorMsg"
-            *ngIf="checkRateForm.controls['zip'].invalid && (checkRateForm.controls['zip'].dirty || checkRateForm.controls['zip'].touched)">
-            <div *ngIf="checkRateForm.controls['zip'].errors.required">
-              <div class="errorMsg">This is a required Fields</div>
+          <div class="zip"><input type="text" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off"
+              formControlName="zip">
+            <div class="errorMsg"
+              *ngIf="checkRateForm.controls['zip'].invalid && (checkRateForm.controls['zip'].dirty || checkRateForm.controls['zip'].touched)">
+              <div *ngIf="checkRateForm.controls['zip'].errors.required">
+                <div class="errorMsg">This is a required Fields</div>
+              </div>
+            </div>
+            <div class="errorMsg"
+              *ngIf="checkRateForm.controls['zip'].invalid && (checkRateForm.controls['zip'].dirty || checkRateForm.controls['zip'].touched)">
+              <div *ngIf="checkRateForm.controls['zip'].errors.pattern">
+                <div class="errorMsg">Invaild ZIP</div>
+              </div>
             </div>
           </div>
-          <div class="errorMsg"
-            *ngIf="checkRateForm.controls['zip'].invalid && (checkRateForm.controls['zip'].dirty || checkRateForm.controls['zip'].touched)">
-            <div *ngIf="checkRateForm.controls['zip'].errors.pattern">
-              <div class="errorMsg">Invaild ZIP</div>
-            </div>
-          </div>
-        </div>
         </div>
         <button [ngClass]="{'validButton': checkRateForm.valid, 'inValidButton': !checkRateForm.valid}"
           [disabled]="!checkRateForm.valid" (click)="checkRate()">Check Rate</button>
       </form>
     </ion-col>
     <ion-col size-xl="4" size-lg="4" size-md="3" size-sm="2" size-xs="2"></ion-col>
+  </ion-row>
+  <!-- show rate part start here -->
+  <ion-row>
+    <ion-col size-xl="2" size-lg="2" size-md="1" size-sm="12" size-xs="12"></ion-col>
+    <ion-col size-xl="8" size-lg="8" size-md="10" size-sm="12" size-xs="12">
+      <div class="showRate">
+        <div class="headIng">
+          <dl>
+            <dt>
+              <div>ARRIVES ON</div>
+            </dt>
+            <dd>Wed, Feb 16</dd>
+          </dl>
+        </div>
+        <div class="secondDIv">
+          <div class="DeliverMain">
+            <div class="Deliver">
+              <dl>
+                <dt>
+                  <div>DELIVERED BY</div>
+                </dt>
+                <dd>8:00 pm</dd>
+                <dd>FedEx Priority Overnight®</dd>
+              </dl>
+            </div>
+            <div><button class="pricebtn">₹1,506</button></div>
+            <div><button class="dropBtn">
+                <i class="fa fa-angle-down" [ngClass]="{
+              'fa-angle-down' : !drop,
+              'fa-angle-up' : drop
+            }" (click)="dropbtn()" style="font-size:36px"></i>
+              </button>
+            </div>
+          </div>
+          <dl class="dropDownRate" [class.responsive]="check">
+            <dt>Base rate</dt>
+            <dd>₹1,506.00</dd>
+            <dt>India MP CGST</dt>
+            <dd>₹213.40</dd>
+            <dt>India MP SGST</dt>
+            <dd>₹213.40</dd>
+            <dt>Fuel Surcharge</dt>
+            <dd>₹640.10</dd>
+            <dt>Peak Surcharge</dt>
+            <dd>₹225.00</dd>
+            <dt style="font-weight: bold;">Estimated Total</dt>
+            <dd style="font-weight: bold;">₹2,797.90</dd>
+          </dl>
+        </div>
+      </div>
+      <div><button class="priceBtn">₹1,506</button></div>
+    </ion-col>
+    <ion-col size-xl="2" size-lg="2" size-md="1" size-sm="12" size-xs="12"></ion-col>
   </ion-row>
 </div>
