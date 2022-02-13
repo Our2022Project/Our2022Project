@@ -11,7 +11,8 @@ export class RateTranistComponent implements OnInit {
 
   constructor(private router: Router, private fb: FormBuilder) { }
   checkRateForm: any;
-  
+  drop: boolean = false;
+  check: boolean = false;
 
   ngOnInit(): void {
     this.initializeForm();
@@ -31,6 +32,14 @@ export class RateTranistComponent implements OnInit {
   }
   checkRate() {
     this.router.navigateByUrl('/signup');
+  }
+  dropbtn(){
+    this.drop = !this.drop;
+    if(this.check == true){
+      this.check = false;
+    }else{
+      this.check = true;
+    } 
   }
   
 }
