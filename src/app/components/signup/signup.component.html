@@ -12,19 +12,22 @@
     <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
       <form class="signup" [formGroup]="SignupForm">
         <div class="userName"><label class="label" for="userName">Username</label>
-          <input class="marginFix" id="userName" autocomplete="off" placeholder="Username" type="text" name="userName"
-            formControlName="userName">
+          <input class="marginFix" id="userName" autocomplete="off" placeholder="Enter your username" type="text"
+            name="userName" formControlName="userName">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['userName'].invalid && (SignupForm.controls['userName'].dirty || SignupForm.controls['userName'].touched)">
             <div *ngIf="SignupForm.controls['userName'].errors.required">
               <div class="errorMsg">Please enter Username address</div>
             </div>
-            <div class="errorMsg" *ngIf="SignupForm.controls['userName'].errors.pattern">Username Minimum lenght 8</div>
+            <div *ngIf="SignupForm.controls['userName'].errors.pattern">
+              <div class="errorMsg">Username needs to be between 8 and 20 characters long</div>
+            </div>
           </div>
         </div>
         <div class="password"><label class="label" for="password">Password</label>
-          <span class="passEye"><input class="marginFix" id="password" autocomplete="off" placeholder="Password"
-              [type]="fieldTextType ? 'text' : 'password'" name="password" formControlName="password">
+          <span class="passEye"><input class="marginFix" id="password" autocomplete="off"
+              placeholder="Create a password" [type]="fieldTextType ? 'text' : 'password'" name="password"
+              formControlName="password">
             <i class="eyeIcon fa" [ngClass]="{
               'fa-eye-slash': !fieldTextType,
               'fa-eye': fieldTextType
@@ -35,12 +38,17 @@
             <div *ngIf="SignupForm.controls['password'].errors.required">
               <div class="errorMsg">Please enter password</div>
             </div>
-            <div class="errorMsg" *ngIf="SignupForm.controls['password'].errors.pattern">Password contains atleast 8
-              characters with one special, number, uppercase & lowercase </div>
+            <div *ngIf="SignupForm.controls['password'].errors.pattern">
+              <div class="errorMsg">contains atleast 8
+                characters with one special, number, uppercase & lowercase </div>
+            </div>
+            <div *ngIf="SignupForm.controls['password'].errors.maxlength">
+              <div class="errorMsg">Password must be 16 characters or less</div>
+            </div>
           </div>
         </div>
         <div class="firstName"><label class="label" for="firstName">First Name</label>
-          <input class="marginFix" id="firstName" autocomplete="off" placeholder="First Name" type="text"
+          <input class="marginFix" id="firstName" autocomplete="off" placeholder="Enter your first name" type="text"
             name="firstName" formControlName="firstName">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['firstName'].invalid && (SignupForm.controls['firstName'].dirty || SignupForm.controls['firstName'].touched)">
@@ -50,11 +58,14 @@
             <div *ngIf="SignupForm.controls['firstName'].errors.pattern">
               <div class="errorMsg">First Alphabet Should be captial</div>
             </div>
+            <div *ngIf="SignupForm.controls['firstName'].errors.maxlength">
+              <div class="errorMsg">First name needs to be between 2 and 20 characters long</div>
+            </div>
           </div>
         </div>
         <div class="lastName"><label class="label" for="lastName">Last Name</label>
-          <input class="marginFix" id="lastName" autocomplete="off" placeholder="Last Name" type="text" name="lastName"
-            formControlName="lastName">
+          <input class="marginFix" id="lastName" autocomplete="off" placeholder="Enter your last name" type="text"
+            name="lastName" formControlName="lastName">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['lastName'].invalid && (SignupForm.controls['lastName'].dirty || SignupForm.controls['lastName'].touched)">
             <div *ngIf="SignupForm.controls['lastName'].errors.required">
@@ -63,11 +74,14 @@
             <div *ngIf="SignupForm.controls['lastName'].errors.pattern">
               <div class="errorMsg">First Alphabet Should be captial</div>
             </div>
+            <div *ngIf="SignupForm.controls['lastName'].errors.maxlength">
+              <div class="errorMsg">Last name needs to be between 2 and 20 characters long</div>
+            </div>
           </div>
         </div>
         <div class="emailId"><label class="label" for="emailId">Email Id</label>
-          <input class="marginFix" id="emailId" autocomplete="off" placeholder="Email Id" type="text" name="emailId"
-            formControlName="emailId">
+          <input class="marginFix" id="emailId" autocomplete="off" placeholder="Enter your email id" type="text"
+            name="emailId" formControlName="emailId">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['emailId'].invalid && (SignupForm.controls['emailId'].dirty || SignupForm.controls['emailId'].touched)">
             <div *ngIf="SignupForm.controls['emailId'].errors.required">
@@ -77,7 +91,7 @@
           </div>
         </div>
         <div class="phoneNumber"><label class="label" for="phoneNumber">Phone Number</label>
-          <input class="marginFix" id="phoneNumber" autocomplete="off" placeholder="Phone Number" type="text"
+          <input class="marginFix" id="phoneNumber" autocomplete="off" placeholder="Enter your phone number" type="text"
             name="phoneNumber" formControlName="phoneNumber">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['phoneNumber'].invalid && (SignupForm.controls['phoneNumber'].dirty || SignupForm.controls['phoneNumber'].touched)">
@@ -90,8 +104,8 @@
           </div>
         </div>
         <div class="addressLine1"><label class="label" for="addressLine1">Address Line 1</label>
-          <input class="marginFix" id="addressLine1	" autocomplete="off" placeholder="Address Line 1" type="text"
-            name="addressLine1" formControlName="addressLine1">
+          <input class="marginFix" id="addressLine1	" autocomplete="off" placeholder="Enter your address line 1"
+            type="text" name="addressLine1" formControlName="addressLine1">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['addressLine1'].invalid && (SignupForm.controls['addressLine1'].dirty || SignupForm.controls['addressLine1'].touched)">
             <div *ngIf="SignupForm.controls['addressLine1'].errors.required">
@@ -99,11 +113,11 @@
             </div>
             <div *ngIf="SignupForm.controls['addressLine1'].errors.pattern">
               <div class="errorMsg">Only characters are allowed, Address contains atleast 8 characters</div>
+            </div>
           </div>
         </div>
-        </div>
         <div class="city"><label class="label" for="city">City</label>
-          <input class="marginFix" id="city" autocomplete="off" placeholder="City" type="text" name="city"
+          <input class="marginFix" id="city" autocomplete="off" placeholder="Enter your city" type="text" name="city"
             formControlName="city">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['city'].invalid && (SignupForm.controls['city'].dirty || SignupForm.controls['city'].touched)">
@@ -113,10 +127,13 @@
             <div *ngIf="SignupForm.controls['city'].errors.pattern">
               <div class="errorMsg">Only characters are allowed</div>
             </div>
+            <div *ngIf="SignupForm.controls['city'].errors.maxlength">
+              <div class="errorMsg">City needs to be between 3 and 35 characters long</div>
+            </div>
           </div>
         </div>
         <div class="state"><label class="label" for="state">State</label>
-          <input class="marginFix" id="state" autocomplete="off" placeholder="state" type="text" name="state"
+          <input class="marginFix" id="state" autocomplete="off" placeholder="Enter your state" type="text" name="state"
             formControlName="state">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['state'].invalid && (SignupForm.controls['state'].dirty || SignupForm.controls['state'].touched)">
@@ -126,11 +143,14 @@
             <div *ngIf="SignupForm.controls['state'].errors.pattern">
               <div class="errorMsg">Only characters are allowed</div>
             </div>
+            <div *ngIf="SignupForm.controls['state'].errors.maxlength">
+              <div class="errorMsg">State needs to be between 3 and 35 characters long</div>
+            </div>
           </div>
         </div>
         <div class="zipCode"><label class="label" for="zipCode">Zip Code</label>
-          <input class="marginFix" id="zipCode" autocomplete="off" placeholder="Zip Code" type="text" name="zipCode"
-            formControlName="zipCode">
+          <input class="marginFix" id="zipCode" autocomplete="off" placeholder="Enter your zip Code" type="text"
+            name="zipCode" formControlName="zipCode">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['zipCode'].invalid && (SignupForm.controls['zipCode'].dirty || SignupForm.controls['zipCode'].touched)">
             <div *ngIf="SignupForm.controls['zipCode'].errors.required">
@@ -142,8 +162,8 @@
           </div>
         </div>
         <div class="country"><label class="label" for="country">Country</label>
-          <input class="marginFix" id="country" autocomplete="off" placeholder="country" type="text" name="country"
-            formControlName="country">
+          <input class="marginFix" id="country" autocomplete="off" placeholder="Enter your country" type="text"
+            name="country" formControlName="country">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['country'].invalid && (SignupForm.controls['country'].dirty || SignupForm.controls['country'].touched)">
             <div *ngIf="SignupForm.controls['country'].errors.required">
@@ -152,31 +172,8 @@
             <div *ngIf="SignupForm.controls['country'].errors.pattern">
               <div class="errorMsg">Only characters are allowed</div>
             </div>
-          </div>
-        </div>
-        <div class="addressType"><label class="label" for="addressType">Address Type</label>
-          <input class="marginFix" id="addressType" autocomplete="off" placeholder="Address Type" type="text"
-            name="addressType" formControlName="addressType">
-          <div class="errorMsg"
-            *ngIf="SignupForm.controls['addressType'].invalid && (SignupForm.controls['addressType'].dirty || SignupForm.controls['addressType'].touched)">
-            <div *ngIf="SignupForm.controls['addressType'].errors.required">
-              <div class="errorMsg">This is a required Fields</div>
-            </div>
-            <div *ngIf="SignupForm.controls['addressType'].errors.pattern">
-              <div class="errorMsg">Only characters are allowed</div>
-            </div>
-          </div>
-        </div>
-        <div class="roles"><label class="label" for="roles">Role's</label>
-          <input class="marginFix" id="roles" autocomplete="off" placeholder="Role's" type="text"
-            name="roles" formControlName="roles">
-          <div class="errorMsg"
-            *ngIf="SignupForm.controls['roles'].invalid && (SignupForm.controls['roles'].dirty || SignupForm.controls['roles'].touched)">
-            <div *ngIf="SignupForm.controls['roles'].errors.required">
-              <div class="errorMsg">This is a required Fields</div>
-            </div>
-            <div *ngIf="SignupForm.controls['roles'].errors.pattern">
-              <div class="errorMsg">Only characters are allowed</div>
+            <div *ngIf="SignupForm.controls['country'].errors.maxlength">
+              <div class="errorMsg">Country needs to be between 3 and 35 characters long</div>
             </div>
           </div>
         </div>

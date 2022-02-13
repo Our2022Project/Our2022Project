@@ -8,6 +8,18 @@
     text-align: center;
     padding: 15px 0;
 }
+.rateTransit .cityZip{
+    display: flex;
+    width: 100%;
+}
+.rateTransit .cityZip .city{
+    width: 50%;
+}
+.rateTransit .cityZip .zip{
+    width: 50%;
+    margin: 0 0 0 15px;
+}
+
 .rateTransit .label{
     margin: 10px 0;
 }

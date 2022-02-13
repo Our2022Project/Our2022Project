@@ -13,7 +13,7 @@
     <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="8" size-xs="8">
       <form class="checkRate" [formGroup]="checkRateForm">
         <div class="label"><label>From</label></div>
-        <div><input type="text" placeholder="Address 1" name="Address1" autocomplete="off" formControlName="Address1">
+        <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off" formControlName="Address1">
           <div class="errorMsg"
             *ngIf="checkRateForm.controls['Address1'].invalid && (checkRateForm.controls['Address1'].dirty || checkRateForm.controls['Address1'].touched)"
             class="alert">
@@ -22,9 +22,10 @@
             </div>
           </div>
         </div>
-        <div><input type="text" placeholder="Address 2 is Optional" name="Address2" autocomplete="off"
+        <div><input type="text" placeholder="Address 2 (Optional)" name="Address2" autocomplete="off"
             formControlName="Address2"></div>
-        <div><input type="text" placeholder="City" name="City" formControlName="City">
+        <div class="cityZip">
+        <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="City">
           <div class="errorMsg"
             *ngIf="checkRateForm.controls['City'].invalid && (checkRateForm.controls['City'].dirty || checkRateForm.controls['City'].touched)"
             class="alert">
@@ -33,7 +34,7 @@
             </div>
           </div>
         </div>
-        <div><input type="text" placeholder="Zip/Postal" name="ZIP" autocomplete="off" formControlName="ZIP">
+        <div class="zip"><input type="text" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off" formControlName="ZIP">
           <div class="errorMsg"
             *ngIf="checkRateForm.controls['ZIP'].invalid && (checkRateForm.controls['ZIP'].dirty || checkRateForm.controls['ZIP'].touched)">
             <div *ngIf="checkRateForm.controls['ZIP'].errors.required">
@@ -47,8 +48,9 @@
             </div>
           </div>
         </div>
+        </div>
         <div class="label"><label>To</label></div>
-        <div><input type="text" placeholder="Address 1" name="Address1" autocomplete="off" formControlName="Add1">
+        <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off" formControlName="Add1">
           <div class="errorMsg"
             *ngIf="checkRateForm.controls['Add1'].invalid && (checkRateForm.controls['Add1'].dirty || checkRateForm.controls['Add1'].touched)"
             class="alert">
@@ -57,10 +59,11 @@
             </div>
           </div>
         </div>
-        <div><input type="text" placeholder="Address 2 Is Optional" name="Address2" autocomplete="off"
+        <div><input type="text" placeholder="Address 2 (Optional)" name="Address2" autocomplete="off"
             formControlName="Add2">
         </div>
-        <div><input type="text" placeholder="City" name="City" formControlName="city">
+        <div class="cityZip">
+        <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="city">
           <div class="errorMsg"
             *ngIf="checkRateForm.controls['city'].invalid && (checkRateForm.controls['city'].dirty || checkRateForm.controls['city'].touched)"
             class="alert">
@@ -69,7 +72,7 @@
             </div>
           </div>
         </div>
-        <div><input type="text" placeholder="Zip/Postal" name="ZIP" autocomplete="off" formControlName="zip">
+        <div class="zip"><input type="text" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off" formControlName="zip">
           <div class="errorMsg"
             *ngIf="checkRateForm.controls['zip'].invalid && (checkRateForm.controls['zip'].dirty || checkRateForm.controls['zip'].touched)">
             <div *ngIf="checkRateForm.controls['zip'].errors.required">
@@ -83,10 +86,11 @@
             </div>
           </div>
         </div>
-<button [ngClass]="{'validButton': checkRateForm.valid, 'inValidButton': !checkRateForm.valid}"
-  [disabled]="!checkRateForm.valid" (click)="checkRate()">Check Rate</button>
-</form>
-</ion-col>
-<ion-col size-xl="4" size-lg="4" size-md="3" size-sm="2" size-xs="2"></ion-col>
-</ion-row>
+        </div>
+        <button [ngClass]="{'validButton': checkRateForm.valid, 'inValidButton': !checkRateForm.valid}"
+          [disabled]="!checkRateForm.valid" (click)="checkRate()">Check Rate</button>
+      </form>
+    </ion-col>
+    <ion-col size-xl="4" size-lg="4" size-md="3" size-sm="2" size-xs="2"></ion-col>
+  </ion-row>
 </div>

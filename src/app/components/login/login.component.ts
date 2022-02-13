@@ -11,7 +11,7 @@ import { sharedService } from 'src/app/Service/sharedService.service';
 
 export class LoginComponent {
 
-  constructor(private router: Router, private fb: FormBuilder , private sharedService: sharedService) { }
+  constructor(private router: Router, private fb: FormBuilder, private sharedService: sharedService) { }
   loginForm: any;
   fieldTextType: boolean = false;
 
@@ -21,8 +21,9 @@ export class LoginComponent {
 
   initializeForm(): void {
     this.loginForm = this.fb.group({
-      userName: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      userName: ['', [Validators.required, Validators.pattern('^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$')]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('(?=.*[A-Z][A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
+
     });
   }
 
@@ -31,11 +32,11 @@ export class LoginComponent {
   }
 
   goToDashboard() {
-    this.sharedService.login(this.loginForm.controls['userName'].value,this.loginForm.controls['password'].value).subscribe(data => {
+    this.sharedService.login(this.loginForm.controls['userName'].value, this.loginForm.controls['password'].value).subscribe(data => {
       this.router.navigateByUrl('/dashboard');
     },
-    (error) => {
-    });
+      (error) => {
+      });
   }
 
   user_register() {
