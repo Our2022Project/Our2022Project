@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmailValidator, FormBuilder, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
+import { RegisterData, userAddressRequestList } from 'src/app/Model/SignUp';
 
 @Component({
   selector: 'app-signup',
@@ -17,10 +18,13 @@ export class SignupComponent implements OnInit {
   SignupForm: any;
   fieldTextType: boolean = false;
   fieldType: boolean = false;
-
+  registerObj = new RegisterData();
+  registerAddressObj = new userAddressRequestList();
 
 
   ngOnInit(): void {
+    this.registerObj.roles = [];
+    this.registerObj.userAddressRequestList = [];
     this.initializeForm();
   }
 
@@ -52,14 +56,29 @@ export class SignupComponent implements OnInit {
     this.fieldType = !this.fieldType;
   }
   goToLogin() {
-    //this.router.navigateByUrl('/login');
-    this.sharedService.register(this.SignupForm.controls['userName'].value, this.SignupForm.controls['password'].value, this.SignupForm.controls['firstName'].value, this.SignupForm.controls['lastName'].value, this.SignupForm.controls['emailId'].value, this.SignupForm.controls['phoneNumber'].value, this.SignupForm.controls['addressLine1'].value, this.SignupForm.controls['city'].value, this.SignupForm.controls['state'].value, this.SignupForm.controls['zipCode'].value, this.SignupForm.controls['country'].value, this.SignupForm.controls['addressType'].value, this.SignupForm.controls['roles'].value).subscribe(data => {
+    this.mappingData();
+    this.sharedService.register(this.registerObj).subscribe(data => {
       this.router.navigateByUrl('/login');
     },
       (error) => {
       });
   }
 
-
+  mappingData(): void {
+    this.registerObj.userName = this.SignupForm.controls['userName'].value;
+    this.registerObj.password = this.SignupForm.controls['password'].value;
+    this.registerObj.firstName = this.SignupForm.controls['firstName'].value;
+    this.registerObj.lastName = this.SignupForm.controls['lastName'].value;
+    this.registerObj.emailId = this.SignupForm.controls['emailId'].value;
+    this.registerObj.phoneNumber = this.SignupForm.controls['phoneNumber'].value;
+    this.registerObj.roles.push("admin");
+    this.registerAddressObj.addressLine1 = this.SignupForm.controls['addressLine1'].value;
+    this.registerAddressObj.city = this.SignupForm.controls['city'].value;
+    this.registerAddressObj.state = this.SignupForm.controls['state'].value;
+    this.registerAddressObj.zipCode = this.SignupForm.controls['zipCode'].value;
+    this.registerAddressObj.country = this.SignupForm.controls['country'].value;
+    this.registerAddressObj.addressType = 'Home';
+    this.registerObj.userAddressRequestList.push(this.registerAddressObj);
+  }
 
 }
