@@ -23,7 +23,7 @@ export class RateTranistComponent implements OnInit {
 
       FromAddress1: ['', [Validators.required, Validators.minLength(10)]],
       FromAddress2: [null],
-      FromCity: ['', Validators.required],
+      Fromcity: ['',[Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern('[a-zA-Z]+$')]],
       FromZIP: ['', [Validators.required, Validators.pattern("[0-9]{6}")]],
       ToAdd1: ['', [Validators.required, Validators.minLength(10)]],
       ToAdd2: [null],
