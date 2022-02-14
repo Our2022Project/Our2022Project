@@ -23,29 +23,29 @@
             class="alert">
             <div *ngIf="checkRateForm.controls['FromAddress1'].errors.required">
               <div class="errorMsg"> This is a required Fields</div>
-              <div *ngIf="checkRateForm.controls['FromAddress1'].errors.minlength">
-                <div class="errorMsg"> Address contains atleast 10 characters</div>
-              </div>
+            </div>
+            <div *ngIf="checkRateForm.controls['FromAddress1'].errors.minlength">
+              <div class="errorMsg"> Address contains atleast 10 characters</div>
             </div>
           </div>
         </div>
         <div><input type="text" placeholder="Address 2 (Optional)" name="Address2" autocomplete="off"
             formControlName="FromAddress2"></div>
         <div class="cityZip">
-          <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="FromCity">
+          <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="Fromcity">
             <div class="errorMsg"
-              *ngIf="checkRateForm.controls['FromCity'].invalid && (checkRateForm.controls['FromCity'].dirty || checkRateForm.controls['FromCity'].touched)"
+              *ngIf="checkRateForm.controls['Fromcity'].invalid && (checkRateForm.controls['Fromcity'].dirty || checkRateForm.controls['Fromcity'].touched)"
               class="alert">
-              <div *ngIf="checkRateForm.controls['FromCity'].errors.required">
+              <div *ngIf="checkRateForm.controls['Fromcity'].errors.required">
                 <div class="errorMsg"> This is a required Fields</div>
               </div>
-              <div *ngIf="checkRateForm.controls['FromCity'].errors.pattern">
+              <div *ngIf="checkRateForm.controls['Fromcity'].errors.pattern">
                 <div class="errorMsg">  Only Alphanumeric characters are allowed</div>
               </div>
-              <div *ngIf="checkRateForm.controls['FromCity'].errors.minlength">
+              <div *ngIf="checkRateForm.controls['Fromcity'].errors.minlength">
                 <div class="errorMsg">  Minimum 3 alphabetical letters are Required</div>
               </div>
-              <div *ngIf="checkRateForm.controls['FromCity'].errors.maxlength">
+              <div *ngIf="checkRateForm.controls['Fromcity'].errors.maxlength">
                 <div class="errorMsg">  Maximum 35  alphabetical characters Long Only</div>
               </div>
             </div>
@@ -62,9 +62,7 @@
               *ngIf="checkRateForm.controls['FromZIP'].invalid && (checkRateForm.controls['FromZIP'].dirty || checkRateForm.controls['FromZIP'].touched)">
               <div *ngIf="checkRateForm.controls['FromZIP'].errors.pattern">
                 <div class="errorMsg">Invaild ZIP</div>
-                <div *ngIf="checkRateForm.controls['ToAdd1'].errors.minlength">
-                  <div class="errorMsg"> Address contains atleast 10 characters</div>
-                </div>
+               
               </div>
             </div>
           </div>
@@ -78,18 +76,15 @@
             <div *ngIf="checkRateForm.controls['ToAdd1'].errors.required">
               <div class="errorMsg"> This is a required Fields</div>
             </div>
-            <div class="errorMsg"> Only Alphanumeric characters are allowed</div>
-          </div>
-          <div *ngIf="checkRateForm.controls['Tocity'].errors.minlength">
-            <div class="errorMsg">  Minimum 3 alphabetical letters are Required</div>
-          </div>
-          <div *ngIf="checkRateForm.controls['Tocity'].errors.maxlength">
-            <div class="errorMsg"> Maximum 35  alphabetical characters Long Only </div>
+            <div *ngIf="checkRateForm.controls['ToAdd1'].errors.minlength">
+              <div class="errorMsg"> Address contains atleast 10 characters</div>
+            </div>
           
           </div>
+          
         </div>
         <div><input type="text" placeholder="Address 2 (Optional)" name="Address2" autocomplete="off"
-            formControlName="Add2">
+            formControlName="ToAdd2">
         </div>
         <div class="cityZip">
           <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="Tocity">
@@ -100,7 +95,13 @@
                 <div class="errorMsg"> This is a required Fields</div>
               </div>
               <div *ngIf="checkRateForm.controls['Tocity'].errors.pattern">
-                <div class="errorMsg"> This is</div>
+                <div class="errorMsg">  Only Alphanumeric characters are allowed</div>
+              </div>
+              <div *ngIf="checkRateForm.controls['Tocity'].errors.minlength">
+                <div class="errorMsg">  Minimum 3 alphabetical letters are Required</div>
+              </div>
+              <div *ngIf="checkRateForm.controls['Tocity'].errors.maxlength">
+                <div class="errorMsg">  Maximum 35  alphabetical characters Long Only</div>
               </div>
             </div>
           </div>
@@ -150,7 +151,7 @@
                     <div>DELIVERED BY</div>
                   </dt>
                   <dd>8:00 pm</dd>
-                  <dd>FedEx Priority Overnight®</dd>
+                  <dd> Priority Overnight®</dd>
                 </dl>
               </div>
               <div><button class="pricebtn">₹1,506</button></div>
