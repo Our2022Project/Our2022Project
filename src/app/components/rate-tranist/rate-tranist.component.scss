@@ -28,6 +28,8 @@
 .rateTransit select{
     padding: 8px 16px;
     width: 100%;
+    border-radius: 6px;
+    background-color: #f2f2f2
 }
 
 .rateTransit .label{
@@ -241,9 +243,12 @@
 .rateTransit .state{
     margin: 10px 0;
     
+    
 }
 .rateTransit select{
     padding: 8px 16px;
     width: 100%;
+    border-radius: 5px;
+    background-color: #f2f2f2
 }
 }
