@@ -8,6 +8,7 @@ export class RegisterData {
     phoneNumber: string;
     userAddressRequestList: Array<userAddressRequestList>;
     roles: Array<string>;
+  Phonecode: any;
 
     constructor() {
         this.userName = '';

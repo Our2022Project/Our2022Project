@@ -37,9 +37,10 @@ export class SignupComponent implements OnInit {
       phoneNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       addressLine1: ['', [Validators.required, Validators.minLength(10),Validators.pattern('^[a-zA-Z +\\-\']+')]],
       city: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern('^[a-zA-Z +\\-\']+')]],
-      state: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern('^[a-zA-Z +\\-\']+')]],
-      zipCode: ['',[ Validators.required,Validators.pattern("[0-9]{6}")]],
-      country: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      state: [null, ],
+      zipCode: ['',[ Validators.required,Validators.pattern("[0-9]{5}")]],
+      Phonecode:[null,],
+      
     }
     );
   }
@@ -71,14 +72,29 @@ export class SignupComponent implements OnInit {
     this.registerObj.lastName = this.SignupForm.controls['lastName'].value;
     this.registerObj.emailId = this.SignupForm.controls['emailId'].value;
     this.registerObj.phoneNumber = this.SignupForm.controls['phoneNumber'].value;
+    this.registerObj.Phonecode = this.SignupForm.controls['Phonecode'].value;
     this.registerObj.roles.push("admin");
     this.registerAddressObj.addressLine1 = this.SignupForm.controls['addressLine1'].value;
     this.registerAddressObj.city = this.SignupForm.controls['city'].value;
     this.registerAddressObj.state = this.SignupForm.controls['state'].value;
     this.registerAddressObj.zipCode = this.SignupForm.controls['zipCode'].value;
-    this.registerAddressObj.country = this.SignupForm.controls['country'].value;
+    this.registerAddressObj.country = "USA";
     this.registerAddressObj.addressType = 'Home';
     this.registerObj.userAddressRequestList.push(this.registerAddressObj);
   }
 
+  
+  selectstate:string='';
+
+  selectchangehandler(event:any){
+
+    this.selectstate = event.target.value;
+  }
+
+  selectcode:string='';
+
+  selectchange(event:any){
+
+    this.selectcode = event.target.value;
+  }
 }
