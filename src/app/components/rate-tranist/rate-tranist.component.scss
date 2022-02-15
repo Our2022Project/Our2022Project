@@ -20,7 +20,14 @@
 }
 .rateTransit .cityZip .zip{
     width: 50%;
-    margin: 0 0 0 15px;
+}
+.rateTransit .state{
+    margin: 10px;
+    
+}
+.rateTransit select{
+    padding: 8px 16px;
+    width: 100%;
 }
 
 .rateTransit .label{
@@ -217,5 +224,26 @@
 
     }
     /*end*/
+    
 
+}
+@media screen and (max-width: 600px){
+.rateTransit .cityZip{
+    display: block;
+    width: 100%;
+}
+.rateTransit .cityZip .city{
+    width: 100%;
+}
+.rateTransit .cityZip .zip{
+    width: 100%;
+}
+.rateTransit .state{
+    margin: 10px 0;
+    
+}
+.rateTransit select{
+    padding: 8px 16px;
+    width: 100%;
+}
 }

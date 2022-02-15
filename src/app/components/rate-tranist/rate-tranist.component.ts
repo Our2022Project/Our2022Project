@@ -28,10 +28,12 @@ export class RateTranistComponent implements OnInit {
       FromAddress1: ['', [Validators.required, Validators.minLength(10)]],
       FromAddress2: [null],
       Fromcity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      Fromstate:[null],
       FromZIP: ['', [Validators.required, Validators.pattern("[0-9]{5}")]],
       ToAdd1: ['', [Validators.required, Validators.minLength(10)]],
       ToAdd2: [null],
       Tocity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      Tostate:[null,],
       Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}")]],
     }
     );
@@ -58,15 +60,30 @@ export class RateTranistComponent implements OnInit {
     this.fromAddress.addressLine1 = this.checkRateForm.controls['FromAddress1'].value;
     this.fromAddress.addressLine2 = this.checkRateForm.controls['FromAddress2'].value;
     this.fromAddress.city = this.checkRateForm.controls['Fromcity'].value;
-    this.fromAddress.stateCode = "IL";
+    this.fromAddress.stateCode = this.checkRateForm.controls['Fromstate'].value;
     this.fromAddress.zipcode = this.checkRateForm.controls['FromZIP'].value;
     this.fromAddress.countryCode = "US";
     this.toAddress.addressLine1 = this.checkRateForm.controls['ToAdd1'].value;
     this.toAddress.addressLine2 = this.checkRateForm.controls['ToAdd2'].value;
     this.toAddress.city = this.checkRateForm.controls['Tocity'].value;
-    this.toAddress.stateCode = "IL";
+    this.toAddress.stateCode = this.checkRateForm.controls['Tostate'].value;
     this.toAddress.zipcode = this.checkRateForm.controls['Tozip'].value;
     this.toAddress.countryCode = "US";
   }
 
+
+
+  Fromstate:string='';
+
+selectFromstate(event:any){
+
+  this.Fromstate = event.target.value;
 }
+
+Tostate:string='';
+
+selectTostate(event:any){
+
+  this.Tostate = event.target.value;
+}
+} 
