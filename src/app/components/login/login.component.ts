@@ -37,6 +37,7 @@ export class LoginComponent {
         this.initializeForm();
         this.sharedService.isValidToken = true;
       } else {
+        this.sharedService.token = data.accessToken;
         this.sharedService.isValidToken = false;
         this.router.navigateByUrl('/dashboard');
       }

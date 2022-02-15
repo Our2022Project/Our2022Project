@@ -7,6 +7,7 @@ export const environment = {
 
     login: Backend_Base_URL + '/authenticate',
     register: Backend_Base_URL + '/register',
+    rate: Backend_Base_URL + '/api/rates/fetchrates',
 
 };
 
