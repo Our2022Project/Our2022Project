@@ -31,8 +31,8 @@ export class SignupComponent implements OnInit {
     this.SignupForm = this.fb.group({
       userName: ['', [Validators.required, Validators.pattern( '^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$')]],
       password: ['', [Validators.required, Validators.minLength(8),Validators.maxLength(16),Validators.pattern('(?=.*[A-Z][A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
-      firstName: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(20),Validators.pattern('[a-zA-Z]+$')]],
-      lastName: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(20),Validators.pattern('[a-zA-Z]+$')]],
+      firstName: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(20),Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      lastName: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(20),Validators.pattern('^[a-zA-Z +\\-\']+')]],
       emailId: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       phoneNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       addressLine1: ['', [Validators.required, Validators.minLength(10),Validators.pattern('^[a-zA-Z +\\-\']+')]],
@@ -72,13 +72,12 @@ export class SignupComponent implements OnInit {
     this.registerObj.lastName = this.SignupForm.controls['lastName'].value;
     this.registerObj.emailId = this.SignupForm.controls['emailId'].value;
     this.registerObj.phoneNumber = this.SignupForm.controls['phoneNumber'].value;
-    this.registerObj.Phonecode = this.SignupForm.controls['Phonecode'].value;
     this.registerObj.roles.push("admin");
     this.registerAddressObj.addressLine1 = this.SignupForm.controls['addressLine1'].value;
     this.registerAddressObj.city = this.SignupForm.controls['city'].value;
     this.registerAddressObj.state = this.SignupForm.controls['state'].value;
     this.registerAddressObj.zipCode = this.SignupForm.controls['zipCode'].value;
-    this.registerAddressObj.country = "USA";
+    this.registerAddressObj.country = "US";
     this.registerAddressObj.addressType = 'Home';
     this.registerObj.userAddressRequestList.push(this.registerAddressObj);
   }
@@ -91,10 +90,5 @@ export class SignupComponent implements OnInit {
     this.selectstate = event.target.value;
   }
 
-  selectcode:string='';
-
-  selectchange(event:any){
-
-    this.selectcode = event.target.value;
-  }
+  
 }
