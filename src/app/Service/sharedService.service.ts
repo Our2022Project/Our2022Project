@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaderResponse, HttpHeaders } from "@angular/common/htt
 import { Injectable, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { address } from "../Model/address";
+import { Address } from "../Models/Address";
 import { RegisterData } from "../Model/SignUp"
 
 @Injectable()
@@ -32,14 +32,8 @@ export class sharedService {
         return this.http.post(environment.register, registerObj, this.httpOptions);
     }
 
-    rate(fromAddress: address, toAddress: address) : Observable<any> {
-        return this.http.post(environment.rate, { fromAddress:fromAddress, toAddress:toAddress }, {
-            headers: new HttpHeaders(
-                {
-                  'Authorization': 'Bearer ' + this.token,
-                   'Content-Type': 'application/json'
-                })
-        });
+    rate(fromAddress: Address, toAddress: Address) : Observable<any> {
+        return this.http.post(environment.rate, { fromAddress:fromAddress, toAddress:toAddress }, this.httpOptions);
     }
 
 

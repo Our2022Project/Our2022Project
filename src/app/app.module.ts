@@ -11,7 +11,8 @@ import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RateTranistComponent } from '../app/components/rate-tranist/rate-tranist.component';
 import { sharedService } from './Service/sharedService.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './Service/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,13 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [sharedService],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    },
+    sharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

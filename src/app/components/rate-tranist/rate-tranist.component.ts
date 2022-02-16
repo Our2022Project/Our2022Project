@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmailValidator, FormBuilder, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
-import { address } from 'src/app/Model/address';
+import { Address } from 'src/app/Models/Address';
 
 @Component({
   selector: 'app-rate-tranist',
@@ -16,8 +16,8 @@ export class RateTranistComponent implements OnInit {
   drop: boolean = false;
   check: boolean = false;
   showRateUI: Boolean = false;
-  fromAddress = new address();
-  toAddress = new address();
+  fromAddress = new Address();
+  toAddress = new Address();
 
   ngOnInit(): void {
     this.initializeForm();

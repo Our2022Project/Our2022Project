@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmailValidator, FormBuilder, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
-import { RegisterData, userAddressRequestList } from 'src/app/Model/SignUp';
+import { RegisterData, userAddressRequestList } from 'src/app/Models/SignUp';
 
 @Component({
   selector: 'app-signup',
