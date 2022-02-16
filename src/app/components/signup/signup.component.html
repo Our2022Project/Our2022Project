@@ -375,7 +375,7 @@
         <div class="state"><label class="label" for="state">State</label>
           <div>
             <select formControlName="state" (change)="selectchangehandler($event)">
-              <option value="null"> Please Choose Your State </option>
+              <option value=""> Please Choose Your State </option>
               <option value="AL">Alabama (AL)</option>
               <option value="AK">Alaska (AK)</option>
               <option value="AZ">Arizona (AZ)</option>
@@ -434,14 +434,8 @@
               <div *ngIf="SignupForm.controls['state'].errors.required">
                 <div class="errorMsg">This is a required Fields</div>
               </div>
-              <div *ngIf="SignupForm.controls['state'].errors.pattern">
-                <div class="errorMsg">Only Alphanumeric characters are allowed</div>
-              </div>
-              <div *ngIf="SignupForm.controls['state'].errors.maxlength">
-                <div class="errorMsg">Maximum 35 alphabetical characters Long Only</div>
-              </div>
-              <div *ngIf="SignupForm.controls['state'].errors.minlength">
-                <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
+              <div class="errorMsg" *ngIf="state.errors?.required">
+                Please select your state
               </div>
             </div>
           </div>

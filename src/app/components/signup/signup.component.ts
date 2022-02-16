@@ -29,18 +29,18 @@ export class SignupComponent implements OnInit {
 
   initializeForm(): void {
     this.SignupForm = this.fb.group({
-      userName: ['', [Validators.required, Validators.pattern( '^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$')]],
-      password: ['', [Validators.required, Validators.minLength(8),Validators.maxLength(16),Validators.pattern('(?=.*[A-Z][A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
-      firstName: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(20),Validators.pattern('^[a-zA-Z +\\-\']+')]],
-      lastName: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(20),Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      userName: ['', [Validators.required, Validators.pattern('^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$')]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(16), Validators.pattern('(?=.*[A-Z][A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
+      firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       emailId: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       phoneNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      addressLine1: ['', [Validators.required, Validators.minLength(10),Validators.pattern('^[a-zA-Z +\\-\']+')]],
-      city: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(35),Validators.pattern('^[a-zA-Z +\\-\']+')]],
-      state: [null, ],
-      zipCode: ['',[ Validators.required,Validators.pattern("[0-9]{5}")]],
-      Phonecode:[null,],
-      
+      addressLine1: ['', [Validators.required, Validators.minLength(10), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      state: ['', [Validators.required]],
+      zipCode: ['', [Validators.required, Validators.pattern("[0-9]{5}")]],
+      Phonecode: [null,],
+
     }
     );
   }
@@ -52,11 +52,11 @@ export class SignupComponent implements OnInit {
   goToLogin() {
     this.mappingData();
     this.sharedService.register(this.registerObj).subscribe(data => {
-        this.sharedService.isRegistrationDone = false;
-        this.sharedService.isUserAlreadyExsits = true;
-        this.registerObj.roles = [];
-        this.registerObj.userAddressRequestList = [];
-        this.initializeForm();
+      this.sharedService.isRegistrationDone = false;
+      this.sharedService.isUserAlreadyExsits = true;
+      this.registerObj.roles = [];
+      this.registerObj.userAddressRequestList = [];
+      this.initializeForm();
     },
       (error) => {
         this.sharedService.isRegistrationDone = true;
@@ -82,13 +82,16 @@ export class SignupComponent implements OnInit {
     this.registerObj.userAddressRequestList.push(this.registerAddressObj);
   }
 
-  
-  selectstate:string='';
 
-  selectchangehandler(event:any){
-
-    this.selectstate = event.target.value;
+  selectstate: string = '';
+  selectchangehandler(event: any) {
+    this.state.setValue(event.target.value, {
+      onlySelf: true
+    })
+  }
+  get state() {
+    return this.SignupForm.get('state');
   }
 
-  
+
 }
