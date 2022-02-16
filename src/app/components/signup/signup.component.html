@@ -375,7 +375,7 @@
         <div class="state"><label class="label" for="state">State</label>
           <div>
             <select formControlName="state" (change)="selectchangehandler($event)">
-              <option value=""> Please Choose Your State </option>
+              <option value="">Please Choose Your State</option>
               <option value="AL">Alabama (AL)</option>
               <option value="AK">Alaska (AK)</option>
               <option value="AZ">Arizona (AZ)</option>
@@ -428,7 +428,6 @@
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
             </select>
-
             <div class="errorMsg"
               *ngIf="SignupForm.controls['state'].invalid && (SignupForm.controls['state'].dirty || SignupForm.controls['state'].touched)">
               <div *ngIf="SignupForm.controls['state'].errors.required">

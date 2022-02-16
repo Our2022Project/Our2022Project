@@ -23,13 +23,17 @@
 }
 .rateTransit .state{
     margin: 10px;
-    
+}
+.rateTransit .state .errorMsg{
+    margin: 0 0 5px 0;
 }
 .rateTransit select{
-    padding: 8px 16px;
+    padding: 10px;
     width: 100%;
     border-radius: 6px;
-    background-color: #f2f2f2
+    background-color: #f2f2f2;
+    border: none;
+    margin: 0 0 10px 0;
 }
 
 .rateTransit .label{
@@ -246,10 +250,11 @@
     
 }
 .rateTransit select{
-    padding: 8px 16px;
+    padding: 10px;
     width: 100%;
     border-radius: 5px;
-    background-color: #f2f2f2
+    background-color: #f2f2f2;
+    border: none;
 }
 }
 input[type=number]::-webkit-inner-spin-button, 

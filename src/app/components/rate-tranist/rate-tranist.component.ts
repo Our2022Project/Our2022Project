@@ -28,12 +28,12 @@ export class RateTranistComponent implements OnInit {
       FromAddress1: ['', [Validators.required, Validators.minLength(10)]],
       FromAddress2: [null],
       Fromcity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
-      Fromstate:[null],
+      Fromstate: ['', [Validators.required]],
       FromZIP: ['', [Validators.required, Validators.pattern("[0-9]{5}")]],
       ToAdd1: ['', [Validators.required, Validators.minLength(10)]],
       ToAdd2: [null],
       Tocity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
-      Tostate:[null,],
+      Tostate: ['', [Validators.required]],
       Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}")]],
     }
     );
@@ -72,18 +72,23 @@ export class RateTranistComponent implements OnInit {
   }
 
 
-
-  Fromstate:string='';
-
-selectFromstate(event:any){
-
-  this.Fromstate = event.target.value;
+selectFromstate:string='';
+selectFromState(event:any){
+  this.Fromstate.setValue(event.target.value, {
+    onlySelf: true
+  })
+}
+get Fromstate() {
+  return this.checkRateForm.get('Fromstate');
 }
 
-Tostate:string='';
-
-selectTostate(event:any){
-
-  this.Tostate = event.target.value;
+selectTostate: string='';
+selectToState(event:any){
+  this.Tostate.setValue(event.target.value, {
+    onlySelf: true
+  })
+}
+get Tostate() {
+  return this.checkRateForm.get('Tostate');
 }
 } 

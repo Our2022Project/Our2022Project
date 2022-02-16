@@ -40,20 +40,19 @@
                 <div class="errorMsg"> This is a required Fields</div>
               </div>
               <div *ngIf="checkRateForm.controls['Fromcity'].errors.pattern">
-                <div class="errorMsg">  Only Alphanumeric characters are allowed</div>
+                <div class="errorMsg"> Only Alphanumeric characters are allowed</div>
               </div>
               <div *ngIf="checkRateForm.controls['Fromcity'].errors.minlength">
-                <div class="errorMsg">  Minimum 3 alphabetical letters are Required</div>
+                <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
               </div>
               <div *ngIf="checkRateForm.controls['Fromcity'].errors.maxlength">
-                <div class="errorMsg">  Maximum 35  alphabetical characters Long Only</div>
+                <div class="errorMsg"> Maximum 35 alphabetical characters Long Only</div>
               </div>
             </div>
           </div>
           <div class="state">
-
-            <select formControlName="Fromstate" (change)="selectFromstate($event)">
-              <option value="null">Select State</option>
+            <select formControlName="Fromstate" (change)="selectFromState($event)">
+              <option value="">Select State</option>
               <option value="AL">Alabama (AL)</option>
               <option value="AK">Alaska (AK)</option>
               <option value="AZ">Arizona (AZ)</option>
@@ -106,10 +105,20 @@
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
             </select>
+            <div class="errorMsg"
+              *ngIf="checkRateForm.controls['Fromstate'].invalid && (checkRateForm.controls['Fromstate'].dirty || checkRateForm.controls['Fromstate'].touched)">
+              <div *ngIf="checkRateForm.controls['Fromstate'].errors.required">
+                <div class="errorMsg">This is a required Fields</div>
+              </div>
+              <div class="errorMsg" *ngIf="Fromstate.errors?.required">
+                Please select your state
+              </div>
             </div>
+          </div>
           <div class="zip"><input type="number" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off"
-              formControlName="FromZIP" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-              maxlength = "5">
+              formControlName="FromZIP"
+              oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              maxlength="5">
             <div class="errorMsg"
               *ngIf="checkRateForm.controls['FromZIP'].invalid && (checkRateForm.controls['FromZIP'].dirty || checkRateForm.controls['FromZIP'].touched)">
               <div *ngIf="checkRateForm.controls['FromZIP'].errors.required">
@@ -120,7 +129,6 @@
               *ngIf="checkRateForm.controls['FromZIP'].invalid && (checkRateForm.controls['FromZIP'].dirty || checkRateForm.controls['FromZIP'].touched)">
               <div *ngIf="checkRateForm.controls['FromZIP'].errors.pattern">
                 <div class="errorMsg">Invaild ZIP</div>
-               
               </div>
             </div>
           </div>
@@ -137,9 +145,7 @@
             <div *ngIf="checkRateForm.controls['ToAdd1'].errors.minlength">
               <div class="errorMsg"> Address contains atleast 10 characters</div>
             </div>
-          
           </div>
-          
         </div>
         <div><input type="text" placeholder="Address 2 (Optional)" name="Address2" autocomplete="off"
             formControlName="ToAdd2">
@@ -153,20 +159,19 @@
                 <div class="errorMsg"> This is a required Fields</div>
               </div>
               <div *ngIf="checkRateForm.controls['Tocity'].errors.pattern">
-                <div class="errorMsg">  Only Alphanumeric characters are allowed</div>
+                <div class="errorMsg"> Only Alphanumeric characters are allowed</div>
               </div>
               <div *ngIf="checkRateForm.controls['Tocity'].errors.minlength">
-                <div class="errorMsg">  Minimum 3 alphabetical letters are Required</div>
+                <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
               </div>
               <div *ngIf="checkRateForm.controls['Tocity'].errors.maxlength">
-                <div class="errorMsg">  Maximum 35  alphabetical characters Long Only</div>
+                <div class="errorMsg"> Maximum 35 alphabetical characters Long Only</div>
               </div>
             </div>
           </div>
           <div class="state">
-
-            <select formControlName="Tostate" (change)="selectTostate($event)">
-              <option value="null">Select State</option>
+            <select formControlName="Tostate" (change)="selectToState($event)">
+              <option value="">Select State</option>
               <option value="AL">Alabama (AL)</option>
               <option value="AK">Alaska (AK)</option>
               <option value="AZ">Arizona (AZ)</option>
@@ -219,10 +224,20 @@
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
             </select>
+            <div class="errorMsg"
+              *ngIf="checkRateForm.controls['Tostate'].invalid && (checkRateForm.controls['Tostate'].dirty || checkRateForm.controls['Tostate'].touched)">
+              <div *ngIf="checkRateForm.controls['Tostate'].errors.required">
+                <div class="errorMsg">This is a required Fields</div>
+              </div>
+              <div class="errorMsg" *ngIf="Tostate.errors?.required">
+                Please select your state
+              </div>
             </div>
+          </div>
           <div class="zip"><input type="number" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off"
-              formControlName="Tozip" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-              maxlength = "5">
+              formControlName="Tozip"
+              oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              maxlength="5">
             <div class="errorMsg"
               *ngIf="checkRateForm.controls['Tozip'].invalid && (checkRateForm.controls['Tozip'].dirty || checkRateForm.controls['Tozip'].touched)">
               <div *ngIf="checkRateForm.controls['Tozip'].errors.required">
