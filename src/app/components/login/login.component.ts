@@ -32,6 +32,7 @@ export class LoginComponent {
   }
 
   goToDashboard() {
+    this.sharedService.userName = this.loginForm.controls['userName'].value;
     this.sharedService.login(this.loginForm.controls['userName'].value, this.loginForm.controls['password'].value).subscribe(data => {
       if(data.accessToken === undefined) {
         this.initializeForm();

@@ -45,6 +45,19 @@
 }
 .topnav .Sign-icon{
   display: none;
+  padding: 2px 2px;
+  margin: 12px 16px 12px 12px;
+}
+.topnav .logout{
+  display: block;
+  float: right;
+  padding: 2px 2px;
+  margin: 12px 14px;
+}
+.topnav .username{
+  float: right;
+  padding: 2px 2px;
+  margin: 12px 14px;
 }
 /* Search Container Start */
 .topnav .search-container {
@@ -154,10 +167,23 @@
     position: absolute;
     right: 30px;
     top: 0;
+    margin: 14px 16px;
+    padding: 0;
   }
-  .topnav.responsive .Login-icon{
+  .topnav.responsive .username{
+    position: absolute;
+    right: 30px;
+    top: 0;
+    margin: 14px 16px;
+    padding: 0;
+  }
+ /* .topnav.responsive .Login-icon{
     display: none;
+  }*/
+  .topnav.responsive .logout{
+    color: #000;
   }
+  
   .topnav.responsive a {
     float: none;
     display: block;
@@ -180,11 +206,11 @@
   }
   .topnav a:not(:first-child){
     text-align: left;
-  } 
+  }
   .topnav.responsive a:nth-child(2){
     padding: 0;
   }
-  .topnav a:nth-child(n+3):nth-last-child(n+3){
+  .topnav a:nth-child(n+5):nth-last-child(n+5){
     background-color: #fff;
     color: #000;
   }

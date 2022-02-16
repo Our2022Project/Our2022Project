@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { sharedService } from 'src/app/Service/sharedService.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,33 +8,41 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public sharedService: sharedService,) { }
   check: boolean = false;
   searchBox: boolean = false;
+  isValidToken: boolean = false;
 
   ngOnInit(): void {
+    if(this.isValidToken == true){
+      this.isValidToken = false;
+    }else{
+      this.isValidToken = true;
+      }
+    }
+  
+  goToLogin(): void {
+    this.sharedService.token = '';
+    this.sharedService.userName = '';
+    this.router.navigateByUrl('/login');
   }
 
-  goToLogin() {
-
-    this.router.navigateByUrl(`/footer`);
+  search() {
+    if (this.searchBox == true) {
+      this.searchBox = false;
+    } else {
+      this.searchBox = true;
+    }
   }
-
-  search(){ 
-    if(this.searchBox == true){
-    this.searchBox = false;
-  }else{
-    this.searchBox = true;
-  }
-}
 
   onclick() {
-    if(this.check == true){
+    if (this.check == true) {
       this.check = false;
-    }else{
+    } else {
       this.check = true;
-    } 
-  } 
+    }
+  }
+
 }
 
 

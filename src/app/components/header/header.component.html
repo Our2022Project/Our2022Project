@@ -7,7 +7,8 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <div class="topnav" [class.responsive]="check">
-        <a href="#home" class="active" style="padding: 8px 16px 0px 16px;"><img class="images" src="./../../../assets/img/delivery-man (1).png" /></a>
+        <a href="#home" class="active" style="padding: 8px 16px 0px 16px;"><img class="images"
+                src="./../../../assets/img/delivery-man (1).png" /></a>
         <a style="float: right;" class="search-container">
             <form action="#">
                 <input [class.search-txt]="searchBox" type="text" placeholder="Search or Tracking Numbers"
@@ -19,19 +20,27 @@
                     class="close fa fa-close" [class.search-close]="searchBox"></i></button>
 
         </a>
-        <button class="navBtn" href="#">Rate & Ship</button>
-        <button class="navBtn" href="#">Location</button>
-        <button class="navBtn" href="#">Track</button>
-        <button class="navBtn" href="#">Account</button>
+        <button class="navBtn" *ngIf="this.sharedService.token !== ''">Rate & Ship</button>
+        <button class="navBtn" *ngIf="this.sharedService.token !== ''">Location</button>
+        <button class="navBtn" *ngIf="this.sharedService.token !== ''">Track</button>
+        <button class="navBtn" *ngIf="this.sharedService.token !== ''">Account</button>
 
-        <a href="#" style="float: right; display: none;" class="Login-icon">Sign Up/Log In<span><i
-                    class="fa fa-user-circle-o" style="font-size:17;"></i></span></a>
+        <!--<a href="#" style="float: right; display: none;" class="Login-icon">Sign Up/Log In<span><i
+                    class="fa fa-user-circle-o" style="font-size:17;"></i></span></a>-->
         <a class="icon" (click)="onclick()">
             <i class="fa fa-bars"></i>
         </a>
-        <a class="Sign-icon" style="display: block; float: right;" href="#">Sign Up/Log In<span><i
+        <a *ngIf="this.sharedService.token === ''" class="Sign-icon" style="display: block; float: right;" (click)="goToLogin()">Sign Up/Log In<span><i
                     class="fa fa-user-circle-o" style="font-size:17;"></i></span>
         </a>
+        <a *ngIf="this.sharedService.token !== ''" class="logout" style="display: block;" (click)="goToLogin()">Logout<span><i class="fa fa-power-off"
+                    style="font-size:17px"></i></span>
+        </a>
+        <a *ngIf="this.sharedService.token !== ''" class="username" style="display: block;" ><span><i class="fa fa-user"
+                    style="font-size:17px; padding: 0 7px;"></i>{{this.sharedService.userName}}</span>
+        </a>
+
+
 
     </div>
 </body>

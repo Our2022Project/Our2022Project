@@ -12,6 +12,7 @@ export class sharedService {
     isRegistrationDone:boolean = false;
     isUserAlreadyExsits:boolean = false;
     token:string = '';
+    userName:string = '';
 
     httpOptions = {
         headers: new HttpHeaders({
