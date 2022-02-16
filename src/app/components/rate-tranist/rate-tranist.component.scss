@@ -252,3 +252,17 @@
     background-color: #f2f2f2
 }
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type=number]{
+  border: 1px solid #e5e5e5;
+  background-color:#f2f2f2;
+  padding: 10px;
+  border-radius: 6px;
+  width: 90%;
+  margin:10px 0px 10px 0px
+}
