@@ -322,7 +322,8 @@
               </optgroup>
             </select>
             <span><input class="marginFix" id="phoneNumber" autocomplete="off" placeholder="Enter your phone number"
-                type="text" name="phoneNumber" formControlName="phoneNumber"> </span>
+                type="number" name="phoneNumber" formControlName="phoneNumber" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                maxlength = "10"> </span>
           </div>
           <div class="errorMsg"
             *ngIf="SignupForm.controls['phoneNumber'].invalid && (SignupForm.controls['phoneNumber'].dirty || SignupForm.controls['phoneNumber'].touched)">
@@ -446,8 +447,9 @@
           </div>
         </div>
         <div class="zipCode"><label class="label" for="zipCode">Zip Code</label>
-          <input class="marginFix" id="zipCode" autocomplete="off" placeholder="Enter your zip Code" type="text"
-            name="zipCode" formControlName="zipCode">
+          <input class="marginFix" id="zipCode" autocomplete="off" placeholder="Enter your zip Code" type="number"
+            name="zipCode" formControlName="zipCode" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            maxlength = "5">
           <div class="errorMsg"
             *ngIf="SignupForm.controls['zipCode'].invalid && (SignupForm.controls['zipCode'].dirty || SignupForm.controls['zipCode'].touched)">
             <div *ngIf="SignupForm.controls['zipCode'].errors.required">
