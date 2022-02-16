@@ -3,7 +3,7 @@ import { Injectable, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Address } from "../Models/Address";
-import { RegisterData } from "../Model/SignUp"
+import { RegisterData } from "../Models/SignUp"
 
 @Injectable()
 export class sharedService {
