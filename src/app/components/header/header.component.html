@@ -33,7 +33,7 @@
         <a *ngIf="this.sharedService.token === ''" class="Sign-icon" style="display: block; float: right;" (click)="goToLogin()">Sign Up/Log In<span><i
                     class="fa fa-user-circle-o" style="font-size:17;"></i></span>
         </a>
-        <a *ngIf="this.sharedService.token !== ''" class="logout" style="display: block;" (click)="goToLogin()">Logout<span><i class="fa fa-power-off"
+        <a *ngIf="this.sharedService.token !== ''" class="logout" (click)="goToLogin()">Logout<span><i class="fa fa-power-off"
                     style="font-size:17px"></i></span>
         </a>
         <a *ngIf="this.sharedService.token !== ''" class="username" style="display: block;" ><span><i class="fa fa-user"
