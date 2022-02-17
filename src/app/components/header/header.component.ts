@@ -22,9 +22,7 @@ export class HeaderComponent implements OnInit {
     }
   
   goToLogin(): void {
-    this.sharedService.token = '';
-    this.sharedService.userName = '';
-    this.router.navigateByUrl('/login');
+    window.location.reload();
   }
 
   search() {
@@ -41,6 +39,10 @@ export class HeaderComponent implements OnInit {
     } else {
       this.check = true;
     }
+  }
+
+  rateCard() : void {
+    this.sharedService.displayRateSection = true;
   }
 
 }

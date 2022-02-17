@@ -38,7 +38,7 @@
           </g>
           </g>
           </svg><span>Rate & Transit Times</span></button></li>
-        <li><button><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+        <li><button (click)="track()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
           <desc>Created with Fabric.js 1.7.22</desc>
           <defs>
           </defs>
@@ -54,7 +54,7 @@
           </g>
           </g>
           </svg><span>Track</span></button></li>
-        <li><button><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+        <li><button (click)="ship()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
           <desc>Created with Fabric.js 1.7.22</desc>
           <defs>
           </defs>
@@ -75,5 +75,5 @@
     <ion-col></ion-col>
   </ion-row>
 </div>
-<app-rate-tranist *ngIf="showComponent"></app-rate-tranist>
+<app-rate-tranist *ngIf="this.sharedService.displayRateSection"></app-rate-tranist>
 </div>

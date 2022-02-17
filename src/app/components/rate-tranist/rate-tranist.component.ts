@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EmailValidator, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
 import { Address } from 'src/app/Models/Address';
+import { RateReply } from 'src/app/Models/RateReply';
 
 @Component({
   selector: 'app-rate-tranist',
@@ -11,13 +12,13 @@ import { Address } from 'src/app/Models/Address';
 })
 export class RateTranistComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, private shredService:sharedService) { }
+  constructor(private router: Router, private fb: FormBuilder, public shredService:sharedService) { }
   checkRateForm: any;
-  drop: boolean = false;
-  check: boolean = false;
   showRateUI: Boolean = false;
   fromAddress = new Address();
   toAddress = new Address();
+  rateChartResponce?: RateReply;
+  drop: boolean[] = [];
 
   ngOnInit(): void {
     this.initializeForm();
@@ -25,35 +26,36 @@ export class RateTranistComponent implements OnInit {
 
   initializeForm(): void {
     this.checkRateForm = this.fb.group({
-      FromAddress1: ['', [Validators.required, Validators.minLength(10)]],
-      FromAddress2: [null],
-      Fromcity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      FromAddress1: ['555 W Madison St', [Validators.required, Validators.minLength(10)]],
+      FromAddress2: ['Apt 610'],
+      Fromcity: ['chicago', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       Fromstate: ['', [Validators.required]],
-      FromZIP: ['', [Validators.required, Validators.pattern("[0-9]{5}")]],
-      ToAdd1: ['', [Validators.required, Validators.minLength(10)]],
-      ToAdd2: [null],
-      Tocity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      FromZIP: ['60606', [Validators.required, Validators.pattern("[0-9]{5}")]],
+      ToAdd1: ['666 W Madison St', [Validators.required, Validators.minLength(10)]],
+      ToAdd2: ['Apt 610'],
+      Tocity: ['chicago', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       Tostate: ['', [Validators.required]],
-      Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}")]],
+      Tozip: ['60651', [Validators.required, Validators.pattern("[0-9]{5}")]],
     }
     );
   }
 
   checkRate() {
     this.showRateUI = !this.showRateUI;
+    this.drop=[];
     this.addressMapping();
     this.shredService.rate(this.fromAddress, this.toAddress).subscribe(data => {
-
+      if(data.highestSeverity === 'SUCCESS') {
+        this.rateChartResponce = data;
+        for (let i = 0; i < data.rateReplyDetails.length; i++) {
+          this.drop[i] = false;
+        }
+      }
     });
   }
 
-  dropbtn() {
-    this.drop = !this.drop;
-    if (this.check == true) {
-      this.check = false;
-    } else {
-      this.check = true;
-    }
+  dropbtn(i: number) {
+    this.drop[i] = !this.drop[i];
   }
 
   addressMapping(): void {

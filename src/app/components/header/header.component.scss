@@ -236,5 +236,9 @@
   box-sizing: border-box;
   border-radius: 0 ;
   outline: none;
+  }
 }
+
+.disabled {
+  cursor: no-drop !important;
 }

@@ -20,10 +20,9 @@
                     class="close fa fa-close" [class.search-close]="searchBox"></i></button>
 
         </a>
-        <button class="navBtn" *ngIf="this.sharedService.token !== ''">Rate & Ship</button>
-        <button class="navBtn" *ngIf="this.sharedService.token !== ''">Location</button>
-        <button class="navBtn" *ngIf="this.sharedService.token !== ''">Track</button>
-        <button class="navBtn" *ngIf="this.sharedService.token !== ''">Account</button>
+        <button (click)="rateCard()" class="navBtn" *ngIf="this.sharedService.token !== ''">Rate & Ship</button>
+        <button class="navBtn disabled" *ngIf="this.sharedService.token !== ''">Location</button>
+        <button class="navBtn disabled" *ngIf="this.sharedService.token !== ''">Track</button>
 
         <!--<a href="#" style="float: right; display: none;" class="Login-icon">Sign Up/Log In<span><i
                     class="fa fa-user-circle-o" style="font-size:17;"></i></span></a>-->
