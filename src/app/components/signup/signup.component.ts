@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EmailValidator, FormBuilder, Validators } from '@angular/forms';
+import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
 import { RegisterData, userAddressRequestList } from 'src/app/Models/SignUp';
 
@@ -37,14 +37,14 @@ export class SignupComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       emailId: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       phoneNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      addressLine1: ['', [Validators.required, Validators.minLength(10), Validators.pattern('^[A-Za-z0-9 _]*[A-Za-z]+[A-Za-z0-9 _]*$')]],
+      addressLine1: ['', [Validators.required]],
       city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       state: ['', [Validators.required]],
       zipCode: ['', [Validators.required, Validators.pattern("[0-9]{5}")]],
       Phonecode: [null,],
-
-    }
-    );
+    }, {
+      validators: this.MustMatch('password', 'confirmPassword')
+    });
   }
 
   toggleFieldTextType() {
@@ -99,5 +99,23 @@ export class SignupComponent implements OnInit {
     return this.SignupForm.get('state');
   }
 
+  MustMatch(controlName: string, matchingControlName: string){
+    return (formGroup: FormGroup) => {
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
+      if (matchingControl.errors && !matchingControl.errors['MustMatch']){
+        return;
+      }
+      if (control.value !== matchingControl.value) {
+        matchingControl.setErrors({ MustMatch: true });
+      }
+      else{
+        matchingControl.setErrors(null);
+      }
+    }
 
+  }
+  get f() {
+    return this.SignupForm.controls
+  }
 }

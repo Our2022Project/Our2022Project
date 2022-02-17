@@ -71,6 +71,9 @@
             <div *ngIf="SignupForm.controls['confirmPassword'].errors.maxlength">
               <div class="errorMsg">confirmPassword must be 16 characters or less</div>
             </div>
+            <div class="errorMsg" *ngIf="SignupForm.controls['confirmPassword'].errors.MustMatch">
+              <div class="errorMsg">Password are not matching</div>
+            </div>
           </div>
         </div>
         <div class="firstName"><label class="label" for="firstName">First Name</label>
@@ -122,9 +125,7 @@
             <div class="errorMsg" *ngIf="SignupForm.controls['emailId'].errors.pattern">Invaild email Address</div>
           </div>
         </div>
-
-        <div class="phoneNumber"><label  formControlName="Phonecode" class="label" for="phoneNumber">Phone Number</label>
-          
+        <div class="phoneNumber"><label class="label" for="phoneNumber">Phone Number</label>
           <div class="phoneFlex">
             <label class="ccode"><b>USA(+1)</b></label>
             <span> <input class="marginFix" id="phoneNumber" autocomplete="off" placeholder="Enter your phone number"
@@ -178,13 +179,11 @@
                   <div *ngIf="SignupForm.controls['city'].errors.minlength">
                     <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
                   </div>
-
                 </div>
               </div>
             </ion-col>
             <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
               <div class="state"><label class="label" for="state">State</label>
-
                 <select formControlName="state" (change)="selectchangehandler($event)">
                   <option value="">Select state</option>
                   <option value="AL">Alabama (AL)</option>
@@ -241,12 +240,10 @@
                 </select>
                 <div class="errorMsg"
                   *ngIf="SignupForm.controls['state'].invalid && (SignupForm.controls['state'].dirty || SignupForm.controls['state'].touched)">
-                  
                   <div class="errorMsg" *ngIf="state.errors?.required">
                     Please select your state
                   </div>
                 </div>
-
               </div>
             </ion-col>
             <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
