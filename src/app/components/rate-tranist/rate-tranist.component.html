@@ -108,7 +108,7 @@
             <div class="errorMsg"
               *ngIf="checkRateForm.controls['Fromstate'].invalid && (checkRateForm.controls['Fromstate'].dirty || checkRateForm.controls['Fromstate'].touched)">
               <div *ngIf="checkRateForm.controls['Fromstate'].errors.required">
-                <div class="errorMsg">This is a required Fields</div>
+                <div class="errorMsg"></div>
               </div>
               <div class="errorMsg" *ngIf="Fromstate.errors?.required">
                 Please select your state
@@ -227,7 +227,7 @@
             <div class="errorMsg"
               *ngIf="checkRateForm.controls['Tostate'].invalid && (checkRateForm.controls['Tostate'].dirty || checkRateForm.controls['Tostate'].touched)">
               <div *ngIf="checkRateForm.controls['Tostate'].errors.required">
-                <div class="errorMsg">This is a required Fields</div>
+                <div class="errorMsg"></div>
               </div>
               <div class="errorMsg" *ngIf="Tostate.errors?.required">
                 Please select your state
