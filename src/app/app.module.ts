@@ -13,6 +13,7 @@ import { RateTranistComponent } from '../app/components/rate-tranist/rate-tranis
 import { sharedService } from './Service/sharedService.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './Service/auth.interceptor';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthInterceptor } from './Service/auth.interceptor';
     SignupComponent,
     DashboardComponent,
     FooterComponent,
-    RateTranistComponent
+    RateTranistComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

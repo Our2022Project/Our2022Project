@@ -11,9 +11,5 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  goToLogin() {
-
-    this.router.navigateByUrl(`/dashboard`);
-  }
 
 }

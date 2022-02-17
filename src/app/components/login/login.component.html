@@ -42,7 +42,7 @@
       </div>
       <div class="password"><label for="password">Password</label>
 
-        <a class="forgotPassword" href="">Forgot password?</a>
+        <a class="forgotPassword" style="cursor: pointer;" (click)="forgot()">Forgot password?</a>
         <span class="passEye"><input class="marginFix showPass" id="password" autocomplete="off" placeholder="Enter your password"
           [type]="fieldTextType ? 'text' : 'password'" name="password" formControlName="password">
         <i class="eyeIcon fa" [ngClass]="{

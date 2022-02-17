@@ -1,18 +1,18 @@
 <app-header></app-header>
 <div class="main">
   <ion-row class="marginFix header">
-    <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
-    <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12" class="images">
+    <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
+    <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12" class="images">
       <h1>Welcome To Signup</h1>
       <div *ngIf="this.sharedService.isUserAlreadyExsits">
         <p class="error">User Already Exists</p>
       </div>
     </ion-col>
-    <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+    <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12"></ion-col>
   </ion-row>
   <ion-row>
-    <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
-    <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+    <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
+    <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
       <form class="signup" [formGroup]="SignupForm">
         <div class="userName"><label class="label" for="userName">Username</label>
           <input class="marginFix" id="userName" autocomplete="off" placeholder="Enter your username" type="text"
@@ -322,8 +322,9 @@
               </optgroup>
             </select>
             <span><input class="marginFix" id="phoneNumber" autocomplete="off" placeholder="Enter your phone number"
-                type="number" name="phoneNumber" formControlName="phoneNumber" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                maxlength = "10"> </span>
+                type="number" name="phoneNumber" formControlName="phoneNumber"
+                oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                maxlength="10"> </span>
           </div>
           <div class="errorMsg"
             *ngIf="SignupForm.controls['phoneNumber'].invalid && (SignupForm.controls['phoneNumber'].dirty || SignupForm.controls['phoneNumber'].touched)">
@@ -351,107 +352,117 @@
             </div>
           </div>
         </div>
-        <div class="city"><label class="label" for="city">City</label>
-          <input class="marginFix" id="city" autocomplete="off" placeholder="Enter your city" type="text" name="city"
-            formControlName="city">
-          <div class="errorMsg"
-            *ngIf="SignupForm.controls['city'].invalid && (SignupForm.controls['city'].dirty || SignupForm.controls['city'].touched)">
-            <div *ngIf="SignupForm.controls['city'].errors.required">
-              <div class="errorMsg">This is a required Fields</div>
-            </div>
-            <div *ngIf="SignupForm.controls['city'].errors.pattern">
-              <div class="errorMsg">Only Alphanumeric characters are allowed</div>
-            </div>
-            <div *ngIf="SignupForm.controls['city'].errors.maxlength">
-              <div class="errorMsg">Maximum 35 alphabetical characters Long Only</div>
-            </div>
-            <div *ngIf="SignupForm.controls['city'].errors.minlength">
-              <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
-            </div>
+        <div>
+          <ion-row>
+            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
+              <div class="city"><label class="label" for="city">City</label>
+                <input class="marginFix" id="city" autocomplete="off" placeholder="Enter your city" type="text"
+                  name="city" formControlName="city">
+                <div class="errorMsg"
+                  *ngIf="SignupForm.controls['city'].invalid && (SignupForm.controls['city'].dirty || SignupForm.controls['city'].touched)">
+                  <div *ngIf="SignupForm.controls['city'].errors.required">
+                    <div class="errorMsg">This is a required Fields</div>
+                  </div>
+                  <div *ngIf="SignupForm.controls['city'].errors.pattern">
+                    <div class="errorMsg">Only Alphanumeric characters are allowed</div>
+                  </div>
+                  <div *ngIf="SignupForm.controls['city'].errors.maxlength">
+                    <div class="errorMsg">Maximum 35 alphabetical characters Long Only</div>
+                  </div>
+                  <div *ngIf="SignupForm.controls['city'].errors.minlength">
+                    <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
+                  </div>
 
-          </div>
-        </div>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
+              <div class="state"><label class="label" for="state">State</label>
 
-        <div class="state"><label class="label" for="state">State</label>
-          <div>
-            <select formControlName="state" (change)="selectchangehandler($event)">
-              <option value="">Please Choose Your State</option>
-              <option value="AL">Alabama (AL)</option>
-              <option value="AK">Alaska (AK)</option>
-              <option value="AZ">Arizona (AZ)</option>
-              <option value="AR">Arkansas (AR)</option>
-              <option value="CA">California (CA)</option>
-              <option value="CO">Colorado (CO)</option>
-              <option value="CT">Connecticut (CT)</option>
-              <option value="DE">Delaware (DE)</option>
-              <option value="DC">District Of Columbia (DC)</option>
-              <option value="FL">Florida (FL)</option>
-              <option value="GA">Georgia (GA)</option>
-              <option value="HI">Hawaii (HI)</option>
-              <option value="ID">Idaho (ID)</option>
-              <option value="IL">Illinois (IL)</option>
-              <option value="IN">Indiana (IN)</option>
-              <option value="IA">Iowa (IA)</option>
-              <option value="KS">Kansas (KS)</option>
-              <option value="KY">Kentucky (KY)</option>
-              <option value="LA">Louisiana (LA)</option>
-              <option value="ME">Maine (ME)</option>
-              <option value="MD">Maryland (MD)</option>
-              <option value="MA">Massachusetts (MA)</option>
-              <option value="MI">Michigan (MI)</option>
-              <option value="MN">Minnesota (MN)</option>
-              <option value="MS">Mississippi (MS)</option>
-              <option value="MO">Missouri (MO)</option>
-              <option value="MT">Montana (MT)</option>
-              <option value="NE">Nebraska (NE)</option>
-              <option value="NV">Nevada (NV)</option>
-              <option value="NH">New Hampshire (NH)</option>
-              <option value="NJ">New Jersey (NJ)</option>
-              <option value="NM">New Mexico (NM)</option>
-              <option value="NY">New York (NY)</option>
-              <option value="NC">North Carolina (NC)</option>
-              <option value="ND">North Dakota (ND)</option>
-              <option value="OH">Ohio (OH)</option>
-              <option value="OK">Oklahoma (OK)</option>
-              <option value="OR">Oregon (OR)</option>
-              <option value="PA">Pennsylvania (PA)</option>
-              <option value="RI">Rhode Island (RI)</option>
-              <option value="SC">South Carolina (SC)</option>
-              <option value="SD">South Dakota (SD)</option>
-              <option value="TN">Tennessee (TN)</option>
-              <option value="TX">Texas (TX)</option>
-              <option value="UT">Utah (UT)</option>
-              <option value="VT">Vermont</option>
-              <option value="VA">Virginia</option>
-              <option value="WA">Washington</option>
-              <option value="WV">West Virginia</option>
-              <option value="WI">Wisconsin</option>
-              <option value="WY">Wyoming</option>
-            </select>
-            <div class="errorMsg"
-              *ngIf="SignupForm.controls['state'].invalid && (SignupForm.controls['state'].dirty || SignupForm.controls['state'].touched)">
-              <div *ngIf="SignupForm.controls['state'].errors.required">
-                <div class="errorMsg">This is a required Fields</div>
+                <select formControlName="state" (change)="selectchangehandler($event)">
+                  <option value="">Select state</option>
+                  <option value="AL">Alabama (AL)</option>
+                  <option value="AK">Alaska (AK)</option>
+                  <option value="AZ">Arizona (AZ)</option>
+                  <option value="AR">Arkansas (AR)</option>
+                  <option value="CA">California (CA)</option>
+                  <option value="CO">Colorado (CO)</option>
+                  <option value="CT">Connecticut (CT)</option>
+                  <option value="DE">Delaware (DE)</option>
+                  <option value="DC">District Of Columbia (DC)</option>
+                  <option value="FL">Florida (FL)</option>
+                  <option value="GA">Georgia (GA)</option>
+                  <option value="HI">Hawaii (HI)</option>
+                  <option value="ID">Idaho (ID)</option>
+                  <option value="IL">Illinois (IL)</option>
+                  <option value="IN">Indiana (IN)</option>
+                  <option value="IA">Iowa (IA)</option>
+                  <option value="KS">Kansas (KS)</option>
+                  <option value="KY">Kentucky (KY)</option>
+                  <option value="LA">Louisiana (LA)</option>
+                  <option value="ME">Maine (ME)</option>
+                  <option value="MD">Maryland (MD)</option>
+                  <option value="MA">Massachusetts (MA)</option>
+                  <option value="MI">Michigan (MI)</option>
+                  <option value="MN">Minnesota (MN)</option>
+                  <option value="MS">Mississippi (MS)</option>
+                  <option value="MO">Missouri (MO)</option>
+                  <option value="MT">Montana (MT)</option>
+                  <option value="NE">Nebraska (NE)</option>
+                  <option value="NV">Nevada (NV)</option>
+                  <option value="NH">New Hampshire (NH)</option>
+                  <option value="NJ">New Jersey (NJ)</option>
+                  <option value="NM">New Mexico (NM)</option>
+                  <option value="NY">New York (NY)</option>
+                  <option value="NC">North Carolina (NC)</option>
+                  <option value="ND">North Dakota (ND)</option>
+                  <option value="OH">Ohio (OH)</option>
+                  <option value="OK">Oklahoma (OK)</option>
+                  <option value="OR">Oregon (OR)</option>
+                  <option value="PA">Pennsylvania (PA)</option>
+                  <option value="RI">Rhode Island (RI)</option>
+                  <option value="SC">South Carolina (SC)</option>
+                  <option value="SD">South Dakota (SD)</option>
+                  <option value="TN">Tennessee (TN)</option>
+                  <option value="TX">Texas (TX)</option>
+                  <option value="UT">Utah (UT)</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+                <div class="errorMsg"
+                  *ngIf="SignupForm.controls['state'].invalid && (SignupForm.controls['state'].dirty || SignupForm.controls['state'].touched)">
+                  <div *ngIf="SignupForm.controls['state'].errors.required">
+                    <div class="errorMsg">This is a required Fields</div>
+                  </div>
+                  <div class="errorMsg" *ngIf="state.errors?.required">
+                    Please select your state
+                  </div>
+                </div>
+
               </div>
-              <div class="errorMsg" *ngIf="state.errors?.required">
-                Please select your state
+            </ion-col>
+            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
+              <div class="zipCode"><label class="label" for="zipCode">Zip Code</label>
+                <input class="marginFix" id="zipCode" autocomplete="off" placeholder="Enter your zip Code" type="number"
+                  name="zipCode" formControlName="zipCode"
+                  oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  maxlength="5">
+                <div class="errorMsg"
+                  *ngIf="SignupForm.controls['zipCode'].invalid && (SignupForm.controls['zipCode'].dirty || SignupForm.controls['zipCode'].touched)">
+                  <div *ngIf="SignupForm.controls['zipCode'].errors.required">
+                    <div class="errorMsg">This is a required Fields</div>
+                  </div>
+                  <div *ngIf="SignupForm.controls['zipCode'].errors.pattern">
+                    <div class="errorMsg">Invaild Zip Code</div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="zipCode"><label class="label" for="zipCode">Zip Code</label>
-          <input class="marginFix" id="zipCode" autocomplete="off" placeholder="Enter your zip Code" type="number"
-            name="zipCode" formControlName="zipCode" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-            maxlength = "5">
-          <div class="errorMsg"
-            *ngIf="SignupForm.controls['zipCode'].invalid && (SignupForm.controls['zipCode'].dirty || SignupForm.controls['zipCode'].touched)">
-            <div *ngIf="SignupForm.controls['zipCode'].errors.required">
-              <div class="errorMsg">This is a required Fields</div>
-            </div>
-            <div *ngIf="SignupForm.controls['zipCode'].errors.pattern">
-              <div class="errorMsg">Invaild Zip Code</div>
-            </div>
-          </div>
+            </ion-col>
+          </ion-row>
         </div>
         <!--<div class="country"><label class="label" for="country">Country</label>
           <input class="marginFix" id="country" autocomplete="off" placeholder="Enter your country" type="text"
@@ -476,11 +487,11 @@
           class="marginFix button" [disabled]="!SignupForm.valid" (click)="goToLogin()">Sign Up</button>
       </form>
     </ion-col>
-    <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+    <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
   </ion-row>
   <ion-row>
-    <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
-    <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+    <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
+    <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
       <div class="account">
         <p>Already have an account?<a routerLink="/login">Log in</a>.</p>
       </div>
@@ -488,7 +499,7 @@
         <p>If you need any other help, please contact the helpdesk.</p>
       </div>
     </ion-col>
-    <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+    <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
   </ion-row>
 </div>
 <app-footer></app-footer>

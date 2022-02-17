@@ -170,3 +170,15 @@ input[type=number]{
   border-radius: 6px;
   width: 100%;
 }
+.city, .state{
+  margin: 0 10px 0 0;
+}
+.city, .state, .zipCode{
+  padding: 5px 0;
+}
+.zipCode input[type=number],
+.city input[type=text],
+.state select
+{
+  margin-top: 5px;
+}
