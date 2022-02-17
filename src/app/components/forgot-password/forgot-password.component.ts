@@ -12,6 +12,8 @@ export class ForgotPasswordComponent implements OnInit {
 
   constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) { }
   forgotPassword: any;
+  showTag: boolean = false;
+  
   ngOnInit(): void {
     this.initializeForm();
   }
@@ -24,5 +26,9 @@ export class ForgotPasswordComponent implements OnInit {
     );
   }
 
-  forgotPass(){}
+  forgotPass(): void {
+    this.showTag = !this.showTag;
+    this.initializeForm();
+
+  }
 }
