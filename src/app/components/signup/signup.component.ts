@@ -17,6 +17,7 @@ export class SignupComponent implements OnInit {
 
   SignupForm: any;
   fieldTextType: boolean = false;
+  fieldType: boolean = false;
   registerObj = new RegisterData();
   registerAddressObj = new userAddressRequestList();
 
@@ -31,6 +32,7 @@ export class SignupComponent implements OnInit {
     this.SignupForm = this.fb.group({
       userName: ['', [Validators.required, Validators.pattern('^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$')]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(16), Validators.pattern('(?=.*[A-Z][A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(16), Validators.pattern('(?=.*[A-Z][A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
       firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       emailId: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
@@ -47,6 +49,9 @@ export class SignupComponent implements OnInit {
 
   toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
+  }
+  toggleFieldType() {
+    this.fieldType = !this.fieldType;
   }
 
   goToLogin() {
@@ -68,6 +73,7 @@ export class SignupComponent implements OnInit {
   mappingData(): void {
     this.registerObj.userName = this.SignupForm.controls['userName'].value;
     this.registerObj.password = this.SignupForm.controls['password'].value;
+    this.registerObj.password = this.SignupForm.controls['confirmPassword'].value;
     this.registerObj.firstName = this.SignupForm.controls['firstName'].value;
     this.registerObj.lastName = this.SignupForm.controls['lastName'].value;
     this.registerObj.emailId = this.SignupForm.controls['emailId'].value;

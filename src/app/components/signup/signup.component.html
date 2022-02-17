@@ -50,6 +50,29 @@
             </div>
           </div>
         </div>
+        <div class="password"><label class="label" for="confirmPassword">Confirm Password</label>
+          <span class="passEye"><input class="marginFix" id="confirmPassword" autocomplete="off"
+              placeholder="Create a confirm password" [type]="fieldType ? 'text' : 'password'" name="confirmPassword"
+              formControlName="confirmPassword">
+            <i class="eyeIcon fa" [ngClass]="{
+              'fa-eye-slash': !fieldType,
+              'fa-eye': fieldType
+            }" (click)="toggleFieldType()"></i>
+          </span>
+          <div class="errorMsg"
+            *ngIf="SignupForm.controls['confirmPassword'].invalid && (SignupForm.controls['confirmPassword'].dirty || SignupForm.controls['confirmPassword'].touched)">
+            <div *ngIf="SignupForm.controls['confirmPassword'].errors.required">
+              <div class="errorMsg">Please enter Confirm Password</div>
+            </div>
+            <div *ngIf="SignupForm.controls['confirmPassword'].errors.pattern">
+              <div class="errorMsg">contains atleast 8
+                characters with one special, number, uppercase & lowercase </div>
+            </div>
+            <div *ngIf="SignupForm.controls['confirmPassword'].errors.maxlength">
+              <div class="errorMsg">confirmPassword must be 16 characters or less</div>
+            </div>
+          </div>
+        </div>
         <div class="firstName"><label class="label" for="firstName">First Name</label>
           <input class="marginFix" id="firstName" autocomplete="off" placeholder="Enter your first name" type="text"
             name="firstName" formControlName="firstName">
