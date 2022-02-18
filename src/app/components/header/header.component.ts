@@ -45,6 +45,14 @@ export class HeaderComponent implements OnInit {
     this.sharedService.displayRateSection = true;
   }
 
+  gotToLoginOrDashboard(): void {
+    if(this.sharedService.token === '') {
+      this.router.navigateByUrl('/login');
+    } else {
+      this.router.navigateByUrl('/dashboard');
+    }
+  }
+
 }
 
 

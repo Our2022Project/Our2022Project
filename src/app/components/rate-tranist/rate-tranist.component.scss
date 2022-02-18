@@ -1,33 +1,37 @@
-.main{
+.main {
     margin: 0 0 80px 0;
 }
-.btn{
-    text-align: center;
-}
-.heading h1{
+
+.heading h1 {
     font-size: 35px;
     font-weight: 300;
     font-family: "Roboto", sans-serif;
     text-align: center;
     padding: 15px 0;
 }
-.rateTransit .cityZip{
+
+.rateTransit .cityZip {
     display: flex;
     width: 100%;
 }
-.rateTransit .cityZip .city{
+
+.rateTransit .cityZip .city {
     width: 50%;
 }
-.rateTransit .cityZip .zip{
+
+.rateTransit .cityZip .zip {
     width: 50%;
 }
-.rateTransit .state{
+
+.rateTransit .state {
     margin: 10px;
 }
-.rateTransit .state .errorMsg{
+
+.rateTransit .state .errorMsg {
     margin: 0 0 5px 0;
 }
-.rateTransit select{
+
+.rateTransit select {
     padding: 10px;
     width: 100%;
     border-radius: 6px;
@@ -36,37 +40,35 @@
     margin: 0 0 10px 0;
 }
 
-.rateTransit .label{
+.rateTransit .label {
     margin: 10px 0;
 }
-.rateTransit label{
+
+.rateTransit label {
     font-size: 20px;
     padding: 10px 10px 10px 0;
 }
-.rateTransit input[type=text]{
+
+.rateTransit input[type=text] {
     width: 100%;
     padding: 10px;
     margin: 10px 0px 10px 0px;
     box-sizing: border-box;
     background-color: #f2f2f2;
     outline: none;
-    border-left:none;
+    border-left: none;
     border-bottom: none;
     border-top: none;
     border-right: none;
     border-radius: 5px;
-    
-    
-
 }
-.rateTransit .errorMsg{
+
+.rateTransit .errorMsg {
     font-size: 12px;
     color: red;
-
 }
 
-
-.rateTransit button{
+.rateTransit button {
     padding: 20px 20px;
     margin: 10px 0;
     color: #fff;
@@ -74,52 +76,68 @@
     text-transform: uppercase;
     border-width: 0;
 }
+
 .validButton {
     cursor: pointer;
     background-color: #ff6200;
-  }
+}
 
-  .inValidButton {
+.inValidButton {
     cursor: no-drop;
     background-color: grey;
-  }
-  /* rate start here*/
-.showRate{
+}
+
+
+/* rate start here*/
+
+.showRate {
     display: flex;
     margin: 15px 30px 15px 15px;
     padding: 20px 0;
     border-top: 1px solid #e3e3e3;
 }
-.headIng{
+
+.headIng {
     width: 30%;
     text-align: center;
     padding: 0 0 30px 0;
     box-sizing: border-box;
 }
-.secondDIv{
+
+.secondDIv {
     width: 70%;
     box-sizing: border-box;
 }
-.DeliverMain{
+
+.DeliverMain {
     display: flex;
 }
-.Deliver{
+
+.Deliver {
     width: 100%;
     margin: 0 10px;
 }
-.headIng dt, dd, .Deliver dt, dd{
+
+.headIng dt,
+dd,
+.Deliver dt,
+dd {
     padding: 0 0 10px 0;
 }
-.headIng dt, .Deliver dt{
+
+.headIng dt,
+.Deliver dt {
     font-weight: bold;
 }
-.dropBtn{
+
+.dropBtn {
     margin: 20px;
     background: none;
     border: none;
     cursor: pointer;
 }
-.pricebtn{
+
+.pricebtn {
     display: block;
     padding: 15px 30px;
     margin: 15px;
@@ -127,45 +145,48 @@
     border: none;
     color: #fff;
 }
-.priceBtn{
-    display: none;
 
+.priceBtn {
+    display: none;
 }
-  .dropDownRate{
-      flex-wrap: wrap;
-      flex-direction: row;
-      margin: 10px;
-      display: none;
-  }
-  .dropDownRate.responsive{
-      display: flex;
-  }
-  .dropDownRate dt{
-      width: 80%;
-      padding: 0 0 10px 0;
-  }
-  .dropDownRate dd{
+
+.dropDownRate {
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 10px;
+    display: none;
+}
+
+.dropDownRate.responsive {
+    display: flex;
+}
+
+.dropDownRate dt {
+    width: 80%;
+    padding: 0 0 10px 0;
+}
+
+.dropDownRate dd {
     width: 20%;
     text-align: right;
 }
 
 
+/* rate end here*/
 
-  /* rate end here*/
-
-  @media screen and (max-width: 767px){
-    .rateTransit{
+@media screen and (max-width: 767px) {
+    .rateTransit {
         margin: 10px;
         box-sizing: border-box;
     }
-    .heading h1{
+    .heading h1 {
         font-size: 25px;
         font-weight: 300;
         font-family: "Roboto", sans-serif;
         text-align: center;
         padding: 15px 0;
     }
-    .rateTransit input[type=text]{
+    .rateTransit input[type=text] {
         width: 100%;
         padding: 10px;
         margin: 10px 0px 10px 0px;
@@ -173,105 +194,116 @@
         background-color: #f2f2f2;
     }
     /*start*/
-    .showRate{
+    .showRate {
         display: block;
         margin: 15px;
     }
-    .headIng{
+    .headIng {
         width: 100%;
         text-align: center;
         padding: 0 0 30px 0;
     }
-    .secondDIv{
+    .secondDIv {
         width: 100%;
     }
-    .DeliverMain{
+    .DeliverMain {
         display: flex;
     }
-    .Deliver{
+    .Deliver {
         width: 100%;
         margin: 0 10px;
-        
     }
-    .headIng dt, dd, .Deliver dt, dd{
+    .headIng dt,
+    dd,
+    .Deliver dt,
+    dd {
         padding: 0 0 10px 0;
     }
-    .headIng dt, .Deliver dt{
+    .headIng dt,
+    .Deliver dt {
         font-weight: bold;
     }
-    
-      .dropDownRate{
-          display: none;
-          flex-wrap: wrap;
-          flex-direction: row;
-          margin: 10px;
-      }
-      .responsive{
+    .dropDownRate {
+        display: none;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin: 10px;
+    }
+    .responsive {
         display: flex;
     }
-      .dropDownRate dt{
-          width: 80%;
-          padding: 0 0 10px 0;
-      }
-      .dropDownRate dd{
+    .dropDownRate dt {
+        width: 80%;
+        padding: 0 0 10px 0;
+    }
+    .dropDownRate dd {
         width: 20%;
         text-align: right;
     }
-    .pricebtn{
+    .pricebtn {
         display: none;
     }
-    .priceBtn{
+    .priceBtn {
         padding: 15px 30px;
         margin: 15px 25px;
         display: block;
         background-color: #ff6200;
         border: none;
         color: #fff;
-
     }
     /*end*/
-    
+}
 
+@media screen and (max-width: 600px) {
+    .rateTransit .cityZip {
+        display: block;
+        width: 100%;
+    }
+    .rateTransit .cityZip .city {
+        width: 100%;
+    }
+    .rateTransit .cityZip .zip {
+        width: 100%;
+    }
+    .rateTransit .state {
+        margin: 10px 0;
+    }
+    .rateTransit select {
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        border: none;
+    }
 }
-@media screen and (max-width: 600px){
-.rateTransit .cityZip{
-    display: block;
-    width: 100%;
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
-.rateTransit .cityZip .city{
-    width: 100%;
-}
-.rateTransit .cityZip .zip{
-    width: 100%;
-}
-.rateTransit .state{
-    margin: 10px 0;
-    
-    
-}
-.rateTransit select{
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
+
+input[type=number] {
+    border: 1px solid #e5e5e5;
     background-color: #f2f2f2;
-    border: none;
-}
-}
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  
-    -webkit-appearance: none; 
-    margin: 0; 
-}
-input[type=number]{
-  border: 1px solid #e5e5e5;
-  background-color:#f2f2f2;
-  padding: 10px;
-  border-radius: 6px;
-  width: 90%;
-  margin:10px 0px 10px 0px
+    padding: 10px;
+    border-radius: 6px;
+    width: 90%;
+    margin: 10px 0px 10px 0px
 }
 
 .success {
     color: green;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+.alignCenter {
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    font-size: 24px;
+    color: red;
 }

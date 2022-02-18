@@ -14,6 +14,8 @@ import { sharedService } from './Service/sharedService.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './Service/auth.interceptor';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     AppRoutingModule,
     IonicModule.forRoot(),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
   ],
   providers: [
     {

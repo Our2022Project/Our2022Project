@@ -1,57 +1,52 @@
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
 <div class="main" *ngIf="this.shredService.displayRateSection">
-  <ion-row>
-    <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="12" size-xs="12"></ion-col>
-    <ion-col size-xl="8" size-lg="8" size-md="8" size-sm="12" size-xs="12">
-      <div class="heading">
-        <h1>Calculate shipping rates.</h1>
-      </div>
-    </ion-col>
-    <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="12" size-xs="12"></ion-col>
-  </ion-row>
-  <ion-row class="rateTransit">
-    <ion-col size-xl="4" size-lg="4" size-md="3" size-sm="2" size-xs="2"></ion-col>
-    <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="8" size-xs="8">
-      <form class="checkRate" [formGroup]="checkRateForm">
-        <div class="label"><label>From</label></div>
-        <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off"
-            formControlName="FromAddress1">
-          <div class="errorMsg"
-            *ngIf="checkRateForm.controls['FromAddress1'].invalid && (checkRateForm.controls['FromAddress1'].dirty || checkRateForm.controls['FromAddress1'].touched)"
-            class="alert">
-            <div *ngIf="checkRateForm.controls['FromAddress1'].errors.required">
-              <div class="errorMsg"> This is a required Fields</div>
+    <ion-row>
+        <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="12" size-xs="12"></ion-col>
+        <ion-col size-xl="8" size-lg="8" size-md="8" size-sm="12" size-xs="12">
+            <div class="heading">
+                <h1>Calculate Shipping Rates</h1>
             </div>
-            <div *ngIf="checkRateForm.controls['FromAddress1'].errors.minlength">
-              <div class="errorMsg"> Address contains atleast 10 characters</div>
-            </div>
-          </div>
-        </div>
-        <div><input type="text" placeholder="Address 2 (Optional)" name="Address2" autocomplete="off"
-            formControlName="FromAddress2"></div>
-        <div class="cityZip">
-          <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="Fromcity">
-            <div class="errorMsg"
-              *ngIf="checkRateForm.controls['Fromcity'].invalid && (checkRateForm.controls['Fromcity'].dirty || checkRateForm.controls['Fromcity'].touched)"
-              class="alert">
-              <div *ngIf="checkRateForm.controls['Fromcity'].errors.required">
-                <div class="errorMsg"> This is a required Fields</div>
-              </div>
-              <div *ngIf="checkRateForm.controls['Fromcity'].errors.pattern">
-                <div class="errorMsg"> Only Alphanumeric characters are allowed</div>
-              </div>
-              <div *ngIf="checkRateForm.controls['Fromcity'].errors.minlength">
-                <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
-              </div>
-              <div *ngIf="checkRateForm.controls['Fromcity'].errors.maxlength">
-                <div class="errorMsg"> Maximum 35 alphabetical characters Long Only</div>
-              </div>
-            </div>
-          </div>
-          <div class="state">
-            <select formControlName="Fromstate" (change)="selectFromState($event)">
+        </ion-col>
+        <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="12" size-xs="12"></ion-col>
+    </ion-row>
+    <ion-row class="rateTransit">
+        <ion-col size-xl="4" size-lg="4" size-md="3" size-sm="2" size-xs="2"></ion-col>
+        <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="8" size-xs="8">
+            <form class="checkRate" [formGroup]="checkRateForm">
+                <div class="label"><label>From</label></div>
+                <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off" formControlName="FromAddress1">
+                    <div class="errorMsg" *ngIf="checkRateForm.controls['FromAddress1'].invalid" class="alert">
+                        <div *ngIf="checkRateForm.controls['FromAddress1'].errors.required">
+                            <div class="errorMsg"> This is a required Fields</div>
+                        </div>
+                        <div *ngIf="checkRateForm.controls['FromAddress1'].errors.minlength">
+                            <div class="errorMsg"> Address contains atleast 10 characters</div>
+                        </div>
+                    </div>
+                </div>
+                <div><input type="text" placeholder="Address 2 (Optional)" name="Address2" autocomplete="off" formControlName="FromAddress2"></div>
+                <div class="cityZip">
+                    <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="Fromcity">
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['Fromcity'].invalid" class="alert">
+                            <div *ngIf="checkRateForm.controls['Fromcity'].errors.required">
+                                <div class="errorMsg"> This is a required Fields</div>
+                            </div>
+                            <div *ngIf="checkRateForm.controls['Fromcity'].errors.pattern">
+                                <div class="errorMsg"> Only Alphanumeric characters are allowed</div>
+                            </div>
+                            <div *ngIf="checkRateForm.controls['Fromcity'].errors.minlength">
+                                <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
+                            </div>
+                            <div *ngIf="checkRateForm.controls['Fromcity'].errors.maxlength">
+                                <div class="errorMsg"> Maximum 35 alphabetical characters Long Only</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="state">
+                        <select formControlName="Fromstate" (change)="selectFromState($event)">
               <option value="">Select State</option>
               <option value="AL">Alabama (AL)</option>
               <option value="AK">Alaska (AK)</option>
@@ -105,72 +100,60 @@
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
             </select>
-            <div class="errorMsg"
-              *ngIf="checkRateForm.controls['Fromstate'].invalid && (checkRateForm.controls['Fromstate'].dirty || checkRateForm.controls['Fromstate'].touched)">
-              <div *ngIf="checkRateForm.controls['Fromstate'].errors.required">
-                <div class="errorMsg"></div>
-              </div>
-              <div class="errorMsg" *ngIf="Fromstate.errors?.required">
-                Please select your state
-              </div>
-            </div>
-          </div>
-          <div class="zip"><input type="number" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off"
-              formControlName="FromZIP"
-              oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-              maxlength="5">
-            <div class="errorMsg"
-              *ngIf="checkRateForm.controls['FromZIP'].invalid && (checkRateForm.controls['FromZIP'].dirty || checkRateForm.controls['FromZIP'].touched)">
-              <div *ngIf="checkRateForm.controls['FromZIP'].errors.required">
-                <div class="errorMsg">This is a required Fields</div>
-              </div>
-            </div>
-            <div class="errorMsg"
-              *ngIf="checkRateForm.controls['FromZIP'].invalid && (checkRateForm.controls['FromZIP'].dirty || checkRateForm.controls['FromZIP'].touched)">
-              <div *ngIf="checkRateForm.controls['FromZIP'].errors.pattern">
-                <div class="errorMsg">Invaild ZIP</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="label"><label>To</label></div>
-        <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off"
-            formControlName="ToAdd1">
-          <div class="errorMsg"
-            *ngIf="checkRateForm.controls['ToAdd1'].invalid && (checkRateForm.controls['ToAdd1'].dirty || checkRateForm.controls['ToAdd1'].touched)"
-            class="alert">
-            <div *ngIf="checkRateForm.controls['ToAdd1'].errors.required">
-              <div class="errorMsg"> This is a required Fields</div>
-            </div>
-            <div *ngIf="checkRateForm.controls['ToAdd1'].errors.minlength">
-              <div class="errorMsg"> Address contains atleast 10 characters</div>
-            </div>
-          </div>
-        </div>
-        <div><input type="text" placeholder="Address 2 (Optional)" name="Address2" autocomplete="off"
-            formControlName="ToAdd2">
-        </div>
-        <div class="cityZip">
-          <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="Tocity">
-            <div class="errorMsg"
-              *ngIf="checkRateForm.controls['Tocity'].invalid && (checkRateForm.controls['Tocity'].dirty || checkRateForm.controls['Tocity'].touched)"
-              class="alert">
-              <div *ngIf="checkRateForm.controls['Tocity'].errors.required">
-                <div class="errorMsg"> This is a required Fields</div>
-              </div>
-              <div *ngIf="checkRateForm.controls['Tocity'].errors.pattern">
-                <div class="errorMsg"> Only Alphanumeric characters are allowed</div>
-              </div>
-              <div *ngIf="checkRateForm.controls['Tocity'].errors.minlength">
-                <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
-              </div>
-              <div *ngIf="checkRateForm.controls['Tocity'].errors.maxlength">
-                <div class="errorMsg"> Maximum 35 alphabetical characters Long Only</div>
-              </div>
-            </div>
-          </div>
-          <div class="state">
-            <select formControlName="Tostate" (change)="selectToState($event)">
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['Fromstate'].invalid">
+                            <div *ngIf="checkRateForm.controls['Fromstate'].errors.required">
+                                <div class="errorMsg"></div>
+                            </div>
+                            <div class="errorMsg" *ngIf="Fromstate.errors?.required">
+                                Please select your state
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zip"><input type="number" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off" formControlName="FromZIP" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="5">
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['FromZIP'].invalid">
+                            <div *ngIf="checkRateForm.controls['FromZIP'].errors.required">
+                                <div class="errorMsg">This is a required Fields</div>
+                            </div>
+                        </div>
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['FromZIP'].invalid">
+                            <div *ngIf="checkRateForm.controls['FromZIP'].errors.pattern">
+                                <div class="errorMsg">Invaild ZIP</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="label"><label>To</label></div>
+                <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off" formControlName="ToAdd1">
+                    <div class="errorMsg" *ngIf="checkRateForm.controls['ToAdd1'].invalid" class="alert">
+                        <div *ngIf="checkRateForm.controls['ToAdd1'].errors.required">
+                            <div class="errorMsg"> This is a required Fields</div>
+                        </div>
+                        <div *ngIf="checkRateForm.controls['ToAdd1'].errors.minlength">
+                            <div class="errorMsg"> Address contains atleast 10 characters</div>
+                        </div>
+                    </div>
+                </div>
+                <div><input type="text" placeholder="Address 2 (Optional)" name="Address2" autocomplete="off" formControlName="ToAdd2">
+                </div>
+                <div class="cityZip">
+                    <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="Tocity">
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['Tocity'].invalid" class="alert">
+                            <div *ngIf="checkRateForm.controls['Tocity'].errors.required">
+                                <div class="errorMsg"> This is a required Fields</div>
+                            </div>
+                            <div *ngIf="checkRateForm.controls['Tocity'].errors.pattern">
+                                <div class="errorMsg"> Only Alphanumeric characters are allowed</div>
+                            </div>
+                            <div *ngIf="checkRateForm.controls['Tocity'].errors.minlength">
+                                <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
+                            </div>
+                            <div *ngIf="checkRateForm.controls['Tocity'].errors.maxlength">
+                                <div class="errorMsg"> Maximum 35 alphabetical characters Long Only</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="state">
+                        <select formControlName="Tostate" (change)="selectToState($event)">
               <option value="">Select State</option>
               <option value="AL">Alabama (AL)</option>
               <option value="AK">Alaska (AK)</option>
@@ -224,99 +207,102 @@
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
             </select>
-            <div class="errorMsg"
-              *ngIf="checkRateForm.controls['Tostate'].invalid && (checkRateForm.controls['Tostate'].dirty || checkRateForm.controls['Tostate'].touched)">
-              <div *ngIf="checkRateForm.controls['Tostate'].errors.required">
-                <div class="errorMsg"></div>
-              </div>
-              <div class="errorMsg" *ngIf="Tostate.errors?.required">
-                Please select your state
-              </div>
-            </div>
-          </div>
-          <div class="zip"><input type="number" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off"
-              formControlName="Tozip"
-              oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-              maxlength="5">
-            <div class="errorMsg"
-              *ngIf="checkRateForm.controls['Tozip'].invalid && (checkRateForm.controls['Tozip'].dirty || checkRateForm.controls['Tozip'].touched)">
-              <div *ngIf="checkRateForm.controls['Tozip'].errors.required">
-                <div class="errorMsg">This is a required Fields</div>
-              </div>
-            </div>
-            <div class="errorMsg"
-              *ngIf="checkRateForm.controls['Tozip'].invalid && (checkRateForm.controls['Tozip'].dirty || checkRateForm.controls['Tozip'].touched)">
-              <div *ngIf="checkRateForm.controls['Tozip'].errors.pattern">
-                <div class="errorMsg">Invaild ZIP</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="btn">
-          <button [ngClass]="{'validButton': checkRateForm.valid, 'inValidButton': !checkRateForm.valid}"
-            [disabled]="!checkRateForm.valid" (click)="checkRate()">Check Rate</button>
-        </div>
-      </form>
-    </ion-col>
-    <ion-col size-xl="4" size-lg="4" size-md="3" size-sm="2" size-xs="2"></ion-col>
-  </ion-row>
-  <!-- show rate part start here -->
-  <div *ngIf="showRateUI">
-    <ion-row *ngFor="let service of this.rateChartResponce?.rateReplyDetails;let i = index">
-      <ion-col size-xl="2" size-lg="2" size-md="1" size-sm="12" size-xs="12"></ion-col>
-      <ion-col size-xl="8" size-lg="8" size-md="10" size-sm="12" size-xs="12">
-        <div class="showRate">
-          <div class="headIng">
-            <dl>
-              <dt>
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['Tostate'].invalid">
+                            <div *ngIf="checkRateForm.controls['Tostate'].errors.required">
+                                <div class="errorMsg"></div>
+                            </div>
+                            <div class="errorMsg" *ngIf="Tostate.errors?.required">
+                                Please select your state
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zip"><input type="number" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off" formControlName="Tozip" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="5">
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['Tozip'].invalid">
+                            <div *ngIf="checkRateForm.controls['Tozip'].errors.required">
+                                <div class="errorMsg">This is a required Fields</div>
+                            </div>
+                        </div>
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['Tozip'].invalid">
+                            <div *ngIf="checkRateForm.controls['Tozip'].errors.pattern">
+                                <div class="errorMsg">Invaild ZIP</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ion-row>
+                    <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="12" size-xs="12">
+                        <button [ngClass]="{'validButton': checkRateForm.valid, 'inValidButton': !checkRateForm.valid}" [disabled]="!checkRateForm.valid" (click)="checkRate()">Check Rate</button>
+                    </ion-col>
+                    <ion-col class="alignRight" size-xl="6" size-lg="6" size-md="6" size-sm="12" size-xs="12">
+                        <button class="validButton" (click)="clearField()">Clear</button>
+                    </ion-col>
+                </ion-row>
+            </form>
+        </ion-col>
+        <ion-col size-xl="4" size-lg="4" size-md="3" size-sm="2" size-xs="2"></ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col *ngIf="showError" class="alignCenter" size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+            {{ this.errorMsg }}
+        </ion-col>
+    </ion-row>
+    <!-- show rate part start here -->
+    <div *ngIf="showRateUI">
+        <ion-row *ngFor="let service of this.rateChartResponce?.rateReplyDetails;let i = index">
+            <ion-col size-xl="2" size-lg="2" size-md="1" size-sm="12" size-xs="12"></ion-col>
+            <ion-col size-xl="8" size-lg="8" size-md="10" size-sm="12" size-xs="12">
+                <div class="showRate">
+                    <div class="headIng">
+                        <dl>
+                            <dt>
                 <div>ARRIVES ON</div>
               </dt>
 
-              <dt>
+                            <dt>
                 <div class="success">{{ service?.serviceType }}</div>
               </dt>
-              <dd>Wed, Feb 16</dd>
-            </dl>
-          </div>
-          <div class="secondDIv" *ngFor="let ratedShipmentDetail of service?.ratedShipmentDetails">
-            <div class="DeliverMain" *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages">
-              <div class="Deliver">
-                <dl>
-                  <dt>
+                            <dd>Wed, Feb 16</dd>
+                        </dl>
+                    </div>
+                    <div class="secondDIv" *ngFor="let ratedShipmentDetail of service?.ratedShipmentDetails">
+                        <div class="DeliverMain" *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages">
+                            <div class="Deliver">
+                                <dl>
+                                    <dt>
                     <div>DELIVERED BY</div>
                   </dt>
-                  <dd>8:00 pm</dd>
-                  <dd> {{ ratedPackage?.packageRateDetail?.rateType}}</dd>
-                </dl>
-              </div>
-              <div><button class="pricebtn">${{ ratedPackage?.packageRateDetail?.netFedExCharge?.amount }}</button></div>
-              <div><button class="dropBtn">
+                                    <dd>8:00 pm</dd>
+                                    <dd> {{ ratedPackage?.packageRateDetail?.rateType}}</dd>
+                                </dl>
+                            </div>
+                            <div><button class="pricebtn">${{ ratedPackage?.packageRateDetail?.netFedExCharge?.amount }}</button></div>
+                            <div><button class="dropBtn">
                   <i class="fa fa-angle-down" [ngClass]="{
               'fa-angle-down' : !drop[i],
               'fa-angle-up' : drop[i]
             }" (click)="dropbtn(i)" style="font-size:36px"></i>
                 </button>
-              </div>
-            </div>
-            <dl *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages" class="dropDownRate" [class.responsive]="drop[i]">
-              <dt>Base rate</dt>
-              <dd>${{ ratedPackage?.packageRateDetail?.baseCharge?.amount }}</dd>
-              <dt>Total Surcharge</dt>
-              <dd>${{ ratedPackage?.packageRateDetail?.totalSurcharges?.amount }}</dd>
-              <dt>Total Freight Discounts</dt>
-              <dd>${{ ratedPackage?.packageRateDetail?.totalFreightDiscounts?.amount }}</dd>
-              <dt>Total Taxes</dt>
-              <dd>${{ ratedPackage?.packageRateDetail?.totalTaxes?.amount }}</dd>
-              <dt>Total Rebates</dt>
-              <dd>${{ ratedPackage?.packageRateDetail?.totalRebates?.amount }}</dd>
-              <dt style="font-weight: bold;">Estimated Total</dt>
-              <dd style="font-weight: bold;">${{ ratedPackage?.packageRateDetail?.netFedExCharge?.amount }}</dd>
-            </dl>
-          </div>
-        </div>
-        <div><button class="priceBtn">₹1,506</button></div>
-      </ion-col>
-      <ion-col size-xl="2" size-lg="2" size-md="1" size-sm="12" size-xs="12"></ion-col>
-    </ion-row>
-  </div>
+                            </div>
+                        </div>
+                        <dl *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages" class="dropDownRate" [class.responsive]="drop[i]">
+                            <dt>Base rate</dt>
+                            <dd>${{ ratedPackage?.packageRateDetail?.baseCharge?.amount }}</dd>
+                            <dt>Total Surcharge</dt>
+                            <dd>${{ ratedPackage?.packageRateDetail?.totalSurcharges?.amount }}</dd>
+                            <dt>Total Freight Discounts</dt>
+                            <dd>${{ ratedPackage?.packageRateDetail?.totalFreightDiscounts?.amount }}</dd>
+                            <dt>Total Taxes</dt>
+                            <dd>${{ ratedPackage?.packageRateDetail?.totalTaxes?.amount }}</dd>
+                            <dt>Total Rebates</dt>
+                            <dd>${{ ratedPackage?.packageRateDetail?.totalRebates?.amount }}</dd>
+                            <dt style="font-weight: bold;">Estimated Total</dt>
+                            <dd style="font-weight: bold;">${{ ratedPackage?.packageRateDetail?.netFedExCharge?.amount }}</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div><button class="priceBtn">₹1,506</button></div>
+            </ion-col>
+            <ion-col size-xl="2" size-lg="2" size-md="1" size-sm="12" size-xs="12"></ion-col>
+        </ion-row>
+    </div>
 </div>

@@ -4,6 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
 import { Address } from 'src/app/Models/Address';
 import { RateReply } from 'src/app/Models/RateReply';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-rate-tranist',
@@ -12,13 +13,15 @@ import { RateReply } from 'src/app/Models/RateReply';
 })
 export class RateTranistComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, public shredService:sharedService) { }
+  constructor(private router: Router, private fb: FormBuilder, public shredService:sharedService, public spinner:NgxSpinnerService) { }
   checkRateForm: any;
   showRateUI: Boolean = false;
+  showError: Boolean = false;
   fromAddress = new Address();
   toAddress = new Address();
   rateChartResponce?: RateReply;
   drop: boolean[] = [];
+  errorMsg: string = '';
 
   ngOnInit(): void {
     this.initializeForm();
@@ -26,30 +29,37 @@ export class RateTranistComponent implements OnInit {
 
   initializeForm(): void {
     this.checkRateForm = this.fb.group({
-      FromAddress1: ['555 W Madison St', [Validators.required, Validators.minLength(10)]],
-      FromAddress2: ['Apt 610'],
-      Fromcity: ['chicago', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      FromAddress1: ['', [Validators.required, Validators.minLength(10)]],
+      FromAddress2: [''],
+      Fromcity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       Fromstate: ['', [Validators.required]],
-      FromZIP: ['60606', [Validators.required, Validators.pattern("[0-9]{5}")]],
-      ToAdd1: ['666 W Madison St', [Validators.required, Validators.minLength(10)]],
-      ToAdd2: ['Apt 610'],
-      Tocity: ['chicago', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      FromZIP: ['', [Validators.required, Validators.pattern("[0-9]{5}")]],
+      ToAdd1: ['', [Validators.required, Validators.minLength(10)]],
+      ToAdd2: [''],
+      Tocity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       Tostate: ['', [Validators.required]],
-      Tozip: ['60651', [Validators.required, Validators.pattern("[0-9]{5}")]],
+      Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}")]],
     }
     );
   }
 
   checkRate() {
-    this.showRateUI = !this.showRateUI;
+    this.spinner.show();
     this.drop=[];
     this.addressMapping();
     this.shredService.rate(this.fromAddress, this.toAddress).subscribe(data => {
+      this.spinner.hide();
+      this.rateChartResponce = data;
       if(data.highestSeverity === 'SUCCESS') {
-        this.rateChartResponce = data;
+        this.showRateUI = true;
+        this.showError = false;
         for (let i = 0; i < data.rateReplyDetails.length; i++) {
           this.drop[i] = false;
         }
+      } else {
+        this.errorMsg = data.notifications[0].message;
+        this.showRateUI = false;
+        this.showError = true;
       }
     });
   }
@@ -93,4 +103,11 @@ selectToState(event:any){
 get Tostate() {
   return this.checkRateForm.get('Tostate');
 }
+
+clearField(): void {
+  this.initializeForm();
+  this.showRateUI = false;
+  this.showError = false;
+}
+
 } 
