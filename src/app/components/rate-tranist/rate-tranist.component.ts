@@ -15,7 +15,6 @@ export class RateTranistComponent implements OnInit {
 
   constructor(private router: Router, private fb: FormBuilder, public shredService:sharedService, public spinner:NgxSpinnerService) { }
   checkRateForm: any;
-  expand: boolean = false;
   showRateUI: Boolean = false;
   showError: Boolean = false;
   fromAddress = new Address();
@@ -23,6 +22,7 @@ export class RateTranistComponent implements OnInit {
   rateChartResponce?: RateReply;
   drop: boolean[] = [];
   errorMsg: string = '';
+  resultFound: Boolean = true;
 
   ngOnInit(): void {
     this.initializeForm();
@@ -50,6 +50,7 @@ export class RateTranistComponent implements OnInit {
     this.addressMapping();
     this.shredService.rate(this.fromAddress, this.toAddress).subscribe(data => {
       this.spinner.hide();
+      this.resultFound = false;
       this.rateChartResponce = data;
       if(data.highestSeverity === 'SUCCESS') {
         this.showRateUI = true;
@@ -65,11 +66,15 @@ export class RateTranistComponent implements OnInit {
     });
   }
 
-  dropbtn(i: number) {
+  dropbtn(i: number): void {
     this.drop[i] = !this.drop[i];
   }
-  dropButton() {
-    this.expand = !this.expand;
+
+  searchNewLocation(): void {
+    this.initializeForm();
+    this.resultFound = true;
+    this.showRateUI = false;
+    this.showError = false;
   }
 
   addressMapping(): void {
