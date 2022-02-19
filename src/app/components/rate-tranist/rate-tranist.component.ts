@@ -15,6 +15,7 @@ export class RateTranistComponent implements OnInit {
 
   constructor(private router: Router, private fb: FormBuilder, public shredService:sharedService, public spinner:NgxSpinnerService) { }
   checkRateForm: any;
+  expand: boolean = false;
   showRateUI: Boolean = false;
   showError: Boolean = false;
   fromAddress = new Address();
@@ -66,6 +67,9 @@ export class RateTranistComponent implements OnInit {
 
   dropbtn(i: number) {
     this.drop[i] = !this.drop[i];
+  }
+  dropButton() {
+    this.expand = !this.expand;
   }
 
   addressMapping(): void {

@@ -86,8 +86,22 @@
     cursor: no-drop;
     background-color: grey;
 }
+.labelHeading{
+    font-size: 17px;
+    font-weight: bold;
+}
+.lableContent{
+    font-size: 17px;
+}
+.result{
+    margin: 10px 0;
+}
+.dropButton{
+    background: none;
+    border: none;
+    cursor: pointer;
 
-
+}
 /* rate start here*/
 
 .showRate {
