@@ -18,7 +18,7 @@
             <form class="checkRate" [formGroup]="checkRateForm">
                 <div class="label"><label>From</label></div>
                 <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off" formControlName="FromAddress1">
-                    <div class="errorMsg" *ngIf="checkRateForm.controls['FromAddress1'].invalid" class="alert">
+                    <div class="errorMsg" *ngIf="checkRateForm.controls['FromAddress1'].invalid && (checkRateForm.controls['FromAddress1'].dirty || checkRateForm.controls['FromAddress1'].touched)" class="alert">
                         <div *ngIf="checkRateForm.controls['FromAddress1'].errors.required">
                             <div class="errorMsg"> This is a required Fields</div>
                         </div>
@@ -30,7 +30,7 @@
                 <div><input type="text" placeholder="Address 2 (Optional)" name="Address2" autocomplete="off" formControlName="FromAddress2"></div>
                 <div class="cityZip">
                     <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="Fromcity">
-                        <div class="errorMsg" *ngIf="checkRateForm.controls['Fromcity'].invalid" class="alert">
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['Fromcity'].invalid && (checkRateForm.controls['Fromcity'].dirty || checkRateForm.controls['Fromcity'].touched)" class="alert">
                             <div *ngIf="checkRateForm.controls['Fromcity'].errors.required">
                                 <div class="errorMsg"> This is a required Fields</div>
                             </div>
@@ -100,7 +100,7 @@
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
             </select>
-                        <div class="errorMsg" *ngIf="checkRateForm.controls['Fromstate'].invalid">
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['Fromstate'].invalid && (checkRateForm.controls['Fromstate'].dirty || checkRateForm.controls['Fromstate'].touched)">
                             <div *ngIf="checkRateForm.controls['Fromstate'].errors.required">
                                 <div class="errorMsg"></div>
                             </div>
@@ -110,7 +110,7 @@
                         </div>
                     </div>
                     <div class="zip"><input type="number" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off" formControlName="FromZIP" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="5">
-                        <div class="errorMsg" *ngIf="checkRateForm.controls['FromZIP'].invalid">
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['FromZIP'].invalid && (checkRateForm.controls['FromZIP'].dirty || checkRateForm.controls['FromZIP'].touched)">
                             <div *ngIf="checkRateForm.controls['FromZIP'].errors.required">
                                 <div class="errorMsg">This is a required Fields</div>
                             </div>
@@ -125,7 +125,7 @@
                 <div class="label"><label>To</label></div>
                 <div><input type="text" placeholder="Enter your address 1" name="Address1" autocomplete="off" formControlName="ToAdd1">
                     <div class="errorMsg" *ngIf="checkRateForm.controls['ToAdd1'].invalid" class="alert">
-                        <div *ngIf="checkRateForm.controls['ToAdd1'].errors.required">
+                        <div *ngIf="checkRateForm.controls['ToAdd1'].errors.required  && (checkRateForm.controls['ToAdd1'].dirty || checkRateForm.controls['ToAdd1'].touched)">
                             <div class="errorMsg"> This is a required Fields</div>
                         </div>
                         <div *ngIf="checkRateForm.controls['ToAdd1'].errors.minlength">
@@ -137,7 +137,7 @@
                 </div>
                 <div class="cityZip">
                     <div class="city"><input type="text" placeholder="Enter your city" name="City" formControlName="Tocity">
-                        <div class="errorMsg" *ngIf="checkRateForm.controls['Tocity'].invalid" class="alert">
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['Tocity'].invalid  && (checkRateForm.controls['Tocity'].dirty || checkRateForm.controls['Tocity'].touched)" class="alert">
                             <div *ngIf="checkRateForm.controls['Tocity'].errors.required">
                                 <div class="errorMsg"> This is a required Fields</div>
                             </div>
@@ -207,7 +207,7 @@
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
             </select>
-                        <div class="errorMsg" *ngIf="checkRateForm.controls['Tostate'].invalid">
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['Tostate'].invalid && (checkRateForm.controls['Tostate'].dirty || checkRateForm.controls['Tostate'].touched)">
                             <div *ngIf="checkRateForm.controls['Tostate'].errors.required">
                                 <div class="errorMsg"></div>
                             </div>
@@ -217,7 +217,7 @@
                         </div>
                     </div>
                     <div class="zip"><input type="number" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off" formControlName="Tozip" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="5">
-                        <div class="errorMsg" *ngIf="checkRateForm.controls['Tozip'].invalid">
+                        <div class="errorMsg" *ngIf="checkRateForm.controls['Tozip'].invalid && (checkRateForm.controls['Tozip'].dirty || checkRateForm.controls['Tozip'].touched)">
                             <div *ngIf="checkRateForm.controls['Tozip'].errors.required">
                                 <div class="errorMsg">This is a required Fields</div>
                             </div>
