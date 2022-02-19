@@ -20,8 +20,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   initializeForm(): void {
     this.forgotPassword = this.fb.group({
-      emailId: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-
+      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
     }
     );
   }
@@ -29,6 +28,8 @@ export class ForgotPasswordComponent implements OnInit {
   forgotPass(): void {
     this.showTag = !this.showTag;
     this.initializeForm();
+    this.sharedService.forgotPassword(this.forgotPassword.controls['email'].value).subscribe(data => {
+    });
 
   }
 }

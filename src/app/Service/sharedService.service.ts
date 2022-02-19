@@ -33,6 +33,10 @@ export class sharedService {
         return this.http.post(environment.register, registerObj, this.httpOptions);
     }
 
+    forgotPassword(emailId: String) : Observable<any> {
+        return this.http.post(environment.forgotpassword, { userEmail: emailId }, this.httpOptions);
+    }
+
     rate(fromAddress: Address, toAddress: Address) : Observable<any> {
         return this.http.post(environment.rate, { fromAddress:fromAddress, toAddress:toAddress }, this.httpOptions);
     }
