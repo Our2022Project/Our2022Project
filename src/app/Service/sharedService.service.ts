@@ -13,6 +13,7 @@ export class sharedService {
     isUserAlreadyExsits:boolean = false;
     token:string = '';
     userName:string = '';
+    oldPassword: string = '';
     displayRateSection:boolean = false;
 
     httpOptions = {
