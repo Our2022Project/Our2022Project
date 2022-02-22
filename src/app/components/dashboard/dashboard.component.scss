@@ -19,13 +19,17 @@
     font-weight: 300;
     box-sizing: border-box;
 }
-.mainContent .links svg{
-    width: 45px;
-    height: 65px;
+.mainContent .links img{
+    width: 50px;
+    height: 50px;
 }
-.mainContent .links span{
+.mainContent .links button:focus img{
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+  }
+.mainContent .links p{
     display: block;
-    padding: 0;
+    padding: 10px;
 }
 .mainContent .links ul{
     display: flex;
@@ -52,7 +56,7 @@
     border: none;
     color:#fff;
 }
-.mainContent .links button:focus svg path {
+.mainContent .links button:focus img path {
     fill: #fff !important;
   }
 @media screen and (max-width: 767px){
@@ -61,20 +65,39 @@
 }
 
 .mainContent .links button{
-   width : calc((100vw - 40px) / 3);
+    width : calc((100vw - 40px) / 3);
    height: calc(((100vw - 40px) / 3) - 10px);
+   width: 130px;
+   height: 120px;
+   font-size: 12px;
 }
 
 .mainContent .heading h1{
     font-size: 32px;
 }
 
-.mainContent .links svg{
-    width: calc((100vw - 40px) / 8);
-    height: calc(((100vw - 40px) / 3) - 75px);
-     
-}
-.mainContent .links span{
+.mainContent .links p{
     padding: 10px;
 }
+}
+@media screen and (max-width: 576px){
+    .mainContent .links button{
+        width : calc((100vw - 40px) / 3);
+       height: calc(((100vw - 40px) / 3) - 10px);
+       width: 85px;
+       height: 85px;
+    }
+    .mainContent .links img{
+        width: 35px;
+        height: 35px;
+    }
+    .mainContent .links button:focus{
+        height:100px;
+    }
+    .mainContent .links p{
+        padding: 5px;
+    }
+    .mainContent .links button{
+        font-size: 10px;
+    }
 }

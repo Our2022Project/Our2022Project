@@ -13,7 +13,6 @@ export class sharedService {
     isUserAlreadyExsits:boolean = false;
     token:string = '';
     userName:string = '';
-    oldPassword: string = '';
     displayRateSection:boolean = false;
 
     httpOptions = {
@@ -35,7 +34,7 @@ export class sharedService {
     }
 
     forgotPassword(emailId: String) : Observable<any> {
-        return this.http.post(environment.forgotpassword, { userEmail: emailId }, this.httpOptions);
+        return this.http.post(environment.forgotPassword, { userEmail: emailId }, this.httpOptions);
     }
 
     rate(fromAddress: Address, toAddress: Address) : Observable<any> {

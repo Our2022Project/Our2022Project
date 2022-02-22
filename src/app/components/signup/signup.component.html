@@ -1,34 +1,32 @@
 <app-header></app-header>
 <div class="main">
-  <ion-row class="marginFix header">
-    <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
-    <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12" class="images">
-      <h1>Welcome To Signup</h1>
-      <div *ngIf="this.sharedService.isUserAlreadyExsits">
-        <p class="error">User Already Exists</p>
-      </div>
-    </ion-col>
-    <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12"></ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
-    <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-      <form class="signup" [formGroup]="SignupForm">
-        <div class="userName"><label class="label" for="userName">Username</label>
-          <input class="marginFix" id="userName" autocomplete="off" placeholder="Enter your username" type="text"
-            name="userName" formControlName="userName">
-          <div class="errorMsg"
-            *ngIf="SignupForm.controls['userName'].invalid && (SignupForm.controls['userName'].dirty || SignupForm.controls['userName'].touched)">
-            <div *ngIf="SignupForm.controls['userName'].errors.required">
-              <div class="errorMsg">Please enter Username address</div>
+    <ion-row class="marginFix header">
+        <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
+        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12" class="images">
+            <h1>Welcome To Signup</h1>
+            <div *ngIf="this.sharedService.isUserAlreadyExsits">
+                <p class="error">User Already Exists</p>
             </div>
-            <div *ngIf="SignupForm.controls['userName'].errors.pattern">
-              <div class="errorMsg">Username needs to be between 8 and 20 characters long</div>
-            </div>
-          </div>
-        </div>
-        <div class="password"><label class="label" for="password">Password</label>
-          <span class="passEye"><input class="marginFix" id="password" autocomplete="off"
+        </ion-col>
+        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12"></ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
+        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+            <form class="signup" [formGroup]="SignupForm">
+                <div class="userName"><label class="label" for="userName">Username</label>
+                    <input class="marginFix" id="userName" autocomplete="off" placeholder="Enter your username" type="text" name="userName" formControlName="userName">
+                    <div class="errorMsg" *ngIf="SignupForm.controls['userName'].invalid && (SignupForm.controls['userName'].dirty || SignupForm.controls['userName'].touched)">
+                        <div *ngIf="SignupForm.controls['userName'].errors.required">
+                            <div class="errorMsg">Please enter Username address</div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['userName'].errors.pattern">
+                            <div class="errorMsg">Username needs to be between 8 and 20 characters long</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="password"><label class="label" for="password">Password</label>
+                    <span class="passEye"><input class="marginFix" id="password" autocomplete="off"
               placeholder="Create a password" [type]="fieldTextType ? 'text' : 'password'" name="password"
               formControlName="password">
             <i class="eyeIcon fa" [ngClass]="{
@@ -36,22 +34,20 @@
               'fa-eye': fieldTextType
             }" (click)="toggleFieldTextType()"></i>
           </span>
-          <div class="errorMsg"
-            *ngIf="SignupForm.controls['password'].invalid && (SignupForm.controls['password'].dirty || SignupForm.controls['password'].touched)">
-            <div *ngIf="SignupForm.controls['password'].errors.required">
-              <div class="errorMsg">Please enter password</div>
-            </div>
-            <div *ngIf="SignupForm.controls['password'].errors.pattern">
-              <div class="errorMsg">contains atleast 8
-                characters with one special, number, uppercase & lowercase </div>
-            </div>
-            <div *ngIf="SignupForm.controls['password'].errors.maxlength">
-              <div class="errorMsg">Password must be 16 characters or less</div>
-            </div>
-          </div>
-        </div>
-        <div class="password"><label class="label" for="confirmPassword">Confirm Password</label>
-          <span class="passEye"><input class="marginFix" id="confirmPassword" autocomplete="off"
+                    <div class="errorMsg" *ngIf="SignupForm.controls['password'].invalid && (SignupForm.controls['password'].dirty || SignupForm.controls['password'].touched)">
+                        <div *ngIf="SignupForm.controls['password'].errors.required">
+                            <div class="errorMsg">Please enter password</div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['password'].errors.pattern">
+                            <div class="errorMsg">contains atleast 8 characters with one special, number, uppercase & lowercase </div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['password'].errors.maxlength">
+                            <div class="errorMsg">Password must be 16 characters or less</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="password"><label class="label" for="confirmPassword">Confirm Password</label>
+                    <span class="passEye"><input class="marginFix" id="confirmPassword" autocomplete="off"
               placeholder="Create a confirm password" [type]="fieldType ? 'text' : 'password'" name="confirmPassword"
               formControlName="confirmPassword">
             <i class="eyeIcon fa" [ngClass]="{
@@ -59,132 +55,119 @@
               'fa-eye': fieldType
             }" (click)="toggleFieldType()"></i>
           </span>
-          <div class="errorMsg"
-            *ngIf="SignupForm.controls['confirmPassword'].invalid && (SignupForm.controls['confirmPassword'].dirty || SignupForm.controls['confirmPassword'].touched)">
-            <div *ngIf="SignupForm.controls['confirmPassword'].errors.required">
-              <div class="errorMsg">Please enter Confirm Password</div>
-            </div>
-            <div *ngIf="SignupForm.controls['confirmPassword'].errors.pattern">
-              <div class="errorMsg">contains atleast 8
-                characters with one special, number, uppercase & lowercase </div>
-            </div>
-            <div *ngIf="SignupForm.controls['confirmPassword'].errors.maxlength">
-              <div class="errorMsg">confirmPassword must be 16 characters or less</div>
-            </div>
-            <div class="errorMsg" *ngIf="SignupForm.controls['confirmPassword'].errors.MustMatch">
-              <div class="errorMsg">The password and confirmation password do not match.</div>
-            </div>
-          </div>
-        </div>
-        <div class="firstName"><label class="label" for="firstName">First Name</label>
-          <input class="marginFix" id="firstName" autocomplete="off" placeholder="Enter your first name" type="text"
-            name="firstName" formControlName="firstName">
-          <div class="errorMsg"
-            *ngIf="SignupForm.controls['firstName'].invalid && (SignupForm.controls['firstName'].dirty || SignupForm.controls['firstName'].touched)">
-            <div *ngIf="SignupForm.controls['firstName'].errors.required">
-              <div class="errorMsg">This is a required Fields</div>
-            </div>
-            <div *ngIf="SignupForm.controls['firstName'].errors.pattern">
-              <div class="errorMsg">Only Alphanumeric characters are allowed</div>
-            </div>
-            <div *ngIf="SignupForm.controls['firstName'].errors.maxlength">
-              <div class="errorMsg">Maximum 20 alphabetical characters Long Only</div>
-            </div>
-            <div *ngIf="SignupForm.controls['firstName'].errors.minlength">
-              <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
-            </div>
-          </div>
-        </div>
-        <div class="lastName"><label class="label" for="lastName">Last Name</label>
-          <input class="marginFix" id="lastName" autocomplete="off" placeholder="Enter your last name" type="text"
-            name="lastName" formControlName="lastName">
-          <div class="errorMsg"
-            *ngIf="SignupForm.controls['lastName'].invalid && (SignupForm.controls['lastName'].dirty || SignupForm.controls['lastName'].touched)">
-            <div *ngIf="SignupForm.controls['lastName'].errors.required">
-              <div class="errorMsg">This is a required Fields</div>
-            </div>
-            <div *ngIf="SignupForm.controls['lastName'].errors.pattern">
-              <div class="errorMsg">Only Alphanumeric characters are allowed</div>
-            </div>
-            <div *ngIf="SignupForm.controls['lastName'].errors.maxlength">
-              <div class="errorMsg"> Maximum 20 alphabetical characters Long Only</div>
-            </div>
-            <div *ngIf="SignupForm.controls['lastName'].errors.minlength">
-              <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
-            </div>
-          </div>
-        </div>
-        <div class="emailId"><label class="label" for="emailId">Email Id</label>
-          <input class="marginFix" id="emailId" autocomplete="off" placeholder="Enter your email id" type="text"
-            name="emailId" formControlName="emailId">
-          <div class="errorMsg"
-            *ngIf="SignupForm.controls['emailId'].invalid && (SignupForm.controls['emailId'].dirty || SignupForm.controls['emailId'].touched)">
-            <div *ngIf="SignupForm.controls['emailId'].errors.required">
-              <div class="errorMsg">Please enter email address</div>
-            </div>
-            <div class="errorMsg" *ngIf="SignupForm.controls['emailId'].errors.pattern">Invaild email Address</div>
-          </div>
-        </div>
-        <div class="phoneNumber"><label class="label" for="phoneNumber">Phone Number</label>
-          <div class="phoneFlex">
-            <label class="ccode"><b>USA(+1)</b></label>
-            <span> <input class="marginFix" id="phoneNumber" autocomplete="off" placeholder="Enter your phone number"
+                    <div class="errorMsg" *ngIf="SignupForm.controls['confirmPassword'].invalid && (SignupForm.controls['confirmPassword'].dirty || SignupForm.controls['confirmPassword'].touched)">
+                        <div *ngIf="SignupForm.controls['confirmPassword'].errors.required">
+                            <div class="errorMsg">Please enter Confirm Password</div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['confirmPassword'].errors.pattern">
+                            <div class="errorMsg">contains atleast 8 characters with one special, number, uppercase & lowercase </div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['confirmPassword'].errors.maxlength">
+                            <div class="errorMsg">confirmPassword must be 16 characters or less</div>
+                        </div>
+                        <div class="errorMsg" *ngIf="SignupForm.controls['confirmPassword'].errors.MustMatch">
+                            <div class="errorMsg">The password and confirmation password do not match.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="firstName"><label class="label" for="firstName">First Name</label>
+                    <input class="marginFix" id="firstName" autocomplete="off" placeholder="Enter your first name" type="text" name="firstName" formControlName="firstName">
+                    <div class="errorMsg" *ngIf="SignupForm.controls['firstName'].invalid && (SignupForm.controls['firstName'].dirty || SignupForm.controls['firstName'].touched)">
+                        <div *ngIf="SignupForm.controls['firstName'].errors.required">
+                            <div class="errorMsg">This is a required Fields</div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['firstName'].errors.pattern">
+                            <div class="errorMsg">Only Alphanumeric characters are allowed</div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['firstName'].errors.maxlength">
+                            <div class="errorMsg">Maximum 20 alphabetical characters Long Only</div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['firstName'].errors.minlength">
+                            <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lastName"><label class="label" for="lastName">Last Name</label>
+                    <input class="marginFix" id="lastName" autocomplete="off" placeholder="Enter your last name" type="text" name="lastName" formControlName="lastName">
+                    <div class="errorMsg" *ngIf="SignupForm.controls['lastName'].invalid && (SignupForm.controls['lastName'].dirty || SignupForm.controls['lastName'].touched)">
+                        <div *ngIf="SignupForm.controls['lastName'].errors.required">
+                            <div class="errorMsg">This is a required Fields</div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['lastName'].errors.pattern">
+                            <div class="errorMsg">Only Alphanumeric characters are allowed</div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['lastName'].errors.maxlength">
+                            <div class="errorMsg"> Maximum 20 alphabetical characters Long Only</div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['lastName'].errors.minlength">
+                            <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="emailId"><label class="label" for="emailId">Email Id</label>
+                    <input class="marginFix" id="emailId" autocomplete="off" placeholder="Enter your email id" type="text" name="emailId" formControlName="emailId">
+                    <div class="errorMsg" *ngIf="SignupForm.controls['emailId'].invalid && (SignupForm.controls['emailId'].dirty || SignupForm.controls['emailId'].touched)">
+                        <div *ngIf="SignupForm.controls['emailId'].errors.required">
+                            <div class="errorMsg">Please enter email address</div>
+                        </div>
+                        <div class="errorMsg" *ngIf="SignupForm.controls['emailId'].errors.pattern">Invaild email Address</div>
+                    </div>
+                </div>
+                <div class="phoneNumber"><label class="label" for="phoneNumber">Phone Number</label>
+                    <div class="phoneFlex">
+                        <label class="ccode"><b>USA(+1)</b></label>
+                        <span> <input class="marginFix" id="phoneNumber" autocomplete="off" placeholder="Enter your phone number"
                 type="number" name="phoneNumber" formControlName="phoneNumber"
                 oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 maxlength="10"> </span>
-          </div>
-          <div class="errorMsg"
-            *ngIf="SignupForm.controls['phoneNumber'].invalid && (SignupForm.controls['phoneNumber'].dirty || SignupForm.controls['phoneNumber'].touched)">
-            <div *ngIf="SignupForm.controls['phoneNumber'].errors.required">
-              <div class="errorMsg">This is a required Fields</div>
-            </div>
-            <div *ngIf="SignupForm.controls['phoneNumber'].errors.pattern">
-              <div class="errorMsg">Invaild Mobile Number</div>
-            </div>
-          </div>
-        </div>
-        <div class="addressLine1"><label class="label" for="addressLine1">Address </label>
-          <input class="marginFix" id="addressLine1	" autocomplete="off" placeholder="Enter your address " type="text"
-            name="addressLine1" formControlName="addressLine1">
-          <div class="errorMsg"
-            *ngIf="SignupForm.controls['addressLine1'].invalid && (SignupForm.controls['addressLine1'].dirty || SignupForm.controls['addressLine1'].touched)">
-            <div *ngIf="SignupForm.controls['addressLine1'].errors.required">
-              <div class="errorMsg">This is a required Fields</div>
-            </div>
-            <div *ngIf="SignupForm.controls['addressLine1'].errors.pattern">
-              <div class="errorMsg">Only alphanumeric characters are allowed</div>
-            </div>
-            <div *ngIf="SignupForm.controls['addressLine1'].errors.minlength">
-              <div class="errorMsg">Address contains atleast 10 characters</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <ion-row>
-            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
-              <div class="city"><label class="label" for="city">City</label>
-                <input class="marginFix" id="city" autocomplete="off" placeholder="Enter your city" type="text"
-                  name="city" formControlName="city">
-                <div class="errorMsg"
-                  *ngIf="SignupForm.controls['city'].invalid && (SignupForm.controls['city'].dirty || SignupForm.controls['city'].touched)">
-                  <div *ngIf="SignupForm.controls['city'].errors.required">
-                    <div class="errorMsg">This is a required Fields</div>
-                  </div>
-                  <div *ngIf="SignupForm.controls['city'].errors.pattern">
-                    <div class="errorMsg">Only Alphanumeric characters are allowed</div>
-                  </div>
-                  <div *ngIf="SignupForm.controls['city'].errors.maxlength">
-                    <div class="errorMsg">Maximum 35 alphabetical characters Long Only</div>
-                  </div>
-                  <div *ngIf="SignupForm.controls['city'].errors.minlength">
-                    <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
-                  </div>
+                    </div>
+                    <div class="errorMsg" *ngIf="SignupForm.controls['phoneNumber'].invalid && (SignupForm.controls['phoneNumber'].dirty || SignupForm.controls['phoneNumber'].touched)">
+                        <div *ngIf="SignupForm.controls['phoneNumber'].errors.required">
+                            <div class="errorMsg">This is a required Fields</div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['phoneNumber'].errors.pattern">
+                            <div class="errorMsg">Invaild Mobile Number</div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </ion-col>
-            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
-              <div class="state"><label class="label" for="state">State</label>
-                <select formControlName="state" (change)="selectchangehandler($event)">
+                <div class="addressLine1"><label class="label" for="addressLine1">Address </label>
+                    <input class="marginFix" id="addressLine1	" autocomplete="off" placeholder="Enter your address " type="text" name="addressLine1" formControlName="addressLine1">
+                    <div class="errorMsg" *ngIf="SignupForm.controls['addressLine1'].invalid && (SignupForm.controls['addressLine1'].dirty || SignupForm.controls['addressLine1'].touched)">
+                        <div *ngIf="SignupForm.controls['addressLine1'].errors.required">
+                            <div class="errorMsg">This is a required Fields</div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['addressLine1'].errors.pattern">
+                            <div class="errorMsg">Only alphanumeric characters are allowed</div>
+                        </div>
+                        <div *ngIf="SignupForm.controls['addressLine1'].errors.minlength">
+                            <div class="errorMsg">Address contains atleast 10 characters</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <ion-row>
+                        <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
+                            <div class="city"><label class="label" for="city">City</label>
+                                <input class="marginFix" id="city" autocomplete="off" placeholder="Enter your city" type="text" name="city" formControlName="city">
+                                <div class="errorMsg" *ngIf="SignupForm.controls['city'].invalid && (SignupForm.controls['city'].dirty || SignupForm.controls['city'].touched)">
+                                    <div *ngIf="SignupForm.controls['city'].errors.required">
+                                        <div class="errorMsg">This is a required Fields</div>
+                                    </div>
+                                    <div *ngIf="SignupForm.controls['city'].errors.pattern">
+                                        <div class="errorMsg">Only Alphanumeric characters are allowed</div>
+                                    </div>
+                                    <div *ngIf="SignupForm.controls['city'].errors.maxlength">
+                                        <div class="errorMsg">Maximum 35 alphabetical characters Long Only</div>
+                                    </div>
+                                    <div *ngIf="SignupForm.controls['city'].errors.minlength">
+                                        <div class="errorMsg"> Minimum 3 alphabetical letters are Required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ion-col>
+                        <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
+                            <div class="state"><label class="label" for="state">State</label>
+                                <select formControlName="state" (change)="selectchangehandler($event)">
                   <option value="">Select state</option>
                   <option value="AL">Alabama (AL)</option>
                   <option value="AK">Alaska (AK)</option>
@@ -238,34 +221,30 @@
                   <option value="WI">Wisconsin</option>
                   <option value="WY">Wyoming</option>
                 </select>
-                <div class="errorMsg"
-                  *ngIf="SignupForm.controls['state'].invalid && (SignupForm.controls['state'].dirty || SignupForm.controls['state'].touched)">
-                  <div class="errorMsg" *ngIf="state.errors?.required">
-                    Please select your state
-                  </div>
+                                <div class="errorMsg" *ngIf="SignupForm.controls['state'].invalid && (SignupForm.controls['state'].dirty || SignupForm.controls['state'].touched)">
+                                    <div class="errorMsg" *ngIf="state.errors?.required">
+                                        Please select your state
+                                    </div>
+                                </div>
+                            </div>
+                        </ion-col>
+                        <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
+                            <div class="zipCode"><label class="label" for="zipCode">Zip Code</label>
+                                <input (keypress)="restrictNumeric($event)" class="marginFix" id="zipCode" autocomplete="off" placeholder="Enter your zip Code" type="number" name="zipCode" formControlName="zipCode" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                    maxlength="5">
+                                <div class="errorMsg" *ngIf="SignupForm.controls['zipCode'].invalid && (SignupForm.controls['zipCode'].dirty || SignupForm.controls['zipCode'].touched)">
+                                    <div *ngIf="SignupForm.controls['zipCode'].errors.required">
+                                        <div class="errorMsg">This is a required Fields</div>
+                                    </div>
+                                    <div *ngIf="SignupForm.controls['zipCode'].errors.pattern">
+                                        <div class="errorMsg">Invaild Zip Code</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ion-col>
+                    </ion-row>
                 </div>
-              </div>
-            </ion-col>
-            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
-              <div class="zipCode"><label class="label" for="zipCode">Zip Code</label>
-                <input class="marginFix" id="zipCode" autocomplete="off" placeholder="Enter your zip Code" type="number"
-                  name="zipCode" formControlName="zipCode" 
-                  oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                  maxlength="5">
-                <div class="errorMsg"
-                  *ngIf="SignupForm.controls['zipCode'].invalid && (SignupForm.controls['zipCode'].dirty || SignupForm.controls['zipCode'].touched)">
-                  <div *ngIf="SignupForm.controls['zipCode'].errors.required">
-                    <div class="errorMsg">This is a required Fields</div>
-                  </div>
-                  <div *ngIf="SignupForm.controls['zipCode'].errors.pattern">
-                    <div class="errorMsg">Invaild Zip Code</div>
-                  </div>
-                </div>
-              </div>
-            </ion-col>
-          </ion-row>
-        </div>
-        <!--<div class="country"><label class="label" for="country">Country</label>
+                <!--<div class="country"><label class="label" for="country">Country</label>
           <input class="marginFix" id="country" autocomplete="off" placeholder="Enter your country" type="text"
             name="country" formControlName="country">
             <div class="errorMsg"
@@ -284,23 +263,22 @@
             </div>
           </div>
         </div>-->
-        <button [ngClass]="{'validButton': SignupForm.valid, 'inValidButton': !SignupForm.valid}"
-          class="marginFix button" [disabled]="!SignupForm.valid" (click)="goToLogin()">Sign Up</button>
-      </form>
-    </ion-col>
-    <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
-    <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-      <div class="account">
-        <p>Already have an account?<a routerLink="/login">Log in</a>.</p>
-      </div>
-      <div class="contact">
-        <p>If you need any other help, please contact the helpdesk.</p>
-      </div>
-    </ion-col>
-    <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
-  </ion-row>
+                <button [ngClass]="{'validButton': SignupForm.valid, 'inValidButton': !SignupForm.valid}" class="marginFix button" [disabled]="!SignupForm.valid" (click)="goToLogin()">Sign Up</button>
+            </form>
+        </ion-col>
+        <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
+        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+            <div class="account">
+                <p>Already have an account?<a routerLink="/login">Log in</a>.</p>
+            </div>
+            <div class="contact">
+                <p>If you need any other help, please contact the helpdesk.</p>
+            </div>
+        </ion-col>
+        <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
+    </ion-row>
 </div>
 <app-footer></app-footer>

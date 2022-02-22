@@ -16,7 +16,6 @@ import { AuthInterceptor } from './Service/auth.interceptor';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +26,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     DashboardComponent,
     FooterComponent,
     RateTranistComponent,
-    ForgotPasswordComponent,
-    ChangePasswordComponent
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

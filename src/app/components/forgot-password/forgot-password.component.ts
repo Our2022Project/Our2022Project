@@ -27,9 +27,8 @@ export class ForgotPasswordComponent implements OnInit {
 
   forgotPass(): void {
     this.showTag = !this.showTag;
-    this.initializeForm();
     this.sharedService.forgotPassword(this.forgotPassword.controls['email'].value).subscribe(data => {
     });
-
+    this.initializeForm();
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
 import { RegisterData, userAddressRequestList } from 'src/app/Models/SignUp';
 
@@ -118,4 +118,9 @@ export class SignupComponent implements OnInit {
   get f() {
     return this.SignupForm.controls
   }
+
+  restrictNumeric(event: any): any {
+    return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57;
+  }
+  
 }

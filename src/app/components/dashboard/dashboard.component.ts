@@ -25,5 +25,8 @@ export class DashboardComponent implements OnInit {
   ship(): void {
     this.sharedService.displayRateSection = false;
   }
+  location(): void {
+    this.sharedService.displayRateSection = false;
+  }
 
 }

@@ -22,6 +22,7 @@ export class RateTranistComponent implements OnInit {
   rateChartResponce?: RateReply;
   drop: boolean[] = [];
   errorMsg: string = '';
+  resultFound: Boolean = true;
 
   ngOnInit(): void {
     this.initializeForm();
@@ -49,6 +50,7 @@ export class RateTranistComponent implements OnInit {
     this.addressMapping();
     this.shredService.rate(this.fromAddress, this.toAddress).subscribe(data => {
       this.spinner.hide();
+      this.resultFound = false;
       this.rateChartResponce = data;
       if(data.highestSeverity === 'SUCCESS') {
         this.showRateUI = true;
@@ -64,8 +66,15 @@ export class RateTranistComponent implements OnInit {
     });
   }
 
-  dropbtn(i: number) {
+  dropbtn(i: number): void {
     this.drop[i] = !this.drop[i];
+  }
+
+  searchNewLocation(): void {
+    //this.initializeForm();
+    this.resultFound = true;
+    this.showRateUI = false;
+    this.showError = false;
   }
 
   addressMapping(): void {
@@ -108,6 +117,10 @@ clearField(): void {
   this.initializeForm();
   this.showRateUI = false;
   this.showError = false;
+}
+
+restrictNumeric(event: any): any {
+  return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57;
 }
 
 } 
