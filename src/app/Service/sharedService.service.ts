@@ -14,6 +14,7 @@ export class sharedService {
     token:string = '';
     userName:string = '';
     displayRateSection:boolean = false;
+    displaytrackSection:boolean=false;
 
     httpOptions = {
         headers: new HttpHeaders({

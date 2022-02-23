@@ -16,17 +16,21 @@ export class DashboardComponent implements OnInit {
 
   checkrate(): void {
     this.sharedService.displayRateSection = true;
+    this.sharedService.displaytrackSection=false;
   }
 
   track(): void {
     this.sharedService.displayRateSection = false;
+    this.sharedService.displaytrackSection=true;
   }
 
   ship(): void {
     this.sharedService.displayRateSection = false;
+    this.sharedService.displaytrackSection=false;
   }
   location(): void {
     this.sharedService.displayRateSection = false;
+    this.sharedService.displaytrackSection=false;
   }
 
 }

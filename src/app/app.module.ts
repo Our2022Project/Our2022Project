@@ -14,9 +14,10 @@ import { sharedService } from './Service/sharedService.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './Service/auth.interceptor';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { TrackingComponent } from './tracking/tracking.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     FooterComponent,
     RateTranistComponent,
     ForgotPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    TrackingComponent
   ],
   imports: [
     BrowserModule,

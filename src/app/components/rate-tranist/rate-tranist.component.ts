@@ -13,7 +13,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class RateTranistComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, public shredService:sharedService, public spinner:NgxSpinnerService) { }
+  constructor(private router: Router, private fb: FormBuilder, public sharedService:sharedService, public spinner:NgxSpinnerService) { }
   checkRateForm: any;
   showRateUI: Boolean = false;
   showError: Boolean = false;
@@ -48,7 +48,7 @@ export class RateTranistComponent implements OnInit {
     this.spinner.show();
     this.drop=[];
     this.addressMapping();
-    this.shredService.rate(this.fromAddress, this.toAddress).subscribe(data => {
+    this.sharedService.rate(this.fromAddress, this.toAddress).subscribe(data => {
       this.spinner.hide();
       this.resultFound = false;
       this.rateChartResponce = data;

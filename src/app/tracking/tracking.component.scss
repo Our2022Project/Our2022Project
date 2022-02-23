@@ -1,0 +1,26 @@
+ion-input{
+    border:1px solid #000;
+    border-radius: 5px;
+    background: #fafafa;
+    font-size: 20px;
+    font-weight: 300;
+    height: 38px;
+    
+}
+ion-button{
+    margin-left:12px;
+    font-size: 20px;
+    --background:orange;
+    height: 38px;
+}
+.marginFix{
+    margin-top: 2%;
+}
+@media screen and (max-width: 768px){
+    ion-button{
+        width: 100%;
+        
+        margin: 2% 0;
+    
+    }
+}
