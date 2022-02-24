@@ -43,9 +43,11 @@ export class HeaderComponent implements OnInit {
 
   rateCard() : void {
     this.sharedService.displayRateSection = true;
+    this.sharedService.displaytrackSection = false;
   }
   track() : void {
     this.sharedService.displaytrackSection = true;
+    this.sharedService.displayRateSection = false;
   }
 
   gotToLoginOrDashboard(): void {
