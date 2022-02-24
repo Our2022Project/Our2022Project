@@ -296,11 +296,11 @@
                             <dt>
                                 <div>ARRIVES ON</div>
                             </dt>
-
+                            <dd> {{ service?.deliveryDayOfWeek }}, {{ getMonthDate(service?.deliveryTimestamp) }}</dd>
                             <dt>
                                 <div class="success">{{ service?.serviceType }}</div>
                             </dt>
-                            <dd>Wed, Feb 16</dd>
+
                         </dl>
                     </div>
                     <div class="secondDIv" *ngFor="let ratedShipmentDetail of service?.ratedShipmentDetails">
@@ -310,8 +310,9 @@
                                     <dt>
                                         <div>DELIVERED BY</div>
                                     </dt>
-                                    <dd>8:00 pm</dd>
-                                    <dd> {{ ratedPackage?.packageRateDetail?.rateType}}</dd>
+                                    <dd>{{ getHoursMinute(service?.deliveryTimestamp) }}</dd>
+                                    <!--dd> {{ ratedPackage?.packageRateDetail?.rateType}}</dd-->
+                                    <dd> {{ service?.serviceDescription?.names?.[0]?.value }}</dd>
                                 </dl>
                             </div>
                             <div><button class="pricebtn">${{ ratedPackage?.packageRateDetail?.netFedExCharge?.amount

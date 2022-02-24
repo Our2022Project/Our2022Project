@@ -13,7 +13,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class RateTranistComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, public sharedService:sharedService, public spinner:NgxSpinnerService) { }
+  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public spinner: NgxSpinnerService) { }
   checkRateForm: any;
   showRateUI: Boolean = false;
   showError: Boolean = false;
@@ -46,17 +46,23 @@ export class RateTranistComponent implements OnInit {
 
   checkRate() {
     this.spinner.show();
-    this.drop=[];
+    this.drop = [];
     this.addressMapping();
     this.sharedService.rate(this.fromAddress, this.toAddress).subscribe(data => {
       this.spinner.hide();
       this.resultFound = false;
       this.rateChartResponce = data;
-      if(data.highestSeverity === 'SUCCESS') {
-        this.showRateUI = true;
-        this.showError = false;
-        for (let i = 0; i < data.rateReplyDetails.length; i++) {
-          this.drop[i] = false;
+      if (data.highestSeverity === 'SUCCESS' || data.highestSeverity === 'NOTE' || data.highestSeverity === 'WARNING') {
+        if (data.rateReplyDetails.length) {
+          this.showRateUI = true;
+          this.showError = false;
+          for (let i = 0; i < data.rateReplyDetails.length; i++) {
+            this.drop[i] = false;
+          }
+        } else {
+          this.errorMsg = data.notifications[0].message;
+          this.showRateUI = false;
+          this.showError = true;
         }
       } else {
         this.errorMsg = data.notifications[0].message;
@@ -93,34 +99,63 @@ export class RateTranistComponent implements OnInit {
   }
 
 
-selectFromstate:string='';
-selectFromState(event:any){
-  this.Fromstate.setValue(event.target.value, {
-    onlySelf: true
-  })
-}
-get Fromstate() {
-  return this.checkRateForm.get('Fromstate');
-}
+  selectFromstate: string = '';
+  selectFromState(event: any) {
+    this.Fromstate.setValue(event.target.value, {
+      onlySelf: true
+    })
+  }
+  get Fromstate() {
+    return this.checkRateForm.get('Fromstate');
+  }
 
-selectTostate: string='';
-selectToState(event:any){
-  this.Tostate.setValue(event.target.value, {
-    onlySelf: true
-  })
-}
-get Tostate() {
-  return this.checkRateForm.get('Tostate');
-}
+  selectTostate: string = '';
+  selectToState(event: any) {
+    this.Tostate.setValue(event.target.value, {
+      onlySelf: true
+    })
+  }
+  get Tostate() {
+    return this.checkRateForm.get('Tostate');
+  }
 
-clearField(): void {
-  this.initializeForm();
-  this.showRateUI = false;
-  this.showError = false;
-}
+  clearField(): void {
+    this.initializeForm();
+    this.showRateUI = false;
+    this.showError = false;
+  }
 
-restrictNumeric(event: any): any {
-  return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57;
-}
+  restrictNumeric(event: any): any {
+    return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57;
+  }
+
+  getDateTime(servcieDate: string): string {
+    var arrivesOn = new Date(servcieDate).toLocaleDateString("en-US")
+    return arrivesOn;
+  }
+
+  getMonthDate(servcieDate: any): string {
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    var date = new Date(servcieDate * 1000);
+
+    return months[date.getMonth()] + " " + date.getDate();
+  }
+
+  getHoursMinute(servcieDate: any): string {
+
+    var date = new Date(servcieDate * 1000);
+    // Hours part from the timestamp
+    var hours = date.getHours();
+    // Minutes part from the timestamp
+    var minutes = "0" + date.getMinutes();
+    // Seconds part from the timestamp
+    var seconds = "0" + date.getSeconds();
+
+    // Will display time in 10:30:23 format
+    var formattedTime = hours + ':' + minutes.substr(-2);
+
+    return formattedTime;
+  }
 
 } 
