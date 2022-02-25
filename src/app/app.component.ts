@@ -12,6 +12,11 @@ export class AppComponent {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.router.navigateByUrl(`/login`);
+    if(sessionStorage.getItem("token") === null){
+      this.router.navigateByUrl(`/login`);
+    }else{
+      this.router.navigateByUrl(`/dashboard`);
+    }
   }
+  
 }
