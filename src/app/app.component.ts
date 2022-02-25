@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { sharedService } from './Service/sharedService.service';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,13 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'TrackingService';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private sharedService:sharedService) { }
 
   ngOnInit(): void {
-    if(sessionStorage.getItem("token") === null){
+  if(sessionStorage.getItem("token") === null){
       this.router.navigateByUrl(`/login`);
     }else{
+      this.sharedService.token = JSON.stringify(sessionStorage.getItem("token"));
       this.router.navigateByUrl(`/dashboard`);
     }
   }
