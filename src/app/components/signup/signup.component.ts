@@ -40,7 +40,7 @@ export class SignupComponent implements OnInit {
       addressLine1: ['', [Validators.required]],
       city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       state: ['', [Validators.required]],
-      zipCode: ['', [Validators.required, Validators.pattern("[0-9]{5}")]],
+      zipCode: ['', [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
       Phonecode: [null,],
     }, {
       validators: this.MustMatch('password', 'confirmPassword')

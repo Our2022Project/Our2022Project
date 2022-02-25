@@ -1,94 +1,104 @@
 * {
     box-sizing: border-box;
     color: #000;
-  }
-  
-  body {
+}
+
+body {
     background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/12005/agsquare.png);
     padding-top: 20%;
-  }
-  .main{
+}
+
+.main {
     margin: 0 0 80px 0;
-  }
-  
-  h1,
-  .signup,
-  .account,
-  .contact{
-    width:80%;
+}
+
+h1,
+.signup,
+.account,
+.contact {
+    width: 80%;
     margin: 0 auto;
     font-family: 'Courier New', Courier, monospace;
-  }
-  .marginFix {
+}
+
+.marginFix {
     margin-top: 1%;
-  }
-  .header{
+}
+
+.header {
     text-align: center;
     margin: 80px 0 0 0;
-  }
-  h1 {
+}
+
+h1 {
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     padding: 10px;
     font-size: 24px;
     line-height: 1.4;
-  }
-  
-  .signup {
+}
+
+.signup {
     background-color: #e5e5e5;
     padding: 10px;
     margin-bottom: 10px;
+}
 
-    }
-  .signup > div {
+.signup>div {
     padding: 5px 0;
-  }
-  input[type="text"]{
+}
+
+input[type="text"] {
     border: 1px solid #e5e5e5;
     background-color: #fff;
     padding: 5px;
     border-radius: 6px;
     width: 100%;
-  }
-  .password input[type="text"]{
+}
+
+.password input[type="text"] {
     width: 100%;
     border: none;
     margin-top: 0;
-  }
-  input[type="password"] {
+}
+
+input[type="password"] {
     border: none;
     background-color: #fff;
     padding: 5px;
     margin-top: 0;
     width: 100%;
-  }
-  
-  .password .passEye{
+}
+
+.password .passEye {
     display: flex;
     padding: 1px;
     background: #fff;
     margin-top: 1.5%;
     border-radius: 6px;
-  }
+}
 
-  .eyeIcon{
+.eyeIcon {
     padding: 5px 10px 5px 10px;
     border-radius: 6px;
     border: 1px solid black;
     background: #e5e5e5;
-  }
-  .errorMsg{
+}
+
+.errorMsg {
     font-size: 12px;
     color: red;
     padding: 5px 0 0 0;
-  }
-  .actions a {
-    font-size: 80%;
-  }
+}
 
-  .button {
+.actions a {
+    font-size: 80%;
+}
+
+.button {
     width: 100%;
-    background-color: #660099; /* Green */
+    background-color: #660099;
+    /* Green */
     border: none;
     border-radius: 6px;
     color: #fff;
@@ -98,97 +108,122 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-  }
-  .account{
+}
+
+.account {
     background-color: #e5e5e5;
     text-align: center;
     padding: 10px;
-  }
-  .account p {
+}
+
+.account p {
     margin: 0;
     font-weight: bolder;
     font-size: 15px;
-  }
-  .account a{
+}
+
+.account a {
     text-decoration: none;
     color: #660099;
-  }
-  .contact{
+}
+
+.contact {
     text-align: center;
     padding: 10px;
     margin-bottom: 10px;
     font-weight: bolder;
     color: #000;
-  }
-  .label{
+}
+
+.label {
     font-weight: bolder;
-  }
-  .validButton {
+}
+
+.validButton {
     cursor: pointer;
     background-color: green;
-  }
-  .inValidButton {
+}
+
+.inValidButton {
     cursor: no-drop;
     background-color: grey;
-  }
+}
 
-  .error {
+.error {
     color: red;
     text-align: center;
     margin-bottom: 2%;
-  }
-.phoneFlex{
-  display: flex;
-  margin-top: 1%;
-}
-.phoneFlex select{
-  width: 90px;
-  margin-right: 10px;
-  border-radius: 6px;
-  border: none;
-}
-.phoneNumber span{
-  width: 100%;
-}
-.state select{
-  padding: 5px;
-  margin-top: 1%;
-  width: 100%;
-  border-radius: 6px;
-  border: none;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  
-    -webkit-appearance: none; 
-    margin: 0; 
+.phoneFlex {
+    display: flex;
+    margin-top: 1%;
 }
-input[type=number]{
-  border: 1px solid #e5e5e5;
-  background-color: #fff;
-  padding: 5px;
-  border-radius: 6px;
-  width: 100%;
+
+.phoneFlex select {
+    width: 90px;
+    margin-right: 10px;
+    border-radius: 6px;
+    border: none;
 }
-.city, .state{
-  margin: 0 10px 0 0;
+
+.phoneNumber span {
+    width: 100%;
 }
-.city, .state, .zipCode{
-  padding: 5px 0;
+
+.state select {
+    padding: 5px;
+    margin-top: 1%;
+    width: 100%;
+    border-radius: 6px;
+    border: none;
 }
-.zipCode input[type=number],
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=tel] {
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+input[type=number] {
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.city,
+.state {
+    margin: 0 10px 0 0;
+}
+
+.city,
+.state,
+.zipCode {
+    padding: 5px 0;
+}
+
+.zipCode input[type=tel],
 .city input[type=text],
-.state select
-{
-  margin-top: 5px;
+.state select {
+    margin-top: 5px;
 }
-.ccode{
-  color: #000000;
-  border: 1px solid #e5e5e5;
-  background-color: #fff;
-  padding: 4px;
-  border-radius: 6px;
-  width: 74px;
-  margin: 3px 10px 1px 0;
+
+.ccode {
+    color: #000000;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 4px;
+    border-radius: 6px;
+    width: 74px;
+    margin: 3px 10px 1px 0;
 }
