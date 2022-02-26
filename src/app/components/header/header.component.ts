@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
   
   goToLogin(): void {
     sessionStorage.removeItem("token");
+    sessionStorage.removeItem("userName");
     window.location.reload();
   }
 
