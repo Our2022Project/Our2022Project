@@ -16,8 +16,10 @@ export class AppComponent {
   if(sessionStorage.getItem("token") === null){
       this.router.navigateByUrl(`/login`);
     }else{
-      this.sharedService.token = JSON.stringify(sessionStorage.getItem("token"));
+      this.sharedService.token = JSON.parse(sessionStorage.getItem("token") || "");
+      this.sharedService.userName = JSON.parse(sessionStorage.getItem("userName") || "");
       this.router.navigateByUrl(`/dashboard`);
+      
     }
   }
   

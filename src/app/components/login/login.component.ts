@@ -42,6 +42,7 @@ export class LoginComponent {
         this.sharedService.isValidToken = false;
         this.router.navigateByUrl('/dashboard');
         sessionStorage.setItem("token", JSON.stringify(this.sharedService.token));
+        sessionStorage.setItem("userName", JSON.stringify(this.sharedService.userName));
       }
     },
       (error) => {
