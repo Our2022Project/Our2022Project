@@ -34,12 +34,12 @@ export class RateTranistComponent implements OnInit {
       FromAddress2: [''],
       Fromcity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       Fromstate: ['', [Validators.required]],
-      FromZIP: ['', [Validators.required, Validators.pattern("[0-9]{5}")]],
+      FromZIP: ['', [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
       ToAdd1: ['', [Validators.required, Validators.minLength(10)]],
       ToAdd2: [''],
       Tocity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       Tostate: ['', [Validators.required]],
-      Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}")]],
+      Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
     }
     );
   }

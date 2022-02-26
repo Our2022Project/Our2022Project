@@ -146,7 +146,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="zip"><input (keypress)="restrictNumeric($event)" type="number" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off" formControlName="FromZIP" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    <div class="zip"><input (keypress)="restrictNumeric($event)" type="tel" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off" formControlName="FromZIP" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             maxlength="5">
                         <div class="errorMsg" *ngIf="checkRateForm.controls['FromZIP'].invalid && (checkRateForm.controls['FromZIP'].dirty || checkRateForm.controls['FromZIP'].touched)">
                             <div *ngIf="checkRateForm.controls['FromZIP'].errors.required">
@@ -254,7 +254,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="zip"><input (keypress)="restrictNumeric($event)" type="number" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off" formControlName="Tozip" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    <div class="zip"><input (keypress)="restrictNumeric($event)" type="tel" placeholder="Enter your zip/postal" name="ZIP" autocomplete="off" formControlName="Tozip" oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             maxlength="5">
                         <div class="errorMsg" *ngIf="checkRateForm.controls['Tozip'].invalid && (checkRateForm.controls['Tozip'].dirty || checkRateForm.controls['Tozip'].touched)">
                             <div *ngIf="checkRateForm.controls['Tozip'].errors.required">
