@@ -10,15 +10,17 @@
     <ion-row>
         <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
         <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12">
-            <div class="heading">
+            <ion-col size="'12" class="heading">
                 <h1>Login in to Shipping Service</h1>
-            </div>
-            <div *ngIf="this.sharedService.isValidToken" class="heading error">
-                <p>Invalid Username/Password</p>
-            </div>
-            <div *ngIf="this.sharedService.isRegistrationDone" class="heading success">
-                <p>User Registered Successfully</p>
-            </div>
+            </ion-col>
+            <ion-row>
+                <ion-col size="'12" *ngIf="this.sharedService.isValidToken" class="heading error">
+                    <p>Invalid Username/Password</p>
+                </ion-col>
+                <ion-col size="'12" *ngIf="this.sharedService.isRegistrationDone" class="heading success">
+                    <p>User Registered Successfully</p>
+                </ion-col>
+            </ion-row>
         </ion-col>
         <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
     </ion-row>
@@ -26,39 +28,54 @@
         <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
         <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
             <form class="login" [formGroup]="loginForm">
-                <ion-row></ion-row>
+                <ion-row>
+                    <ion-col size="'12">
+                        <ion-label for="username">Username</ion-label>
+                        <ion-col size="'12">
+                            <ion-input class="marginFix" id="username" autocomplete="off"
+                                placeholder="Enter your username" type="text" name="username"
+                                formControlName="userName"></ion-input>
+                        </ion-col>
+                        <ion-col size="'12" class="errorMsg"
+                            *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)">
+                            <ion-col size="'12" *ngIf="loginForm.controls['userName'].errors.required">
+                                Please enter username
+                            </ion-col>
+                            <ion-col size="'12" *ngIf="loginForm.controls['userName'].errors.pattern">Username should be
+                                atleast characters
+                            </ion-col>
+                        </ion-col>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="password">
+                    <ion-col size="'12">
+                        <ion-label for="password">Password</ion-label>
 
-                <div><label for="username">Username</label>
-                    <input class="marginFix" id="username" autocomplete="off" placeholder="Enter your username" type="text" name="username" formControlName="userName">
-                    <div class="errorMsg" *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)">
-                        <div *ngIf="loginForm.controls['userName'].errors.required">
-                            Please enter username
-                        </div>
-                        <div *ngIf="loginForm.controls['userName'].errors.pattern">Username should be atleast characters</div>
-                    </div>
-                </div>
-                <div class="password"><label for="password">Password</label>
-
-                    <a class="forgotPassword" style="cursor: pointer;" (click)="forgot()">Forgot password?</a>
-                    <span class="passEye"><input class="marginFix showPass" id="password" autocomplete="off"
-              placeholder="Enter your password" [type]="fieldTextType ? 'text' : 'password'" name="password"
-              formControlName="password">
-            <i class="eyeIcon fa" [ngClass]="{
-            'fa-eye-slash': !fieldTextType,
-            'fa-eye': fieldTextType
-          }" (click)="toggleFieldTextType()"></i>
-          </span>
-                    <div class="errorMsg" *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
-                        <div *ngIf="loginForm.controls['password'].errors.required">
-                            Please enter password
-                        </div>
-                        <div *ngIf="loginForm.controls['password'].errors.pattern"> Password contains atleast 8 characters with one special, number, uppercase & lowercase </div>
-                    </div>
-
-                </div>
-                <button [ngClass]="{'validButton': loginForm.valid, 'inValidButton': !loginForm.valid}" class="button marginFix" [disabled]="!loginForm.valid" (click)="goToDashboard()">
-          Log in
-        </button>
+                        <a class="forgotPassword" style="cursor: pointer;" (click)="forgot()">Forgot password?</a>
+                        <span class="passEye">
+                            <ion-input class="marginFix showPass" id="password" autocomplete="off"
+                                placeholder="Enter your password" [type]="fieldTextType ? 'text' : 'password'"
+                                name="password" formControlName="password"></ion-input>
+                            <i class="eyeIcon fa" [ngClass]="{
+                                  'fa-eye-slash': !fieldTextType,
+                                  'fa-eye': fieldTextType
+                                   }" (click)="toggleFieldTextType()"></i>
+                        </span>
+                        <ion-col class="errorMsg"
+                            *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                            <ion-col *ngIf="loginForm.controls['password'].errors.required">
+                                Please enter password
+                            </ion-col>
+                            <ion-col *ngIf="loginForm.controls['password'].errors.pattern"> Password contains atleast 8
+                                characters with one special, number, uppercase & lowercase
+                            </ion-col>
+                        </ion-col>
+                    </ion-col>
+                </ion-row>
+                <ion-button [ngClass]="{'validButton': loginForm.valid, 'inValidButton': !loginForm.valid}"
+                    class="button marginFix" [disabled]="!loginForm.valid" (click)="goToDashboard()">
+                    Log in
+                </ion-button>
             </form>
         </ion-col>
         <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
@@ -66,12 +83,14 @@
     <ion-row>
         <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
         <ion-col size-xl="3" size-lg="12" size-md="12" size-sm="12" size-xs="12">
-            <div class="account">
-                <p>Don't have an account? <a routerLink="/signup">Sign Up</a>.</p>
-            </div>
-            <div class="contact">
-                <p>If you need any other help, please contact the helpdesk.</p>
-            </div>
+            <ion-row>
+                <ion-col size="'12" class="account">
+                    <p>Don't have an account? <a routerLink="/signup">Sign Up</a>.</p>
+                </ion-col>
+                <ion-col size="'12" class="contact">
+                    <p>If you need any other help, please contact the helpdesk.</p>
+                </ion-col>
+            </ion-row>
         </ion-col>
         <ion-col size-xl="4.5" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
     </ion-row>
