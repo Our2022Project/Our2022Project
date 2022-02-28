@@ -192,10 +192,10 @@
                                     <ion-label><b>USA(+1)</b></ion-label>
                                 </ion-col>
                                 <ion-col size-xl="10" size-lg="10" size-md="10" size-sm="9" size-xs="9">
-                                    <ion-input class="" id="phoneNumber" autocomplete="off"
-                                        placeholder="Enter your phone number" type="number" name="phoneNumber"
+                                    <ion-input  (keypress)="restrictNumeric($event)" class="" id="phoneNumber" autocomplete="off"
+                                        placeholder="Enter your phone number" type="tel" name="phoneNumber"
                                         formControlName="phoneNumber"
-                                        oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(1, this.maxLength);"
                                         maxlength="10"></ion-input>
                                 </ion-col>
                             </ion-row>
