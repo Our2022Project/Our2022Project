@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
 import { RegisterData, userAddressRequestList } from 'src/app/Models/SignUp';
 
@@ -47,14 +47,14 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  toggleFieldTextType() {
+  toggleFieldTextType(): void { 
     this.fieldTextType = !this.fieldTextType;
   }
-  toggleFieldType() {
+  toggleFieldType(): void { 
     this.fieldType = !this.fieldType;
   }
 
-  goToLogin() {
+  goToLogin(): void { 
     this.mappingData();
     this.sharedService.register(this.registerObj).subscribe(data => {
       this.sharedService.isRegistrationDone = false;
@@ -115,7 +115,7 @@ export class SignupComponent implements OnInit {
     }
 
   }
-  get f() {
+  get f(): void {
     return this.SignupForm.controls
   }
 

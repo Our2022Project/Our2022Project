@@ -14,13 +14,11 @@
             </form>
             <button class="searchBtnShow" style="cursor: pointer;" [class.search-BtnShow]="searchBox" (click)="search()"><i class="open fa fa-search" [class.search-open]="searchBox"></i><i
                     class="close fa fa-close" [class.search-close]="searchBox"></i></button>
-
         </a>
         <button (click)="rateCard()" class="navBtn" *ngIf="this.sharedService.token !== ''">Rate & Transit Times</button>
-        <button  (click)="track()"class="navBtn" *ngIf="this.sharedService.token !== ''">Track</button>
+        <button (click)="track()" class="navBtn" *ngIf="this.sharedService.token !== ''">Track</button>
         <button class="navBtn disabled" *ngIf="this.sharedService.token !== ''">Ship</button>
         <button class="navBtn disabled" *ngIf="this.sharedService.token !== ''">Location</button>
-
         <!--<a href="#" style="float: right; display: none;" class="Login-icon">Sign Up/Log In<span><i
                     class="fa fa-user-circle-o" style="font-size:17;"></i></span></a>-->
         <a class="icon" (click)="onclick()">
@@ -35,9 +33,6 @@
         <a *ngIf="this.sharedService.token !== ''" class="username" style="display: block;"><span><i class="fa fa-user"
                     style="font-size:17px; padding: 0 7px;"></i>{{this.sharedService.userName}}</span>
         </a>
-
-
-
     </div>
 </body>
 

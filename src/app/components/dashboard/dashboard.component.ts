@@ -8,7 +8,7 @@ import { sharedService } from 'src/app/Service/sharedService.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router: Router, public sharedService:sharedService) { }
+  constructor(private router: Router, public sharedService: sharedService) { }
 
   ngOnInit(): void {
 
@@ -16,21 +16,21 @@ export class DashboardComponent implements OnInit {
 
   checkrate(): void {
     this.sharedService.displayRateSection = true;
-    this.sharedService.displaytrackSection=false;
+    this.sharedService.displaytrackSection = false;
   }
 
   track(): void {
     this.sharedService.displayRateSection = false;
-    this.sharedService.displaytrackSection=true;
+    this.sharedService.displaytrackSection = true;
   }
 
   ship(): void {
     this.sharedService.displayRateSection = false;
-    this.sharedService.displaytrackSection=false;
+    this.sharedService.displaytrackSection = false;
   }
   location(): void {
     this.sharedService.displayRateSection = false;
-    this.sharedService.displaytrackSection=false;
+    this.sharedService.displaytrackSection = false;
   }
 
 }

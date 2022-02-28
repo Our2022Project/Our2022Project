@@ -1,44 +1,52 @@
-.main{
+.main {
     margin: 0 0 80px 0;
 }
-.mainContent{
+
+.mainContent {
     top: 48px;
     width: 100%;
     height: 415px;
     background-position: 50% 50%;
-    background-image: url(./../../../assets/img/leone-venter-mTkXSSScrzw-unsplash.jpg); 
+    background-image: url(./../../../assets/img/leone-venter-mTkXSSScrzw-unsplash.jpg);
     background-size: cover;
     box-sizing: border-box;
 }
-.mainContent .heading h1{
+
+.mainContent .heading h1 {
     text-align: center;
     padding: 75px 20px 30px 20px;
     margin: 50px 0 0 0;
     font-size: 45px;
-    font-family: "Roboto",sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 300;
     box-sizing: border-box;
 }
-.mainContent .links img{
+
+.mainContent .links img {
     width: 50px;
     height: 50px;
 }
-.mainContent .links button:focus img{
+
+.mainContent .links button:focus img {
     filter: invert(100%);
     -webkit-filter: invert(100%);
-  }
-.mainContent .links p{
+}
+
+.mainContent .links p {
     display: block;
     padding: 10px;
 }
-.mainContent .links ul{
+
+.mainContent .links ul {
     display: flex;
     align-items: center;
 }
-.mainContent .links ul li{
+
+.mainContent .links ul li {
     list-style: none;
 }
-.mainContent .links button{
+
+.mainContent .links button {
     width: 158px;
     height: 120px;
     background-color: #fafafa;
@@ -46,58 +54,59 @@
     cursor: pointer;
     font-size: 14px;
     font-weight: 700;
-    font-family: "Roboto",sans-serif;
+    font-family: "Roboto", sans-serif;
     color: rgb(51, 51, 51);
 }
-.mainContent .links button:focus{
-    height:140px;
+
+.mainContent .links button:focus {
+    height: 140px;
     background-color: #4d148c;
-    transition: .25s ease background-color,.25s ease height;
+    transition: .25s ease background-color, .25s ease height;
     border: none;
-    color:#fff;
+    color: #fff;
 }
+
 .mainContent .links button:focus img path {
     fill: #fff !important;
-  }
-@media screen and (max-width: 767px){
-.mainContent{
-    height: 355px;
 }
 
-.mainContent .links button{
-    width : calc((100vw - 40px) / 3);
-   height: calc(((100vw - 40px) / 3) - 10px);
-   width: 130px;
-   height: 120px;
-   font-size: 12px;
-}
-
-.mainContent .heading h1{
-    font-size: 32px;
-}
-
-.mainContent .links p{
-    padding: 10px;
-}
-}
-@media screen and (max-width: 576px){
-    .mainContent .links button{
-        width : calc((100vw - 40px) / 3);
-       height: calc(((100vw - 40px) / 3) - 10px);
-       width: 85px;
-       height: 85px;
+@media screen and (max-width: 767px) {
+    .mainContent {
+        height: 355px;
     }
-    .mainContent .links img{
+    .mainContent .links button {
+        width: calc((100vw - 40px) / 3);
+        height: calc(((100vw - 40px) / 3) - 10px);
+        width: 130px;
+        height: 120px;
+        font-size: 12px;
+    }
+    .mainContent .heading h1 {
+        font-size: 32px;
+    }
+    .mainContent .links p {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .mainContent .links button {
+        width: calc((100vw - 40px) / 3);
+        height: calc(((100vw - 40px) / 3) - 10px);
+        width: 85px;
+        height: 85px;
+    }
+    .mainContent .links img {
         width: 35px;
         height: 35px;
     }
-    .mainContent .links button:focus{
-        height:100px;
+    .mainContent .links button:focus {
+        height: 100px;
     }
-    .mainContent .links p{
+    .mainContent .links p {
         padding: 5px;
     }
-    .mainContent .links button{
+    .mainContent .links button {
         font-size: 10px;
     }
 }

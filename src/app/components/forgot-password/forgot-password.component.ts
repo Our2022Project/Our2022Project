@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EmailValidator, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) { }
   forgotPassword: any;
   showTag: boolean = false;
-  
+
   ngOnInit(): void {
     this.initializeForm();
   }

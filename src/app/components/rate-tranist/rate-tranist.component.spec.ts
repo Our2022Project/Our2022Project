@@ -8,9 +8,9 @@ describe('RateTranistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RateTranistComponent ]
+      declarations: [RateTranistComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

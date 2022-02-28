@@ -14,20 +14,20 @@ export class HeaderComponent implements OnInit {
   isValidToken: boolean = false;
 
   ngOnInit(): void {
-    if(this.isValidToken == true){
+    if (this.isValidToken == true) {
       this.isValidToken = false;
-    }else{
+    } else {
       this.isValidToken = true;
-      }
     }
-  
+  }
+
   goToLogin(): void {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("userName");
     window.location.reload();
   }
 
-  search() {
+  search(): void {
     if (this.searchBox == true) {
       this.searchBox = false;
     } else {
@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  onclick() {
+  onclick(): void {
     if (this.check == true) {
       this.check = false;
     } else {
@@ -43,17 +43,17 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  rateCard() : void {
+  rateCard(): void {
     this.sharedService.displayRateSection = true;
     this.sharedService.displaytrackSection = false;
   }
-  track() : void {
+  track(): void {
     this.sharedService.displaytrackSection = true;
     this.sharedService.displayRateSection = false;
   }
 
   gotToLoginOrDashboard(): void {
-    if(this.sharedService.token === '') {
+    if (this.sharedService.token === '') {
       this.router.navigateByUrl('/login');
     } else {
       this.router.navigateByUrl('/dashboard');

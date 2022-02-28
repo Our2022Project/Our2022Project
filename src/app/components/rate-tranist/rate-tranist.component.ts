@@ -44,7 +44,7 @@ export class RateTranistComponent implements OnInit {
     );
   }
 
-  checkRate() {
+  checkRate(): void {
     this.spinner.show();
     this.drop = [];
     this.addressMapping();

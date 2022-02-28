@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmailValidator, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
 
 @Component({
@@ -9,8 +9,8 @@ import { sharedService } from 'src/app/Service/sharedService.service';
 })
 export class TrackingComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,public sharedService:sharedService) { }
-  tracking:any;
+  constructor(private fb: FormBuilder, public sharedService: sharedService) { }
+  tracking: any;
   ngOnInit(): void {
     this.initializeForm();
   }

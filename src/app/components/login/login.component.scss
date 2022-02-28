@@ -1,99 +1,110 @@
 * {
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/12005/agsquare.png);
     padding-top: 20%;
-  }
-  .main{
+}
+
+.main {
     margin: 0 0 80px 0;
-  }
-  .heading h1{
+}
+
+.heading h1 {
     text-align: center;
-  }
-  .login label{
+}
+
+.login label {
     margin: 0 0 7px;
     color: #000;
-  }
-  
-  h1,
-  .login,
-  .account,
-  .contact{
-    width:80%;
+}
+
+h1,
+.login,
+.account,
+.contact {
+    width: 80%;
     margin: 0 auto;
     font-family: 'Courier New', Courier, monospace;
-  }
-  .marginFix {
+}
+
+.marginFix {
     margin-top: 2%;
-  } 
-  .imageRow{
+}
+
+.imageRow {
     margin: 80px 0 0 0;
-  } 
-  .password .passEye{
+}
+
+.password .passEye {
     display: flex;
     padding: 1px;
     background: #fff;
     margin-top: 1.5%;
     border-radius: 6px;
-  }
-  h1 {
+}
+
+h1 {
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     padding: 10px;
     font-size: 24px;
     line-height: 1.4;
     color: #000;
-  }
-  
-  .login {
+}
+
+.login {
     background-color: #e5e5e5;
     padding: 10px;
     margin-bottom: 10px;
-    }
-  
-  .login > div {
+}
+
+.login>div {
     padding: 5px 0;
-  }
- 
-  input[type="text"]{
+}
+
+input[type="text"] {
     border: 1px solid #e5e5e5;
     background-color: #fff;
     padding: 6.5px;
     margin-top: 1.5%;
     border-radius: 6px;
     width: 100%;
-  }
-  .password input[type="text"]{
+}
+
+.password input[type="text"] {
     width: 100%;
     border: none;
     margin-top: 0;
-  }
-  input[type="password"] {
+}
+
+input[type="password"] {
     border: none;
     background-color: #fff;
     padding: 6.5px;
     margin-top: 0;
     width: 100%;
-  }
-  .errorMsg{
+}
+
+.errorMsg {
     font-size: 12px;
     color: red;
     padding: 7px 0;
-  }
-  .eyeIcon{
+}
+
+.eyeIcon {
     padding: 5px 10px 5px 10px;
     border-radius: 6px;
     border: 1px solid black;
     background: #e5e5e5;
+}
 
-  }
-  .actions a {
+.actions a {
     font-size: 80%;
-  }
-  
-  .button {
+}
+
+.button {
     width: 100%;
     border: none;
     border-radius: 6px;
@@ -104,13 +115,13 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-  }
+}
 
-  .logo{
+.logo {
     padding: 35px 0 20px 0;
-  }
+}
 
-  .logo img{
+.logo img {
     height: 48px;
     width: 48px;
     position: relative;
@@ -120,75 +131,82 @@
     border-radius: 50%;
     background-color: #4CAF50;
     padding: 30px 0 20px 0;
-  }
-  .account{
+}
+
+.account {
     text-align: center;
     padding: 10px;
     background-color: #e5e5e5;
-    
-  }
-  .account p {
+}
+
+.account p {
     margin: 0;
     font-weight: bolder;
     font-size: 15px;
     color: #000;
-  }
-  .account a{
+}
+
+.account a {
     text-decoration: none;
     color: #660099;
+}
 
-  }
-  .forgotPassword{
+.forgotPassword {
     float: right;
-  }
+}
 
-  .images {
+.images {
     border-radius: 10%;
     width: 20%;
     text-align: center;
-  }
-  .password{
+}
+
+.password {
     font-weight: bolder;
-  }
-  .login{
-    font-weight: bolder; 
-  }
-  .contact{
+}
+
+.login {
+    font-weight: bolder;
+}
+
+.contact {
     text-align: center;
     font-weight: bolder;
     padding: 10px;
     margin-bottom: 10px;
     color: #000;
-  }
-  .forgotPassword{
+}
+
+.forgotPassword {
     text-decoration: none;
     color: #660099;
-  }
+}
 
-  .validButton {
+.validButton {
     cursor: pointer;
     background-color: green;
-  }
+}
 
-  .inValidButton {
+.inValidButton {
     cursor: no-drop;
     background-color: grey;
-  }
-  @media screen and (max-width: 320px){
-    .forgotPassword{
-      float: none;
-      display: block;
+}
+
+@media screen and (max-width: 320px) {
+    .forgotPassword {
+        float: none;
+        display: block;
     }
-  }
+}
 
 .error {
-  color: red;
-  text-align: center;
-  margin-bottom: 2%;
+    color: red;
+    text-align: center;
+    margin-bottom: 2%;
 }
 
 .success {
-  color: green;
-  text-align: center;
-  margin-bottom: 2%;
+    color: green;
+    text-align: center;
+    margin-bottom: 2%;
 }

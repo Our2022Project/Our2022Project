@@ -27,14 +27,14 @@ export class LoginComponent {
     });
   }
 
-  toggleFieldTextType() {
+  toggleFieldTextType(): void {
     this.fieldTextType = !this.fieldTextType;
   }
 
-  goToDashboard() {
+  goToDashboard(): void {
     this.sharedService.userName = this.loginForm.controls['userName'].value;
     this.sharedService.login(this.loginForm.controls['userName'].value, this.loginForm.controls['password'].value).subscribe(data => {
-      if(data.accessToken === undefined) {
+      if (data.accessToken === undefined) {
         this.initializeForm();
         this.sharedService.isValidToken = true;
       } else {
@@ -49,10 +49,10 @@ export class LoginComponent {
       });
   }
 
-  user_register() {
+  user_register(): void {
     this.router.navigateByUrl('/signup');
   }
-  forgot(){
+  forgot(): void {
     this.router.navigateByUrl('/forgotPassword');
   }
 

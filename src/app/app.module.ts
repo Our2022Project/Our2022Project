@@ -17,7 +17,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { TrackingComponent } from './tracking/tracking.component';
+import { TrackingComponent } from './components/tracking/tracking.component';
 
 @NgModule({
   declarations: [
