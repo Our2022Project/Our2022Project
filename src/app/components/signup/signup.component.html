@@ -25,7 +25,7 @@
                             <ion-col size="12" class="errorMsg" *ngIf="SignupForm.controls['userName'].invalid && (SignupForm.controls['userName'].dirty ||
                     SignupForm.controls['userName'].touched)">
                                 <ion-col size="12" *ngIf="SignupForm.controls['userName'].errors.required">
-                                    <ion-col size="12" class="errorMsg">Please enter Username address</ion-col>
+                                    <ion-col size="12" class="errorMsg">Please Enter Username </ion-col>
                                 </ion-col>
                                 <ion-col size="12" *ngIf="SignupForm.controls['userName'].errors.pattern">
                                     <ion-col size="12" class="errorMsg">Username needs to be between 8 and 20 characters
@@ -54,7 +54,7 @@
                                 *ngIf="SignupForm.controls['password'].invalid && (SignupForm.controls['password'].dirty || SignupForm.controls['password'].touched)">
                                 <ion-col size="12" class="errorMsg"
                                     *ngIf="SignupForm.controls['password'].errors.required">
-                                    Please enter password
+                                    Please Enter password
                                 </ion-col>
                                 <ion-col size="12" class="errorMsg"
                                     *ngIf="SignupForm.controls['password'].errors.pattern">
@@ -98,11 +98,11 @@
                                 </ion-col>
                                 <ion-col size="12" class="errorMsg"
                                     *ngIf="SignupForm.controls['confirmPassword'].errors.maxlength">
-                                    confirmPassword must be 16 characters or less
+                                    confirm Password must be 16 characters or less
                                 </ion-col>
                                 <ion-col size="12" class="errorMsg"
                                     *ngIf="SignupForm.controls['confirmPassword'].errors.MustMatch">The password and
-                                    confirmation password do not match.
+                                    confirm  password do not match.
                                 </ion-col>
                             </ion-col>
                         </ion-row>
@@ -176,11 +176,11 @@
                                 *ngIf="SignupForm.controls['emailId'].invalid && (SignupForm.controls['emailId'].dirty || SignupForm.controls['emailId'].touched)">
                                 <ion-col size="12" class="errorMsg"
                                     *ngIf="SignupForm.controls['emailId'].errors.required">
-                                    Please enter email address
+                                    Please Enter email address
                                 </ion-col>
                                 <ion-col size="12" class="errorMsg"
                                     *ngIf="SignupForm.controls['emailId'].errors.pattern">
-                                    Invaild email Address</ion-col>
+                                    Invaild Email Address</ion-col>
                             </ion-col>
                         </ion-row>
                     </ion-row>
