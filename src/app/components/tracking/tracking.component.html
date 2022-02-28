@@ -1,24 +1,22 @@
-<div class="marginFix" *ngIf="this.sharedService.displaytrackSection">
-    <ion-row>
-
-        <ion-col size-xl="3.5" size-lg="3" size-md="3" size-sm="1" size-xs="1">
-        </ion-col>
-        <ion-col size-xl="4.5" size-lg="6" size-md="6" size-sm="10" size-xs="10">
-            <form [formGroup]="tracking">
-                <ion-row>
-
-                    <ion-col size-xl="11" size-lg="10" size-md="10" size-sm="12" size-xs="12">
-                        <ion-input Placeholder=" Track ID "> </ion-input>
-                    </ion-col>
-                    <ion-col size-xl="1" size-lg="2" size-md="2" size-sm="12" size-xs="12">
-                        <ion-button> Track </ion-button>
-                    </ion-col>
-
-                </ion-row>
-            </form>
-        </ion-col>
-        <ion-col size-xl="4" size-lg="3" size-md="3" size-sm="1" size-xs="10">
-        </ion-col>
-
-    </ion-row>
-</div>
+<ion-row class="marginFix" *ngIf="this.sharedService.displaytrackSection">
+    <ion-col size="12">
+        <ion-row>
+            <ion-col size-xl="3.5" size-lg="3" size-md="3" size-sm="1" size-xs="1">
+            </ion-col>
+            <ion-col size-xl="4.5" size-lg="6" size-md="6" size-sm="10" size-xs="10">
+                <form [formGroup]="tracking">
+                    <ion-row>
+                        <ion-col size-xl="11" size-lg="10" size-md="10" size-sm="12" size-xs="12">
+                            <ion-input Placeholder="Track ID"></ion-input>
+                        </ion-col>
+                        <ion-col size-xl="1" size-lg="2" size-md="2" size-sm="12" size-xs="12">
+                            <ion-button>Track</ion-button>
+                        </ion-col>
+                    </ion-row>
+                </form>
+            </ion-col>
+            <ion-col size-xl="4" size-lg="3" size-md="3" size-sm="1" size-xs="10">
+            </ion-col>
+        </ion-row>
+    </ion-col>
+</ion-row>

@@ -21,18 +21,12 @@ h1,
     font-family: 'Courier New', Courier, monospace;
 }
 
-.marginFix {
-    margin-top: 1%;
-}
-
 .header {
     text-align: center;
     margin: 80px 0 0 0;
 }
 
-h1 {
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+.header h1 {
     padding: 10px;
     font-size: 24px;
     line-height: 1.4;
@@ -44,70 +38,25 @@ h1 {
     margin-bottom: 10px;
 }
 
-.signup>div {
-    padding: 5px 0;
-}
-
-input[type="text"] {
-    border: 1px solid #e5e5e5;
-    background-color: #fff;
-    padding: 5px;
-    border-radius: 6px;
-    width: 100%;
-}
-
-.password input[type="text"] {
-    width: 100%;
-    border: none;
-    margin-top: 0;
-}
-
-input[type="password"] {
-    border: none;
-    background-color: #fff;
-    padding: 5px;
-    margin-top: 0;
-    width: 100%;
-}
-
-.password .passEye {
-    display: flex;
-    padding: 1px;
-    background: #fff;
-    margin-top: 1.5%;
-    border-radius: 6px;
-}
-
 .eyeIcon {
-    padding: 5px 10px 5px 10px;
+    padding: 8px;
+    margin: 1.5% 0;
     border-radius: 6px;
     border: 1px solid black;
     background: #e5e5e5;
+    cursor: pointer;
+}
+.marginFix{
+    margin-bottom: 10px;
+}
+
+.state{
+ margin: 0 10px ;
 }
 
 .errorMsg {
     font-size: 12px;
     color: red;
-    padding: 5px 0 0 0;
-}
-
-.actions a {
-    font-size: 80%;
-}
-
-.button {
-    width: 100%;
-    background-color: #660099;
-    /* Green */
-    border: none;
-    border-radius: 6px;
-    color: #fff;
-    padding: 10px;
-    margin: 7px 0 7px 0;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
 }
 
 .account {
@@ -135,18 +84,38 @@ input[type="password"] {
     color: #000;
 }
 
-.label {
+ion-label {
     font-weight: bolder;
 }
 
-.validButton {
-    cursor: pointer;
-    background-color: green;
+ion-button {
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    margin: 7px 0 7px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    --background: green;
 }
+ion-button[disabled]{
+    --background: grey;
 
-.inValidButton {
-    cursor: no-drop;
-    background-color: grey;
+  }
+ion-input, ion-select{
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    --padding-start: 6.5px;
+    --padding-end: 6.5px;
+    --padding-top: 6.5px;
+    --padding-bottom: 6.5px;
+    margin: 1.5% 0;
+    border-radius: 6px;
+}
+ion-select{
+    padding: 6.5px;
 }
 
 .error {
@@ -155,75 +124,21 @@ input[type="password"] {
     margin-bottom: 2%;
 }
 
-.phoneFlex {
-    display: flex;
-    margin-top: 1%;
+.ccode{
+    padding: 6.5px;
+    margin: 10px 0;
+    background: #e5e5e5;
 }
 
-.phoneFlex select {
-    width: 90px;
-    margin-right: 10px;
-    border-radius: 6px;
-    border: none;
+@media screen and (max-width: 767px){
+    .state{
+        margin: 1.5% 0;
+    }
+    
+.ccode{
+    padding: 6.5px 0;
+    margin: 4px 0;
+    background: #e5e5e5;
 }
 
-.phoneNumber span {
-    width: 100%;
-}
-
-.state select {
-    padding: 5px;
-    margin-top: 1%;
-    width: 100%;
-    border-radius: 6px;
-    border: none;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type=tel] {
-    border: 1px solid #e5e5e5;
-    background-color: #fff;
-    padding: 5px;
-    border-radius: 6px;
-    width: 100%;
-}
-
-input[type=number] {
-    border: 1px solid #e5e5e5;
-    background-color: #fff;
-    padding: 5px;
-    border-radius: 6px;
-    width: 100%;
-}
-
-.city,
-.state {
-    margin: 0 10px 0 0;
-}
-
-.city,
-.state,
-.zipCode {
-    padding: 5px 0;
-}
-
-.zipCode input[type=tel],
-.city input[type=text],
-.state select {
-    margin-top: 5px;
-}
-
-.ccode {
-    color: #000000;
-    border: 1px solid #e5e5e5;
-    background-color: #fff;
-    padding: 4px;
-    border-radius: 6px;
-    width: 74px;
-    margin: 3px 10px 1px 0;
 }
