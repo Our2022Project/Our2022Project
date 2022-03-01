@@ -13,368 +13,384 @@
         </ion-row>
         <ion-row>
             <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
-            <ion-col  size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-                <ngform [formGroup]="SignupForm">
-                    <ion-row class="signup"><ion-col size="12">
-                    <ion-row class="marginFix">
-                        <ion-label for="userName">Username</ion-label>
+            <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+                <ngForm [formGroup]="SignupForm">
+                    <ion-row class="signup">
                         <ion-col size="12">
-                            <ion-input id="userName" autocomplete="off" placeholder="Enter your username" type="text"
-                                name="userName" formControlName="userName"></ion-input>
-                        </ion-col>
-                        <ion-row>
-                            <ion-col size="12" class="errorMsg" *ngIf="SignupForm.controls['userName'].invalid && (SignupForm.controls['userName'].dirty ||
-                                      SignupForm.controls['userName'].touched)">
-                                <ion-col size="12" *ngIf="SignupForm.controls['userName'].errors.required">
-                                    <ion-col size="12" class="errorMsg">Please Enter Username </ion-col>
-                                </ion-col>
-                                <ion-col size="12" *ngIf="SignupForm.controls['userName'].errors.pattern">
-                                    <ion-col size="12" class="errorMsg">Username needs to be between 8 and 20 characters
-                                        long
-                                    </ion-col>
-                                </ion-col>
-                            </ion-col>
-                        </ion-row>
-                    </ion-row>
-                    <ion-row class="marginFix">
-                        <ion-label for="password">Password</ion-label>
-                        <ion-col size="12">
-                            <ion-row>
-                                <ion-input id="password" autocomplete="off" placeholder="Create a password"
-                                    [type]="fieldTextType ? 'text' : 'password'" name="password"
-                                    formControlName="password">
-                                </ion-input>
-                                <i class="eyeIcon fa" [ngClass]="{
-                               'fa-eye-slash': !fieldTextType,
-                               'fa-eye': fieldTextType
-                               }" (click)="toggleFieldTextType()"></i>
-                            </ion-row>
-                        </ion-col>
-                        <ion-row>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="SignupForm.controls['password'].invalid && (SignupForm.controls['password'].dirty || SignupForm.controls['password'].touched)">
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['password'].errors.required">
-                                    Please Enter password
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['password'].errors.pattern">
-                                    contains atleast 8 characters with one special,
-                                    number, uppercase &
-                                    lowercase
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['password'].errors.maxlength">Password must be 16
-                                    characters
-                                    or less
-                                </ion-col>
-                            </ion-col>
-                        </ion-row>
-                    </ion-row>
-                    <ion-row class="marginFix">
-                        <ion-label for="confirmPassword">Confirm Password</ion-label>
-                        <ion-col size="12">
-                            <ion-row>
-                                <ion-input id="confirmPassword" autocomplete="off"
-                                    placeholder="Create a confirm password" [type]="fieldType ? 'text' : 'password'"
-                                    name="confirmPassword" formControlName="confirmPassword"></ion-input>
-                                <i class="eyeIcon fa" [ngClass]="{
-                              'fa-eye-slash': !fieldType,
-                              'fa-eye': fieldType
-                              }" (click)="toggleFieldType()"></i>
-                            </ion-row>
-                        </ion-col>
-                        <ion-row>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="SignupForm.controls['confirmPassword'].invalid && (SignupForm.controls['confirmPassword'].dirty || SignupForm.controls['confirmPassword'].touched)">
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['confirmPassword'].errors.required">Please enter Confirm
-                                    Password
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['confirmPassword'].errors.pattern">contains
-                                    atleast 8 characters with one special, number, uppercase
-                                    &
-                                    lowercase
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['confirmPassword'].errors.maxlength">
-                                    confirm Password must be 16 characters or less
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['confirmPassword'].errors.MustMatch">The password and
-                                    confirm password do not match.
-                                </ion-col>
-                            </ion-col>
-                        </ion-row>
-                    </ion-row>
-                    <ion-row class="marginFix">
-                        <ion-label for="firstName">First Name</ion-label>
-                        <ion-col size="12">
-                            <ion-input id="firstName" autocomplete="off" placeholder="Enter your first name" type="text"
-                                name="firstName" formControlName="firstName"></ion-input>
-                        </ion-col>
-                        <ion-row>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="SignupForm.controls['firstName'].invalid && (SignupForm.controls['firstName'].dirty || SignupForm.controls['firstName'].touched)">
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['firstName'].errors.required">This is a
-                                    required Fields
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['firstName'].errors.pattern">
-                                    Only
-                                    Alphanumeric characters are allowed
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['firstName'].errors.maxlength">Maximum
-                                    20 alphabetical characters Long Only
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['firstName'].errors.minlength">Minimum
-                                    3 alphabetical letters are Required
-                                </ion-col>
-                            </ion-col>
-                        </ion-row>
-                    </ion-row>
-                    <ion-row class="marginFix">
-                        <ion-label for="lastName">Last Name</ion-label>
-                        <ion-col size="12">
-                            <ion-input id="lastName" autocomplete="off" placeholder="Enter your last name" type="text"
-                                name="lastName" formControlName="lastName"></ion-input>
-                        </ion-col>
-                        <ion-row>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="SignupForm.controls['lastName'].invalid && (SignupForm.controls['lastName'].dirty || SignupForm.controls['lastName'].touched)">
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['lastName'].errors.required">
-                                    This is a required Fields
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['lastName'].errors.pattern">
-                                    Only Alphanumeric characters are allowed
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['lastName'].errors.maxlength">Maximum 20 alphabetical
-                                    characters Long Only
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['lastName'].errors.minlength">Minimum 3 alphabetical
-                                    letters
-                                    are Required
-                                </ion-col>
-                            </ion-col>
-                        </ion-row>
-                    </ion-row>
-                    <ion-row class="marginFix">
-                        <ion-label for="emailId">Email Id</ion-label>
-                        <ion-col size="12">
-                            <ion-input id="emailId" autocomplete="off" placeholder="Enter your email id" type="text"
-                                name="emailId" formControlName="emailId"></ion-input>
-                        </ion-col>
-                        <ion-row>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="SignupForm.controls['emailId'].invalid && (SignupForm.controls['emailId'].dirty || SignupForm.controls['emailId'].touched)">
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['emailId'].errors.required">
-                                    Please Enter email address
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['emailId'].errors.pattern">
-                                    Invaild Email Address</ion-col>
-                            </ion-col>
-                        </ion-row>
-                    </ion-row>
-                    <ion-row class="marginFix">
-                        <ion-label for="phoneNumber">Phone Number</ion-label>
-                        <ion-col size="12">
-                            <ion-row>
-                                <ion-col class="ccode" size-xl="2" size-lg="2" size-md="2" size-sm="3" size-xs="3">
-                                    <ion-label><b>USA(+1)</b></ion-label>
-                                </ion-col>
-                                <ion-col size-xl="10" size-lg="10" size-md="10" size-sm="9" size-xs="9">
-                                    <ion-input (keypress)="restrictNumeric($event)" id="phoneNumber" autocomplete="off"
-                                        placeholder="Enter your phone number" type="tel" name="phoneNumber"
-                                        formControlName="phoneNumber"
-                                        oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(1, this.maxLength);"
-                                        maxlength="10"></ion-input>
-                                </ion-col>
-                            </ion-row>
-                        </ion-col>
-                        <ion-row>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="SignupForm.controls['phoneNumber'].invalid && (SignupForm.controls['phoneNumber'].dirty || SignupForm.controls['phoneNumber'].touched)">
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['phoneNumber'].errors.required">
-                                    This is a required Fields
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['phoneNumber'].errors.pattern">
-                                    Invaild Mobile number
-                                </ion-col>
-                            </ion-col>
-                        </ion-row>
-                    </ion-row>
-                    <ion-row class="marginFix">
-                        <ion-label for="addressLine1">Address </ion-label>
-                        <ion-col size="12">
-                            <ion-input id="addressLine1	" autocomplete="off" placeholder="Enter your address "
-                                type="text" name="addressLine1" formControlName="addressLine1"></ion-input>
-                        </ion-col>
-                        <ion-row>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="SignupForm.controls['addressLine1'].invalid && (SignupForm.controls['addressLine1'].dirty || SignupForm.controls['addressLine1'].touched)">
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['addressLine1'].errors.required">This
-                                    is a required Fields
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['addressLine1'].errors.pattern">Only
-                                    alphanumeric characters are allowed
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="SignupForm.controls['addressLine1'].errors.minlength">
-                                    Address contains atleast 10 characters
-                                </ion-col>
-                            </ion-col>
-                        </ion-row>
-                    </ion-row>
-                    <ion-row class="marginFix">
-                        <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
                             <ion-row class="marginFix">
+                                <ion-label for="userName">Username</ion-label>
                                 <ion-col size="12">
-                                    <ion-label for="city">City</ion-label>
-                                    <ion-col size="12">
-                                        <ion-input id="city" autocomplete="off" placeholder="Enter your city"
-                                            type="text" name="city" formControlName="city">
-                                        </ion-input>
-                                    </ion-col>
-                                    <ion-row>
-                                        <ion-col size="12" class="errorMsg"
-                                            *ngIf="SignupForm.controls['city'].invalid && (SignupForm.controls['city'].dirty || SignupForm.controls['city'].touched)">
-                                            <ion-col size="12" class="errorMsg"
-                                                *ngIf="SignupForm.controls['city'].errors.required">This is a required
-                                                Fields
-                                            </ion-col>
-                                            <ion-col size="12" class="errorMsg"
-                                                *ngIf="SignupForm.controls['city'].errors.pattern">Only Alphanumeric
-                                                characters are allowed
-                                            </ion-col>
-                                            <ion-col size="12" class="errorMsg"
-                                                *ngIf="SignupForm.controls['city'].errors.maxlength">Maximum 35
-                                                alphabetical
-                                                characters Long Only
-                                            </ion-col>
-                                            <ion-col size="12" class="errorMsg"
-                                                *ngIf="SignupForm.controls['city'].errors.minlength">Minimum 3
-                                                alphabetical
-                                                letters are Required
-                                            </ion-col>
-                                        </ion-col>
-                                    </ion-row>
-                                </ion-col>
-                            </ion-row>
-                        </ion-col>
-                        <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
-                            <ion-row class="marginFix state">
-                                <ion-col size="12">
-                                    <ion-label for="state">State</ion-label>
-                                    <ion-col size="12">
-                                        <ion-select interface="action-sheet" formControlName="state"
-                                            (change)="selectchangehandler($event)">
-                                            <ion-select-option value="">Select state</ion-select-option>
-                                            <ion-select-option value="AL">Alabama (AL)</ion-select-option>
-                                            <ion-select-option value="AK">Alaska (AK)</ion-select-option>
-                                            <ion-select-option value="AZ">Arizona (AZ)</ion-select-option>
-                                            <ion-select-option value="AR">Arkansas (AR)</ion-select-option>
-                                            <ion-select-option value="CA">California (CA)</ion-select-option>
-                                            <ion-select-option value="CO">Colorado (CO)</ion-select-option>
-                                            <ion-select-option value="CT">Connecticut (CT)</ion-select-option>
-                                            <ion-select-option value="DE">Delaware (DE)</ion-select-option>
-                                            <ion-select-option value="DC">District Of Columbia (DC)</ion-select-option>
-                                            <ion-select-option value="FL">Florida (FL)</ion-select-option>
-                                            <ion-select-option value="GA">Georgia (GA)</ion-select-option>
-                                            <ion-select-option value="HI">Hawaii (HI)</ion-select-option>
-                                            <ion-select-option value="ID">Idaho (ID)</ion-select-option>
-                                            <ion-select-option value="IL">Illinois (IL)</ion-select-option>
-                                            <ion-select-option value="IN">Indiana (IN)</ion-select-option>
-                                            <ion-select-option value="IA">Iowa (IA)</ion-select-option>
-                                            <ion-select-option value="KS">Kansas (KS)</ion-select-option>
-                                            <ion-select-option value="KY">Kentucky (KY)</ion-select-option>
-                                            <ion-select-option value="LA">Louisiana (LA)</ion-select-option>
-                                            <ion-select-option value="ME">Maine (ME)</ion-select-option>
-                                            <ion-select-option value="MD">Maryland (MD)</ion-select-option>
-                                            <ion-select-option value="MA">Massachusetts (MA)</ion-select-option>
-                                            <ion-select-option value="MI">Michigan (MI)</ion-select-option>
-                                            <ion-select-option value="MN">Minnesota (MN)</ion-select-option>
-                                            <ion-select-option value="MS">Mississippi (MS)</ion-select-option>
-                                            <ion-select-option value="MO">Missouri (MO)</ion-select-option>
-                                            <ion-select-option value="MT">Montana (MT)</ion-select-option>
-                                            <ion-select-option value="NE">Nebraska (NE)</ion-select-option>
-                                            <ion-select-option value="NV">Nevada (NV)</ion-select-option>
-                                            <ion-select-option value="NH">New Hampshire (NH)</ion-select-option>
-                                            <ion-select-option value="NJ">New Jersey (NJ)</ion-select-option>
-                                            <ion-select-option value="NM">New Mexico (NM)</ion-select-option>
-                                            <ion-select-option value="NY">New York (NY)</ion-select-option>
-                                            <ion-select-option value="NC">North Carolina (NC)</ion-select-option>
-                                            <ion-select-option value="ND">North Dakota (ND)</ion-select-option>
-                                            <ion-select-option value="OH">Ohio (OH)</ion-select-option>
-                                            <ion-select-option value="OK">Oklahoma (OK)</ion-select-option>
-                                            <ion-select-option value="OR">Oregon (OR)</ion-select-option>
-                                            <ion-select-option value="PA">Pennsylvania (PA)</ion-select-option>
-                                            <ion-select-option value="RI">Rhode Island (RI)</ion-select-option>
-                                            <ion-select-option value="SC">South Carolina (SC)</ion-select-option>
-                                            <ion-select-option value="SD">South Dakota (SD)</ion-select-option>
-                                            <ion-select-option value="TN">Tennessee (TN)</ion-select-option>
-                                            <ion-select-option value="TX">Texas (TX)</ion-select-option>
-                                            <ion-select-option value="UT">Utah (UT)</ion-select-option>
-                                            <ion-select-option value="VT">Vermont</ion-select-option>
-                                            <ion-select-option value="VA">Virginia</ion-select-option>
-                                            <ion-select-option value="WA">Washington</ion-select-option>
-                                            <ion-select-option value="WV">West Virginia</ion-select-option>
-                                            <ion-select-option value="WI">Wisconsin</ion-select-option>
-                                            <ion-select-option value="WY">Wyoming</ion-select-option>
-                                        </ion-select>
-                                    </ion-col>
-                                    <ion-row>
-                                        <ion-col size="12" class="errorMsg"
-                                            *ngIf="SignupForm.controls['state'].invalid && (SignupForm.controls['state'].dirty || SignupForm.controls['state'].touched)">
-                                            <ion-col size="12" class="errorMsg" *ngIf="state.errors?.required">
-                                                Please select your state
-                                            </ion-col>
-                                        </ion-col>
-                                    </ion-row>
-                                </ion-col>
-                            </ion-row>
-                        </ion-col>
-                        <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
-                            <ion-row class="marginFix">
-                                <ion-label for="zipCode">Zip Code</ion-label>
-                                <ion-col size="12">
-                                    <ion-input (keypress)="restrictNumeric($event)" class="" id="zipCode"
-                                        autocomplete="off" placeholder="Enter your zip Code" type="tel" name="zipCode"
-                                        formControlName="zipCode"
-                                        oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                        maxlength="5"></ion-input>
+                                    <ion-input id="userName" autocomplete="off" placeholder="Enter your username"
+                                        type="text" name="userName" formControlName="userName"></ion-input>
                                 </ion-col>
                                 <ion-row>
-                                    <ion-col size="12" class="errorMsg"
-                                        *ngIf="SignupForm.controls['zipCode'].invalid && (SignupForm.controls['zipCode'].dirty || SignupForm.controls['zipCode'].touched)">
-                                        <ion-col size="12" class="errorMsg"
-                                            *ngIf="SignupForm.controls['zipCode'].errors.required">This is a required
-                                            Fields
+                                    <ion-col size="12" class="errorMsg" *ngIf="SignupForm.controls['userName'].invalid && (SignupForm.controls['userName'].dirty ||
+                                      SignupForm.controls['userName'].touched)">
+                                        <ion-col size="12" *ngIf="SignupForm.controls['userName'].errors.required">
+                                            <ion-col size="12" class="errorMsg">Please Enter Username </ion-col>
                                         </ion-col>
-                                        <ion-col size="12" class="errorMsg"
-                                            *ngIf="SignupForm.controls['zipCode'].errors.pattern">Invaild Zip Code
+                                        <ion-col size="12" *ngIf="SignupForm.controls['userName'].errors.pattern">
+                                            <ion-col size="12" class="errorMsg">Username needs to be between 8 and 20
+                                                characters
+                                                long
+                                            </ion-col>
                                         </ion-col>
                                     </ion-col>
                                 </ion-row>
                             </ion-row>
+                            <ion-row class="marginFix">
+                                <ion-label for="password">Password</ion-label>
+                                <ion-col size="12">
+                                    <ion-row>
+                                        <ion-input id="password" autocomplete="off" placeholder="Create a password"
+                                            [type]="fieldTextType ? 'text' : 'password'" name="password"
+                                            formControlName="password">
+                                        </ion-input>
+                                        <i class="eyeIcon fa" [ngClass]="{
+                               'fa-eye-slash': !fieldTextType,
+                               'fa-eye': fieldTextType
+                               }" (click)="toggleFieldTextType()"></i>
+                                    </ion-row>
+                                </ion-col>
+                                <ion-row>
+                                    <ion-col size="12" class="errorMsg"
+                                        *ngIf="SignupForm.controls['password'].invalid && (SignupForm.controls['password'].dirty || SignupForm.controls['password'].touched)">
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['password'].errors.required">
+                                            Please Enter password
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['password'].errors.pattern">
+                                            contains atleast 8 characters with one special,
+                                            number, uppercase &
+                                            lowercase
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['password'].errors.maxlength">Password must be 16
+                                            characters
+                                            or less
+                                        </ion-col>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-row>
+                            <ion-row class="marginFix">
+                                <ion-label for="confirmPassword">Confirm Password</ion-label>
+                                <ion-col size="12">
+                                    <ion-row>
+                                        <ion-input id="confirmPassword" autocomplete="off"
+                                            placeholder="Create a confirm password"
+                                            [type]="fieldType ? 'text' : 'password'" name="confirmPassword"
+                                            formControlName="confirmPassword"></ion-input>
+                                        <i class="eyeIcon fa" [ngClass]="{
+                              'fa-eye-slash': !fieldType,
+                              'fa-eye': fieldType
+                              }" (click)="toggleFieldType()"></i>
+                                    </ion-row>
+                                </ion-col>
+                                <ion-row>
+                                    <ion-col size="12" class="errorMsg"
+                                        *ngIf="SignupForm.controls['confirmPassword'].invalid && (SignupForm.controls['confirmPassword'].dirty || SignupForm.controls['confirmPassword'].touched)">
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['confirmPassword'].errors.required">Please enter
+                                            Confirm
+                                            Password
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['confirmPassword'].errors.pattern">contains
+                                            atleast 8 characters with one special, number, uppercase
+                                            &
+                                            lowercase
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['confirmPassword'].errors.maxlength">
+                                            confirm Password must be 16 characters or less
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['confirmPassword'].errors.MustMatch">The password
+                                            and
+                                            confirm password do not match.
+                                        </ion-col>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-row>
+                            <ion-row class="marginFix">
+                                <ion-label for="firstName">First Name</ion-label>
+                                <ion-col size="12">
+                                    <ion-input id="firstName" autocomplete="off" placeholder="Enter your first name"
+                                        type="text" name="firstName" formControlName="firstName"></ion-input>
+                                </ion-col>
+                                <ion-row>
+                                    <ion-col size="12" class="errorMsg"
+                                        *ngIf="SignupForm.controls['firstName'].invalid && (SignupForm.controls['firstName'].dirty || SignupForm.controls['firstName'].touched)">
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['firstName'].errors.required">This is a
+                                            required Fields
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['firstName'].errors.pattern">
+                                            Only
+                                            Alphanumeric characters are allowed
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['firstName'].errors.maxlength">Maximum
+                                            20 alphabetical characters Long Only
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['firstName'].errors.minlength">Minimum
+                                            3 alphabetical letters are Required
+                                        </ion-col>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-row>
+                            <ion-row class="marginFix">
+                                <ion-label for="lastName">Last Name</ion-label>
+                                <ion-col size="12">
+                                    <ion-input id="lastName" autocomplete="off" placeholder="Enter your last name"
+                                        type="text" name="lastName" formControlName="lastName"></ion-input>
+                                </ion-col>
+                                <ion-row>
+                                    <ion-col size="12" class="errorMsg"
+                                        *ngIf="SignupForm.controls['lastName'].invalid && (SignupForm.controls['lastName'].dirty || SignupForm.controls['lastName'].touched)">
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['lastName'].errors.required">
+                                            This is a required Fields
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['lastName'].errors.pattern">
+                                            Only Alphanumeric characters are allowed
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['lastName'].errors.maxlength">Maximum 20
+                                            alphabetical
+                                            characters Long Only
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['lastName'].errors.minlength">Minimum 3
+                                            alphabetical
+                                            letters
+                                            are Required
+                                        </ion-col>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-row>
+                            <ion-row class="marginFix">
+                                <ion-label for="emailId">Email Id</ion-label>
+                                <ion-col size="12">
+                                    <ion-input id="emailId" autocomplete="off" placeholder="Enter your email id"
+                                        type="text" name="emailId" formControlName="emailId"></ion-input>
+                                </ion-col>
+                                <ion-row>
+                                    <ion-col size="12" class="errorMsg"
+                                        *ngIf="SignupForm.controls['emailId'].invalid && (SignupForm.controls['emailId'].dirty || SignupForm.controls['emailId'].touched)">
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['emailId'].errors.required">
+                                            Please Enter email address
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['emailId'].errors.pattern">
+                                            Invaild Email Address</ion-col>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-row>
+                            <ion-row class="marginFix">
+                                <ion-label for="phoneNumber">Phone Number</ion-label>
+                                <ion-col size="12">
+                                    <ion-row>
+                                        <ion-col class="ccode" size-xl="2" size-lg="2" size-md="2" size-sm="3"
+                                            size-xs="3">
+                                            <ion-label><b>USA(+1)</b></ion-label>
+                                        </ion-col>
+                                        <ion-col size-xl="10" size-lg="10" size-md="10" size-sm="9" size-xs="9">
+                                            <ion-input (keypress)="restrictNumeric($event)" id="phoneNumber"
+                                                autocomplete="off" placeholder="Enter your phone number" type="tel"
+                                                name="phoneNumber" formControlName="phoneNumber"
+                                                oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(1, this.maxLength);"
+                                                maxlength="10"></ion-input>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-col>
+                                <ion-row>
+                                    <ion-col size="12" class="errorMsg"
+                                        *ngIf="SignupForm.controls['phoneNumber'].invalid && (SignupForm.controls['phoneNumber'].dirty || SignupForm.controls['phoneNumber'].touched)">
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['phoneNumber'].errors.required">
+                                            This is a required Fields
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['phoneNumber'].errors.pattern">
+                                            Invaild Mobile number
+                                        </ion-col>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-row>
+                            <ion-row class="marginFix">
+                                <ion-label for="addressLine1">Address </ion-label>
+                                <ion-col size="12">
+                                    <ion-input id="addressLine1	" autocomplete="off" placeholder="Enter your address "
+                                        type="text" name="addressLine1" formControlName="addressLine1"></ion-input>
+                                </ion-col>
+                                <ion-row>
+                                    <ion-col size="12" class="errorMsg"
+                                        *ngIf="SignupForm.controls['addressLine1'].invalid && (SignupForm.controls['addressLine1'].dirty || SignupForm.controls['addressLine1'].touched)">
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['addressLine1'].errors.required">This
+                                            is a required Fields
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['addressLine1'].errors.pattern">Only
+                                            alphanumeric characters are allowed
+                                        </ion-col>
+                                        <ion-col size="12" class="errorMsg"
+                                            *ngIf="SignupForm.controls['addressLine1'].errors.minlength">
+                                            Address contains atleast 10 characters
+                                        </ion-col>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-row>
+                            <ion-row class="marginFix">
+                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
+                                    <ion-row class="marginFix">
+                                        <ion-col size="12">
+                                            <ion-label for="city">City</ion-label>
+                                            <ion-col size="12">
+                                                <ion-input id="city" autocomplete="off" placeholder="Enter your city"
+                                                    type="text" name="city" formControlName="city">
+                                                </ion-input>
+                                            </ion-col>
+                                            <ion-row>
+                                                <ion-col size="12" class="errorMsg"
+                                                    *ngIf="SignupForm.controls['city'].invalid && (SignupForm.controls['city'].dirty || SignupForm.controls['city'].touched)">
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="SignupForm.controls['city'].errors.required">This is a
+                                                        required
+                                                        Fields
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="SignupForm.controls['city'].errors.pattern">Only
+                                                        Alphanumeric
+                                                        characters are allowed
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="SignupForm.controls['city'].errors.maxlength">Maximum 35
+                                                        alphabetical
+                                                        characters Long Only
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="SignupForm.controls['city'].errors.minlength">Minimum 3
+                                                        alphabetical
+                                                        letters are Required
+                                                    </ion-col>
+                                                </ion-col>
+                                            </ion-row>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-col>
+                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
+                                    <ion-row class="marginFix state">
+                                        <ion-col size="12">
+                                            <ion-label for="state">State</ion-label>
+                                            <ion-col size="12">
+                                                <ion-select interface="action-sheet" formControlName="state"
+                                                    (change)="selectchangehandler($event)">
+                                                    <ion-select-option value="">Select state</ion-select-option>
+                                                    <ion-select-option value="AL">Alabama (AL)</ion-select-option>
+                                                    <ion-select-option value="AK">Alaska (AK)</ion-select-option>
+                                                    <ion-select-option value="AZ">Arizona (AZ)</ion-select-option>
+                                                    <ion-select-option value="AR">Arkansas (AR)</ion-select-option>
+                                                    <ion-select-option value="CA">California (CA)</ion-select-option>
+                                                    <ion-select-option value="CO">Colorado (CO)</ion-select-option>
+                                                    <ion-select-option value="CT">Connecticut (CT)</ion-select-option>
+                                                    <ion-select-option value="DE">Delaware (DE)</ion-select-option>
+                                                    <ion-select-option value="DC">District Of Columbia (DC)
+                                                    </ion-select-option>
+                                                    <ion-select-option value="FL">Florida (FL)</ion-select-option>
+                                                    <ion-select-option value="GA">Georgia (GA)</ion-select-option>
+                                                    <ion-select-option value="HI">Hawaii (HI)</ion-select-option>
+                                                    <ion-select-option value="ID">Idaho (ID)</ion-select-option>
+                                                    <ion-select-option value="IL">Illinois (IL)</ion-select-option>
+                                                    <ion-select-option value="IN">Indiana (IN)</ion-select-option>
+                                                    <ion-select-option value="IA">Iowa (IA)</ion-select-option>
+                                                    <ion-select-option value="KS">Kansas (KS)</ion-select-option>
+                                                    <ion-select-option value="KY">Kentucky (KY)</ion-select-option>
+                                                    <ion-select-option value="LA">Louisiana (LA)</ion-select-option>
+                                                    <ion-select-option value="ME">Maine (ME)</ion-select-option>
+                                                    <ion-select-option value="MD">Maryland (MD)</ion-select-option>
+                                                    <ion-select-option value="MA">Massachusetts (MA)</ion-select-option>
+                                                    <ion-select-option value="MI">Michigan (MI)</ion-select-option>
+                                                    <ion-select-option value="MN">Minnesota (MN)</ion-select-option>
+                                                    <ion-select-option value="MS">Mississippi (MS)</ion-select-option>
+                                                    <ion-select-option value="MO">Missouri (MO)</ion-select-option>
+                                                    <ion-select-option value="MT">Montana (MT)</ion-select-option>
+                                                    <ion-select-option value="NE">Nebraska (NE)</ion-select-option>
+                                                    <ion-select-option value="NV">Nevada (NV)</ion-select-option>
+                                                    <ion-select-option value="NH">New Hampshire (NH)</ion-select-option>
+                                                    <ion-select-option value="NJ">New Jersey (NJ)</ion-select-option>
+                                                    <ion-select-option value="NM">New Mexico (NM)</ion-select-option>
+                                                    <ion-select-option value="NY">New York (NY)</ion-select-option>
+                                                    <ion-select-option value="NC">North Carolina (NC)
+                                                    </ion-select-option>
+                                                    <ion-select-option value="ND">North Dakota (ND)</ion-select-option>
+                                                    <ion-select-option value="OH">Ohio (OH)</ion-select-option>
+                                                    <ion-select-option value="OK">Oklahoma (OK)</ion-select-option>
+                                                    <ion-select-option value="OR">Oregon (OR)</ion-select-option>
+                                                    <ion-select-option value="PA">Pennsylvania (PA)</ion-select-option>
+                                                    <ion-select-option value="RI">Rhode Island (RI)</ion-select-option>
+                                                    <ion-select-option value="SC">South Carolina (SC)
+                                                    </ion-select-option>
+                                                    <ion-select-option value="SD">South Dakota (SD)</ion-select-option>
+                                                    <ion-select-option value="TN">Tennessee (TN)</ion-select-option>
+                                                    <ion-select-option value="TX">Texas (TX)</ion-select-option>
+                                                    <ion-select-option value="UT">Utah (UT)</ion-select-option>
+                                                    <ion-select-option value="VT">Vermont</ion-select-option>
+                                                    <ion-select-option value="VA">Virginia</ion-select-option>
+                                                    <ion-select-option value="WA">Washington</ion-select-option>
+                                                    <ion-select-option value="WV">West Virginia</ion-select-option>
+                                                    <ion-select-option value="WI">Wisconsin</ion-select-option>
+                                                    <ion-select-option value="WY">Wyoming</ion-select-option>
+                                                </ion-select>
+                                            </ion-col>
+                                            <ion-row>
+                                                <ion-col size="12" class="errorMsg"
+                                                    *ngIf="SignupForm.controls['state'].invalid && (SignupForm.controls['state'].dirty || SignupForm.controls['state'].touched)">
+                                                    <ion-col size="12" class="errorMsg" *ngIf="state.errors?.required">
+                                                        Please select your state
+                                                    </ion-col>
+                                                </ion-col>
+                                            </ion-row>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-col>
+                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
+                                    <ion-row class="marginFix">
+                                        <ion-label for="zipCode">Zip Code</ion-label>
+                                        <ion-col size="12">
+                                            <ion-input (keypress)="restrictNumeric($event)" class="" id="zipCode"
+                                                autocomplete="off" placeholder="Enter your zip Code" type="tel"
+                                                name="zipCode" formControlName="zipCode"
+                                                oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                maxlength="5"></ion-input>
+                                        </ion-col>
+                                        <ion-row>
+                                            <ion-col size="12" class="errorMsg"
+                                                *ngIf="SignupForm.controls['zipCode'].invalid && (SignupForm.controls['zipCode'].dirty || SignupForm.controls['zipCode'].touched)">
+                                                <ion-col size="12" class="errorMsg"
+                                                    *ngIf="SignupForm.controls['zipCode'].errors.required">This is a
+                                                    required
+                                                    Fields
+                                                </ion-col>
+                                                <ion-col size="12" class="errorMsg"
+                                                    *ngIf="SignupForm.controls['zipCode'].errors.pattern">Invaild Zip
+                                                    Code
+                                                </ion-col>
+                                            </ion-col>
+                                        </ion-row>
+                                    </ion-row>
+                                </ion-col>
+                            </ion-row>
+                            <ion-button [disabled]="!SignupForm.valid" (click)="goToLogin()">Sign Up</ion-button>
                         </ion-col>
                     </ion-row>
-                    <ion-button [disabled]="!SignupForm.valid" (click)="goToLogin()">Sign Up</ion-button>
-                </ion-col></ion-row>
-                </ngform>
+                </ngForm>
             </ion-col>
             <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12"></ion-col>
         </ion-row>
