@@ -11,17 +11,32 @@ body {
     margin: 0 0 80px 0;
 }
 
-.imageRow {
-    margin: 80px 0 0 0;
+h1,
+.login,
+.account,
+.contact {
+    width: 80%;
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-.images {
-    width: 15%;
+.imageRow {
+    margin: 80px 0 0 0;
     text-align: center;
+}
+
+ion-img {
+    width: 85px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .heading h1 {
     text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 1.4;
+    color: #000;
 }
 
 .login label {
@@ -32,29 +47,17 @@ body {
     margin: 10px 0;
 }
 
-h1,
-.login,
-.account,
-.contact {
-    width: 80%;
-    margin: 0 auto;
-    font-family: 'Courier New', Courier, monospace;
+.validError{
+    text-align: center;
 }
 
-.heading h1 {
-    padding: 10px;
-    font-size: 20px;
-    line-height: 1.4;
-    color: #000;
-}
-
-.error {
+.error ion-text {
     color: red;
     text-align: center;
     margin-bottom: 2%;
 }
 
-.success {
+.success ion-text {
     color: green;
     text-align: center;
     margin-bottom: 2%;
@@ -65,11 +68,12 @@ h1,
     padding: 10px;
     margin-bottom: 10px;
 }
-ion-label{
+
+ion-label {
     font-weight: bolder;
 }
 
-ion-input{
+ion-input {
     border: 1px solid #e5e5e5;
     background-color: #fff;
     --padding-start: 6.5px;
@@ -93,7 +97,7 @@ ion-button {
     --background: green;
 }
 
-ion-button[disabled]{
+ion-button[disabled] {
     --background: grey;
 
   }
@@ -118,7 +122,7 @@ ion-button[disabled]{
     background-color: #e5e5e5;
 }
 
-.account p {
+ion-text {
     margin: 0;
     font-weight: bolder;
     font-size: 15px;
@@ -134,6 +138,7 @@ ion-button[disabled]{
     float: right;
     text-decoration: none;
     color: #660099;
+    font-weight: bold;
 }
 
 .contact {
@@ -142,16 +147,6 @@ ion-button[disabled]{
     padding: 10px;
     margin-bottom: 10px;
     color: #000;
-}
-
-.validButton {
-    cursor: pointer;
-    background-color: green;
-}
-
-.inValidButton {
-    cursor: no-drop;
-    background-color: grey;
 }
 
 @media screen and (max-width: 320px) {

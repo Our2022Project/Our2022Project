@@ -2,11 +2,11 @@
 <ion-row class="main">
     <ion-col size="12">
         <ion-row class="imageRow">
-            <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
-            <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12" class="images">
-                <img class="images" src="./../../../assets/courier (1).png">
+            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="4" size-xs="4"></ion-col>
+            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="4" size-xs="4">
+                <ion-img src="./../../../assets/courier (1).png"></ion-img>
             </ion-col>
-            <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12"></ion-col>
+            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="4" size-xs="4"></ion-col>
         </ion-row>
         <ion-row>
             <ion-col size-xl="4" size-lg="4" size-md="12" size-sm="12" size-xs="12"></ion-col>
@@ -14,12 +14,12 @@
                 <ion-col size="12" class="heading">
                     <h1>Login in to Shipping Service</h1>
                 </ion-col>
-                <ion-row>
-                    <ion-col size="12" *ngIf="this.sharedService.isValidToken" class="heading error">
-                        <p>Invalid Username/Password</p>
+                <ion-row class="validError">
+                    <ion-col size="12" *ngIf="this.sharedService.isValidToken" class="error">
+                        <ion-text>Invalid Username/Password</ion-text>
                     </ion-col>
-                    <ion-col size="12" *ngIf="this.sharedService.isRegistrationDone" class="heading success">
-                        <p>User Registered Successfully</p>
+                    <ion-col size="12" *ngIf="this.sharedService.isRegistrationDone" class="success">
+                        <ion-text>User Registered Successfully</ion-text>
                     </ion-col>
                 </ion-row>
             </ion-col>
@@ -88,12 +88,12 @@
             <ion-col size-xl="4" size-lg="4" size-md="12" size-sm="12" size-xs="12">
                 <ion-row class="account">
                     <ion-col>
-                        <p>Don't have an account? <a routerLink="/signup">Sign Up</a>.</p>
+                        <ion-text>Don't have an account? <a routerLink="/signup">Sign Up</a>.</ion-text>
                     </ion-col>
                 </ion-row>
                 <ion-row class="contact">
                     <ion-col>
-                        <p>If you need any other help, please contact the helpdesk.</p>
+                        <ion-text>If you need any other help, please contact the helpdesk.</ion-text>
                     </ion-col>
                 </ion-row>
             </ion-col>

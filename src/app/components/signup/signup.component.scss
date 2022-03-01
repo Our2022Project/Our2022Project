@@ -65,7 +65,7 @@ h1,
     padding: 10px;
 }
 
-.account p {
+ion-text {
     margin: 0;
     font-weight: bolder;
     font-size: 15px;
@@ -125,20 +125,14 @@ ion-select{
 }
 
 .ccode{
-    padding: 6.5px;
-    margin: 10px 0;
+    margin: auto;
     background: #e5e5e5;
 }
 
 @media screen and (max-width: 767px){
     .state{
-        margin: 1.5% 0;
+        margin: 1.5% 0 10px 0;
     }
     
-.ccode{
-    padding: 6.5px 0;
-    margin: 4px 0;
-    background: #e5e5e5;
-}
 
 }
