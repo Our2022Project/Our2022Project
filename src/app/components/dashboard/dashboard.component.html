@@ -1,28 +1,40 @@
 <app-header></app-header>
 <app-footer> </app-footer>
-<div class="main">
-    <div class="mainContent">
-        <ion-row class="heading">
-            <ion-col size-xl="3" size-lg="3" size-md="2" size-sm="12" size-xs="12"></ion-col>
-            <ion-col size-xl="6" size-lg="6" size-md="8" size-sm="12" size-xs="12">
-                <h1 style="color:#4d148c"> <b> Where now meets next </b> </h1>
+<ion-row class="main">
+    <ion-col size="12">
+        <ion-row class="mainContent">
+            <ion-col size="12">
+                <ion-row class="heading">
+                    <ion-col size-xl="3" size-lg="3" size-md="2" size-sm="12" size-xs="12"></ion-col>
+                    <ion-col size-xl="6" size-lg="6" size-md="8" size-sm="12" size-xs="12">
+                        <h1>Where now meets next</h1>
+                    </ion-col>
+                    <ion-col size-xl="3" size-lg="3" size-md="2" size-sm="12" size-xs="12"></ion-col>
+                </ion-row>
+                <ion-row class="links">
+                    <ion-col></ion-col>
+                    <ion-col>
+                        <ul>
+                            <li><button (click)="checkrate()"><img src="./../../../assets/img/box-calculator.png">
+                                    <p>Rate & Transit Times</p>
+                                </button></li>
+                            <li><button (click)="track()"><img src="./../../../assets/img/delivery-tracking.png">
+                                    <p>Track</p>
+                                </button></li>
+                            <li><button (click)="ship()"><img src="./../../../assets/img/delivery-box.png">
+                                    <p>Ship</p>
+                                </button></li>
+                            <li><button (click)="location()"><img src="./../../../assets/img/new.png">
+                                    <p>Location</p>
+                                </button></li>
+                        </ul>
+                    </ion-col>
+                    <ion-col></ion-col>
+                </ion-row>
             </ion-col>
-            <ion-col size-xl="3" size-lg="3" size-md="2" size-sm="12" size-xs="12"></ion-col>
         </ion-row>
-        <ion-row class="links">
-            <ion-col></ion-col>
-            <ion-col>
-                <ul>
-                    <li><button (click)="checkrate()"><img src="./../../../assets/img/box-calculator.png"><p>Rate & Transit Times</p></button></li>
-                    <li><button (click)="track()"><img src="./../../../assets/img/delivery-tracking.png"><p>Track</p></button></li>
-                    <li><button (click)="ship()"><img src="./../../../assets/img/delivery-box.png"><p>Ship</p></button></li>
-                    <li><button (click)="location()"><img src="./../../../assets/img/new.png"><p>Location</p></button></li>
-                </ul>
-            </ion-col>
-            <ion-col></ion-col>
-        </ion-row>
-    </div>
-    <app-rate-tranist *ngIf="this.sharedService.displayRateSection"></app-rate-tranist>
-    <app-tracking *ngIf="this.sharedService.displaytrackSection"></app-tracking>
+        <app-rate-tranist *ngIf="this.sharedService.displayRateSection"></app-rate-tranist>
+        <app-tracking *ngIf="this.sharedService.displaytrackSection"></app-tracking>
 
-</div>
+    </ion-col>
+</ion-row>
