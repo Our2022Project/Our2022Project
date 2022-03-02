@@ -11,7 +11,9 @@ export class ChangePasswordComponent implements OnInit {
 
   constructor(private fb: FormBuilder, public sharedService: sharedService) { }
   changeForm: any;
-
+  fieldTextType: boolean = false;
+  fieldType: boolean = false;
+  TextType: boolean = false;
   ngOnInit(): void {
     this.initializeForm();
   }
@@ -25,6 +27,15 @@ export class ChangePasswordComponent implements OnInit {
     });
   }
 
+  toggleFieldTextType(): void {
+    this.fieldTextType = !this.fieldTextType;
+  }
+  toggleTextType(): void {
+    this.fieldType = !this.fieldType;
+  }
+  toggleType(){
+    this.TextType = !this.TextType;
+  }
 
   MustMatch(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
