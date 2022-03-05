@@ -9,48 +9,18 @@
     text-align: center;
     padding: 15px 0;
 }
-
-.rateTransit .cityZip {
-    display: flex;
-    width: 100%;
-}
-
-.rateTransit .cityZip .city {
-    width: 50%;
-}
-
-.rateTransit .cityZip .zip {
-    width: 50%;
-}
-
-.rateTransit .state {
-    margin: 10px;
-}
-
-.rateTransit .state .errorMsg {
-    margin: 0 0 5px 0;
-}
-
-.rateTransit select {
-    padding: 10px;
-    width: 100%;
-    border-radius: 6px;
-    background-color: #f2f2f2;
-    border: none;
-    margin: 0 0 10px 0;
-}
-
-.rateTransit .label {
-    margin: 10px 0;
+.labelHeading {
+    font-size: 17px;
+    font-weight: bold;
 }
 
 .rateTransit label {
     font-size: 20px;
+    margin: 10px 0;
     padding: 10px 10px 10px 0;
 }
 
-.rateTransit input[type=text],
-input[type=tel] {
+ion-input, ion-select{
     width: 100%;
     padding: 10px;
     margin: 10px 0px 10px 0px;
@@ -64,44 +34,13 @@ input[type=tel] {
     border-radius: 5px;
 }
 
-.rateTransit .errorMsg {
+.marginAuto{
+    margin: 0 auto;
+}
+
+.errorMsg {
     font-size: 12px;
     color: red;
-}
-
-.rateTransit button {
-    padding: 15px 20px;
-    margin: 10px 0;
-    color: #fff;
-    font-size: 20px;
-    text-transform: uppercase;
-    border-width: 0;
-}
-
-.validButton {
-    cursor: pointer;
-    background-color: #ff6200;
-    padding: 10px;
-    border: none;
-    color: #fff;
-}
-
-.inValidButton {
-    cursor: no-drop;
-    background-color: grey;
-}
-
-.labelHeading {
-    font-size: 17px;
-    font-weight: bold;
-}
-
-.lableContent {
-    font-size: 17px;
-}
-
-.result {
-    margin: 10px 0;
 }
 
 .resultHeading {
@@ -111,235 +50,6 @@ input[type=tel] {
     color: #4d148c;
 }
 
-.dropButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-
-/* rate start here*/
-
-.showRate {
-    display: flex;
-    margin: 15px 30px 15px 15px;
-    padding: 20px 0;
-    border-top: 1px solid #e3e3e3;
-}
-
-.headIng {
-    width: 30%;
-    text-align: center;
-    padding: 0 0 30px 0;
-    box-sizing: border-box;
-}
-
-.secondDIv {
-    width: 70%;
-    box-sizing: border-box;
-}
-
-.DeliverMain {
-    display: flex;
-}
-
-.Deliver {
-    width: 100%;
-    margin: 0 10px;
-}
-
-.headIng dt,
-dd,
-.Deliver dt,
-dd {
-    padding: 0 0 10px 0;
-}
-
-.headIng dt,
-.Deliver dt {
-    font-weight: bold;
-}
-
-.dropBtn {
-    margin: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.pricebtn {
-    display: block;
-    padding: 15px 30px;
-    margin: 15px;
-    background-color: #ff6200;
-    border: none;
-    color: #fff;
-}
-
-.priceBtn {
-    display: none;
-}
-
-.dropDownRate {
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin: 10px;
-    display: none;
-}
-
-.dropDownRate.responsive {
-    display: flex;
-}
-
-.dropDownRate dt {
-    width: 80%;
-    padding: 0 0 10px 0;
-}
-
-.dropDownRate dd {
-    width: 20%;
-    text-align: right;
-}
-
-
-/* rate end here*/
-
-@media screen and (max-width: 767px) {
-    .rateTransit {
-        margin: 10px;
-        box-sizing: border-box;
-    }
-    .heading h1 {
-        font-size: 25px;
-        font-weight: 300;
-        font-family: "Roboto", sans-serif;
-        text-align: center;
-        padding: 15px 0;
-    }
-    .rateTransit input[type=text],
-    input[type=tel] {
-        width: 100%;
-        padding: 10px;
-        margin: 10px 0px 10px 0px;
-        box-sizing: border-box;
-        background-color: #f2f2f2;
-    }
-    /*start*/
-    .showRate {
-        display: block;
-        margin: 15px;
-    }
-    .headIng {
-        width: 100%;
-        text-align: center;
-        padding: 0 0 30px 0;
-    }
-    .secondDIv {
-        width: 100%;
-    }
-    .DeliverMain {
-        display: flex;
-    }
-    .Deliver {
-        width: 100%;
-        margin: 0 10px;
-    }
-    .headIng dt,
-    dd,
-    .Deliver dt,
-    dd {
-        padding: 0 0 10px 0;
-    }
-    .headIng dt,
-    .Deliver dt {
-        font-weight: bold;
-    }
-    .dropDownRate {
-        display: none;
-        flex-wrap: wrap;
-        flex-direction: row;
-        margin: 10px;
-    }
-    .responsive {
-        display: flex;
-    }
-    .dropDownRate dt {
-        width: 80%;
-        padding: 0 0 10px 0;
-    }
-    .dropDownRate dd {
-        width: 20%;
-        text-align: right;
-    }
-    .pricebtn {
-        display: none;
-    }
-    .priceBtn {
-        padding: 15px 30px;
-        margin: 15px 25px;
-        display: block;
-        background-color: #ff6200;
-        border: none;
-        color: #fff;
-    }
-    /*end*/
-}
-
-@media screen and (max-width: 600px) {
-    .rateTransit .cityZip {
-        display: block;
-        width: 100%;
-    }
-    .rateTransit .cityZip .city {
-        width: 100%;
-    }
-    .rateTransit .cityZip .zip {
-        width: 100%;
-    }
-    .rateTransit .state {
-        margin: 10px 0;
-    }
-    .rateTransit select {
-        padding: 10px;
-        width: 100%;
-        border-radius: 5px;
-        background-color: #f2f2f2;
-        border: none;
-    }
-    .result {
-        margin: 10px 18px;
-    }
-    .resultHeading {
-        margin: 5px 18px;
-    }
-    .rateTransit button {
-        font-size: 15px;
-    }
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type=number] {
-    border: 1px solid #e5e5e5;
-    background-color: #f2f2f2;
-    padding: 10px;
-    border-radius: 6px;
-    width: 90%;
-    margin: 10px 0px 10px 0px
-}
-
-.success {
-    color: green;
-}
-
-.alignRight {
-    text-align: right;
-}
-
 .alignCenter {
     text-align: center;
     margin-top: 1%;
@@ -347,3 +57,95 @@ input[type=number] {
     font-size: 24px;
     color: red;
 }
+
+ion-button{
+--background: #ff6200;
+}
+
+ion-button[disabled] {
+    --background: grey;
+
+}
+
+.lableContent {
+    font-size: 17px;
+}
+
+.validButton{
+    font-size: 14px;
+}
+
+// rate-Transit-details start
+.showRateUi{
+    width: 80%;
+    margin: 3% auto 0 auto;
+}
+.labelHeading{
+    font-weight: bold;
+    padding: 0 0 10px 0;
+}
+
+.success{
+    color: green;
+}
+
+.date{
+    padding: 0 0 10px 0;
+}
+
+.price, .priceFirst{
+    text-align: end;
+}
+
+.labelPrice{
+    margin: 10px 0;
+}
+
+.showRate{
+    margin-bottom: 3%;
+}
+
+.dropButton{
+    --background: none;
+    color: black;
+    margin: 0 10px;
+}
+
+.dropDownRate{
+    display: none;
+}
+
+.responsive{
+    display: block;
+}
+
+.arrivesHeadIng{
+    text-align: center;
+}
+
+// rate-Transit-details end
+
+.secondion-row{
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+
+.validButton{
+    font-size: 10px;
+}
+}
+
+@media screen and (max-width: 767px){
+    .secondion-row{
+        display: block;
+        margin-top: 3%;
+    }
+    .priceFirst{
+        display: none;
+    }
+    .arrivesHeadIng{
+        margin-bottom: 3%;
+    }
+}
+
