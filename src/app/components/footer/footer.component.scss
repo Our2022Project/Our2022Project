@@ -1,4 +1,6 @@
-.footer {
+.main{
+    width: 80%;
+    margin: 0 auto;
     position: fixed;
     width: 100%;
     height: 48px;
@@ -13,26 +15,45 @@
     z-index: 3;
 }
 
-.footer .images {
+.main .images {
     width: 30px;
     height: 30px;
 }
 
-.footer a {
+.main a {
     font-size: 14px;
     color: #fff;
     text-decoration: none;
 }
 
-.footer .secondRow {
-    line-height: 32px;
+ion-list{
+    background: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.flex{
+    display: flex;
+}
+
+ion-img{
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 765px) {
-    .footer {
+    .main {
         height: auto;
     }
+
     .brand {
         margin: 0;
+    }
+
+    ion-list{
+        margin: 0 auto;
+    }
+
+    ion-img{
+        margin: 0 auto;
     }
 }
