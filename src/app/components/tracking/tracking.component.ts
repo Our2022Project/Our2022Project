@@ -16,8 +16,11 @@ export class TrackingComponent implements OnInit {
   }
   initializeForm(): void {
     this.tracking = this.fb.group({
-      trackingID: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-    }
-    );
-  }
+      trackingID: ['', [Validators.required, Validators.pattern("[0-9]{14}$")]],
+    });
+}
+restrictNumeric(event: any): any {
+  return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57;
+  
+}
 }

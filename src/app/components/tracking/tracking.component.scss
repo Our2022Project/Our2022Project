@@ -17,10 +17,22 @@ ion-button {
 .marginFix {
     margin-top: 2%;
 }
-
+.trakFirstButton{
+    display: none;
+}
+.errorMsg {
+    color: red;
+    margin: 2% 0;
+}
 @media screen and (max-width: 768px) {
     ion-button {
         width: 100%;
         margin: 2% 0;
+    }
+    .trakSecondButton{
+        display: none;
+    }
+    .trakFirstButton{
+        display: block;
     }
 }
