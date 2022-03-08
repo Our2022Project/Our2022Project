@@ -17,6 +17,8 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.sharedService.isLoginTrue = true;
+    this.sharedService.loginOrSignup = 'Sign Up';
   }
 
   initializeForm(): void {

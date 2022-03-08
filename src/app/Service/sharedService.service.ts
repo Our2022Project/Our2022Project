@@ -15,6 +15,8 @@ export class sharedService {
     userName:string = '';
     displayRateSection:boolean = false;
     displaytrackSection:boolean=false;
+    isLoginTrue:boolean = false;
+    loginOrSignup:string = 'Sign Up';
 
     httpOptions = {
         headers: new HttpHeaders({

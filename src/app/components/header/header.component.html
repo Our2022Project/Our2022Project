@@ -24,7 +24,7 @@
         <a class="icon" (click)="onclick()">
             <i class="fa fa-bars"></i>
         </a>
-        <a *ngIf="this.sharedService.token === ''" class="Sign-icon" style="display: block; float: right;" (click)="goToLogin()">Sign Up/Log In<span><i
+        <a *ngIf="this.sharedService.token === ''" class="Sign-icon" style="display: block; float: right;" (click)="goToLoginOrSignup()">{{ this.sharedService.loginOrSignup }}<span><i
                     class="fa fa-user-circle-o" style="font-size:17;"></i></span>
         </a>
         <a *ngIf="this.sharedService.token !== ''" class="logout" (click)="goToLogin()">Logout<span><i class="fa fa-power-off"

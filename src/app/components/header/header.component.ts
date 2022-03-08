@@ -59,7 +59,13 @@ export class HeaderComponent implements OnInit {
       this.router.navigateByUrl('/dashboard');
     }
   }
-
+  goToLoginOrSignup(): void {
+    if (this.sharedService.isLoginTrue) {
+      this.router.navigateByUrl('/signup');
+      this.sharedService.loginOrSignup = 'Login';
+    } else {
+      this.router.navigateByUrl('/login')
+      this.sharedService.loginOrSignup = 'Sign Up';
+    }
+  }
 }
-
-

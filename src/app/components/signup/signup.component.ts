@@ -26,6 +26,8 @@ export class SignupComponent implements OnInit {
     this.registerObj.roles = [];
     this.registerObj.userAddressRequestList = [];
     this.initializeForm();
+    this.sharedService.isLoginTrue = false;
+    this.sharedService.loginOrSignup = 'Login';
   }
 
   initializeForm(): void {
