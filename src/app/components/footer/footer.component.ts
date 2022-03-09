@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { sharedService } from 'src/app/Service/sharedService.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -7,8 +8,15 @@ import { Router } from '@angular/router';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router , public sharedService: sharedService) { }
+  check: boolean = false;
 
-  ngOnInit(): void {
+  gotToLoginOrDashboard(): void {
+    if (this.sharedService.token === '') {
+      this.router.navigateByUrl('/login');
+    } else {
+      this.router.navigateByUrl('/dashboard');
+    } }  
+ ngOnInit(): void {
   }
 }
