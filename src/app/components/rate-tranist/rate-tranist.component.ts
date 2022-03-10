@@ -56,6 +56,12 @@ export class RateTranistComponent implements OnInit {
         if (data.rateReplyDetails.length) {
           this.showRateUI = true;
           this.showError = false;
+          data.rateReplyDetails.sort(
+            (n1:any,n2:any)=>{
+               if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount>n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return -1;
+               if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount<n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return 1;
+               else return 0; 
+           });
           for (let i = 0; i < data.rateReplyDetails.length; i++) {
             this.drop[i] = false;
           }
