@@ -6,6 +6,9 @@ ion-input {
     font-weight: 300;
     height: 38px;
 }
+ion-button[disabled]{
+    --background: grey;
+}   
 
 ion-button {
     margin-left: 12px;
@@ -35,4 +38,5 @@ ion-button {
     .trakFirstButton{
         display: block;
     }
+
 }

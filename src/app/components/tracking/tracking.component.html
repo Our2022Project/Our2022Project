@@ -8,7 +8,7 @@
                     <ion-row>
                         <ion-col size-xl="11" size-lg="10" size-md="10" size-sm="12" size-xs="12">
                             <ion-input (keypress)="restrictNumeric($event)" id="trackingID" autocomplete="off"
-                                placeholder="Please enter Tracking ID" type="tel" name="trackingID"
+                                placeholder="Please enter Tracking ID" type="tel" name="trackingID" 
                                 formControlName="trackingID"
                                 oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(1, this.maxLength);"
                                 maxlength="14"></ion-input>
@@ -20,12 +20,15 @@
                         </ion-col>
                     </ion-col>
                         <ion-col size-xl="1" size-lg="2" size-md="2" size-sm="12" size-xs="12">
-                            <ion-button>Track</ion-button>
+                            <ion-button  [disabled]="!tracking.valid">Track</ion-button>
                         </ion-col>
                         <ion-col size="12" class="errorMsg trakSecondButton"
                             *ngIf="tracking.controls['trackingID'].invalid && (tracking.controls['trackingID'].dirty || tracking.controls['trackingID'].touched)">
                             <ion-col size="12" *ngIf="tracking.controls['trackingID'].errors.required">
                                 Please enter trackingID
+                            </ion-col>
+                            <ion-col size="12" *ngIf="tracking.controls['trackingID'].errors.pattern">
+                                Tracking ID should be atleast 14 characters
                             </ion-col>
                         </ion-col>
                     </ion-row>
