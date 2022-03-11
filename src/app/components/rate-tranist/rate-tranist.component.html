@@ -303,6 +303,16 @@
                             </ion-col>
                         </ion-col>
                     </ion-row>
+                    <ion-row>
+                        <ion-col size="12">
+                            <mat-form-field class="calFix" appearance="fill">
+                                <mat-label>Please select ship date.</mat-label>
+                                <input [matDatepickerFilter]="shipDate" matInput [matDatepicker]="dp3" md-date-filter="onlyMonday" disabled>
+                                <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+                                <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+                            </mat-form-field>
+                        </ion-col>
+                    </ion-row>
                     <ion-row class="firstButton">
                         <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="6">
                             <ion-button class="validButton" [disabled]="!checkRateForm.valid" (click)="checkRate()">

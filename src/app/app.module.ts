@@ -22,6 +22,7 @@ import { AddressDetailsComponent } from './Order/address-details/address-details
 import { ShipmentDetailsComponent } from './Order/shipment-details/shipment-details.component';
 import { PaymentDetailsComponent } from './Order/payment-details/payment-details.component';
 import { SummaryDetailsComponent } from '../app/Order/summary-details/summary-details.component';
+import {MaterialExampleModule} from '../material.module';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { SummaryDetailsComponent } from '../app/Order/summary-details/summary-de
     HttpClientModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
+    MaterialExampleModule
   ],
   providers: [
     {

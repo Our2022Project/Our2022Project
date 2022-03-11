@@ -13,7 +13,14 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class RateTranistComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public spinner: NgxSpinnerService) { }
+  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public spinner: NgxSpinnerService) {
+    const todayDate = new Date(new Date().setHours(0, 0, 0, 0));
+    this.avaiableDate.push(new Date(todayDate.setDate(todayDate.getDate())));
+    for(let i=0;i<7;i++) {
+    this.avaiableDate.push(new Date(todayDate.setDate(todayDate.getDate() + 1)));
+    }
+   }
+
   checkRateForm: any;
   showRateUI: Boolean = false;
   showError: Boolean = false;
@@ -23,6 +30,7 @@ export class RateTranistComponent implements OnInit {
   drop: boolean[] = [];
   errorMsg: string = '';
   resultFound: Boolean = true;
+  avaiableDate: Date[] = [];
 
   ngOnInit(): void {
     this.initializeForm();
@@ -166,6 +174,12 @@ export class RateTranistComponent implements OnInit {
 
   showOrderComponent(){
     this.router.navigateByUrl('/address-details');
+  }
+
+  shipDate = (d: Date | null): boolean => {
+    const day = (d || new Date()).getDay();
+    const time=(d || new Date()).getTime();
+    return !(!this.avaiableDate.find((x: { getTime: () => any; })=>x.getTime()==time)) && day !==0;
   }
   
 } 
