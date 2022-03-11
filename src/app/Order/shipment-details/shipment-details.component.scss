@@ -1,0 +1,63 @@
+.mainCol{
+    background-color: #e4e4e4;
+    padding: 10px;
+    border: 1px solid #c3c3c2;
+}
+
+.heading{
+    font-size: 1.6em;
+    font-weight: normal;
+    color: #4d148c;
+    margin: 10px 0;
+}
+
+.title{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #4d148c;
+    margin: 0;
+}
+
+.titleSecondCol{
+    text-align: center;
+}
+
+.titleCol{
+    background-color: #FFF;
+    border: 2px solid #4D148C;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.marginList{
+    margin: 10px 0;
+    color: #666;
+}
+
+.titleMargin{
+    margin-top: 50%;
+}
+
+ion-input{
+    border: 1px solid black;
+    --padding-top: 6px;
+    --padding-end: 8px;
+    --padding-bottom: 6px;
+    --padding-start: 8px;
+}
+
+.mainLabel{
+    color: #4d148c;
+    font-size: 1.15em;
+    font-weight: bold;
+    width: 99%;
+    border-bottom: 2px solid #d9d9d9;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+@media screen and (max-width: 768px){
+.titleMargin{
+    margin: 15px 0;
+}
+}

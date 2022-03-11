@@ -1,0 +1,170 @@
+<ion-row>
+    <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
+    <ion-col size-xl="9" size-lg="9" size-md="11" size-sm="12" size-xs="12" class="mainCol">
+        <form [formGroup]="paymentForm">
+        <ion-row>
+            <ion-col class="margin">
+                <ion-label class="heading">Enter Payment Information</ion-label>
+            </ion-col>
+        </ion-row>
+        <ion-label class="description margin">Enter your credit card information to pay for this shipment</ion-label>
+        <ion-row>
+            <ion-col>
+                <ion-row class="headline">
+                    <ion-col class="margin">
+                        <ion-label>Payment Method</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                        <ion-label>Bill to</ion-label>
+                    </ion-col>
+                    <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                        <ion-input></ion-input>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                        <ion-label>Credit card types</ion-label>
+                    </ion-col>
+                    <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                        <ion-select interface="popover">
+                            <ion-select-option value="">Select state</ion-select-option>
+                            <ion-select-option>American Express</ion-select-option>
+                            <ion-select-option>Diners Club</ion-select-option>
+                            <ion-select-option>Discover</ion-select-option>
+                            <ion-select-option>MasterCard</ion-select-option>
+                        </ion-select>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                        <ion-label>Credit card no.</ion-label>
+                    </ion-col>
+                    <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                        <ion-input></ion-input>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                        <ion-label>Security code</ion-label>
+                    </ion-col>
+                    <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                        <ion-input></ion-input>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                        <ion-label>Expiration date</ion-label>
+                    </ion-col>
+                    <ion-col class="date" size-xl="2.4" size-lg="2.4" size-md="2.4" size-sm="12" size-xs="12">
+                        <ion-select interface="popover">
+                            <ion-select-option value="">MM</ion-select-option>
+                            <ion-select-option>01</ion-select-option>
+                            <ion-select-option>02</ion-select-option>
+                            <ion-select-option>03</ion-select-option>
+                            <ion-select-option>04</ion-select-option>
+                            <ion-select-option>05</ion-select-option>
+                            <ion-select-option>06</ion-select-option>
+                            <ion-select-option>07</ion-select-option>
+                            <ion-select-option>08</ion-select-option>
+                            <ion-select-option>09</ion-select-option>
+                            <ion-select-option>10</ion-select-option>
+                            <ion-select-option>11</ion-select-option>
+                            <ion-select-option>12</ion-select-option>
+                        </ion-select>
+                    </ion-col>
+                    <ion-col size-xl="2.4" size-lg="2.4" size-md="2.4" size-sm="12" size-xs="12">
+                        <ion-select interface="popover">
+                            <ion-select-option value="">YYYY</ion-select-option>
+                            <ion-select-option>2022</ion-select-option>
+                            <ion-select-option>2023</ion-select-option>
+                            <ion-select-option>2024</ion-select-option>
+                            <ion-select-option>2025</ion-select-option>
+                            <ion-select-option>2026</ion-select-option>
+                            <ion-select-option>2027</ion-select-option>
+                            <ion-select-option>2028</ion-select-option>
+                            <ion-select-option>2029</ion-select-option>
+                            <ion-select-option>2030</ion-select-option>
+                            <ion-select-option>2031</ion-select-option>
+                            <ion-select-option>2032</ion-select-option>
+                            <ion-select-option>2033</ion-select-option>
+                        </ion-select>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                        <ion-label>First name</ion-label>
+                    </ion-col>
+                    <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                        <ion-input></ion-input>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                        <ion-label>Middle name</ion-label>
+                    </ion-col>
+                    <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                        <ion-input></ion-input>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                        <ion-label>Last name</ion-label>
+                    </ion-col>
+                    <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                        <ion-input></ion-input>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                        <ion-label>Company</ion-label>
+                    </ion-col>
+                    <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                        <ion-input></ion-input>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                        <ion-label>Email</ion-label>
+                    </ion-col>
+                    <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                        <ion-input></ion-input>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                        <ion-label>Verify email</ion-label>
+                    </ion-col>
+                    <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                        <ion-input></ion-input>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="labelMargin">
+                        <ion-checkbox></ion-checkbox>
+                        <ion-label>My credit card address is the same as my ship From address.</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="note">
+                        <ion-label>Please Note: A copy of the receipt will be sent to this email address.</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="price">
+                        <ion-label>Total Estimated Rate: &nbsp; $35.5
+                        </ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="margin">
+                    <ion-col class="button">
+                        <ion-button (click)="showSummary()">Continue</ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </form>
+    </ion-col>
+    <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
+</ion-row>

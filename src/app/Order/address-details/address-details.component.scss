@@ -1,0 +1,81 @@
+.main {
+    margin: 50px 0 80px 0;
+}
+
+.list{
+    padding: 8px 10px;
+    background-color: #e4e4e4;
+    font-size: 1.35em;
+    border: 1px solid #c3c3c2;
+    border-top: 0;
+}
+
+.listMargin{
+    margin: 6px 0;
+}
+
+.fromToLabel{
+    border-bottom: 2px solid #d9d9d9;
+    color: #4d148c;
+    font-size: 1.15em;
+    font-weight: bold;
+    padding: 10px 0;
+    margin: 0 20px;
+}
+
+.tag{
+    margin: 10px 0;
+}
+
+.margin{
+    margin: 20px;
+}
+
+.inputTagPadding{
+    padding: 10px 0;
+}
+
+.title{
+    font-size: 1.6em;
+    font-weight: normal;
+    color: #4d148c;
+    margin: 10px 20px;
+
+}
+
+.mainCol{
+    background-color: #e4e4e4;
+    padding: 10px;
+    border: 1px solid #c3c3c2;
+}
+
+.editButton{
+    text-align: end;
+}
+
+ion-input, ion-select{
+    --padding-top: 6px;
+    --padding-end: 8px;
+    --padding-bottom: 6px;
+    --padding-start: 8px;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+ion-select{
+    padding: 6px 0;
+}
+
+ion-button{
+    text-transform: none;
+}
+
+.listButton{
+    --background: none;
+    --box-shadow: none;
+    color: #4d148c;
+    font-weight: bold;
+    border: 1px solid black ;
+    border-radius: 6px;
+}

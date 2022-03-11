@@ -364,7 +364,7 @@
                                                     <ion-col class="priceFirst"
                                                         *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages">
                                                         <ion-col>
-                                                            <ion-button class="priceBtn">${{
+                                                            <ion-button (click)="showOrderComponent()" class="priceBtn">${{
                                                                 ratedPackage?.packageRateDetail?.netFedExCharge?.amount
                                                                 }}</ion-button>
                                                         </ion-col>
@@ -449,7 +449,7 @@
                                     <ion-col class="DeliverMain"
                                         *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages">
                                         <ion-col>
-                                            <ion-button class="priceBtn">${{
+                                            <ion-button (click)="showOrderComponent()" class="priceBtn">${{
                                                 ratedPackage?.packageRateDetail?.netFedExCharge?.amount
                                                 }}</ion-button>
                                         </ion-col>

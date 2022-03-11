@@ -164,4 +164,8 @@ export class RateTranistComponent implements OnInit {
     return formattedTime;
   }
 
+  showOrderComponent(){
+    this.router.navigateByUrl('/address-details');
+  }
+  
 } 

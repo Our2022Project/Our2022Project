@@ -1,0 +1,427 @@
+<app-header></app-header>
+<app-footer></app-footer>
+<ion-row class="main">
+    <ion-col>
+        <ion-row>
+            <ion-col>
+                <ion-row>
+                    <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
+                    <ion-col>
+                        <ion-row class="list">
+                            <ion-col class="listMargin"><label>1. &nbsp; Address Information</label></ion-col>
+                            <ion-col size-sm="3" size-xs="3" class="editButton">
+                                <ion-button class="listButton" (click)="editAddress()">Edit</ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
+                </ion-row>
+
+                <!-- Address details starts here -->
+
+                <ion-row *ngIf="this.sharedService.addressDetails">
+                    <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
+                    <ion-col size-xl="9" size-lg="9" size-md="11" size-sm="12" size-xs="12" class="mainCol">
+                        <form [formGroup]="addressForm">
+                            <ion-label class="title">Enter your (From) address and the recipient's (To) address.
+                            </ion-label>
+                            <ion-row>
+                                <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="12" size-xs="12">
+                                    <ion-row class="fromToLabel">
+                                        <ion-col>
+                                            <ion-label>From Address</ion-label>
+                                        </ion-col>
+                                    </ion-row>
+                                    <ion-row class="margin">
+                                        <ion-col>
+
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Your name</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input type="text"></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Company</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input type="text" placeholder="(optional)"></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Country/Location</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Address</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input type="text" placeholder="Street address"
+                                                        style="margin-bottom: 10px;"></ion-input>
+                                                    <ion-input type="text"
+                                                        placeholder="Apt, Floor, Suite, etc. (optional)">
+                                                    </ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Zip</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>City</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input type="text"></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>State</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-select interface="popover"
+                                                        (change)="selectchangehandler($event)">
+                                                        <ion-select-option value="">Select state</ion-select-option>
+                                                        <ion-select-option value="AL">Alabama (AL)</ion-select-option>
+                                                        <ion-select-option value="AK">Alaska (AK)</ion-select-option>
+                                                        <ion-select-option value="AZ">Arizona (AZ)</ion-select-option>
+                                                        <ion-select-option value="AR">Arkansas (AR)</ion-select-option>
+                                                        <ion-select-option value="CA">California (CA)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="CO">Colorado (CO)</ion-select-option>
+                                                        <ion-select-option value="CT">Connecticut (CT)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="DE">Delaware (DE)</ion-select-option>
+                                                        <ion-select-option value="DC">District Of Columbia (DC)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="FL">Florida (FL)</ion-select-option>
+                                                        <ion-select-option value="GA">Georgia (GA)</ion-select-option>
+                                                        <ion-select-option value="HI">Hawaii (HI)</ion-select-option>
+                                                        <ion-select-option value="ID">Idaho (ID)</ion-select-option>
+                                                        <ion-select-option value="IL">Illinois (IL)</ion-select-option>
+                                                        <ion-select-option value="IN">Indiana (IN)</ion-select-option>
+                                                        <ion-select-option value="IA">Iowa (IA)</ion-select-option>
+                                                        <ion-select-option value="KS">Kansas (KS)</ion-select-option>
+                                                        <ion-select-option value="KY">Kentucky (KY)</ion-select-option>
+                                                        <ion-select-option value="LA">Louisiana (LA)</ion-select-option>
+                                                        <ion-select-option value="ME">Maine (ME)</ion-select-option>
+                                                        <ion-select-option value="MD">Maryland (MD)</ion-select-option>
+                                                        <ion-select-option value="MA">Massachusetts (MA)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="MI">Michigan (MI)</ion-select-option>
+                                                        <ion-select-option value="MN">Minnesota (MN)</ion-select-option>
+                                                        <ion-select-option value="MS">Mississippi (MS)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="MO">Missouri (MO)</ion-select-option>
+                                                        <ion-select-option value="MT">Montana (MT)</ion-select-option>
+                                                        <ion-select-option value="NE">Nebraska (NE)</ion-select-option>
+                                                        <ion-select-option value="NV">Nevada (NV)</ion-select-option>
+                                                        <ion-select-option value="NH">New Hampshire (NH)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="NJ">New Jersey (NJ)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="NM">New Mexico (NM)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="NY">New York (NY)</ion-select-option>
+                                                        <ion-select-option value="NC">North Carolina (NC)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="ND">North Dakota (ND)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="OH">Ohio (OH)</ion-select-option>
+                                                        <ion-select-option value="OK">Oklahoma (OK)</ion-select-option>
+                                                        <ion-select-option value="OR">Oregon (OR)</ion-select-option>
+                                                        <ion-select-option value="PA">Pennsylvania (PA)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="RI">Rhode Island (RI)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="SC">South Carolina (SC)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="SD">South Dakota (SD)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="TN">Tennessee (TN)</ion-select-option>
+                                                        <ion-select-option value="TX">Texas (TX)</ion-select-option>
+                                                        <ion-select-option value="UT">Utah (UT)</ion-select-option>
+                                                        <ion-select-option value="VT">Vermont</ion-select-option>
+                                                        <ion-select-option value="VA">Virginia</ion-select-option>
+                                                        <ion-select-option value="WA">Washington</ion-select-option>
+                                                        <ion-select-option value="WV">West Virginia</ion-select-option>
+                                                        <ion-select-option value="WI">Wisconsin</ion-select-option>
+                                                        <ion-select-option value="WY">Wyoming</ion-select-option>
+                                                    </ion-select>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Phone</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input type="tel"></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Email notification</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input type="email" placeholder="(optional)"></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-col>
+                                <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="12" size-xs="12">
+                                    <ion-row class="fromToLabel">
+                                        <ion-col>
+                                            <ion-label></ion-label>To Address
+                                        </ion-col>
+                                    </ion-row>
+                                    <ion-row class="margin">
+                                        <ion-col>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Recipient name</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Company</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input type="text" placeholder="(optional)"></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Country/Location</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Address</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input type="text" placeholder="Street address"
+                                                        style="margin-bottom: 10px;"></ion-input>
+                                                    <ion-input type="text"
+                                                        placeholder="Apt, Floor, Suite, etc. (optional)">
+                                                    </ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Zip</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>City</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input type="text"></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>State</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-select interface="popover"
+                                                        (change)="selectchangehandler($event)">
+                                                        <ion-select-option value="">Select state</ion-select-option>
+                                                        <ion-select-option value="AL">Alabama (AL)</ion-select-option>
+                                                        <ion-select-option value="AK">Alaska (AK)</ion-select-option>
+                                                        <ion-select-option value="AZ">Arizona (AZ)</ion-select-option>
+                                                        <ion-select-option value="AR">Arkansas (AR)</ion-select-option>
+                                                        <ion-select-option value="CA">California (CA)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="CO">Colorado (CO)</ion-select-option>
+                                                        <ion-select-option value="CT">Connecticut (CT)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="DE">Delaware (DE)</ion-select-option>
+                                                        <ion-select-option value="DC">District Of Columbia (DC)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="FL">Florida (FL)</ion-select-option>
+                                                        <ion-select-option value="GA">Georgia (GA)</ion-select-option>
+                                                        <ion-select-option value="HI">Hawaii (HI)</ion-select-option>
+                                                        <ion-select-option value="ID">Idaho (ID)</ion-select-option>
+                                                        <ion-select-option value="IL">Illinois (IL)</ion-select-option>
+                                                        <ion-select-option value="IN">Indiana (IN)</ion-select-option>
+                                                        <ion-select-option value="IA">Iowa (IA)</ion-select-option>
+                                                        <ion-select-option value="KS">Kansas (KS)</ion-select-option>
+                                                        <ion-select-option value="KY">Kentucky (KY)</ion-select-option>
+                                                        <ion-select-option value="LA">Louisiana (LA)</ion-select-option>
+                                                        <ion-select-option value="ME">Maine (ME)</ion-select-option>
+                                                        <ion-select-option value="MD">Maryland (MD)</ion-select-option>
+                                                        <ion-select-option value="MA">Massachusetts (MA)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="MI">Michigan (MI)</ion-select-option>
+                                                        <ion-select-option value="MN">Minnesota (MN)</ion-select-option>
+                                                        <ion-select-option value="MS">Mississippi (MS)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="MO">Missouri (MO)</ion-select-option>
+                                                        <ion-select-option value="MT">Montana (MT)</ion-select-option>
+                                                        <ion-select-option value="NE">Nebraska (NE)</ion-select-option>
+                                                        <ion-select-option value="NV">Nevada (NV)</ion-select-option>
+                                                        <ion-select-option value="NH">New Hampshire (NH)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="NJ">New Jersey (NJ)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="NM">New Mexico (NM)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="NY">New York (NY)</ion-select-option>
+                                                        <ion-select-option value="NC">North Carolina (NC)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="ND">North Dakota (ND)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="OH">Ohio (OH)</ion-select-option>
+                                                        <ion-select-option value="OK">Oklahoma (OK)</ion-select-option>
+                                                        <ion-select-option value="OR">Oregon (OR)</ion-select-option>
+                                                        <ion-select-option value="PA">Pennsylvania (PA)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="RI">Rhode Island (RI)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="SC">South Carolina (SC)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="SD">South Dakota (SD)
+                                                        </ion-select-option>
+                                                        <ion-select-option value="TN">Tennessee (TN)</ion-select-option>
+                                                        <ion-select-option value="TX">Texas (TX)</ion-select-option>
+                                                        <ion-select-option value="UT">Utah (UT)</ion-select-option>
+                                                        <ion-select-option value="VT">Vermont</ion-select-option>
+                                                        <ion-select-option value="VA">Virginia</ion-select-option>
+                                                        <ion-select-option value="WA">Washington</ion-select-option>
+                                                        <ion-select-option value="WV">West Virginia</ion-select-option>
+                                                        <ion-select-option value="WI">Wisconsin</ion-select-option>
+                                                        <ion-select-option value="WY">Wyoming</ion-select-option>
+                                                    </ion-select>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Phone</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input type="tel"></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row class="tag">
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                    class="inputTagPadding">
+                                                    <ion-label>Email notification</ion-label>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <ion-input type="email" placeholder="(optional)"></ion-input>
+                                                </ion-col>
+                                            </ion-row>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col class="editButton">
+                                    <ion-button (click)="showShipment()">Continue</ion-button>
+                                </ion-col>
+                            </ion-row>
+                        </form>
+                    </ion-col>
+                    <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
+                </ion-row>
+
+            </ion-col>
+        </ion-row>
+
+        <!-- Address details ends here -->
+
+        <!-- Shipment details starts here -->
+
+        <ion-row>
+            <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
+            <ion-col>
+                <ion-row class="list">
+                    <ion-col class="listMargin"><label>2. &nbsp; Shipment Details</label></ion-col>
+                    <ion-col size-sm="3" size-xs="3" class="editButton">
+                        <ion-button class="listButton" (click)="editShipment()">Edit</ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
+        </ion-row>
+        <app-shipment-details *ngIf="this.sharedService.shipmentDetails"></app-shipment-details>
+        <!-- Shipment details ends here -->
+
+        <!-- Payment details starts here -->
+
+        <ion-row>
+            <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
+            <ion-col>
+                <ion-row class="list">
+                    <ion-col class="listMargin"><label>3. &nbsp; Payment</label></ion-col>
+                    <ion-col size-sm="3" size-xs="3" class="editButton">
+                        <ion-button class="listButton" (click)="editPayment()">Edit</ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
+        </ion-row>
+        <app-payment-details *ngIf="this.sharedService.paymentDetails"></app-payment-details>
+
+        <!-- Payment details ends here -->
+
+        <!-- Summary details starts here -->
+
+        <ion-row>
+            <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
+            <ion-col>
+                <ion-row class="list">
+                    <ion-col class="listMargin"><label>4. &nbsp; Summary</label></ion-col>
+                    <ion-col size-sm="3" size-xs="3" class="editButton">
+                        <ion-button class="listButton" (click)="editSummary()">Edit</ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
+        </ion-row>
+        <app-summary-details *ngIf="this.sharedService.summaryDetails"></app-summary-details>
+    </ion-col>
+</ion-row>
+<!-- Summary details ends here -->

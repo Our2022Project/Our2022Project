@@ -18,6 +18,10 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { TrackingComponent } from './components/tracking/tracking.component';
+import { AddressDetailsComponent } from './Order/address-details/address-details.component';
+import { ShipmentDetailsComponent } from './Order/shipment-details/shipment-details.component';
+import { PaymentDetailsComponent } from './Order/payment-details/payment-details.component';
+import { SummaryDetailsComponent } from '../app/Order/summary-details/summary-details.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { TrackingComponent } from './components/tracking/tracking.component';
     RateTranistComponent,
     ForgotPasswordComponent,
     ChangePasswordComponent,
-    TrackingComponent
+    TrackingComponent,
+    AddressDetailsComponent,
+    ShipmentDetailsComponent,
+    PaymentDetailsComponent,
+    SummaryDetailsComponent
   ],
   imports: [
     BrowserModule,

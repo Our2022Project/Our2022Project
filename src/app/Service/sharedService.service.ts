@@ -17,6 +17,10 @@ export class sharedService {
     displaytrackSection:boolean=false;
     isLoginTrue:boolean = false;
     loginOrSignup:string = 'Sign Up';
+    addressDetails:boolean = true;
+    shipmentDetails:boolean = false;
+    paymentDetails:boolean = false; 
+    summaryDetails:boolean = false;
 
     httpOptions = {
         headers: new HttpHeaders({
