@@ -21,6 +21,16 @@ export class sharedService {
     shipmentDetails:boolean = false;
     paymentDetails:boolean = false; 
     summaryDetails:boolean = false;
+    fromAddress:string = '';
+    toAddress:string = '';
+    fromCity:string='';
+    fromState:string='';
+    fromZip:string='';
+    toCity:string='';
+    toState:string='';
+    toZip:string='';
+
+
 
     httpOptions = {
         headers: new HttpHeaders({

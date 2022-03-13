@@ -41,7 +41,27 @@
                                                     <ion-label>Your name</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input type="text"></ion-input>
+                                                    <ion-input formControlName="yourName" placeholder="Enter Your Name" type="text"></ion-input>
+                                                    <ion-col size="12" class="errorMsg"
+                                                    *ngIf="addressForm.controls['yourName'].invalid && (addressForm.controls['yourName'].dirty || addressForm.controls['yourName'].touched)">
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['yourName'].errors.required">This is a
+                                                        required Fields
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['yourName'].errors.pattern">
+                                                        Only
+                                                        Alphanumeric characters are allowed
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['yourName'].errors.maxlength">Maximum
+                                                        20 alphabetical characters Long Only
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['yourName'].errors.minlength">Minimum
+                                                        3 alphabetical letters are Required
+                                                    </ion-col>
+                                                </ion-col>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
@@ -50,7 +70,7 @@
                                                     <ion-label>Company</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input type="text" placeholder="(optional)"></ion-input>
+                                                    <ion-input type="text" formControlName="fromCompany" placeholder="(optional)"></ion-input>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
@@ -59,7 +79,27 @@
                                                     <ion-label>Country/Location</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input></ion-input>
+                                                    <ion-input formControlName="fromCountry" placeholder="Enter Country Name"></ion-input>
+                                                    <ion-col size="12" class="errorMsg"
+                                                    *ngIf="addressForm.controls['fromCountry'].invalid && (addressForm.controls['fromCountry'].dirty || addressForm.controls['fromCountry'].touched)">
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['fromCountry'].errors.required">This is a
+                                                        required Fields
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['fromCountry'].errors.pattern">
+                                                        Only
+                                                        Alphanumeric characters are allowed
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['fromCountry'].errors.maxlength">Maximum
+                                                        20 alphabetical characters Long Only
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['fromCountry'].errors.minlength">Minimum
+                                                        3 alphabetical letters are Required
+                                                    </ion-col>
+                                                </ion-col>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
@@ -68,8 +108,19 @@
                                                     <ion-label>Address</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input type="text" placeholder="Street address"
+                                                    <ion-input type="text" formControlName="fromAddress" placeholder="Street address"
                                                         style="margin-bottom: 10px;"></ion-input>
+                                                        <ion-col class="errorMsg"
+                                                    *ngIf="addressForm.controls['fromAddress'].invalid && (addressForm.controls['fromAddress'].dirty || addressForm.controls['fromAddress'].touched)"
+                                                    class="alert">
+                                                    <ion-col class="errorMsg" *ngIf="addressForm.controls['fromAddress'].errors.required">
+                                                        This is
+                                                        a required Fields
+                                                    </ion-col>
+                                                    <ion-col class="errorMsg" *ngIf="addressForm.controls['fromAddress'].errors.minlength">
+                                                        Address contains atleast 10 characters
+                                                    </ion-col>
+                                                </ion-col>
                                                     <ion-input type="text"
                                                         placeholder="Apt, Floor, Suite, etc. (optional)">
                                                     </ion-input>
@@ -81,7 +132,17 @@
                                                     <ion-label>Zip</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input></ion-input>
+                                                    <ion-input  (keypress)="restrictNumeric($event)"  oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                        maxlength="5" formControlName="fromZip" placeholder="Enter Your Zip code"></ion-input>
+                                                    <ion-col class="errorMsg"
+                                                    *ngIf="addressForm.controls['fromZip'].invalid && (addressForm.controls['fromZip'].dirty || addressForm.controls['fromZip'].touched)">
+                                                    <ion-col *ngIf="addressForm.controls['fromZip'].errors.required">
+                                                        <ion-col class="errorMsg">This is a required Fields</ion-col>
+                                                    </ion-col>
+                                                    <ion-col class="errorMsg" *ngIf="addressForm.controls['fromZip'].errors.pattern">Invaild
+                                                        ZIP
+                                                    </ion-col>
+                                                </ion-col>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
@@ -90,7 +151,31 @@
                                                     <ion-label>City</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input type="text"></ion-input>
+                                                    <ion-input  formControlName="fromCity" placeholder="Enter Your City Name"  type="text"></ion-input>
+                                                    <ion-col size="12" class="errorMsg"
+                                                    *ngIf="addressForm.controls['fromCity'].invalid && (addressForm.controls['fromCity'].dirty || addressForm.controls['fromCity'].touched)">
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['fromCity'].errors.required">This is a
+                                                        required
+                                                        Fields
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['fromCity'].errors.pattern">Only
+                                                        Alphanumeric
+                                                        characters are allowed
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['fromCity'].errors.maxlength">Maximum 35
+                                                        alphabetical
+                                                        characters Long Only
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['fromCity'].errors.minlength">Minimum 3
+                                                        alphabetical
+                                                        letters are Required
+                                                    </ion-col>
+                                                </ion-col>
+                                                    
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
@@ -99,7 +184,7 @@
                                                     <ion-label>State</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-select interface="popover"
+                                                    <ion-select interface="popover" formControlName="fromState"
                                                         (change)="selectchangehandler($event)">
                                                         <ion-select-option value="">Select state</ion-select-option>
                                                         <ion-select-option value="AL">Alabama (AL)</ion-select-option>
@@ -168,15 +253,39 @@
                                                         <ion-select-option value="WI">Wisconsin</ion-select-option>
                                                         <ion-select-option value="WY">Wyoming</ion-select-option>
                                                     </ion-select>
+                                                    <ion-col class="errorMsg"
+                                                    *ngIf="addressForm.controls['fromState'].invalid && (addressForm.controls['fromState'].dirty || addressForm.controls['fromState'].touched)"
+                                                    class="alert">
+                                                    <ion-col class="errorMsg" *ngIf="addressForm.controls['fromState'].errors.required">
+                                                        This is
+                                                        a required Fields
+                                                    </ion-col>
+                                                   
+                                                </ion-col>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
                                                 <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
-                                                    class="inputTagPadding">
+                                                    class="inputTagPadding" >
                                                     <ion-label>Phone</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input type="tel"></ion-input>
+                                                    <ion-input  (keypress)="restrictNumeric($event)"  formControlName="fromPhone" placeholder="Enter your Phone Number" type="tel"   oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(1, this.maxLength);"
+                                                        maxlength="10" ></ion-input>
+                                                    <ion-col class="errorMsg"
+                                                    *ngIf="addressForm.controls['fromPhone'].invalid && (addressForm.controls['fromPhone'].dirty || addressForm.controls['fromPhone'].touched)"
+                                                    class="alert">
+                                                    <ion-col class="errorMsg" *ngIf="addressForm.controls['fromPhone'].errors.required">
+                                                        This is
+                                                        a required Fields
+                                                    </ion-col>
+                                                    <ion-col class="errorMsg" *ngIf="addressForm.controls['fromPhone'].errors.minlength">
+                                                        Phone Number  contains  10 Digit
+                                                    </ion-col>
+                                                    <ion-col class="errorMsg" *ngIf="addressForm.controls['fromPhone'].errors.pattern">
+                                                        Phone Number  contains  10 Digit
+                                                    </ion-col>
+                                                </ion-col>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
@@ -185,7 +294,8 @@
                                                     <ion-label>Email notification</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input type="email" placeholder="(optional)"></ion-input>
+                                                    <ion-input  formControlName="fromEmail" type="email" placeholder="(optional)"></ion-input>
+                                                    
                                                 </ion-col>
                                             </ion-row>
 
@@ -206,7 +316,27 @@
                                                     <ion-label>Recipient name</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input></ion-input>
+                                                    <ion-input  formControlName="toRecipient" placeholder="Enter Your Recipient Name"></ion-input>
+                                                    <ion-col size="12" class="errorMsg"
+                                                    *ngIf="addressForm.controls['toRecipient'].invalid && (addressForm.controls['toRecipient'].dirty || addressForm.controls['toRecipient'].touched)">
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['toRecipient'].errors.required">This is a
+                                                        required Fields
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['toRecipient'].errors.pattern">
+                                                        Only
+                                                        Alphanumeric characters are allowed
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['toRecipient'].errors.maxlength">Maximum
+                                                        20 alphabetical characters Long Only
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['toRecipient'].errors.minlength">Minimum
+                                                        3 alphabetical letters are Required
+                                                    </ion-col>
+                                                </ion-col>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
@@ -215,7 +345,7 @@
                                                     <ion-label>Company</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input type="text" placeholder="(optional)"></ion-input>
+                                                    <ion-input  formControlName="toCompany" type="text" placeholder="(optional)"></ion-input>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
@@ -224,7 +354,27 @@
                                                     <ion-label>Country/Location</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input></ion-input>
+                                                    <ion-input  formControlName="toCountry" placeholder="Enter Your Country Name"></ion-input>
+                                                    <ion-col size="12" class="errorMsg"
+                                                    *ngIf="addressForm.controls['toCountry'].invalid && (addressForm.controls['toCountry'].dirty || addressForm.controls['toCountry'].touched)">
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['toCountry'].errors.required">This is a
+                                                        required Fields
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['toCountry'].errors.pattern">
+                                                        Only
+                                                        Alphanumeric characters are allowed
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['toCountry'].errors.maxlength">Maximum
+                                                        20 alphabetical characters Long Only
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['toCountry'].errors.minlength">Minimum
+                                                        3 alphabetical letters are Required
+                                                    </ion-col>
+                                                </ion-col>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
@@ -233,8 +383,19 @@
                                                     <ion-label>Address</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input type="text" placeholder="Street address"
+                                                    <ion-input   formControlName="toAddress" type="text" placeholder="Street address"
                                                         style="margin-bottom: 10px;"></ion-input>
+                                                        <ion-col class="errorMsg"
+                                                        *ngIf="addressForm.controls['toAddress'].invalid && (addressForm.controls['toAddress'].dirty || addressForm.controls['toAddress'].touched)"
+                                                        class="alert">
+                                                        <ion-col class="errorMsg" *ngIf="addressForm.controls['toAddress'].errors.required">
+                                                            This is
+                                                            a required Fields
+                                                        </ion-col>
+                                                        <ion-col class="errorMsg" *ngIf="addressForm.controls['toAddress'].errors.minlength">
+                                                            Address contains atleast 10 characters
+                                                        </ion-col>
+                                                    </ion-col>
                                                     <ion-input type="text"
                                                         placeholder="Apt, Floor, Suite, etc. (optional)">
                                                     </ion-input>
@@ -246,7 +407,17 @@
                                                     <ion-label>Zip</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input></ion-input>
+                                                    <ion-input (keypress)="restrictNumeric($event)"  oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                        maxlength="5" formControlName="toZip" placeholder="Enter your Zip code"></ion-input>
+                                                        <ion-col class="errorMsg"
+                                                        *ngIf="addressForm.controls['toZip'].invalid && (addressForm.controls['toZip'].dirty || addressForm.controls['toZip'].touched)">
+                                                        <ion-col *ngIf="addressForm.controls['toZip'].errors.required">
+                                                            <ion-col class="errorMsg">This is a required Fields</ion-col>
+                                                        </ion-col>
+                                                        <ion-col class="errorMsg" *ngIf="addressForm.controls['toZip'].errors.pattern">Invaild
+                                                            ZIP
+                                                        </ion-col>
+                                                    </ion-col>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
@@ -255,7 +426,30 @@
                                                     <ion-label>City</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input type="text"></ion-input>
+                                                    <ion-input formControlName="toCity" placeholder="Enter Your City Name" type="text"></ion-input>
+                                                    <ion-col size="12" class="errorMsg"
+                                                    *ngIf="addressForm.controls['toCity'].invalid && (addressForm.controls['toCity'].dirty || addressForm.controls['toCity'].touched)">
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['toCity'].errors.required">This is a
+                                                        required
+                                                        Fields
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['toCity'].errors.pattern">Only
+                                                        Alphanumeric
+                                                        characters are allowed
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['toCity'].errors.maxlength">Maximum 35
+                                                        alphabetical
+                                                        characters Long Only
+                                                    </ion-col>
+                                                    <ion-col size="12" class="errorMsg"
+                                                        *ngIf="addressForm.controls['toCity'].errors.minlength">Minimum 3
+                                                        alphabetical
+                                                        letters are Required
+                                                    </ion-col>
+                                                </ion-col>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
@@ -264,7 +458,7 @@
                                                     <ion-label>State</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-select interface="popover"
+                                                    <ion-select formControlName="toState" interface="popover"
                                                         (change)="selectchangehandler($event)">
                                                         <ion-select-option value="">Select state</ion-select-option>
                                                         <ion-select-option value="AL">Alabama (AL)</ion-select-option>
@@ -333,6 +527,15 @@
                                                         <ion-select-option value="WI">Wisconsin</ion-select-option>
                                                         <ion-select-option value="WY">Wyoming</ion-select-option>
                                                     </ion-select>
+                                                    <ion-col class="errorMsg"
+                                                    *ngIf="addressForm.controls['toState'].invalid && (addressForm.controls['toState'].dirty || addressForm.controls['toState'].touched)"
+                                                    class="alert">
+                                                    <ion-col class="errorMsg" *ngIf="addressForm.controls['toState'].errors.required">
+                                                        This is
+                                                        a required Fields
+                                                    </ion-col>
+                                                   
+                                                </ion-col>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
@@ -341,7 +544,22 @@
                                                     <ion-label>Phone</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input type="tel"></ion-input>
+                                                    <ion-input  (keypress)="restrictNumeric($event)"  formControlName="toPhone" placeholder="Enter your Phone Number" type="tel"   oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(1, this.maxLength);"
+                                                        maxlength="10"   formControlName="toPhone" placeholder="Enter your Phonr Number" type="tel"></ion-input>
+                                                        <ion-col class="errorMsg"
+                                                        *ngIf="addressForm.controls['toPhone'].invalid && (addressForm.controls['toPhone'].dirty || addressForm.controls['toPhone'].touched)"
+                                                        class="alert">
+                                                        <ion-col class="errorMsg" *ngIf="addressForm.controls['toPhone'].errors.required">
+                                                            This is
+                                                            a required Fields
+                                                        </ion-col>
+                                                        <ion-col class="errorMsg" *ngIf="addressForm.controls['toPhone'].errors.minlength">
+                                                            Phone Number  contains  10 Digit
+                                                        </ion-col>
+                                                        <ion-col class="errorMsg" *ngIf="addressForm.controls['toPhone'].errors.pattern">
+                                                            Phone Number  contains  10 Digit
+                                                        </ion-col>
+                                                    </ion-col>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
@@ -350,7 +568,7 @@
                                                     <ion-label>Email notification</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input type="email" placeholder="(optional)"></ion-input>
+                                                    <ion-input  formControlName="toEmail" type="email" placeholder="(optional)"></ion-input>
                                                 </ion-col>
                                             </ion-row>
                                         </ion-col>
@@ -359,7 +577,7 @@
                             </ion-row>
                             <ion-row>
                                 <ion-col class="editButton">
-                                    <ion-button (click)="showShipment()">Continue</ion-button>
+                                    <ion-button [disabled]="!addressForm.valid" (click)="showShipment()">Continue</ion-button>
                                 </ion-col>
                             </ion-row>
                         </form>

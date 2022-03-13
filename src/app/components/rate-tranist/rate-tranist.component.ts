@@ -110,6 +110,14 @@ export class RateTranistComponent implements OnInit {
     this.toAddress.stateCode = this.checkRateForm.controls['Tostate'].value;
     this.toAddress.zipcode = this.checkRateForm.controls['Tozip'].value;
     this.toAddress.countryCode = "US";
+    this.sharedService.fromAddress=this.fromAddress.addressLine1;
+    this.sharedService.fromCity=this.fromAddress.city;
+    this.sharedService.fromState=this.fromAddress.stateCode;
+    this.sharedService.fromZip= this.fromAddress.zipcode;
+    this.sharedService.toAddress=this.toAddress.addressLine1;
+    this.sharedService.toCity=this.toAddress.city;
+    this.sharedService.toState= this.toAddress.stateCode;
+    this.sharedService.toZip= this.toAddress.zipcode;
   }
 
 
