@@ -9,10 +9,19 @@ import { sharedService } from 'src/app/Service/sharedService.service';
 })
 export class ShipmentDetailsComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) { }
-
+  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) {
+    const todayDate = new Date(new Date().setHours(0, 0, 0, 0));
+    this.avaiableDate.push(new Date(todayDate.setDate(todayDate.getDate())));
+    for (let i = 0; i < 7; i++) {
+      this.avaiableDate.push(new Date(todayDate.setDate(todayDate.getDate() + 1)));
+    }
+  }
+  avaiableDate: Date[] = [];
   shipmentForm: any;
-
+  shipmentRowThree: boolean = false;
+  shipmentRowTwo: boolean = false;
+  shipmentRow: boolean = true;
+  showCalFeatures: boolean = false;
   ngOnInit(): void {
     this.initializeForm();
   }
@@ -22,6 +31,33 @@ export class ShipmentDetailsComponent implements OnInit {
 
 
     });
+  }
+
+  showRow(): void {
+    this.shipmentRowTwo = true;
+    this.shipmentRowThree = false;
+  }
+
+  showRowThree(): void {
+    this.shipmentRow = false;
+    this.shipmentRowTwo = false;
+    this.shipmentRowThree = true;
+  }
+
+  showRowTwo(): void {
+    this.shipmentRow = true;
+    this.shipmentRowTwo = true;
+    this.shipmentRowThree = false;
+  }
+
+  calBtn(): void {
+    this.showCalFeatures = true;
+  }
+
+  shipDate = (d: Date | null): boolean => {
+    const day = (d || new Date()).getDay();
+    const time=(d || new Date()).getTime();
+    return !(!this.avaiableDate.find((x: { getTime: () => any; })=>x.getTime()==time)) && day !==0;
   }
 
 }

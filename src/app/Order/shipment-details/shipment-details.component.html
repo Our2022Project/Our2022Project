@@ -7,16 +7,19 @@
                     <ion-label class="heading">Select Your Options</ion-label>
                 </ion-col>
             </ion-row>
-            <ion-row style="margin: 10px 15px;">
+            <ion-row style="margin: 10px 15px;" *ngIf="this.shipmentRow">
                 <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12" class="titleCol">
                     <ion-row>
-                        <ion-col class="title">
+                        <ion-col size-xl="10" size-lg="10" size-md="10" size-sm="10" size-xs="10" class="title">
                             <ion-label>Courier One Rate</ion-label>
+                        </ion-col>
+                        <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="2" size-xs="2" class="titleIcon">
+                            <ion-label><i class="fa fa-check"></i></ion-label>
                         </ion-col>
                     </ion-row>
                     <ion-row>
                         <ion-row>
-                            <ion-col class="marginList">
+                            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12" class="marginList">
                                 <ion-label>No account or weighing needed</ion-label><br>
                                 <ion-text> &#8226; Choose your FedEx packaging</ion-text><br>
                                 <ion-text> &#8226; Choose your destination and service</ion-text><br>
@@ -25,10 +28,12 @@
                                     guarantee.
                                 </ion-label>
                             </ion-col>
-                        </ion-row>
-                        <ion-row>
-                            <ion-col>
-                                <ion-button>Select</ion-button>
+                            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+                                <ion-row>
+                                    <ion-col>
+                                        <ion-button (click)="showRow()">Select</ion-button>
+                                    </ion-col>
+                                </ion-row>
                             </ion-col>
                         </ion-row>
                     </ion-row>
@@ -42,8 +47,11 @@
                 </ion-col>
                 <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12" class="titleCol">
                     <ion-row>
-                        <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12" class="title">
+                        <ion-col size-xl="10" size-lg="10" size-md="10" size-sm="10" size-xs="10" class="title">
                             <ion-label>Courier Standard Rates</ion-label>
+                        </ion-col>
+                        <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="2" size-xs="2" class="titleIcon">
+                            <ion-label><i class="fa fa-check"></i></ion-label>
                         </ion-col>
                     </ion-row>
                     <ion-row>
@@ -63,15 +71,15 @@
                         </ion-col>
                         <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
                             <ion-row>
-                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="4" size-xs="4">
+                                <ion-col size-xl="4" size-lg="5" size-md="5" size-sm="4" size-xs="4">
                                     <ion-label>Package Weight</ion-label>
                                 </ion-col>
                                 <ion-col size-xl="3.5" size-lg="3.5" size-md="3.5" size-sm="3.5" size-xs="3.5"
                                     style="padding: 0 10px;">
                                     <ion-input type="number"></ion-input>
                                 </ion-col>
-                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="4" size-xs="4">
-                                    <ion-select value="lbs">
+                                <ion-col size-xl="1.5" size-lg="2" size-md="2" size-sm="2" size-xs="2">
+                                    <ion-select interface="popover" value="lbs">
                                         <ion-select-option value="lbs" [disabled]="true">lbs</ion-select-option>
                                     </ion-select>
                                 </ion-col>
@@ -80,38 +88,186 @@
                         <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
                             <ion-row>
                                 <ion-col>
-                                    <ion-button>Select</ion-button>
+                                    <ion-button (click)="showRow()">Select</ion-button>
                                 </ion-col>
                             </ion-row>
                         </ion-col>
                     </ion-row>
                 </ion-col>
             </ion-row>
-        </form>
-    </ion-col>
-    <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
-</ion-row>
-
-<!--
-
--->
-
-<ion-row>
-    <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
-    <ion-col size-xl="9" size-lg="9" size-md="11" size-sm="12" size-xs="12">
-    <ion-row class="mainLabel">
-        <ion-col>
-            <ion-label>Select Package Types</ion-label>
-        </ion-col>
-        <ion-col>
-            <ion-row>
+            <!---->
+            <ion-row class="mainLabel" *ngIf="this.shipmentRowTwo">
                 <ion-col>
-
-                    
+                    <ion-row>
+                        <ion-col>
+                            <ion-label>Select Package Types</ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col class="paddingImg">
+                            <ion-row>
+                                <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
+                                    <ion-img (click)="showRowThree()" src="./../../../assets/img/delivery-box.png">
+                                    </ion-img>
+                                    <ion-label>Courier 10kg Box</ion-label>
+                                </ion-col>
+                                <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
+                                    <ion-img (click)="showRowThree()" src="./../../../assets/img/delivery-box.png">
+                                    </ion-img>
+                                    <ion-label>Courier 25kg Box</ion-label>
+                                </ion-col>
+                                <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
+                                    <ion-img (click)="showRowThree()" src="./../../../assets/img/delivery-box.png">
+                                    </ion-img>
+                                    <ion-label>Courier Box</ion-label>
+                                </ion-col>
+                                <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
+                                    <ion-img (click)="showRowThree()" src="./../../../assets/img/delivery-box.png">
+                                    </ion-img>
+                                    <ion-label>Courier Envelope</ion-label>
+                                </ion-col>
+                                <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
+                                    <ion-img (click)="showRowThree()" src="./../../../assets/img/delivery-box.png">
+                                    </ion-img>
+                                    <ion-label>Courier Pak</ion-label>
+                                </ion-col>
+                                <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
+                                    <ion-img (click)="showRowThree()" src="./../../../assets/img/delivery-box.png">
+                                    </ion-img>
+                                    <ion-label>Courier Tube</ion-label>
+                                </ion-col>
+                                <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
+                                    <ion-img (click)="showRowThree()" src="./../../../assets/img/delivery-box.png">
+                                    </ion-img>
+                                    <ion-label>Your Packaging</ion-label><br>
+                                    <ion-text class="imgText">Don't see a box size that fits? Ship Courier using
+                                        your own
+                                        packaging.</ion-text>
+                                </ion-col>
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
                 </ion-col>
             </ion-row>
-        </ion-col>
-    </ion-row>
-</ion-col>
+            <!---->
+            <ion-row class="marginPak" *ngIf="this.shipmentRowThree" style="margin-bottom: 80px;">
+                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="4" size-xs="12" class="titleSecondCol">
+                    <ion-img src="./../../../assets/img/delivery-box.png"></ion-img>
+                    <ion-label (click)="showRowTwo()">← Choose another package type</ion-label>
+                </ion-col>
+                <ion-col size-xl="8" size-lg="8" size-md="8" size-sm="8" size-xs="12">
+                    <ion-row class="mainLabel">
+                        <ion-col>
+                            <ion-label>Courier 10kg Box</ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col class="marginList">
+                            <ion-text>Courier 10kg Box: 15-13/16” x 12-15/16” x 10-3/16” </ion-text>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-row class="mainLabel">
+                            <ion-col>
+                                <ion-label>Package Details</ion-label>
+                            </ion-col>
+                        </ion-row>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="4" class="marginList">
+                            <ion-label>Package Weight</ion-label>
+                        </ion-col>
+                        <ion-col size="3" class="marginPak">
+                            <ion-input type="number"></ion-input>
+                        </ion-col>
+                        <ion-col size="1.5" class="marginPak">
+                            <ion-select interface="popover" value="lbs">
+                                <ion-select-option value="lbs" [disabled]="true">lbs</ion-select-option>
+                            </ion-select>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-button (click)="calBtn()">Calculate Rates</ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col size="12" *ngIf="showCalFeatures">
+                    <ion-row class="mainLabel">
+                        <ion-col>
+                            <ion-label>Select a delivery date, time and rate</ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col class="marginList">
+                            <ion-text>Don't see your discounts? Please <a href="#">login</a> to get account specific
+                                rates.</ion-text>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-label class="shipDateLabel">Ship Date</ion-label>
+                        <ion-col style="height: 50px;">
+                            <mat-form-field class="calFix" appearance="fill">
+                                <mat-label>Please select ship date.</mat-label>
+                                <input class="inputDate" [matDatepickerFilter]="shipDate" matInput [matDatepicker]="dp3"
+                                    md-date-filter="onlyMonday" disabled>
+                                <mat-datepicker-toggle class="calSize" matSuffix [for]="dp3"></mat-datepicker-toggle>
+                                <mat-datepicker class="calSize" #dp3 disabled="false"></mat-datepicker>
+                            </mat-form-field>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-row>
+                                <ion-col class="deliveryMainCol">
+                                    <ion-label>Delivery Date</ion-label>
+                                </ion-col>
+                            </ion-row>
+                            <ion-col>
+                                <ion-row>
+                                    <ion-col>
+                                        <ion-label></ion-label>
+                                    </ion-col>
+                                </ion-row>
+                                <ion-row>
+                                    <ion-col size-xl="2.5" size-lg="2.5" size-md="2.5" size-sm="12" size-xs="12">
+                                        <ion-row>
+                                            <ion-col size="12">
+                                                <ion-row>
+                                                    <ion-col class="deliveryDate">
+                                                        <ion-label>dsdasdf</ion-label>
+                                                    </ion-col>
+                                                </ion-row>
+                                            </ion-col>
+                                            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="6" size-xs="6">
+                                                <ion-row>
+                                                    <ion-col size-xl="12" size-lg="12" size-md="12" class="marginDelivery deliveryLabel">
+                                                        <ion-label>dsdasdf</ion-label>
+                                                    </ion-col>
+                                                    <ion-col size-xl="12" size-lg="12" size-md="12" class="marginDelivery delLabel">
+                                                        <ion-label>fbxfdsdg</ion-label>
+                                                    </ion-col>
+                                                    <ion-col size-xl="12" size-lg="12" size-md="12" class="marginDelivery deliveryText">
+                                                        <ion-text>fbxfdsdg</ion-text>
+                                                    </ion-col>
+                                                </ion-row>
+                                            </ion-col>
+                                            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="6" size-xs="6">
+                                                <ion-row>
+                                                    <ion-col class="marginDelivery">
+                                                        <ion-button expand="block">Select</ion-button>
+                                                    </ion-col>
+                                                </ion-row>
+                                            </ion-col>
+                                        </ion-row>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-col>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </form>
+    </ion-col>
     <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
 </ion-row>

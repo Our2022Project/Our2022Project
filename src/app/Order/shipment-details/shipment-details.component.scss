@@ -18,8 +18,30 @@
     margin: 0;
 }
 
-.titleSecondCol{
+.titleIcon ion-label{
+    border-radius: 50%;
+    padding: 4px;
+    background-color: green;
+}
+
+.titleIcon{
+    text-align: end;
+}
+
+.titleIcon .fa{
+    font-size: 25px;
+    color: white;
+}
+
+.titleSecondCol, .deliveryText, .deliveryLabel{
     text-align: center;
+    color: #4d148c;
+    
+}
+
+.titleSecondCol ion-label{
+    cursor: pointer;
+    border-bottom: 1px solid #4d148c;
 }
 
 .titleCol{
@@ -27,6 +49,7 @@
     border: 2px solid #4D148C;
     border-radius: 8px;
     padding: 10px;
+    height: fit-content;
 }
 
 .marginList{
@@ -46,6 +69,10 @@ ion-input{
     --padding-start: 8px;
 }
 
+.inputDate{
+    color: #000;
+}
+
 .mainLabel{
     color: #4d148c;
     font-size: 1.15em;
@@ -56,8 +83,60 @@ ion-input{
     margin: auto;
 }
 
+ion-img{
+    width: 100px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+.paddingImg{
+    padding: 20px 0;
+}
+
+.marginImg{
+    margin: 20px 0;
+}
+
+.marginPak{
+    margin: 10px;
+}
+
+.shipDateLabel{
+    margin: auto;
+    padding-right: 10px;
+}
+
+.deliveryMainCol, .delLabel, .marginDelivery ion-button{
+    margin: 10px 0;
+    --background: #4d148c;
+}
+
+.paddingImg, .marginDelivery, .marginImg ion-label{
+font-weight: normal;
+text-align: center;
+}
+
+.deliveryLabel{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.imgText, .delLabel{
+    color: #666;
+
+}
+
+.deliveryDate{
+    background-color: #4d148c;
+    color: #FFF;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
 @media screen and (max-width: 768px){
-.titleMargin{
+.titleMargin, .titleSecondCol{
     margin: 15px 0;
 }
 }
