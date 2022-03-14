@@ -50,14 +50,21 @@ export class ShipmentDetailsComponent implements OnInit {
     this.shipmentRowThree = false;
   }
 
+  goToPayment(): void {
+    this.sharedService.addressDetails = false;
+    this.sharedService.shipmentDetails = false;
+    this.sharedService.paymentDetails = true;
+    this.sharedService.summaryDetails = false;    
+  }
+
   calBtn(): void {
     this.showCalFeatures = true;
   }
 
   shipDate = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();
-    const time=(d || new Date()).getTime();
-    return !(!this.avaiableDate.find((x: { getTime: () => any; })=>x.getTime()==time)) && day !==0;
+    const time = (d || new Date()).getTime();
+    return !(!this.avaiableDate.find((x: { getTime: () => any; }) => x.getTime() == time)) && day !== 0;
   }
 
 }

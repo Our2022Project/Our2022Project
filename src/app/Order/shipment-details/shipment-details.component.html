@@ -150,7 +150,7 @@
                 </ion-col>
             </ion-row>
             <!---->
-            <ion-row class="marginPak" *ngIf="this.shipmentRowThree" style="margin-bottom: 80px;">
+            <ion-row class="marginPak" *ngIf="this.shipmentRowThree">
                 <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="4" size-xs="12" class="titleSecondCol">
                     <ion-img src="./../../../assets/img/delivery-box.png"></ion-img>
                     <ion-label (click)="showRowTwo()">← Choose another package type</ion-label>
@@ -255,7 +255,7 @@
                                             <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="6" size-xs="6">
                                                 <ion-row>
                                                     <ion-col class="marginDelivery">
-                                                        <ion-button expand="block">Select</ion-button>
+                                                        <ion-button expand="block" (click)="goToPayment()">Select</ion-button>
                                                     </ion-col>
                                                 </ion-row>
                                             </ion-col>
