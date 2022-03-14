@@ -28,7 +28,7 @@ export class AddressDetailsComponent implements OnInit {
        fromCity:[this.sharedService.fromCity,[Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
        fromState:[this.sharedService.fromState,[Validators.required]],
        fromPhone: ['', [Validators.required, Validators.pattern("[0-9]{10}(?<!00000)$")]],
-       fromEmail:[''],
+       fromEmail:['',[Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
        toRecipient:['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
        toCompany:[''],
        toCountry:['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
@@ -37,16 +37,14 @@ export class AddressDetailsComponent implements OnInit {
        toZip:[ this.sharedService.toZip,[Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
        toCity:[this.sharedService.toCity,[Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
        toPhone:['', [Validators.required, Validators.pattern("[0-9]{10}(?<!00000)$")]],
-       toEmail:[''],
+       toEmail:['',[Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
 
     });
   }
 
   selectstate: string = '';
   selectchangehandler(event: any) {
-    // this.state.setValue(event.target.value, {
-    //   onlySelf: true
-    // })
+   
   }
 
   editAddress(): void {

@@ -75,6 +75,9 @@ ion-input, ion-select{
 ion-select{
     padding: 6px 0;
 }
+.errorMsg{
+    color: red;
+}
 
 @media screen and (max-width: 768px){
     .date{

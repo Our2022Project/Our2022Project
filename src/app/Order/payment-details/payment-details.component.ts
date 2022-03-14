@@ -12,15 +12,25 @@ export class PaymentDetailsComponent implements OnInit {
   constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) { }
   
   paymentForm: any;
-  
   ngOnInit(): void {
     this.initializeForm();
   }
 
   initializeForm(): void {
     this.paymentForm = this.fb.group({
-
-
+      bill:['',Validators.required],
+      selectCard:['',Validators.required],
+      selectMonth:['',Validators.required],
+      selectYear:['',Validators.required],
+      creditCardNo:['',Validators.required],
+      cvvNo:['',[Validators.required, Validators.pattern("[0-9]{3}(?<!000)$")]],
+      middleName:[''],
+      firstName: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      lastName: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      companyName:['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      EmailId: ['',[Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
+      verifyEmail: ['',[Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
+      
     });
   }
 
@@ -31,4 +41,14 @@ export class PaymentDetailsComponent implements OnInit {
     this.sharedService.summaryDetails = true;
   }
 
+
+
+  
+  selectchangehandler(event: any) {
+   
+  }
+
+  restrictNumeric(event: any): any {
+    return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57;
+  }
 }

@@ -295,7 +295,9 @@
                                                 </ion-col>
                                                 <ion-col>
                                                     <ion-input  formControlName="fromEmail" type="email" placeholder="(optional)"></ion-input>
-                                                    
+                                                    <ion-col class="errorMsg" *ngIf="addressForm.get('fromEmail').errors?.pattern">
+                                                        Email is Invaild
+                                                    </ion-col>
                                                 </ion-col>
                                             </ion-row>
 
@@ -568,7 +570,11 @@
                                                     <ion-label>Email notification</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input  formControlName="toEmail" type="email" placeholder="(optional)"></ion-input>
+                                                    <ion-input  formControlName="toEmail" placeholder="(optional)" type="email"></ion-input>
+                                                    <ion-col class="errorMsg" *ngIf="addressForm.get('toEmail').errors?.pattern">
+                                                        Email is Invaild
+                                                    </ion-col>
+                                                    
                                                 </ion-col>
                                             </ion-row>
                                         </ion-col>
