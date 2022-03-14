@@ -22,6 +22,8 @@ export class ShipmentDetailsComponent implements OnInit {
   shipmentRowTwo: boolean = false;
   shipmentRow: boolean = true;
   showCalFeatures: boolean = false;
+  showCheck1: boolean = false;
+  showCheck2: boolean = false;
   ngOnInit(): void {
     this.initializeForm();
   }
@@ -33,9 +35,18 @@ export class ShipmentDetailsComponent implements OnInit {
     });
   }
 
-  showRow(): void {
+  showRow1(): void {
     this.shipmentRowTwo = true;
     this.shipmentRowThree = false;
+    this.showCheck1 = true;
+    this.showCheck2 = false;
+  }
+
+  showRow2(): void {
+    this.shipmentRowTwo = true;
+    this.shipmentRowThree = false;
+    this.showCheck2 = true;
+    this.showCheck1 = false;
   }
 
   showRowThree(): void {

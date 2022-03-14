@@ -13,7 +13,7 @@
                         <ion-col size-xl="10" size-lg="10" size-md="10" size-sm="10" size-xs="10" class="title">
                             <ion-label>Courier One Rate</ion-label>
                         </ion-col>
-                        <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="2" size-xs="2" class="titleIcon">
+                        <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="2" size-xs="2" class="titleIcon" *ngIf="showCheck1">
                             <ion-label><i class="fa fa-check"></i></ion-label>
                         </ion-col>
                     </ion-row>
@@ -31,7 +31,7 @@
                             <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
                                 <ion-row>
                                     <ion-col>
-                                        <ion-button (click)="showRow()">Select</ion-button>
+                                        <ion-button (click)="showRow1()">Select</ion-button>
                                     </ion-col>
                                 </ion-row>
                             </ion-col>
@@ -50,7 +50,7 @@
                         <ion-col size-xl="10" size-lg="10" size-md="10" size-sm="10" size-xs="10" class="title">
                             <ion-label>Courier Standard Rates</ion-label>
                         </ion-col>
-                        <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="2" size-xs="2" class="titleIcon">
+                        <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="2" size-xs="2" class="titleIcon" *ngIf="showCheck2">
                             <ion-label><i class="fa fa-check"></i></ion-label>
                         </ion-col>
                     </ion-row>
@@ -59,7 +59,7 @@
                             <ion-row>
                                 <ion-col class="marginList">
                                     <ion-label>Use your account or pay as you go</ion-label><br>
-                                    <ion-text> &#8226; Flexible packaging – ours or yours</ion-text><br>
+                                    <ion-text> &#8226; Flexible packaging = ours or yours</ion-text><br>
                                     <ion-text> &#8226; Choose your destination and service</ion-text><br>
                                     <ion-text> &#8226; Get your rate based on weight, destination and size</ion-text>
                                     <br>
@@ -88,7 +88,7 @@
                         <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
                             <ion-row>
                                 <ion-col>
-                                    <ion-button (click)="showRow()">Select</ion-button>
+                                    <ion-button (click)="showRow2()" disabled>Select</ion-button>
                                 </ion-col>
                             </ion-row>
                         </ion-col>
