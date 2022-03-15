@@ -42,11 +42,6 @@ export class AddressDetailsComponent implements OnInit {
     });
   }
 
-  selectstate: string = '';
-  selectchangehandler(event: any) {
-   
-  }
-
   editAddress(): void {
     this.sharedService.addressDetails = true;
     this.sharedService.shipmentDetails = false;

@@ -287,71 +287,15 @@
                                         <ion-col size="12">
                                             <ion-label for="state">State</ion-label>
                                             <ion-col size="12">
-                                                <ion-select interface="popover" formControlName="state"
-                                                    (change)="selectchangehandler($event)">
+                                                <ion-select interface="popover" formControlName="state">
                                                     <ion-select-option value="">Select state</ion-select-option>
-                                                    <ion-select-option value="AL">Alabama (AL)</ion-select-option>
-                                                    <ion-select-option value="AK">Alaska (AK)</ion-select-option>
-                                                    <ion-select-option value="AZ">Arizona (AZ)</ion-select-option>
-                                                    <ion-select-option value="AR">Arkansas (AR)</ion-select-option>
-                                                    <ion-select-option value="CA">California (CA)</ion-select-option>
-                                                    <ion-select-option value="CO">Colorado (CO)</ion-select-option>
-                                                    <ion-select-option value="CT">Connecticut (CT)</ion-select-option>
-                                                    <ion-select-option value="DE">Delaware (DE)</ion-select-option>
-                                                    <ion-select-option value="DC">District Of Columbia (DC)
-                                                    </ion-select-option>
-                                                    <ion-select-option value="FL">Florida (FL)</ion-select-option>
-                                                    <ion-select-option value="GA">Georgia (GA)</ion-select-option>
-                                                    <ion-select-option value="HI">Hawaii (HI)</ion-select-option>
-                                                    <ion-select-option value="ID">Idaho (ID)</ion-select-option>
-                                                    <ion-select-option value="IL">Illinois (IL)</ion-select-option>
-                                                    <ion-select-option value="IN">Indiana (IN)</ion-select-option>
-                                                    <ion-select-option value="IA">Iowa (IA)</ion-select-option>
-                                                    <ion-select-option value="KS">Kansas (KS)</ion-select-option>
-                                                    <ion-select-option value="KY">Kentucky (KY)</ion-select-option>
-                                                    <ion-select-option value="LA">Louisiana (LA)</ion-select-option>
-                                                    <ion-select-option value="ME">Maine (ME)</ion-select-option>
-                                                    <ion-select-option value="MD">Maryland (MD)</ion-select-option>
-                                                    <ion-select-option value="MA">Massachusetts (MA)</ion-select-option>
-                                                    <ion-select-option value="MI">Michigan (MI)</ion-select-option>
-                                                    <ion-select-option value="MN">Minnesota (MN)</ion-select-option>
-                                                    <ion-select-option value="MS">Mississippi (MS)</ion-select-option>
-                                                    <ion-select-option value="MO">Missouri (MO)</ion-select-option>
-                                                    <ion-select-option value="MT">Montana (MT)</ion-select-option>
-                                                    <ion-select-option value="NE">Nebraska (NE)</ion-select-option>
-                                                    <ion-select-option value="NV">Nevada (NV)</ion-select-option>
-                                                    <ion-select-option value="NH">New Hampshire (NH)</ion-select-option>
-                                                    <ion-select-option value="NJ">New Jersey (NJ)</ion-select-option>
-                                                    <ion-select-option value="NM">New Mexico (NM)</ion-select-option>
-                                                    <ion-select-option value="NY">New York (NY)</ion-select-option>
-                                                    <ion-select-option value="NC">North Carolina (NC)
-                                                    </ion-select-option>
-                                                    <ion-select-option value="ND">North Dakota (ND)</ion-select-option>
-                                                    <ion-select-option value="OH">Ohio (OH)</ion-select-option>
-                                                    <ion-select-option value="OK">Oklahoma (OK)</ion-select-option>
-                                                    <ion-select-option value="OR">Oregon (OR)</ion-select-option>
-                                                    <ion-select-option value="PA">Pennsylvania (PA)</ion-select-option>
-                                                    <ion-select-option value="RI">Rhode Island (RI)</ion-select-option>
-                                                    <ion-select-option value="SC">South Carolina (SC)
-                                                    </ion-select-option>
-                                                    <ion-select-option value="SD">South Dakota (SD)</ion-select-option>
-                                                    <ion-select-option value="TN">Tennessee (TN)</ion-select-option>
-                                                    <ion-select-option value="TX">Texas (TX)</ion-select-option>
-                                                    <ion-select-option value="UT">Utah (UT)</ion-select-option>
-                                                    <ion-select-option value="VT">Vermont</ion-select-option>
-                                                    <ion-select-option value="VA">Virginia</ion-select-option>
-                                                    <ion-select-option value="WA">Washington</ion-select-option>
-                                                    <ion-select-option value="WV">West Virginia</ion-select-option>
-                                                    <ion-select-option value="WI">Wisconsin</ion-select-option>
-                                                    <ion-select-option value="WY">Wyoming</ion-select-option>
+                                                    <ion-select-option  *ngFor="let stateName of this.sharedService.usstateName" [value]="stateName.id">{{stateName.name}}</ion-select-option>     
                                                 </ion-select>
                                             </ion-col>
                                             <ion-row>
                                                 <ion-col size="12" class="errorMsg"
                                                     *ngIf="SignupForm.controls['state'].invalid && (SignupForm.controls['state'].dirty || SignupForm.controls['state'].touched)">
-                                                    <ion-col size="12" class="errorMsg" *ngIf="state.errors?.required">
-                                                        Please select your state
-                                                    </ion-col>
+                                                    Please select your state
                                                 </ion-col>
                                             </ion-row>
                                         </ion-col>
@@ -372,8 +316,7 @@
                                                 *ngIf="SignupForm.controls['zipCode'].invalid && (SignupForm.controls['zipCode'].dirty || SignupForm.controls['zipCode'].touched)">
                                                 <ion-col size="12" class="errorMsg"
                                                     *ngIf="SignupForm.controls['zipCode'].errors.required">This is a
-                                                    required
-                                                    Fields
+                                                    required Fields
                                                 </ion-col>
                                                 <ion-col size="12" class="errorMsg"
                                                     *ngIf="SignupForm.controls['zipCode'].errors.pattern">Invaild Zip

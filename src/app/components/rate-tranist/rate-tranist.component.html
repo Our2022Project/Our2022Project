@@ -101,67 +101,14 @@
                             </ion-col>
                         </ion-col>
                         <ion-col size-xl="3.9" size-lg="3.9" size-md="3.9" size-sm="12" size-xs="12" class="marginAuto">
-                            <ion-select interface="popover" formControlName="Fromstate"
-                                (change)="selectFromState($event)">
+                            <ion-select interface="popover" formControlName="Fromstate">
                                 <ion-select-option value="">Select State</ion-select-option>
-                                <ion-select-option value="AL">Alabama (AL)</ion-select-option>
-                                <ion-select-option value="AK">Alaska (AK)</ion-select-option>
-                                <ion-select-option value="AZ">Arizona (AZ)</ion-select-option>
-                                <ion-select-option value="AR">Arkansas (AR)</ion-select-option>
-                                <ion-select-option value="CA">California (CA)</ion-select-option>
-                                <ion-select-option value="CO">Colorado (CO)</ion-select-option>
-                                <ion-select-option value="CT">Connecticut (CT)</ion-select-option>
-                                <ion-select-option value="DE">Delaware (DE)</ion-select-option>
-                                <ion-select-option value="DC">District Of Columbia (DC)</ion-select-option>
-                                <ion-select-option value="FL">Florida (FL)</ion-select-option>
-                                <ion-select-option value="GA">Georgia (GA)</ion-select-option>
-                                <ion-select-option value="HI">Hawaii (HI)</ion-select-option>
-                                <ion-select-option value="ID">Idaho (ID)</ion-select-option>
-                                <ion-select-option value="IL">Illinois (IL)</ion-select-option>
-                                <ion-select-option value="IN">Indiana (IN)</ion-select-option>
-                                <ion-select-option value="IA">Iowa (IA)</ion-select-option>
-                                <ion-select-option value="KS">Kansas (KS)</ion-select-option>
-                                <ion-select-option value="KY">Kentucky (KY)</ion-select-option>
-                                <ion-select-option value="LA">Louisiana (LA)</ion-select-option>
-                                <ion-select-option value="ME">Maine (ME)</ion-select-option>
-                                <ion-select-option value="MD">Maryland (MD)</ion-select-option>
-                                <ion-select-option value="MA">Massachusetts (MA)</ion-select-option>
-                                <ion-select-option value="MI">Michigan (MI)</ion-select-option>
-                                <ion-select-option value="MN">Minnesota (MN)</ion-select-option>
-                                <ion-select-option value="MS">Mississippi (MS)</ion-select-option>
-                                <ion-select-option value="MO">Missouri (MO)</ion-select-option>
-                                <ion-select-option value="MT">Montana (MT)</ion-select-option>
-                                <ion-select-option value="NE">Nebraska (NE)</ion-select-option>
-                                <ion-select-option value="NV">Nevada (NV)</ion-select-option>
-                                <ion-select-option value="NH">New Hampshire (NH)</ion-select-option>
-                                <ion-select-option value="NJ">New Jersey (NJ)</ion-select-option>
-                                <ion-select-option value="NM">New Mexico (NM)</ion-select-option>
-                                <ion-select-option value="NY">New York (NY)</ion-select-option>
-                                <ion-select-option value="NC">North Carolina (NC)</ion-select-option>
-                                <ion-select-option value="ND">North Dakota (ND)</ion-select-option>
-                                <ion-select-option value="OH">Ohio (OH)</ion-select-option>
-                                <ion-select-option value="OK">Oklahoma (OK)</ion-select-option>
-                                <ion-select-option value="OR">Oregon (OR)</ion-select-option>
-                                <ion-select-option value="PA">Pennsylvania (PA)</ion-select-option>
-                                <ion-select-option value="RI">Rhode Island (RI)</ion-select-option>
-                                <ion-select-option value="SC">South Carolina (SC)</ion-select-option>
-                                <ion-select-option value="SD">South Dakota (SD)</ion-select-option>
-                                <ion-select-option value="TN">Tennessee (TN)</ion-select-option>
-                                <ion-select-option value="TX">Texas (TX)</ion-select-option>
-                                <ion-select-option value="UT">Utah (UT)</ion-select-option>
-                                <ion-select-option value="VT">Vermont</ion-select-option>
-                                <ion-select-option value="VA">Virginia</ion-select-option>
-                                <ion-select-option value="WA">Washington</ion-select-option>
-                                <ion-select-option value="WV">West Virginia</ion-select-option>
-                                <ion-select-option value="WI">Wisconsin</ion-select-option>
-                                <ion-select-option value="WY">Wyoming</ion-select-option>
+                               <ion-select-option  *ngFor="let stateName of this.sharedService.usstateName" [value]="stateName.id">{{stateName.name}}</ion-select-option>  
                             </ion-select>
                             <ion-col class="errorMsg"
                                 *ngIf="checkRateForm.controls['Fromstate'].invalid && (checkRateForm.controls['Fromstate'].dirty || checkRateForm.controls['Fromstate'].touched)">
                                 <ion-col *ngIf="checkRateForm.controls['Fromstate'].errors.required">
-                                    <ion-col class="errorMsg" *ngIf="Fromstate.errors?.required">
-                                        Please select your state
-                                    </ion-col>
+                                    Please select your state
                                 </ion-col>
                             </ion-col>
                         </ion-col>
@@ -223,66 +170,14 @@
                             </ion-col>
                         </ion-col>
                         <ion-col size-xl="3.9" size-lg="3.9" size-md="3.9" size-sm="12" size-xs="12" class="marginAuto">
-                            <ion-select interface="popover" formControlName="Tostate" (change)="selectToState($event)">
+                            <ion-select interface="popover" formControlName="Tostate" >
                                 <ion-select-option value="">Select State</ion-select-option>
-                                <ion-select-option value="AL">Alabama (AL)</ion-select-option>
-                                <ion-select-option value="AK">Alaska (AK)</ion-select-option>
-                                <ion-select-option value="AZ">Arizona (AZ)</ion-select-option>
-                                <ion-select-option value="AR">Arkansas (AR)</ion-select-option>
-                                <ion-select-option value="CA">California (CA)</ion-select-option>
-                                <ion-select-option value="CO">Colorado (CO)</ion-select-option>
-                                <ion-select-option value="CT">Connecticut (CT)</ion-select-option>
-                                <ion-select-option value="DE">Delaware (DE)</ion-select-option>
-                                <ion-select-option value="DC">District Of Columbia (DC)</ion-select-option>
-                                <ion-select-option value="FL">Florida (FL)</ion-select-option>
-                                <ion-select-option value="GA">Georgia (GA)</ion-select-option>
-                                <ion-select-option value="HI">Hawaii (HI)</ion-select-option>
-                                <ion-select-option value="ID">Idaho (ID)</ion-select-option>
-                                <ion-select-option value="IL">Illinois (IL)</ion-select-option>
-                                <ion-select-option value="IN">Indiana (IN)</ion-select-option>
-                                <ion-select-option value="IA">Iowa (IA)</ion-select-option>
-                                <ion-select-option value="KS">Kansas (KS)</ion-select-option>
-                                <ion-select-option value="KY">Kentucky (KY)</ion-select-option>
-                                <ion-select-option value="LA">Louisiana (LA)</ion-select-option>
-                                <ion-select-option value="ME">Maine (ME)</ion-select-option>
-                                <ion-select-option value="MD">Maryland (MD)</ion-select-option>
-                                <ion-select-option value="MA">Massachusetts (MA)</ion-select-option>
-                                <ion-select-option value="MI">Michigan (MI)</ion-select-option>
-                                <ion-select-option value="MN">Minnesota (MN)</ion-select-option>
-                                <ion-select-option value="MS">Mississippi (MS)</ion-select-option>
-                                <ion-select-option value="MO">Missouri (MO)</ion-select-option>
-                                <ion-select-option value="MT">Montana (MT)</ion-select-option>
-                                <ion-select-option value="NE">Nebraska (NE)</ion-select-option>
-                                <ion-select-option value="NV">Nevada (NV)</ion-select-option>
-                                <ion-select-option value="NH">New Hampshire (NH)</ion-select-option>
-                                <ion-select-option value="NJ">New Jersey (NJ)</ion-select-option>
-                                <ion-select-option value="NM">New Mexico (NM)</ion-select-option>
-                                <ion-select-option value="NY">New York (NY)</ion-select-option>
-                                <ion-select-option value="NC">North Carolina (NC)</ion-select-option>
-                                <ion-select-option value="ND">North Dakota (ND)</ion-select-option>
-                                <ion-select-option value="OH">Ohio (OH)</ion-select-option>
-                                <ion-select-option value="OK">Oklahoma (OK)</ion-select-option>
-                                <ion-select-option value="OR">Oregon (OR)</ion-select-option>
-                                <ion-select-option value="PA">Pennsylvania (PA)</ion-select-option>
-                                <ion-select-option value="RI">Rhode Island (RI)</ion-select-option>
-                                <ion-select-option value="SC">South Carolina (SC)</ion-select-option>
-                                <ion-select-option value="SD">South Dakota (SD)</ion-select-option>
-                                <ion-select-option value="TN">Tennessee (TN)</ion-select-option>
-                                <ion-select-option value="TX">Texas (TX)</ion-select-option>
-                                <ion-select-option value="UT">Utah (UT)</ion-select-option>
-                                <ion-select-option value="VT">Vermont</ion-select-option>
-                                <ion-select-option value="VA">Virginia</ion-select-option>
-                                <ion-select-option value="WA">Washington</ion-select-option>
-                                <ion-select-option value="WV">West Virginia</ion-select-option>
-                                <ion-select-option value="WI">Wisconsin</ion-select-option>
-                                <ion-select-option value="WY">Wyoming</ion-select-option>
+                                <ion-select-option  *ngFor="let stateName of this.sharedService.usstateName" [value]="stateName.id">{{stateName.name}}</ion-select-option>  
                             </ion-select>
                             <ion-col class="errorMsg"
                                 *ngIf="checkRateForm.controls['Tostate'].invalid && (checkRateForm.controls['Tostate'].dirty || checkRateForm.controls['Tostate'].touched)">
                                 <ion-col *ngIf="checkRateForm.controls['Tostate'].errors.required">
-                                    <ion-col class="errorMsg" *ngIf="Tostate.errors?.required">
-                                        Please select your state
-                                    </ion-col>
+                                    Please select your state
                                 </ion-col>
                             </ion-col>
                         </ion-col>

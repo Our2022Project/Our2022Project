@@ -120,27 +120,6 @@ export class RateTranistComponent implements OnInit {
     this.sharedService.toZip= this.toAddress.zipcode;
   }
 
-
-  selectFromstate: string = '';
-  selectFromState(event: any) {
-    this.Fromstate.setValue(event.target.value, {
-      onlySelf: true
-    })
-  }
-  get Fromstate() {
-    return this.checkRateForm.get('Fromstate');
-  }
-
-  selectTostate: string = '';
-  selectToState(event: any) {
-    this.Tostate.setValue(event.target.value, {
-      onlySelf: true
-    })
-  }
-  get Tostate() {
-    return this.checkRateForm.get('Tostate');
-  }
-
   clearField(): void {
     this.initializeForm();
     this.showRateUI = false;

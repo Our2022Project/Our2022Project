@@ -8,27 +8,27 @@ import { RegisterData } from "../Models/SignUp"
 @Injectable()
 export class sharedService {
 
-    isValidToken:boolean = false;
-    isRegistrationDone:boolean = false;
-    isUserAlreadyExsits:boolean = false;
-    token:string = '';
-    userName:string = '';
-    displayRateSection:boolean = false;
-    displaytrackSection:boolean=false;
-    isLoginTrue:boolean = false;
-    loginOrSignup:string = 'Sign Up';
-    addressDetails:boolean = true;
-    shipmentDetails:boolean = false;
-    paymentDetails:boolean = false; 
-    summaryDetails:boolean = false;
-    fromAddress:string = '';
-    toAddress:string = '';
-    fromCity:string='';
-    fromState:string='';
-    fromZip:string='';
-    toCity:string='';
-    toState:string='';
-    toZip:string='';
+    isValidToken: boolean = false;
+    isRegistrationDone: boolean = false;
+    isUserAlreadyExsits: boolean = false;
+    token: string = '';
+    userName: string = '';
+    displayRateSection: boolean = false;
+    displaytrackSection: boolean = false;
+    isLoginTrue: boolean = false;
+    loginOrSignup: string = 'Sign Up';
+    addressDetails: boolean = true;
+    shipmentDetails: boolean = false;
+    paymentDetails: boolean = false;
+    summaryDetails: boolean = false;
+    fromAddress: string = '';
+    toAddress: string = '';
+    fromCity: string = '';
+    fromState: string = '';
+    fromZip: string = '';
+    toCity: string = '';
+    toState: string = '';
+    toZip: string = '';
 
 
 
@@ -42,22 +42,76 @@ export class sharedService {
 
     }
 
-    login(userName: String, password: string) : Observable<any> {
+    login(userName: String, password: string): Observable<any> {
         return this.http.post(environment.login, { userName: userName, password: password }, this.httpOptions);
     }
 
-    register(registerObj: RegisterData) : Observable<any> {
+    register(registerObj: RegisterData): Observable<any> {
         return this.http.post(environment.register, registerObj, this.httpOptions);
     }
 
-    forgotPassword(emailId: String) : Observable<any> {
+    forgotPassword(emailId: String): Observable<any> {
         return this.http.post(environment.forgotPassword, { userEmail: emailId }, this.httpOptions);
     }
 
-    rate(fromAddress: Address, toAddress: Address) : Observable<any> {
-        return this.http.post(environment.rate, { fromAddress:fromAddress, toAddress:toAddress }, this.httpOptions);
+    rate(fromAddress: Address, toAddress: Address): Observable<any> {
+        return this.http.post(environment.rate, { fromAddress: fromAddress, toAddress: toAddress }, this.httpOptions);
     }
-
-
-
+    usstateName = [{ name: 'Alabama (AL)', id: 'AL' },
+    { name: 'Alaska (AK)', id: 'AK' },
+    { name: 'AMERICAN SAMOA (AS)', id: 'AS' },
+    { name: 'Arizona (AZ)', id: 'AZ' },
+    { name: 'Arkansas (AR)', id: 'AR' },
+    { name: 'California (CA)', id: 'CA' },
+    { name: 'Colorado (CO)', id: 'CO' },
+    { name: 'Connecticut (CT)', id: 'CT' },
+    { name: 'Delaware (DE)', id: 'DE' },
+    { name: 'District Of Columbia (DC)', id: 'DC' },
+    { name: 'FEDERATED STATES OF MICRONESIA (FM)', id: 'FM' },
+    { name: 'Florida (FL)', id: 'FL' },
+    { name: 'Georgia (GA)', id: 'GA' },
+    { name: 'GUAM (GU)', id: 'GU' },
+    { name: 'Hawaii (HI)', id: 'HI' },
+    { name: 'Idaho (ID)', id: 'ID' },
+    { name: 'Illinois (IL)', id: 'IL' },
+    { name: 'Indiana (IN)', id: 'IN' },
+    { name: 'Iowa (IA)', id: 'IA' },
+    { name: 'Kansas (KS)', id: 'KS' },
+    { name: 'Kentucky (KY)', id: 'KY' },
+    { name: 'Louisiana (LA)', id: 'LA' },
+    { name: 'Maine (ME)', id: 'ME' },
+    { name: 'Maryland (MD)', id: 'MD' },
+    { name: 'Massachusetts (MA)', id: 'MA' },
+    { name: 'Michigan (MI)', id: 'MI' },
+    { name: 'Minnesota (MN)', id: 'MN' },
+    { name: 'Mississippi (MS)', id: 'MS' },
+    { name: 'Missouri (MO)', id: 'MO' },
+    { name: 'Montana (MT)', id: 'MT' },
+    { name: 'Nebraska (NE)', id: 'NE' },
+    { name: 'Nevada (NV)', id: 'NV' },
+    { name: 'New Hampshire (NH)', id: 'NH' },
+    { name: 'New Jersey (NJ)', id: 'NJ' },
+    { name: 'New Mexico (NM)', id: 'NM' },
+    { name: 'New York (NY)', id: 'NY' },
+    { name: 'North Carolina (NC)', id: 'NC' },
+    { name: 'North Dakota (ND)', id: 'ND' },   
+    { name: 'Ohio (OH)', id: 'OH' },
+    { name: 'Oklahoma (OK)', id: 'OK' },
+    { name: 'Oregon (OR)', id: 'OR' },
+    { name: 'Palau (PW)', id: 'PW' },
+    { name: 'Pennsylvania (PA)', id: 'PA' },
+    { name: 'PUERTO RICO (PR)', id: 'PR' },
+    { name: 'Rhode Island (RI)', id: 'RI' },
+    { name: 'South Carolina (SC)', id: 'SC' },
+    { name: 'South Dakota (SD)', id: 'SD' },
+    { name: 'Tennessee (TN)', id: 'TN' },
+    { name: 'Texas (TX)', id: 'TX' },
+    { name: 'Utah (UT)', id: 'UT' },
+    { name: 'Vermont (VT)', id: 'VT' },
+    { name: 'Virginia (VA)', id: 'VA' },
+    { name: 'Washington (WA)', id: 'WA' },
+    { name: 'West Virginia (WV)', id: 'WV' },
+    { name: 'Wisconsin (WI)', id: 'WI' },
+    { name: 'Wyoming (WY)', id: 'WY' }
+    ];
 }

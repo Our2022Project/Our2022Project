@@ -89,17 +89,8 @@ export class SignupComponent implements OnInit {
     this.registerAddressObj.addressType = 'Home';
     this.registerObj.userAddressRequestList.push(this.registerAddressObj);
   }
+  
 
-
-  selectstate: string = '';
-  selectchangehandler(event: any) {
-    this.state.setValue(event.target.value, {
-      onlySelf: true
-    })
-  }
-  get state() {
-    return this.SignupForm.get('state');
-  }
 
   MustMatch(controlName: string, matchingControlName: string){
     return (formGroup: FormGroup) => {
