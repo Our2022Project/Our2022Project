@@ -22,7 +22,7 @@ export class AddressDetailsComponent implements OnInit {
     this.addressForm = this.fb.group({
        yourName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
        fromCompany:[''],
-       fromCountry:['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+       fromCountry:[''],
        fromAddress:[ this.sharedService.fromAddress,[Validators.required]],
        fromZip:[this.sharedService.fromZip,[Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
        fromCity:[this.sharedService.fromCity,[Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
@@ -31,7 +31,7 @@ export class AddressDetailsComponent implements OnInit {
        fromEmail:['',[Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
        toRecipient:['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
        toCompany:[''],
-       toCountry:['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+       toCountry:[''],
        toAddress:[this.sharedService.toAddress,[Validators.required]],
        toState:[this.sharedService.toState,[Validators.required]],
        toZip:[ this.sharedService.toZip,[Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],

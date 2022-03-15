@@ -291,6 +291,9 @@
                                 <ion-col size="12" class="errorMsg"
                                     *ngIf="paymentForm.controls['verifyEmail'].errors.pattern">
                                     Invaild Email Address</ion-col>
+                                    <ion-col class="errorMsg" *ngIf="paymentForm.controls['verifyEmail'].errors.MustMatch">
+                                        Email is Not Matched
+                                    </ion-col>
                             </ion-col>
                             </ion-col>
                         </ion-col>
