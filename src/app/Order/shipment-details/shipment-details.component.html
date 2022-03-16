@@ -13,13 +13,15 @@
                         <ion-col size-xl="10" size-lg="10" size-md="10" size-sm="10" size-xs="10" class="title">
                             <ion-label>Courier One Rate</ion-label>
                         </ion-col>
-                        <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="2" size-xs="2" class="titleIcon" *ngIf="showCheck1">
+                        <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="2" size-xs="2" class="titleIcon"
+                            *ngIf="showCheck1">
                             <ion-label><i class="fa fa-check"></i></ion-label>
                         </ion-col>
                     </ion-row>
                     <ion-row>
                         <ion-row>
-                            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12" class="marginList">
+                            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12"
+                                class="marginList">
                                 <ion-label>No account or weighing needed</ion-label><br>
                                 <ion-text> &#8226; Choose your FedEx packaging</ion-text><br>
                                 <ion-text> &#8226; Choose your destination and service</ion-text><br>
@@ -50,7 +52,8 @@
                         <ion-col size-xl="10" size-lg="10" size-md="10" size-sm="10" size-xs="10" class="title">
                             <ion-label>Courier Standard Rates</ion-label>
                         </ion-col>
-                        <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="2" size-xs="2" class="titleIcon" *ngIf="showCheck2">
+                        <ion-col size-xl="2" size-lg="2" size-md="2" size-sm="2" size-xs="2" class="titleIcon"
+                            *ngIf="showCheck2">
                             <ion-label><i class="fa fa-check"></i></ion-label>
                         </ion-col>
                     </ion-row>
@@ -192,7 +195,7 @@
                         </ion-col>
                     </ion-row>
                 </ion-col>
-                <ion-col size="12" *ngIf="showCalFeatures">
+                <ion-col size="12" *ngIf="showCalFeatures" class="marginDeliveryFix">
                     <ion-row class="mainLabel">
                         <ion-col>
                             <ion-label>Select a delivery date, time and rate</ion-label>
@@ -230,32 +233,73 @@
                                     </ion-col>
                                 </ion-row>
                                 <ion-row>
+                                    <ion-col size-xl="2.5" size-lg="2.5" size-md="2.5" size-sm="12" size-xs="12" class="deliveryColMargin">
+                                        <ion-row>
+                                            <ion-col size="12">
+                                                <ion-row>
+                                                    <ion-col class="deliveryDate">
+                                                        <ion-label>Thu, Mar 17</ion-label>
+                                                    </ion-col>
+                                                </ion-row>
+                                            </ion-col>
+                                            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+                                                <ion-row>
+                                                    <ion-col size-xl="12" size-lg="12" size-md="12"
+                                                        class="marginDelivery deliveryLabel">
+                                                        <ion-label>$35.05</ion-label>
+                                                    </ion-col>
+                                                    <ion-col size-xl="12" size-lg="12" size-md="12"
+                                                        class="marginDelivery delLabel">
+                                                        <ion-label>by 10:30</ion-label>
+                                                    </ion-col>
+                                                    <ion-col size-xl="12" size-lg="12" size-md="12"
+                                                        class="marginDelivery deliveryText">
+                                                        <ion-text>Courier Priority Overnight®</ion-text>
+                                                    </ion-col>
+                                                    <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12"
+                                                        size-xs="12">
+                                                        <ion-row>
+                                                            <ion-col class="marginDelivery">
+                                                                <ion-button expand="block" (click)="goToPayment()">
+                                                                    Select</ion-button>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                    </ion-col>
+                                                </ion-row>
+                                            </ion-col>
+                                        </ion-row>
+                                    </ion-col>
                                     <ion-col size-xl="2.5" size-lg="2.5" size-md="2.5" size-sm="12" size-xs="12">
                                         <ion-row>
                                             <ion-col size="12">
                                                 <ion-row>
                                                     <ion-col class="deliveryDate">
-                                                        <ion-label>dsdasdf</ion-label>
+                                                        <ion-label>Mon, Mar 21</ion-label>
                                                     </ion-col>
                                                 </ion-row>
                                             </ion-col>
-                                            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="6" size-xs="6">
+                                            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
                                                 <ion-row>
-                                                    <ion-col size-xl="12" size-lg="12" size-md="12" class="marginDelivery deliveryLabel">
-                                                        <ion-label>dsdasdf</ion-label>
+                                                    <ion-col size-xl="12" size-lg="12" size-md="12"
+                                                        class="marginDelivery deliveryLabel">
+                                                        <ion-label>$9.80</ion-label>
                                                     </ion-col>
-                                                    <ion-col size-xl="12" size-lg="12" size-md="12" class="marginDelivery delLabel">
-                                                        <ion-label>fbxfdsdg</ion-label>
+                                                    <ion-col size-xl="12" size-lg="12" size-md="12"
+                                                        class="marginDelivery delLabel">
+                                                        <ion-label>by 16:30</ion-label>
                                                     </ion-col>
-                                                    <ion-col size-xl="12" size-lg="12" size-md="12" class="marginDelivery deliveryText">
-                                                        <ion-text>fbxfdsdg</ion-text>
+                                                    <ion-col size-xl="12" size-lg="12" size-md="12"
+                                                        class="marginDelivery deliveryText">
+                                                        <ion-text>Courier Express Saver®</ion-text>
                                                     </ion-col>
-                                                </ion-row>
-                                            </ion-col>
-                                            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="6" size-xs="6">
-                                                <ion-row>
-                                                    <ion-col class="marginDelivery">
-                                                        <ion-button expand="block" (click)="goToPayment()">Select</ion-button>
+                                                    <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12"
+                                                        size-xs="12">
+                                                        <ion-row>
+                                                            <ion-col class="marginDelivery">
+                                                                <ion-button expand="block" (click)="goToPayment()">
+                                                                    Select</ion-button>
+                                                            </ion-col>
+                                                        </ion-row>
                                                     </ion-col>
                                                 </ion-row>
                                             </ion-col>

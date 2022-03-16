@@ -62,6 +62,7 @@
 }
 
 ion-input{
+    background-color: #FFF;
     border: 1px solid black;
     --padding-top: 6px;
     --padding-end: 8px;
@@ -93,7 +94,7 @@ ion-img{
     padding: 20px 0;
 }
 
-.marginImg{
+.marginImg, .marginDeliveryFix{
     margin: 20px 0;
 }
 
@@ -107,7 +108,7 @@ ion-img{
 }
 
 .calFix{
-    background-color: #f2f2f2;
+    background-color: #FFF;
 }
 
 .deliveryMainCol, .delLabel, .marginDelivery ion-button{
@@ -120,6 +121,10 @@ font-weight: normal;
 text-align: center;
 }
 
+.deliveryText{
+    font-size: 10px;
+}
+
 .deliveryLabel{
     font-size: 20px;
     font-weight: bold;
@@ -129,6 +134,10 @@ text-align: center;
 .imgText, .delLabel{
     color: #666;
 
+}
+
+.deliveryColMargin{
+    margin-right: 10px;
 }
 
 .deliveryDate{
@@ -160,5 +169,10 @@ text-align: center;
 @media screen and (max-width: 768px){
 .titleMargin, .titleSecondCol{
     margin: 15px 0;
+}
+
+.deliveryText{
+    margin: 10px 0;
+    font-size: 10px;
 }
 }
