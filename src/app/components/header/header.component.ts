@@ -44,10 +44,12 @@ export class HeaderComponent implements OnInit {
   }
 
   rateCard(): void {
+    this.router.navigateByUrl('/dashboard');
     this.sharedService.displayRateSection = true;
     this.sharedService.displaytrackSection = false;
   }
   track(): void {
+    this.router.navigateByUrl('/dashboard');
     this.sharedService.displaytrackSection = true;
     this.sharedService.displayRateSection = false;
   }
