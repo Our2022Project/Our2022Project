@@ -63,11 +63,6 @@
     box-sizing: border-box;
 }
 
-.alignEnd ion-checkbox{
-    width: 13px;
-    height: 13px;
-}
-
 .alignEnd ion-label{
     margin: 0 10px;
     
@@ -81,5 +76,11 @@
 .button{
     text-transform: none;
     width: 100%;
-    margin: 10px 0;
+}
+
+@media screen and (max-width: 767px){
+    .button{
+        margin: 10px 0;
+        
+    }
 }

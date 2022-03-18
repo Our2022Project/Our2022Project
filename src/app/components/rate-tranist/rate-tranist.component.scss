@@ -159,13 +159,22 @@ ion-button[disabled] {
     padding: 0 10px !important;
 }
 
+
+::ng-deep .cdk-overlay-pane{
+    left: 52% !important;
+    left: calc(((100% - 1%) / 2) - 10px) !important;
+
+}
+
 // // // 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1115px) {
 
-.validButton{
-    font-size: 10px;
-}
+    ::ng-deep .cdk-overlay-pane{
+        left: 52% !important;
+        left: calc(((100% - 6%) / 2) - 10px) !important;
+    
+    }
 }
 
 @media screen and (max-width: 767px){
@@ -179,6 +188,22 @@ ion-button[disabled] {
     .arrivesHeadIng{
         margin-bottom: 3%;
     }
+
 }
 
+@media screen and (max-width: 600px) {
 
+    .validButton{
+        font-size: 10px;
+    }
+    
+}
+
+@media screen and (max-width: 500px) {
+
+    ::ng-deep .cdk-overlay-pane{
+        left: 52% !important;
+        left: calc(((100% - 3%) / 2.8) - 10px) !important;
+    
+    }
+}
