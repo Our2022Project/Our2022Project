@@ -13,7 +13,7 @@ export class AddressDetailsComponent implements OnInit {
   constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) { }
 
   addressForm: any;
-
+  validate: boolean = false;
   ngOnInit(): void {
     this.initializeForm();
   }
@@ -23,19 +23,21 @@ export class AddressDetailsComponent implements OnInit {
        yourName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
        fromCompany:[''],
        fromCountry:[''],
-       fromAddress:[ this.sharedService.fromAddress,[Validators.required]],
-       fromZip:[this.sharedService.fromZip,[Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
-       fromCity:[this.sharedService.fromCity,[Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
-       fromState:[this.sharedService.fromState,[Validators.required]],
+       fromAddress:[ this.sharedService.fromAddress.addressLine1,[Validators.required]],
+       FromAddress2: [this.sharedService.fromAddress.addressLine2],
+       fromZip:[this.sharedService.fromAddress.zipcode,[Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
+       fromCity:[this.sharedService.fromAddress.city,[Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+       fromState:[this.sharedService.fromAddress.stateCode,[Validators.required]],
        fromPhone: ['', [Validators.required, Validators.pattern("[0-9]{10}(?<!00000)$")]],
        fromEmail:['',[Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
        toRecipient:['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
        toCompany:[''],
        toCountry:[''],
-       toAddress:[this.sharedService.toAddress,[Validators.required]],
-       toState:[this.sharedService.toState,[Validators.required]],
-       toZip:[ this.sharedService.toZip,[Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
-       toCity:[this.sharedService.toCity,[Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+       toAddress:[this.sharedService.toAddress.addressLine1,[Validators.required]],
+       toAddress2: [this.sharedService.toAddress.addressLine2],
+       toState:[this.sharedService.toAddress.stateCode,[Validators.required]],
+       toZip:[ this.sharedService.toAddress.zipcode,[Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
+       toCity:[this.sharedService.toAddress.city,[Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
        toPhone:['', [Validators.required, Validators.pattern("[0-9]{10}(?<!00000)$")]],
        toEmail:['',[Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
 

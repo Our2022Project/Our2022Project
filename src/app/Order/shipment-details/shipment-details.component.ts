@@ -66,6 +66,7 @@ export class ShipmentDetailsComponent implements OnInit {
     this.sharedService.shipmentDetails = false;
     this.sharedService.paymentDetails = true;
     this.sharedService.summaryDetails = false;    
+    this.sharedService.Validate =true;
   }
 
   calBtn(): void {

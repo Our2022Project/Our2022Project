@@ -21,21 +21,24 @@
                             <ion-label>Bill to</ion-label>
                         </ion-col>
                         <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
-                            <ion-input formControlName="bill"></ion-input>
-                            <ion-col class="errorMsg"
+                            
+                            <ion-select interface="popover" formControlName="bill"
+                            (change)="selectchangehandler($event)">
+                            <ion-select-option value=""> Please Select  Card</ion-select-option>
+                            <ion-select-option> Credit Card </ion-select-option>
+                            <ion-select-option>Debit Card</ion-select-option>
+                            
+                        </ion-select>
+                        <ion-col class="errorMsg"
                                 *ngIf="paymentForm.controls['bill'].invalid && (paymentForm.controls['bill'].dirty || paymentForm.controls['bill'].touched)"
                                 class="alert">
                                 <ion-col class="errorMsg" *ngIf="paymentForm.controls['bill'].errors.required">
                                     This is
                                     a required Fields
                                 </ion-col>
-                                <ion-col class="errorMsg" *ngIf="paymentForm.controls['bill'].errors.minlength">
-                                    Address contains atleast 10 characters
-                                </ion-col>
-                                <ion-col class="errorMsg" *ngIf="paymentForm.controls['bill'].errors.pattern">Only
-                                    Alphanumeric characters are allowed
-                                </ion-col>
+
                             </ion-col>
+                            
                         </ion-col>
                     </ion-row>
                     <ion-row class="margin">

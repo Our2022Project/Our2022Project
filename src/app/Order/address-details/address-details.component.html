@@ -101,7 +101,7 @@
                                                         Address contains atleast 10 characters
                                                     </ion-col>
                                                 </ion-col>
-                                                    <ion-input type="text"
+                                                    <ion-input type="text" formControlName="FromAddress2"
                                                         placeholder="Apt, Floor, Suite, etc. (optional)">
                                                     </ion-input>
                                                 </ion-col>
@@ -291,7 +291,7 @@
                                                             Address contains atleast 10 characters
                                                         </ion-col>
                                                     </ion-col>
-                                                    <ion-input type="text"
+                                                    <ion-input type="text"  formControlName="toAddress2"
                                                         placeholder="Apt, Floor, Suite, etc. (optional)">
                                                     </ion-input>
                                                 </ion-col>
@@ -409,7 +409,7 @@
                             </ion-row>
                             <ion-row>
                                 <ion-col class="editButton">
-                                    <ion-button [disabled]="!addressForm.valid" (click)="showShipment()">Continue</ion-button>
+                                    <ion-button [disabled]="!addressForm.valid"  (click)="showShipment()">Continue</ion-button>
                                 </ion-col>
                             </ion-row>
                         </form>
@@ -430,7 +430,7 @@
                 <ion-row class="list">
                     <ion-col class="listMargin"><label>2. &nbsp; Shipment Details</label></ion-col>
                     <ion-col size-sm="3" size-xs="3" class="editButton">
-                        <ion-button class="listButton" (click)="editShipment()">Edit</ion-button>
+                        <ion-button class="listButton"  [disabled]="!addressForm.valid" (click)="editShipment()">Edit</ion-button>
                     </ion-col>
                 </ion-row>
             </ion-col>
@@ -447,7 +447,7 @@
                 <ion-row class="list">
                     <ion-col class="listMargin"><label>3. &nbsp; Payment</label></ion-col>
                     <ion-col size-sm="3" size-xs="3" class="editButton">
-                        <ion-button class="listButton" (click)="editPayment()">Edit</ion-button>
+                        <ion-button class="listButton"    [disabled]="!this.sharedService.Validate || !addressForm.valid" (click)="editPayment()">Edit</ion-button>
                     </ion-col>
                 </ion-row>
             </ion-col>
@@ -465,7 +465,7 @@
                 <ion-row class="list">
                     <ion-col class="listMargin"><label>4. &nbsp; Summary</label></ion-col>
                     <ion-col size-sm="3" size-xs="3" class="editButton">
-                        <ion-button class="listButton" (click)="editSummary()">Edit</ion-button>
+                        <!-- <ion-button class="listButton" (click)="editSummary()">Edit</ion-button> -->
                     </ion-col>
                 </ion-row>
             </ion-col>
