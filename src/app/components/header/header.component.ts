@@ -70,4 +70,8 @@ export class HeaderComponent implements OnInit {
       this.sharedService.loginOrSignup = 'Sign Up';
     }
   }
+
+  ship(): void {
+    this.router.navigateByUrl('/address-details');
+  }
 }

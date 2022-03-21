@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit {
   ship(): void {
     this.sharedService.displayRateSection = false;
     this.sharedService.displaytrackSection = false;
+    this.router.navigateByUrl('/address-details');
   }
   location(): void {
     this.sharedService.displayRateSection = false;

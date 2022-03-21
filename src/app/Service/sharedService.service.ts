@@ -24,34 +24,6 @@ export class sharedService {
     Validate: boolean = false;
     fromAddress = new Address();
     toAddress = new Address();
-  
-
-
-    httpOptions = {
-        headers: new HttpHeaders({
-            'Content-Type': 'application/json',
-        })
-    };
-
-    constructor(private http: HttpClient) {
-
-    }
-
-    login(userName: String, password: string): Observable<any> {
-        return this.http.post(environment.login, { userName: userName, password: password }, this.httpOptions);
-    }
-
-    register(registerObj: RegisterData): Observable<any> {
-        return this.http.post(environment.register, registerObj, this.httpOptions);
-    }
-
-    forgotPassword(emailId: String): Observable<any> {
-        return this.http.post(environment.forgotPassword, { userEmail: emailId }, this.httpOptions);
-    }
-
-    rate(fromAddress: Address, toAddress: Address): Observable<any> {
-        return this.http.post(environment.rate, { fromAddress: fromAddress, toAddress: toAddress }, this.httpOptions);
-    }
     usstateName = [{ name: 'Alabama (AL)', id: 'AL' },
     { name: 'Alaska (AK)', id: 'AK' },
     { name: 'American Samoa (AS)', id: 'AS' },
@@ -109,4 +81,33 @@ export class sharedService {
     { name: 'Wisconsin (WI)', id: 'WI' },
     { name: 'Wyoming (WY)', id: 'WY' }
     ];
+  
+
+
+    httpOptions = {
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+        })
+    };
+
+    constructor(private http: HttpClient) {
+
+    }
+
+    login(userName: String, password: string): Observable<any> {
+        return this.http.post(environment.login, { userName: userName, password: password }, this.httpOptions);
+    }
+
+    register(registerObj: RegisterData): Observable<any> {
+        return this.http.post(environment.register, registerObj, this.httpOptions);
+    }
+
+    forgotPassword(emailId: String): Observable<any> {
+        return this.http.post(environment.forgotPassword, { userEmail: emailId }, this.httpOptions);
+    }
+
+    rate(fromAddress: Address, toAddress: Address): Observable<any> {
+        return this.http.post(environment.rate, { fromAddress: fromAddress, toAddress: toAddress }, this.httpOptions);
+    }
+
 }
