@@ -24,6 +24,22 @@ export class sharedService {
     Validate: boolean = false;
     fromAddress = new Address();
     toAddress = new Address();
+    addyourName:string='';
+    addfromPhone:string='';
+    addfromState:string='';
+    addfromEmail:string='';
+    addfromAddress:string='';
+    addfromCity:string='';
+    addtoRecipient:string=';'
+    addtoPhone:string='';
+    addtoState:string='';
+    addtoEmail:string='';
+    addtoAddress:string='';
+    addtoCity:string='';
+    avaiableDate:string='';
+    payselectMonth:String='';
+    payselectYear:string='';
+    paycreditCardNo:string='';
     usstateName = [{ name: 'Alabama (AL)', id: 'AL' },
     { name: 'Alaska (AK)', id: 'AK' },
     { name: 'American Samoa (AS)', id: 'AS' },
@@ -81,9 +97,6 @@ export class sharedService {
     { name: 'Wisconsin (WI)', id: 'WI' },
     { name: 'Wyoming (WY)', id: 'WY' }
     ];
-  
-
-
     httpOptions = {
         headers: new HttpHeaders({
             'Content-Type': 'application/json',

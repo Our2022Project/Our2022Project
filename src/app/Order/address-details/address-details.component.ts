@@ -74,6 +74,18 @@ export class AddressDetailsComponent implements OnInit {
 
 
   showShipment(): void {
+    this.sharedService.addyourName = this.addressForm.controls['yourName'].value;
+    this.sharedService.addfromAddress = this.addressForm.controls['fromAddress'].value;
+    this.sharedService.addfromCity = this.addressForm.controls['fromCity'].value;
+    this.sharedService.addfromState = this.addressForm.controls['fromState'].value;
+    this.sharedService.addfromPhone= this.addressForm.controls['fromPhone'].value;
+    this.sharedService.addfromEmail = this.addressForm.controls['fromEmail'].value;
+    this.sharedService.addtoRecipient = this.addressForm.controls['toRecipient'].value;
+    this.sharedService.addtoAddress = this.addressForm.controls['toAddress'].value;
+    this.sharedService.addtoCity = this.addressForm.controls['toCity'].value;
+    this.sharedService.addtoState = this.addressForm.controls['toState'].value;
+    this.sharedService.addtoPhone = this.addressForm.controls['toPhone'].value;
+    this.sharedService.addtoEmail = this.addressForm.controls['toEmail'].value;
     this.sharedService.addressDetails = false;
     this.sharedService.shipmentDetails = true;
     this.sharedService.paymentDetails = false;

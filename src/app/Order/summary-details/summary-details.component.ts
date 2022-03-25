@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { sharedService } from 'src/app/Service/sharedService.service';
 
 @Component({
   selector: 'app-summary-details',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor( public sharedService: sharedService) { }
 
   ngOnInit(): void {
   }

@@ -24,7 +24,7 @@
                             
                             <ion-select interface="popover" formControlName="bill"
                             (change)="selectchangehandler($event)">
-                            <ion-select-option value=""> Please Select  Card</ion-select-option>
+                            <ion-select-option value="">Please Select Card</ion-select-option>
                             <ion-select-option> Credit Card </ion-select-option>
                             <ion-select-option>Debit Card</ion-select-option>
                             
@@ -48,7 +48,7 @@
                         <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
                             <ion-select interface="popover" formControlName="selectCard"
                                 (change)="selectchangehandler($event)">
-                                <ion-select-option value=""> Please Select Card Company</ion-select-option>
+                                <ion-select-option value="">Please Select Card Company</ion-select-option>
                                 <ion-select-option>American Express</ion-select-option>
                                 <ion-select-option>Diners Club</ion-select-option>
                                 <ion-select-option>Discover</ion-select-option>
@@ -76,10 +76,7 @@
                             <ion-col class="errorMsg"
                                 *ngIf="paymentForm.controls['creditCardNo'].invalid && (paymentForm.controls['creditCardNo'].dirty || paymentForm.controls['creditCardNo'].touched)">
                                 <ion-col class="errorMsg" *ngIf="paymentForm.controls['creditCardNo'].errors.required">
-                                    This
-                                    is
-                                    a
-                                    required Fields
+                                    This is a required Fields
                                 </ion-col>
                                 <ion-col *ngIf="paymentForm.controls['creditCardNo'].errors.pattern">Invaild Credit Card
                                     Number
@@ -97,10 +94,8 @@
                                 maxlength="3" placeholder="Enter CVV no."></ion-input>
                             <ion-col class="errorMsg"
                                 *ngIf="paymentForm.controls['cvvNo'].invalid && (paymentForm.controls['cvvNo'].dirty || paymentForm.controls['cvvNo'].touched)">
-                                <ion-col class="errorMsg" *ngIf="paymentForm.controls['cvvNo'].errors.required">This
-                                    is
-                                    a
-                                    required Fields
+                                <ion-col class="errorMsg" *ngIf="paymentForm.controls['cvvNo'].errors.required">
+                                    This is a required Fields
                                 </ion-col>
                                 <ion-col *ngIf="paymentForm.controls['cvvNo'].errors.pattern">Invaild CVV Number
                                 </ion-col>

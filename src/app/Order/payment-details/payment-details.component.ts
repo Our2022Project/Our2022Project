@@ -41,14 +41,17 @@ export class PaymentDetailsComponent implements OnInit {
     this.sharedService.shipmentDetails = false;
     this.sharedService.paymentDetails = false;
     this.sharedService.summaryDetails = true;
+    this.sharedService.payselectMonth = this.paymentForm.controls['selectMonth'].value;
+    this.sharedService.payselectYear = this.paymentForm.controls['selectYear'].value;  
+    this.sharedService.paycreditCardNo = this.paymentForm.controls['creditCardNo'].value;
+    
   }
 
 
 
   
   selectchangehandler(event: any) {
-   
-  }
+    }
 
   restrictNumeric(event: any): any {
     return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57;
