@@ -207,3 +207,7 @@ ion-button[disabled] {
     
     }
 }
+
+::ng-deep .mat-form-field-underline {
+    display: none;
+}
