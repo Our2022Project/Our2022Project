@@ -5,6 +5,7 @@ import { sharedService } from 'src/app/Service/sharedService.service';
 import { Address } from 'src/app/Models/Address';
 import { RateReply } from 'src/app/Models/RateReply';
 import { NgxSpinnerService } from "ngx-spinner";
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-rate-tranist',
@@ -13,7 +14,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class RateTranistComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public spinner: NgxSpinnerService) {
+  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public spinner: NgxSpinnerService, public datepipe: DatePipe) {
     const todayDate = new Date(new Date().setHours(0, 0, 0, 0));
     this.avaiableDate.push(new Date(todayDate.setDate(todayDate.getDate())));
     for(let i=0;i<7;i++) {
@@ -31,6 +32,7 @@ export class RateTranistComponent implements OnInit {
   errorMsg: string = '';
   resultFound: Boolean = true;
   avaiableDate: Date[] = [];
+  sleactedDate: any;
 
   ngOnInit(): void {
     this.initializeForm();
@@ -48,6 +50,7 @@ export class RateTranistComponent implements OnInit {
       Tocity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       Tostate: ['', [Validators.required]],
       Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
+      shipDate: ['', [Validators.required]],
     }
     );
   }
@@ -56,7 +59,7 @@ export class RateTranistComponent implements OnInit {
     this.spinner.show();
     this.drop = [];
     this.addressMapping();
-    this.sharedService.rate(this.fromAddress, this.toAddress).subscribe(data => {
+    this.sharedService.rate(this.fromAddress, this.toAddress, this.sleactedDate, '1', '1').subscribe(data => {
       this.spinner.hide();
       this.resultFound = false;
       this.rateChartResponce = data;
@@ -112,6 +115,7 @@ export class RateTranistComponent implements OnInit {
     this.toAddress.countryCode = "US";
     this.sharedService.fromAddress=this.fromAddress;
     this.sharedService.toAddress=this.toAddress;
+    this.sleactedDate = this.datepipe.transform(this.checkRateForm.controls['shipDate'].value, 'yyyy-MM-dd') ||null;
   }
 
   clearField(): void {

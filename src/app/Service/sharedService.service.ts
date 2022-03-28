@@ -119,8 +119,8 @@ export class sharedService {
         return this.http.post(environment.forgotPassword, { userEmail: emailId }, this.httpOptions);
     }
 
-    rate(fromAddress: Address, toAddress: Address): Observable<any> {
-        return this.http.post(environment.rate, { fromAddress: fromAddress, toAddress: toAddress }, this.httpOptions);
+    rate(fromAddress: Address, toAddress: Address, shipDate: string, declaredValue: string, packageWeight: string, ): Observable<any> {
+        return this.http.post(environment.rate, { fromAddress: fromAddress, toAddress: toAddress, shipDate: shipDate, declaredValue: declaredValue, packageWeight: packageWeight }, this.httpOptions);
     }
 
 }

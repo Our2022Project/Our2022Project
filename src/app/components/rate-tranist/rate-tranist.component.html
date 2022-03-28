@@ -199,10 +199,10 @@
                         </ion-col>
                         <ion-col size="12" style="margin: 10px 0">
                             <mat-form-field class="calFix" appearance="fill">
-                                <mat-label>Please select ship date.</mat-label>
-                                <input class="inputDate" [matDatepickerFilter]="shipDate" matInput [matDatepicker]="dp3" md-date-filter="onlyMonday" disabled>
+                                <mat-label>Please select ship date.</mat-label> 
+                                <input  formControlName="shipDate" class="inputDate" [matDatepickerFilter]="shipDate" matInput [matDatepicker]="dp3" md-date-filter="onlyMonday" readonly>
                                 <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
-                                <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+                                <mat-datepicker #dp3 readonly="false"></mat-datepicker>
                             </mat-form-field>
                         </ion-col>
                     </ion-row>

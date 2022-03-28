@@ -23,6 +23,7 @@ import { ShipmentDetailsComponent } from './Order/shipment-details/shipment-deta
 import { PaymentDetailsComponent } from './Order/payment-details/payment-details.component';
 import { SummaryDetailsComponent } from '../app/Order/summary-details/summary-details.component';
 import {MaterialExampleModule} from '../material.module';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import {MaterialExampleModule} from '../material.module';
       useClass:AuthInterceptor,
       multi:true
     },
-    sharedService],
+    sharedService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
