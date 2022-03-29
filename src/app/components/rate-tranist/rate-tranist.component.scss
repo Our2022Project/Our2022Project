@@ -162,20 +162,11 @@ ion-button[disabled] {
 
 ::ng-deep .cdk-overlay-pane{
     left: 52% !important;
-    left: calc(((100% - 1%) / 2) - 10px) !important;
+    left: calc((100vw - 40px) / 2) !important;
 
 }
 
 // // // 
-
-@media screen and (max-width: 1115px) {
-
-    ::ng-deep .cdk-overlay-pane{
-        left: 52% !important;
-        left: calc(((100% - 6%) / 2) - 10px) !important;
-    
-    }
-}
 
 @media screen and (max-width: 767px){
     .secondion-row{
@@ -199,15 +190,14 @@ ion-button[disabled] {
     
 }
 
-@media screen and (max-width: 500px) {
-
-    ::ng-deep .cdk-overlay-pane{
-        left: 52% !important;
-        left: calc(((100% - 3%) / 2.8) - 10px) !important;
-    
-    }
-}
-
 ::ng-deep .mat-form-field-underline {
     display: none;
+}
+
+@media screen and (max-width: 500px) {
+::ng-deep .cdk-overlay-pane{
+    left: 52% !important;
+    left: calc((100vw - 40px) / 3) !important;
+
+}
 }

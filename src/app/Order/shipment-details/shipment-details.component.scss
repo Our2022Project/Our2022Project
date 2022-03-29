@@ -166,6 +166,12 @@ text-align: center;
     padding: 0 10px !important;
 }
 
+::ng-deep .cdk-overlay-pane{
+    left: 52% !important;
+    left: calc((100vw - 40px) / 4.7) !important;
+
+}
+
 @media screen and (max-width: 768px){
 .titleMargin, .titleSecondCol{
     margin: 15px 0;
@@ -176,3 +182,19 @@ text-align: center;
     font-size: 10px;
 }
 }
+
+@media screen and (max-width: 995px) {
+    ::ng-deep .cdk-overlay-pane{
+        left: 52% !important;
+        left: calc((100vw - 80px) / 6) !important;
+    
+    }
+    }
+
+@media screen and (max-width: 600px) {
+    ::ng-deep .cdk-overlay-pane{
+        left: 52% !important;
+        left: calc((100vw - 80px) / 3) !important;
+    
+    }
+    }
