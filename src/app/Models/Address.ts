@@ -13,7 +13,7 @@ export class Address {
         this.city = '';
         this.stateCode = '';
         this.zipcode = '';
-        this.countryCode = '';
+        this.countryCode = 'US';
     }
 
 }

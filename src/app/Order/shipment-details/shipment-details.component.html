@@ -209,13 +209,12 @@
                     </ion-row> -->
                     <ion-row style="margin: 10px 0;">
                         <ion-label class="shipDateLabel">Ship Date</ion-label>
-                        <ion-col>
+                        <ion-col >
                             <mat-form-field class="calFix" appearance="fill">
-                                <mat-label>Please select ship date.</mat-label>
-                                <input class="inputDate" [matDatepickerFilter]="shipDate" matInput [matDatepicker]="dp3"
-                                    md-date-filter="onlyMonday" disabled>
-                                <mat-datepicker-toggle class="calSize" matSuffix [for]="dp3"></mat-datepicker-toggle>
-                                <mat-datepicker class="calSize" #dp3 disabled="false"></mat-datepicker>
+                                <mat-label>Please select ship date.</mat-label> 
+                                <input  formControlName="shipDate" class="inputDate" [matDatepickerFilter]="shipDate" matInput [matDatepicker]="dp3" md-date-filter="onlyMonday" readonly>
+                                <mat-datepicker-toggle matSuffix [for]="dp3" class="calSize"></mat-datepicker-toggle>
+                                <mat-datepicker class="calSize" #dp3 readonly="true"></mat-datepicker>
                             </mat-form-field>
                         </ion-col>
                     </ion-row>
@@ -234,27 +233,31 @@
                                 </ion-row>
                                 <ion-row>
                                     <ion-col size-xl="2.5" size-lg="2.5" size-md="2.5" size-sm="12" size-xs="12" class="deliveryColMargin">
-                                        <ion-row>
+                                        <ion-row *ngFor="let service of this.rateChartResponce?.rateReplyDetails;let i = index">
                                             <ion-col size="12">
                                                 <ion-row>
                                                     <ion-col class="deliveryDate">
-                                                        <ion-label>Thu, Mar 17</ion-label>
+                                                        <ion-label>{{ service?.deliveryDayOfWeek }}, {{
+                                                            getMonthDate(service?.deliveryTimestamp)
+                                                            }}</ion-label>
                                                     </ion-col>
                                                 </ion-row>
                                             </ion-col>
-                                            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+                                            <ion-col   *ngFor="let ratedShipmentDetail of service?.ratedShipmentDetails" size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
                                                 <ion-row>
-                                                    <ion-col size-xl="12" size-lg="12" size-md="12"
+                                                    <ion-col  *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages" size-xl="12" size-lg="12" size-md="12"
                                                         class="marginDelivery deliveryLabel">
-                                                        <ion-label>$35.05</ion-label>
+                                                        <ion-label>${{
+                                                            ratedPackage?.packageRateDetail?.netFedExCharge?.amount
+                                                            }}</ion-label>
                                                     </ion-col>
                                                     <ion-col size-xl="12" size-lg="12" size-md="12"
                                                         class="marginDelivery delLabel">
-                                                        <ion-label>by 10:30</ion-label>
+                                                        <ion-label> by {{ getHoursMinute(service?.deliveryTimestamp) }}</ion-label>
                                                     </ion-col>
                                                     <ion-col size-xl="12" size-lg="12" size-md="12"
                                                         class="marginDelivery deliveryText">
-                                                        <ion-text>Courier Priority Overnight®</ion-text>
+                                                        <ion-text>{{ service?.serviceDescription?.names?.[0]?.value }}</ion-text>
                                                     </ion-col>
                                                     <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12"
                                                         size-xs="12">
@@ -269,48 +272,14 @@
                                             </ion-col>
                                         </ion-row>
                                     </ion-col>
-                                    <ion-col size-xl="2.5" size-lg="2.5" size-md="2.5" size-sm="12" size-xs="12">
-                                        <ion-row>
-                                            <ion-col size="12">
-                                                <ion-row>
-                                                    <ion-col class="deliveryDate">
-                                                        <ion-label>Mon, Mar 21</ion-label>
-                                                    </ion-col>
-                                                </ion-row>
-                                            </ion-col>
-                                            <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
-                                                <ion-row>
-                                                    <ion-col size-xl="12" size-lg="12" size-md="12"
-                                                        class="marginDelivery deliveryLabel">
-                                                        <ion-label>$9.80</ion-label>
-                                                    </ion-col>
-                                                    <ion-col size-xl="12" size-lg="12" size-md="12"
-                                                        class="marginDelivery delLabel">
-                                                        <ion-label>by 16:30</ion-label>
-                                                    </ion-col>
-                                                    <ion-col size-xl="12" size-lg="12" size-md="12"
-                                                        class="marginDelivery deliveryText">
-                                                        <ion-text>Courier Express Saver®</ion-text>
-                                                    </ion-col>
-                                                    <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12"
-                                                        size-xs="12">
-                                                        <ion-row>
-                                                            <ion-col class="marginDelivery">
-                                                                <ion-button expand="block" (click)="goToPayment()">
-                                                                    Select</ion-button>
-                                                            </ion-col>
-                                                        </ion-row>
-                                                    </ion-col>
-                                                </ion-row>
-                                            </ion-col>
-                                        </ion-row>
-                                    </ion-col>
+                                   
                                 </ion-row>
                             </ion-col>
                         </ion-col>
                     </ion-row>
                 </ion-col>
             </ion-row>
+           
         </form>
     </ion-col>
     <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>

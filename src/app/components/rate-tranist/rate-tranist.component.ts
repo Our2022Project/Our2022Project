@@ -116,6 +116,7 @@ export class RateTranistComponent implements OnInit {
     this.sharedService.fromAddress=this.fromAddress;
     this.sharedService.toAddress=this.toAddress;
     this.sleactedDate = this.datepipe.transform(this.checkRateForm.controls['shipDate'].value, 'yyyy-MM-dd') ||null;
+    this.sharedService.shipDate= this.sleactedDate;
   }
 
   clearField(): void {

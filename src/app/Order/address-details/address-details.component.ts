@@ -28,7 +28,7 @@ export class AddressDetailsComponent implements OnInit {
        fromCompany:[''],
        fromCountry:[''],
        fromAddress:[ this.sharedService.fromAddress.addressLine1,[Validators.required]],
-       FromAddress2: [this.sharedService.fromAddress.addressLine2],
+       fromAddress2: [this.sharedService.fromAddress.addressLine2],
        fromZip:[this.sharedService.fromAddress.zipcode,[Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
        fromCity:[this.sharedService.fromAddress.city,[Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
        fromState:[this.sharedService.fromAddress.stateCode,[Validators.required]],
@@ -79,15 +79,19 @@ export class AddressDetailsComponent implements OnInit {
 
   showShipment(): void {
     this.sharedService.addyourName = this.addressForm.controls['yourName'].value;
-    this.sharedService.addfromAddress = this.addressForm.controls['fromAddress'].value;
-    this.sharedService.addfromCity = this.addressForm.controls['fromCity'].value;
-    this.sharedService.addfromState = this.addressForm.controls['fromState'].value;
+    this.sharedService.fromAddress.addressLine1 = this.addressForm.controls['fromAddress'].value;
+    this.sharedService.fromAddress.addressLine2=this.addressForm.controls ['fromAddress2'].value;
+    this.sharedService.fromAddress.city = this.addressForm.controls['fromCity'].value;
+    this.sharedService.fromAddress.stateCode = this.addressForm.controls['fromState'].value;
+    this.sharedService.fromAddress.zipcode=this.addressForm.controls['fromZip'].value;
     this.sharedService.addfromPhone= this.addressForm.controls['fromPhone'].value;
     this.sharedService.addfromEmail = this.addressForm.controls['fromEmail'].value;
     this.sharedService.addtoRecipient = this.addressForm.controls['toRecipient'].value;
-    this.sharedService.addtoAddress = this.addressForm.controls['toAddress'].value;
-    this.sharedService.addtoCity = this.addressForm.controls['toCity'].value;
-    this.sharedService.addtoState = this.addressForm.controls['toState'].value;
+    this.sharedService.toAddress.addressLine1 = this.addressForm.controls['toAddress'].value;
+    this.sharedService.toAddress.addressLine2=this.addressForm.controls['toAddress2'].value;
+    this.sharedService.toAddress.city = this.addressForm.controls['toCity'].value;
+    this.sharedService.toAddress.stateCode = this.addressForm.controls['toState'].value;
+    this.sharedService.toAddress.zipcode=this.addressForm.controls['toZip'].value;
     this.sharedService.addtoPhone = this.addressForm.controls['toPhone'].value;
     this.sharedService.addtoEmail = this.addressForm.controls['toEmail'].value;
     this.sharedService.addressDetails = false;

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
+import { Address } from 'src/app/Models/Address';
+import { RateReply } from 'src/app/Models/RateReply';
+
 @Component({
   selector: 'app-shipment-details',
   templateUrl: './shipment-details.component.html',
@@ -16,6 +19,7 @@ export class ShipmentDetailsComponent implements OnInit {
       this.avaiableDate.push(new Date(todayDate.setDate(todayDate.getDate() + 1)));
     }
   }
+  
   avaiableDate: Date[] = [];
   shipmentForm: any;
   shipmentRowThree: boolean = false;
@@ -24,13 +28,34 @@ export class ShipmentDetailsComponent implements OnInit {
   showCalFeatures: boolean = false;
   showCheck1: boolean = false;
   showCheck2: boolean = false;
+  showRateUI: Boolean = false;
+  showError: Boolean = false;
+  fromAddress = new Address();
+  toAddress = new Address();
+  rateChartResponce?: RateReply;
+  drop: boolean[] = [];
+  errorMsg: string = '';
+  resultFound: Boolean = true;
+  sleactedDate: any;
+  amount: Number = 0 ;
   ngOnInit(): void {
+    console.log(this.sharedService.shipDate);
     this.initializeForm();
   }
 
   initializeForm(): void {
     this.shipmentForm = this.fb.group({
-
+      FromAddress1: ['', [Validators.required, Validators.minLength(10)]],
+      FromAddress2: [''],
+      Fromcity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      Fromstate: ['', [Validators.required]],
+      FromZIP: ['', [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
+      ToAdd1: ['', [Validators.required, Validators.minLength(10)]],
+      ToAdd2: [''],
+      Tocity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      Tostate: ['', [Validators.required]],
+      Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
+      shipDate: [this.sharedService.shipDate, [Validators.required]],
 
     });
   }
@@ -71,6 +96,34 @@ export class ShipmentDetailsComponent implements OnInit {
 
   calBtn(): void {
     this.showCalFeatures = true;
+    this.sharedService.rate(this.sharedService.fromAddress, this.sharedService.toAddress,  this.sharedService.shipDate, '1', '1').subscribe(data => {
+      this.rateChartResponce = data;
+      this.rateChartResponce?.rateReplyDetails[0].ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount;
+      if (data.highestSeverity === 'SUCCESS' || data.highestSeverity === 'NOTE' || data.highestSeverity === 'WARNING') {
+        if (data.rateReplyDetails.length) {
+          this.showRateUI = true;
+          this.showError = false;
+          data.rateReplyDetails.sort(
+            (n1:any,n2:any)=>{
+               if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount>n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return -1;
+               if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount<n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return 1;
+               else return 0; 
+           });
+          for (let i = 0; i < data.rateReplyDetails.length; i++) {
+            this.drop[i] = false;
+          }
+        } else {
+          this.errorMsg = data.notifications[0].message;
+          this.showRateUI = false;
+          this.showError = true;
+        }
+      } else {
+        this.errorMsg = data.notifications[0].message;
+        this.showRateUI = false;
+        this.showError = true;
+      }
+  
+    });
   }
 
   shipDate = (d: Date | null): boolean => {
@@ -79,4 +132,43 @@ export class ShipmentDetailsComponent implements OnInit {
     return !(!this.avaiableDate.find((x: { getTime: () => any; }) => x.getTime() == time)) && day !== 0;
   }
 
+  addressMapping(): void {
+    this.fromAddress.addressLine1 = this.shipmentForm.controls['FromAddress1'].value;
+    this.fromAddress.addressLine2 = this.shipmentForm.controls['FromAddress2'].value;
+    this.fromAddress.city = this.shipmentForm.controls['Fromcity'].value;
+    this.fromAddress.stateCode = this.shipmentForm.controls['Fromstate'].value;
+    this.fromAddress.zipcode = this.shipmentForm.controls['FromZIP'].value;
+    this.fromAddress.countryCode = "US";
+    this.toAddress.addressLine1 = this.shipmentForm.controls['ToAdd1'].value;
+    this.toAddress.addressLine2 = this.shipmentForm.controls['ToAdd2'].value;
+    this.toAddress.city = this.shipmentForm.controls['Tocity'].value;
+    this.toAddress.stateCode = this.shipmentForm.controls['Tostate'].value;
+    this.toAddress.zipcode = this.shipmentForm.controls['Tozip'].value;
+    this.toAddress.countryCode = "US";
+    this.sharedService.shipDate=this.shipmentForm.controls['shipDate'].value;
+    
+   
+  }
+  getMonthDate(servcieDate: any): string {
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    var date = new Date(servcieDate * 1000);
+
+    return months[date.getMonth()] + " " + date.getDate();
+  }
+  getHoursMinute(servcieDate: any): string {
+
+    var date = new Date(servcieDate * 1000);
+    // Hours part from the timestamp
+    var hours = date.getHours();
+    // Minutes part from the timestamp
+    var minutes = "0" + date.getMinutes();
+    // Seconds part from the timestamp
+    var seconds = "0" + date.getSeconds();
+
+    // Will display time in 10:30:23 format
+    var formattedTime = hours + ':' + minutes.substr(-2);
+
+    return formattedTime;
+  }
 }
