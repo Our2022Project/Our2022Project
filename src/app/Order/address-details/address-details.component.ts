@@ -16,6 +16,10 @@ export class AddressDetailsComponent implements OnInit {
   validate: boolean = false;
   ngOnInit(): void {
     this.initializeForm();
+    this.sharedService.addressDetails = true;
+    this.sharedService.shipmentDetails = false;
+    this.sharedService.paymentDetails = false;
+    this.sharedService.summaryDetails = false;
   }
 
   initializeForm(): void {

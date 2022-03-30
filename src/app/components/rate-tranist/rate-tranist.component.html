@@ -33,21 +33,28 @@
                     <ion-col>
                         <ion-row class="result" style="margin: 2% 3% 0 3%;">
                             <ion-col>
-                                <ion-label class="labelHeading">From :</ion-label>
-                                <ion-label class="lableContent"> &nbsp; {{this.fromAddress.addressLine1}},
-                                    {{this.fromAddress.addressLine2}}, &nbsp;{{this.fromAddress.city}}, &nbsp;
+                                 <ion-label class="labelHeading">From :</ion-label>
+                                <!-- <ion-label class="lableContent"> &nbsp; {{this.fromAddress.addressLine1}},
+                                    {{this.fromAddress.addressLine2 }}, &nbsp;{{this.fromAddress.city}}, &nbsp;
                                     {{this.fromAddress.stateCode}}, &nbsp; {{this.fromAddress.zipcode}}, &nbsp;
                                     {{this.fromAddress.countryCode}}
-                                </ion-label>
+                                </ion-label>  -->
+                                <ion-label> {{this.fromAddress.addressLine1 + ","}}  </ion-label>
+                                <ion-label *ngIf="this.fromAddress.addressLine2 !='' "> {{this.fromAddress.addressLine2 + ","}}  </ion-label>
+                                <ion-label>  {{this.fromAddress.city + ", " + this.fromAddress.stateCode + ", " + this.fromAddress.zipcode + ", " + this.fromAddress.countryCode +"." }} </ion-label>
                             </ion-col>
                         </ion-row>
                         <ion-row class="result" style="margin: 2% 3% 0 3%;">
                             <ion-col>
                                 <ion-label class="labelHeading">To : </ion-label>
-                                <ion-label class="lableContent"> &nbsp; {{this.toAddress.addressLine1}},
+                                <!-- <ion-label class="lableContent"> &nbsp; {{this.toAddress.addressLine1}},
                                     {{this.toAddress.addressLine2}}, &nbsp;{{this.toAddress.city}}, &nbsp;
                                     {{this.toAddress.stateCode}}, &nbsp; {{this.toAddress.zipcode}}, &nbsp;
-                                    {{this.toAddress.countryCode}} </ion-label>
+                                    {{this.toAddress.countryCode}} </ion-label> -->
+                               
+                                <ion-label> {{this.toAddress.addressLine1 + ","}}  </ion-label>
+                                <ion-label *ngIf="this.toAddress.addressLine2 !='' "> {{this.toAddress.addressLine2 + ","}}  </ion-label>
+                                <ion-label>  {{this.toAddress.city + ", " + this.toAddress.stateCode + ", " + this.toAddress.zipcode + ", " + this.toAddress.countryCode +"." }} </ion-label>
                             </ion-col>
                         </ion-row>
                     </ion-col>

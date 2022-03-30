@@ -7,6 +7,7 @@ import { RegisterData } from "../Models/SignUp"
 
 @Injectable()
 export class sharedService {
+    [x: string]: any;
 
     isValidToken: boolean = false;
     isRegistrationDone: boolean = false;
