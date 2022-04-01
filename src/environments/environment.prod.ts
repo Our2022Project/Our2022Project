@@ -9,6 +9,6 @@ export const environment = {
     register: Backend_Base_URL + '/register',
     forgotPassword: Backend_Base_URL + '/forgot-password',
     rate: Backend_Base_URL + '/api/rates/fetchrates',
-    addressDetalis: Backend_Base_URL + '/Transaction',
+    addressDetalis: Backend_Base_URL + '/transaction',
 };
 
