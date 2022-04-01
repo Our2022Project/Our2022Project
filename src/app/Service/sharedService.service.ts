@@ -133,4 +133,12 @@ export class sharedService {
     addressDetalis(OrderAdress: OrderAdress): Observable<any> {
         return this.http.post(environment.addressDetalis,OrderAdress, this.httpOptions);
     }
+
+    activateUser(activeUserToken: String): Observable<any> {
+        return this.http.put(environment.activateUser+'?activeUserToken='+activeUserToken, {} ,this.httpOptions);
+    }
+
+    resetPassword(newPassword: String, token: String): Observable<any> {
+        return this.http.put(environment.resetPassword +'?token='+token, { newPassword: newPassword }, this.httpOptions);
+    }
 }

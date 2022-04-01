@@ -24,6 +24,8 @@ import { PaymentDetailsComponent } from './Order/payment-details/payment-details
 import { SummaryDetailsComponent } from '../app/Order/summary-details/summary-details.component';
 import {MaterialExampleModule} from '../material.module';
 import { DatePipe } from '@angular/common';
+import { ActivateUserComponent } from './components/activate-user/activate-user.component';
+import { Routes, RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { DatePipe } from '@angular/common';
     AddressDetailsComponent,
     ShipmentDetailsComponent,
     PaymentDetailsComponent,
-    SummaryDetailsComponent
+    SummaryDetailsComponent,
+    ActivateUserComponent
   ],
   imports: [
     BrowserModule,

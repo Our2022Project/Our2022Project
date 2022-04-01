@@ -11,6 +11,8 @@ import { AddressDetailsComponent } from './Order/address-details/address-details
 import { ShipmentDetailsComponent } from './Order/shipment-details/shipment-details.component';
 import { PaymentDetailsComponent } from './Order/payment-details/payment-details.component';
 import { SummaryDetailsComponent } from './Order/summary-details/summary-details.component';
+import { ActivateUserComponent } from './components/activate-user/activate-user.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 const routes: Routes = [  
   { path: 'login', component: LoginComponent },  
@@ -23,12 +25,15 @@ const routes: Routes = [
   { path: 'address-details', component: AddressDetailsComponent},
   { path: 'shipment-details', component: ShipmentDetailsComponent},
   { path: 'payment-details', component: PaymentDetailsComponent},
-  { path: 'summary-details', component: SummaryDetailsComponent}
+  { path: 'summary-details', component: SummaryDetailsComponent},
+  { path: 'summary-details', component: SummaryDetailsComponent},
+  { path: 'activate-user', component: ActivateUserComponent},
+  { path: 'reset-password', component: ChangePasswordComponent}
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

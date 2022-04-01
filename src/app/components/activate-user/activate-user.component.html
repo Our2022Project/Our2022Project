@@ -1,0 +1,30 @@
+<app-header></app-header>
+<app-footer></app-footer>
+<ion-row class="main">
+    <ion-col size="12">
+        <ion-row class="heading">
+            <ion-col size-xl="4" size-lg="4" size-md="2" size-sm="12" size-xs="12"></ion-col>
+            <ion-col size-xl="4" size-lg="4" size-md="8" size-sm="12" size-xs="12">
+                <h1 style="color:#4d148c">Please Activate Link, In Order to Access App!</h1>
+            </ion-col>
+            <ion-col size-xl="4" size-lg="4" size-md="2" size-sm="12" size-xs="12"></ion-col>
+        </ion-row>
+        <ion-row class="heading marginFix">
+            <ion-col size-xl="3" size-lg="3" size-md="2" size-sm="12" size-xs="12"></ion-col>
+            <ion-col size-xl="6" size-lg="6" size-md="8" size-sm="12" size-xs="12">
+                <form>
+                    <ion-row class="content">
+                        <ion-row>
+                            <h3 size="12" class="errorMsg" *ngIf="errorMessage">
+                                {{ errorMessage }}
+                            </h3>
+                        </ion-row>
+                    </ion-row>
+                    <ion-button (click)="activateUserLink()">Confirm
+                    </ion-button>
+                </form>
+            </ion-col>
+            <ion-col size-xl="3" size-lg="3" size-md="2" size-sm="12" size-xs="12"></ion-col>
+        </ion-row>
+    </ion-col>
+</ion-row>

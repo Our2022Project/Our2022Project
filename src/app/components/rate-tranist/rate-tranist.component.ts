@@ -137,14 +137,14 @@ export class RateTranistComponent implements OnInit {
   getMonthDate(servcieDate: any): string {
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-    var date = new Date(servcieDate * 1000);
+    var date = new Date(servcieDate);
 
     return months[date.getMonth()] + " " + date.getDate();
   }
 
   getHoursMinute(servcieDate: any): string {
 
-    var date = new Date(servcieDate * 1000);
+    var date = new Date(servcieDate );
     // Hours part from the timestamp
     var hours = date.getHours();
     // Minutes part from the timestamp
