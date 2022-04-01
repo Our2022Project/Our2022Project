@@ -51,7 +51,9 @@
     padding: 10px;
     height: fit-content;
 }
-
+::ng-deep .mat-form-field-underline {
+    display: none;
+}
 .marginList{
     margin: 10px 0;
     color: #666;

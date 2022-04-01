@@ -318,7 +318,7 @@
                     </ion-row>
                     <ion-row class="margin">
                         <ion-col class="button">
-                            <ion-button  [disabled]="!paymentForm.valid" (click)="showSummary()">Continue</ion-button>
+                            <ion-button  [disabled]="!paymentForm.valid" (click)="showSummary()" (click)="this.sharedService.show2=true">Continue</ion-button>
                         </ion-col>
                     </ion-row>
                 </ion-col>

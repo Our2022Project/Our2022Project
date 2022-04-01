@@ -39,7 +39,6 @@ export class ShipmentDetailsComponent implements OnInit {
   sleactedDate: any;
   amount: Number = 0 ;
   ngOnInit(): void {
-    console.log(this.sharedService.shipDate);
     this.initializeForm();
   }
 

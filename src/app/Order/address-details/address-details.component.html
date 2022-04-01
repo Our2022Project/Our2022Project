@@ -10,7 +10,7 @@
                         <ion-row class="list">
                             <ion-col class="listMargin"><label>1. &nbsp; Address Information</label></ion-col>
                             <ion-col size-sm="3" size-xs="3" class="editButton">
-                                <ion-button class="listButton" (click)="editAddress()">Edit</ion-button>
+                                <ion-button class="listButton"  *ngIf="this.sharedService.show" (click)="this.sharedService.show= !this.sharedService.show" (click)="editAddress()">Edit</ion-button>
                             </ion-col>
                         </ion-row>
                     </ion-col>
@@ -409,7 +409,7 @@
                             </ion-row>
                             <ion-row>
                                 <ion-col class="editButton">
-                                    <ion-button [disabled]="!addressForm.valid"  (click)="showShipment()">Continue</ion-button>
+                                    <ion-button [disabled]="!addressForm.valid"  (click)="showShipment()" (click)="this.sharedService.show= !this.sharedService.show" (click)="this.sharedService.show= true" >Continue</ion-button>
                                 </ion-col>
                             </ion-row>
                         </form>
@@ -430,7 +430,7 @@
                 <ion-row class="list">
                     <ion-col class="listMargin"><label>2. &nbsp; Shipment Details</label></ion-col>
                     <ion-col size-sm="3" size-xs="3" class="editButton">
-                        <ion-button class="listButton"  [disabled]="!addressForm.valid" (click)="editShipment()">Edit</ion-button>
+                        <ion-button class="listButton"  *ngIf="this.sharedService.show1" (click)="this.sharedService.show1= !this.sharedService.show1" (click)="editShipment()">Edit</ion-button>
                     </ion-col>
                 </ion-row>
             </ion-col>
@@ -447,7 +447,7 @@
                 <ion-row class="list">
                     <ion-col class="listMargin"><label>3. &nbsp; Payment</label></ion-col>
                     <ion-col size-sm="3" size-xs="3" class="editButton">
-                        <ion-button class="listButton"    [disabled]="!this.sharedService.Validate || !addressForm.valid" (click)="editPayment()">Edit</ion-button>
+                        <ion-button class="listButton"    [disabled]="!this.sharedService.Validate || !addressForm.valid" (click)="editPayment()"  (click)="this.sharedService.show2= !this.sharedService.show2" *ngIf="this.sharedService.show2">Edit</ion-button>
                     </ion-col>
                 </ion-row>
             </ion-col>

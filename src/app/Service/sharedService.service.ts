@@ -3,10 +3,14 @@ import { Injectable, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Address } from "../Models/Address";
-import { RegisterData } from "../Models/SignUp"
+import { RegisterData } from "../Models/SignUp";
+import {OrderAdress } from "../Models/OrderAdress";
 
 @Injectable()
 export class sharedService {
+    show2: boolean = false;
+    show1: boolean = false;
+    show: boolean = false;
     [x: string]: any;
     shipDate: string = '';
     isValidToken: boolean = false;
@@ -41,6 +45,9 @@ export class sharedService {
     payselectMonth:String='';
     payselectYear:string='';
     paycreditCardNo:string='';
+    yourCompany:string='';
+    toCompany:string='';
+
     usstateName = [{ name: 'Alabama (AL)', id: 'AL' },
     { name: 'Alaska (AK)', id: 'AK' },
     { name: 'American Samoa (AS)', id: 'AS' },
@@ -123,5 +130,7 @@ export class sharedService {
     rate(fromAddress: Address, toAddress: Address, shipDate: string, declaredValue: string, packageWeight: string, ): Observable<any> {
         return this.http.post(environment.rate, { fromAddress: fromAddress, toAddress: toAddress, shipDate: shipDate, declaredValue: declaredValue, packageWeight: packageWeight }, this.httpOptions);
     }
-
+    addressDetalis(OrderAdress: OrderAdress): Observable<any> {
+        return this.http.post(environment.addressDetalis,OrderAdress, this.httpOptions);
+    }
 }
