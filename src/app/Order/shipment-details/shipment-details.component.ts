@@ -4,6 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
 import { Address } from 'src/app/Models/Address';
 import { RateReply } from 'src/app/Models/RateReply';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-shipment-details',
@@ -12,7 +13,7 @@ import { RateReply } from 'src/app/Models/RateReply';
 })
 export class ShipmentDetailsComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) {
+  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public datepipe: DatePipe) {
     const todayDate = new Date(new Date().setHours(0, 0, 0, 0));
     this.avaiableDate.push(new Date(todayDate.setDate(todayDate.getDate())));
     for (let i = 0; i < 7; i++) {
@@ -38,8 +39,13 @@ export class ShipmentDetailsComponent implements OnInit {
   resultFound: Boolean = true;
   sleactedDate: any;
   amount: Number = 0 ;
+  currentDate=new Date();
+  today:string = '';
+
   ngOnInit(): void {
     this.initializeForm();
+    this.today =  this.datepipe.transform(this.currentDate, 'yyyy-MM-dd') || '' ;
+    this.shipDateDefault();
   }
 
   initializeForm(): void {
@@ -54,7 +60,7 @@ export class ShipmentDetailsComponent implements OnInit {
       Tocity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       Tostate: ['', [Validators.required]],
       Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
-      shipDate: [this.sharedService.shipDate, [Validators.required]],
+      shipDate: [this.sharedService.shipDate !== ' ' ?  this.sharedService.shipDate:this.today , [Validators.required]],
 
     });
   }
@@ -169,5 +175,11 @@ export class ShipmentDetailsComponent implements OnInit {
     var formattedTime = hours + ':' + minutes.substr(-2);
 
     return formattedTime;
+  }
+
+  shipDateDefault():void{
+    if(this.sharedService.shipDate === '') {
+      this.sharedService.shipDate = this.today;
+    }
   }
 }
