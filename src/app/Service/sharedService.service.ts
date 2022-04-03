@@ -49,6 +49,9 @@ export class sharedService {
     paycreditCardNo:string='';
     yourCompany:string='';
     toCompany:string='';
+    OrderAdress: OrderAdress = new OrderAdress();
+    finalShipRate:string='';
+    shipmentModel: shipment = new shipment();
 
     usstateName = [{ name: 'Alabama (AL)', id: 'AL' },
     { name: 'Alaska (AK)', id: 'AK' },

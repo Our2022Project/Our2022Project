@@ -319,7 +319,7 @@
                                             <ion-row>
                                                 <ion-col class="deliveryDate">
                                                     <ion-label>{{ service?.deliveryDayOfWeek }}, {{
-                                                        getMonthDate(service?.deliveryTimestamp)
+                                                        getMonthDate(service?.deliveryTimestamp,i, service?.serviceDescription?.names?.[0]?.value)
                                                         }}</ion-label>
                                                 </ion-col>
                                             </ion-row>
@@ -348,8 +348,8 @@
                                                     size-xs="12">
                                                     <ion-row>
                                                         <ion-col class="marginDelivery">
-                                                            <ion-button expand="block" (click)="goToPayment()"
-                                                                (click)="this.sharedService.show1=true">
+                                                            <ion-button expand="block"
+                                                                (click)="this.sharedService.show1=true; getMonthDate(service?.deliveryTimestamp,i, service?.serviceDescription?.names?.[0]?.value, ratedShipmentDetail); goToPayment()">
                                                                 Select</ion-button>
                                                         </ion-col>
                                                     </ion-row>

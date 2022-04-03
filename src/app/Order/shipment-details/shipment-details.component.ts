@@ -52,6 +52,8 @@ export class ShipmentDetailsComponent implements OnInit {
   Fedex_Tube: boolean = false;
   getData: boolean = false;
   shipment: shipment = new shipment();
+  estimatedDeliveryDate: string = '';
+  service: string = '';
 
   ngOnInit(): void {
     this.initializeForm();
@@ -200,6 +202,7 @@ export class ShipmentDetailsComponent implements OnInit {
     this.sharedService.summaryDetails = false;    
     this.sharedService.Validate =true;
     this.mapShipDetails();
+    this.sharedService.shipmentModel = this.shipment;
     this.sharedService.shipment(this.shipment).subscribe(data => {
 
     },
@@ -214,11 +217,10 @@ export class ShipmentDetailsComponent implements OnInit {
     this.getData = false;
     this.spinner.show();
     this.showCalFeatures = true;
-    this.sharedService.rate(this.sharedService.fromAddress, this.sharedService.toAddress,  this.sharedService.shipDate, '1', '1').subscribe(data => {
+    this.sharedService.rate(this.sharedService.fromAddress, this.sharedService.toAddress,  this.sharedService.shipDate, '0.00', '1').subscribe(data => {
       this.getData = true;
       this.spinner.hide();
       this.rateChartResponce = data;
-      this.rateChartResponce?.rateReplyDetails[0].ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount;
       if (data.highestSeverity === 'SUCCESS' || data.highestSeverity === 'NOTE' || data.highestSeverity === 'WARNING') {
         if (data.rateReplyDetails.length) {
           this.showRateUI = true;
@@ -253,11 +255,12 @@ export class ShipmentDetailsComponent implements OnInit {
   }
 
   
-  getMonthDate(servcieDate: any): string {
+  getMonthDate(servcieDate: any, index: number, service: any, ratedShipmentDetail?: any): string {
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
     var date = new Date(servcieDate * 1000);
-
+    this.estimatedDeliveryDate = this.datepipe.transform(date, 'MM/dd/2022') || '' ;
+    this.service = service;
+    this.sharedService.finalShipRate = ratedShipmentDetail?.ratedPackages[0]?.packageRateDetail?.netFedExCharge?.amount;
     return months[date.getMonth()] + " " + date.getDate();
   }
   getHoursMinute(servcieDate: any): string {
@@ -283,7 +286,10 @@ export class ShipmentDetailsComponent implements OnInit {
   }
 
    mapShipDetails():void{
-    this.shipment.shipDate = this.sharedService.shipDate;
+    let changeFormate = new Date(this.sharedService.shipDate);  
+    this.shipment.shipDate = this.datepipe.transform(changeFormate, 'MM/dd/YYYY') || '' ;
+    this.shipment.estimatedDeliveryDate = this.estimatedDeliveryDate;
+    this.shipment.service = this.service;
   
    }
 }

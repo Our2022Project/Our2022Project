@@ -15,46 +15,48 @@
                 </ion-row>
                 <ion-row class="margin">
                     <ion-col>
-                        <ion-label class="fromToLabel">From</ion-label>
-                        <ion-row class="marginText">
-                            <ion-text>{{this.sharedService.addyourName}} </ion-text>
+                        <ion-label class="labelHeading">From :</ion-label>
+                        <ion-row>
+                            <ion-label> {{this.sharedService.OrderAdress.fromName + ","}} </ion-label>
                         </ion-row>
-                        <ion-row class="marginText">
-                            <ion-text>{{this.sharedService.addfromAddress}} </ion-text>
+                        <ion-row>
+                            <ion-label> {{this.sharedService.OrderAdress.fromAddressLine1 + ","}} </ion-label>
+                            <ion-label *ngIf="this.sharedService.OrderAdress.fromAddressLine2 !='' ">
+                                {{this.sharedService.OrderAdress.fromAddressLine2 + ","}} </ion-label>
+                            <ion-label> {{this.sharedService.OrderAdress.fromCity + ", " +
+                                this.sharedService.OrderAdress.fromState + ", " +
+                                this.sharedService.OrderAdress.fromZipCode + ", " +
+                                this.sharedService.OrderAdress.fromCountry +"." }} </ion-label>
                         </ion-row>
-                        <ion-row class="marginText">
-                            <ion-text>{{this.sharedService.addfromCity}}</ion-text>
+                        <ion-row>
+                            <ion-label> {{this.sharedService.OrderAdress.fromPhoneNumber}} </ion-label>
                         </ion-row>
-                        <ion-row class="marginText">
-                            <ion-text>{{this.sharedService.addfromState}}</ion-text>
+                        <ion-row>
+                            <ion-label> {{this.sharedService.OrderAdress.fromEmail }} </ion-label>
                         </ion-row>
-                        <ion-row class="marginText">
-                            <ion-text>{{this.sharedService.addfromPhone}}</ion-text>
-                        </ion-row>
-                        <ion-row class="marginText">
-                            <ion-text>{{this.sharedService.addfromEmail}}</ion-text>
-                        </ion-row>
+
                     </ion-col>
                     <ion-col>
-                        <ion-label class="fromToLabel">To</ion-label>
-                        <ion-row class="marginText">
-                            <ion-text>{{this.sharedService.addtoRecipient}}</ion-text>
+                        <ion-label class="labelHeading">To :</ion-label>
+                        <ion-row>
+                            <ion-label> {{this.sharedService.OrderAdress.recipientName + ","}} </ion-label>
                         </ion-row>
-                        <ion-row class="marginText">
-                            <ion-text>{{this.sharedService.addtoAddress}}</ion-text>
+                        <ion-row>
+                            <ion-label> {{this.sharedService.OrderAdress.recipientAddressLine1 + ","}} </ion-label>
+                            <ion-label *ngIf="this.sharedService.OrderAdress.recipientAddressLine2 !='' ">
+                                {{this.sharedService.OrderAdress.recipientAddressLine2 + ","}} </ion-label>
+                            <ion-label> {{this.sharedService.OrderAdress.recipientCity + ", " +
+                                this.sharedService.OrderAdress.recipientState + ", " +
+                                this.sharedService.OrderAdress.recipientZipCode + ", " +
+                                this.sharedService.OrderAdress.recipientCountry +"." }} </ion-label>
                         </ion-row>
-                        <ion-row class="marginText">
-                            <ion-text>{{this.sharedService.addtoCity}}</ion-text>
+                        <ion-row>
+                            <ion-label> {{this.sharedService.OrderAdress.recipientPhoneNumber}} </ion-label>
                         </ion-row>
-                        <ion-row class="marginText">
-                            <ion-text>{{this.sharedService.addtoState}}</ion-text>
+                        <ion-row>
+                            <ion-label> {{this.sharedService.OrderAdress.recipientEmail }} </ion-label>
                         </ion-row>
-                        <ion-row class="marginText">
-                            <ion-text>{{this.sharedService.addtoPhone}}</ion-text>
-                        </ion-row>
-                        <ion-row class="marginText">
-                            <ion-text>{{this.sharedService.addtoEmail}}</ion-text>
-                        </ion-row>
+
                     </ion-col>
                 </ion-row>
             </ion-col>
@@ -69,38 +71,38 @@
                     <ion-col>
                         <ion-row>
                             <ion-col class="cardInfo">
-                                <ion-label>Ship date : </ion-label>
-                                <ion-text class="cardInfoDetails">  </ion-text>
+                                <ion-label>Ship date : {{ this.shipDate }}</ion-label>
+                                <ion-text class="cardInfoDetails"> </ion-text>
                             </ion-col>
                         </ion-row>
                         <ion-row>
                             <ion-col class="cardInfo">
                                 <ion-label>Estimated delivery : </ion-label>
-                                <ion-text class="cardInfoDetails"> asfsadfasf</ion-text>
+                                <ion-text class="cardInfoDetails"> {{ this.sharedService.shipmentModel.estimatedDeliveryDate }}</ion-text>
                             </ion-col>
                         </ion-row>
                         <ion-row>
                             <ion-col class="cardInfo">
                                 <ion-label>Pricing option : </ion-label>
-                                <ion-text class="cardInfoDetails"> asfsadfasf</ion-text>
+                                <ion-text class="cardInfoDetails"> {{ this.sharedService.shipmentModel.pricingOption }}</ion-text>
                             </ion-col>
                         </ion-row>
                         <ion-row>
                             <ion-col class="cardInfo">
                                 <ion-label>Service : </ion-label>
-                                <ion-text class="cardInfoDetails"> asfsadfasf</ion-text>
+                                <ion-text class="cardInfoDetails"> {{ this.sharedService.shipmentModel.service }}</ion-text>
                             </ion-col>
                         </ion-row>
                         <ion-row>
                             <ion-col class="cardInfo">
                                 <ion-label>Declared value : </ion-label>
-                                <ion-text class="cardInfoDetails"> asfsadfasf</ion-text>
+                                <ion-text class="cardInfoDetails"> ${{ this.sharedService.shipmentModel.declaredValue }}</ion-text>
                             </ion-col>
                         </ion-row>
                         <ion-row>
                             <ion-col class="cardInfo">
                                 <ion-label>Special services : </ion-label>
-                                <ion-text class="cardInfoDetails"> asfsadfasf</ion-text>
+                                <ion-text class="cardInfoDetails"> {{ this.sharedService.shipmentModel.specialServices }}</ion-text>
                             </ion-col>
                         </ion-row>
                     </ion-col>
@@ -113,13 +115,14 @@
                 <ion-row class="cardInfo">
                     <ion-col>
                         <ion-label>Credit Card :</ion-label>
-                        <ion-text class="cardInfoDetails"> {{this.sharedService.paycreditCardNo}}</ion-text>
+                        <ion-text class="cardInfoDetails"> XXXX-XXXX-XXXX-{{ this.sharedService.paycreditCardNo.slice(-4) }}</ion-text>
                     </ion-col>
                 </ion-row>
                 <ion-row class="cardInfo">
                     <ion-col>
                         <ion-label>Expiration :</ion-label>
-                        <ion-text class="cardInfoDetails"> {{this.sharedService.payselectMonth}}/{{this.sharedService.payselectYear}}</ion-text>
+                        <ion-text class="cardInfoDetails">
+                            {{this.sharedService.payselectMonth}}/{{this.sharedService.payselectYear}}</ion-text>
                     </ion-col>
                 </ion-row>
             </ion-col>
@@ -127,7 +130,7 @@
                 <ion-row class="cardInfo">
                     <ion-col class="alignEnd">
                         <ion-label>Total Estimated Rate : </ion-label>
-                        <ion-text class="cardInfoDetails"> 35.5$</ion-text>
+                        <ion-text class="cardInfoDetails">${{ this.sharedService.finalShipRate }}</ion-text>
                     </ion-col>
                 </ion-row>
             </ion-col>
@@ -144,8 +147,10 @@
                     <ion-col>
                         <ion-row>
                             <ion-col></ion-col>
-                            <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="7" size-xs="12" class="alignEnd marginLine">
-                                <ion-text style="font-size: 12px;">By selecting the Ship button, you accept the <a href="#">demo.com Terms of Use</a> and the
+                            <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="7" size-xs="12"
+                                class="alignEnd marginLine">
+                                <ion-text style="font-size: 12px;">By selecting the Ship button, you accept the <a
+                                        href="#">demo.com Terms of Use</a> and the
                                     demo terms of shipping in the applicable <a href="#">Service Guide</a> .</ion-text>
                             </ion-col>
                             <ion-col class="alignEnd" size-xl="1.5" size-lg="2" size-md="2" size-sm="2" size-xs="12">

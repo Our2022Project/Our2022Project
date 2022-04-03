@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { sharedService } from 'src/app/Service/sharedService.service';
 
@@ -8,9 +9,13 @@ import { sharedService } from 'src/app/Service/sharedService.service';
 })
 export class SummaryDetailsComponent implements OnInit {
 
-  constructor( public sharedService: sharedService) { }
+  constructor( public sharedService: sharedService, public datepipe: DatePipe,) { }
+
+  shipDate:string = '';
 
   ngOnInit(): void {
+    let changeFormate = new Date(this.sharedService.shipDate);  
+    this.shipDate = this.datepipe.transform(changeFormate, 'MM/dd/YYYY') || '' ;
   }
 
 }

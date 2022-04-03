@@ -16,12 +16,12 @@ constructor(){
 
     this.shipDate = '';
     this.estimatedDeliveryDate ='';
-    this.pricingOption = '';
+    this.pricingOption = 'To Do';
     this.service ='';
-    this.declaredValue = '';
-    this.specialServices ='';
+    this.declaredValue = '0.00';
+    this.specialServices ='To Do';
     this.transactionId = '0';
-    this.packageWeight ='';
+    this.packageWeight ='1';
     
 }
 

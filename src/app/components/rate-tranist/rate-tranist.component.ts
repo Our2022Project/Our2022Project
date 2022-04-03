@@ -59,7 +59,7 @@ export class RateTranistComponent implements OnInit {
     this.spinner.show();
     this.drop = [];
     this.addressMapping();
-    this.sharedService.rate(this.fromAddress, this.toAddress, this.sleactedDate, '1', '1').subscribe(data => {
+    this.sharedService.rate(this.fromAddress, this.toAddress, this.sleactedDate, '0.00', '1').subscribe(data => {
       this.spinner.hide();
       this.resultFound = false;
       this.rateChartResponce = data;

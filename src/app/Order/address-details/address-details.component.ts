@@ -102,6 +102,7 @@ export class AddressDetailsComponent implements OnInit {
     this.sharedService.paymentDetails = false;
     this.sharedService.summaryDetails = false;
     this.mapAdressDetails();
+    this.sharedService.OrderAdress = this.OrderAdress;
     this.sharedService.addressDetalis(this.OrderAdress).subscribe(data => {
 
     },
