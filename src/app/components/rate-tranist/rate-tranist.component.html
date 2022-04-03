@@ -108,10 +108,10 @@
                             </ion-col>
                         </ion-col>
                         <ion-col size-xl="3.9" size-lg="3.9" size-md="3.9" size-sm="12" size-xs="12" class="marginAuto">
-                            <ion-select interface="popover" formControlName="Fromstate">
-                                <ion-select-option value="">Select State</ion-select-option>
-                               <ion-select-option  *ngFor="let stateName of this.sharedService.usstateName" [value]="stateName.id">{{stateName.name}}</ion-select-option>  
-                            </ion-select>
+                            <select interface="popover" formControlName="Fromstate">
+                                <option value="">Select State</option>
+                               <option  *ngFor="let stateName of this.sharedService.usstateName" [value]="stateName.id">{{stateName.name}}</option>  
+                            </select>
                             <ion-col class="errorMsg"
                                 *ngIf="checkRateForm.controls['Fromstate'].invalid && (checkRateForm.controls['Fromstate'].dirty || checkRateForm.controls['Fromstate'].touched)">
                                 <ion-col *ngIf="checkRateForm.controls['Fromstate'].errors.required">
@@ -177,10 +177,10 @@
                             </ion-col>
                         </ion-col>
                         <ion-col size-xl="3.9" size-lg="3.9" size-md="3.9" size-sm="12" size-xs="12" class="marginAuto">
-                            <ion-select interface="popover" formControlName="Tostate" >
-                                <ion-select-option value="">Select State</ion-select-option>
-                                <ion-select-option  *ngFor="let stateName of this.sharedService.usstateName" [value]="stateName.id">{{stateName.name}}</ion-select-option>  
-                            </ion-select>
+                            <select formControlName="Tostate" >
+                                <option value="">Select State</option>
+                                <option  *ngFor="let stateName of this.sharedService.usstateName" [value]="stateName.id">{{stateName.name}}</option>  
+                            </select>
                             <ion-col class="errorMsg"
                                 *ngIf="checkRateForm.controls['Tostate'].invalid && (checkRateForm.controls['Tostate'].dirty || checkRateForm.controls['Tostate'].touched)">
                                 <ion-col *ngIf="checkRateForm.controls['Tostate'].errors.required">

@@ -104,7 +104,7 @@ ion-button[disabled]{
     --background: grey;
 
   }
-ion-input, ion-select{
+ion-input{
     border: 1px solid #e5e5e5;
     background-color: #fff;
     --padding-start: 6.5px;
@@ -114,8 +114,14 @@ ion-input, ion-select{
     margin: 1.5% 0;
     border-radius: 6px;
 }
-ion-select{
+select{
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    margin: 1.5% 0;
+    border-radius: 6px;
     padding: 6.5px;
+    outline: none;
 }
 
 .error {
