@@ -1,68 +1,72 @@
-.mainCol{
+.mainCol {
     padding: 10px;
     border: 1px solid #c3c3c2;
 }
 
-.heading{
+.heading {
     font-size: 1.6em;
     font-weight: normal;
     color: #4d148c;
     margin: 10px 0;
 }
 
-.title{
+.title {
     font-size: 1.2em;
     font-weight: bold;
     color: #4d148c;
     margin: 0;
 }
 
-.titleIcon ion-label{
+.titleIcon ion-label {
     border-radius: 50%;
     padding: 4px;
     background-color: green;
 }
 
-.titleIcon{
+.titleIcon {
     text-align: end;
 }
 
-.titleIcon .fa{
+.titleIcon .fa {
     font-size: 25px;
     color: white;
 }
 
-.titleSecondCol, .deliveryText, .deliveryLabel{
+.titleSecondCol,
+.deliveryText,
+.deliveryLabel {
     text-align: center;
     color: #4d148c;
-    
+
 }
 
-.titleSecondCol ion-label{
+.titleSecondCol ion-label {
     cursor: pointer;
     border-bottom: 1px solid #4d148c;
 }
 
-.titleCol{
+.titleCol {
     background-color: #FFF;
     border: 2px solid #4D148C;
     border-radius: 8px;
     padding: 10px;
     height: fit-content;
 }
+
 ::ng-deep .mat-form-field-underline {
     display: none;
 }
-.marginList{
+
+.marginList {
     margin: 10px 0;
     color: #666;
 }
 
-.titleMargin{
+.titleMargin {
     margin-top: 50%;
 }
 
-ion-input{
+ion-input {
     background-color: #FFF;
     border: 1px solid black;
     --padding-top: 6px;
@@ -71,11 +75,11 @@ ion-input{
     --padding-start: 8px;
 }
 
-.inputDate{
+.inputDate {
     color: #000;
 }
 
-.mainLabel{
+.mainLabel {
     color: #4d148c;
     font-size: 1.15em;
     font-weight: bold;
@@ -85,63 +89,69 @@ ion-input{
     margin: auto;
 }
 
-ion-img{
+ion-img {
     width: 100px;
     margin: 10px auto;
     cursor: pointer;
 }
 
-.paddingImg{
+.paddingImg {
     padding: 20px 0;
 }
 
-.marginImg, .marginDeliveryFix{
+.marginImg,
+.marginDeliveryFix {
     margin: 20px 0;
 }
 
-.marginPak{
+.marginPak {
     margin: 10px;
 }
 
-.shipDateLabel{
+.shipDateLabel {
     margin: auto;
     padding-right: 10px;
 }
 
-.calFix{
+.calFix {
     background-color: #FFF;
 }
 
-.deliveryMainCol, .delLabel, .marginDelivery ion-button{
+.deliveryMainCol,
+.delLabel,
+.marginDelivery ion-button {
     margin: 10px 0;
     --background: #4d148c;
 }
 
-.paddingImg, .marginDelivery, .marginImg ion-label{
-font-weight: normal;
-text-align: center;
+.paddingImg,
+.marginDelivery,
+.marginImg ion-label {
+    font-weight: normal;
+    text-align: center;
 }
 
-.deliveryText{
+.deliveryText {
     font-size: 10px;
 }
 
-.deliveryLabel{
+.deliveryLabel {
     font-size: 20px;
     font-weight: bold;
     margin: 10px 0;
 }
 
-.imgText, .delLabel{
+.imgText,
+.delLabel {
     color: #666;
 
 }
 
-.deliveryColMargin{
-    margin-right: 10px;
+.deliveryColMargin {
+    margin-right: 3%;
 }
 
-.deliveryDate{
+.deliveryDate {
     background-color: #4d148c;
     color: #FFF;
     text-align: center;
@@ -152,50 +162,64 @@ text-align: center;
 ::ng-deep .mat-datepicker-content .mat-calendar {
     width: 200px !important;
     height: auto !important;
-    
+
 }
 
-::ng-deep .mat-form-field-wrapper{
+::ng-deep .mat-form-field-wrapper {
     padding-bottom: 0 !important;
 }
 
-::ng-deep .mat-form-field-infix{
+::ng-deep .mat-form-field-infix {
     padding: 0 !important;
 }
 
-::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex{
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
     padding: 0 10px !important;
 }
 
-::ng-deep .cdk-overlay-pane{
+::ng-deep .cdk-overlay-pane {
     left: 52% !important;
     left: calc((100vw - 40px) / 4.7) !important;
 
 }
 
-@media screen and (max-width: 768px){
-.titleMargin, .titleSecondCol{
-    margin: 15px 0;
-}
+@media screen and (max-width: 768px) {
 
-.deliveryText{
-    margin: 10px 0;
-    font-size: 10px;
-}
+    .titleMargin,
+    .titleSecondCol {
+        margin: 15px 0;
+    }
+
+    .deliveryText {
+        margin: 10px 0;
+        font-size: 10px;
+    }
 }
 
 @media screen and (max-width: 995px) {
-    ::ng-deep .cdk-overlay-pane{
+    ::ng-deep .cdk-overlay-pane {
         left: 52% !important;
         left: calc((100vw - 80px) / 6) !important;
-    
+
     }
-    }
+}
 
 @media screen and (max-width: 600px) {
-    ::ng-deep .cdk-overlay-pane{
+    ::ng-deep .cdk-overlay-pane {
         left: 52% !important;
         left: calc((100vw - 80px) / 3) !important;
-    
+
     }
-    }
+}
+
+.scroll-items {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: scroll !important;
+    overflow-y: hidden;
+}
+
+.scroll-items ion-col {
+    display: block;
+    flex-wrap: nowrap;
+}

@@ -5,6 +5,7 @@ import { sharedService } from 'src/app/Service/sharedService.service';
 import { Address } from 'src/app/Models/Address';
 import { RateReply } from 'src/app/Models/RateReply';
 import { DatePipe } from '@angular/common';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-shipment-details',
@@ -13,7 +14,7 @@ import { DatePipe } from '@angular/common';
 })
 export class ShipmentDetailsComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public datepipe: DatePipe) {
+  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public datepipe: DatePipe, public spinner: NgxSpinnerService) {
     const todayDate = new Date(new Date().setHours(0, 0, 0, 0));
     this.avaiableDate.push(new Date(todayDate.setDate(todayDate.getDate())));
     for (let i = 0; i < 7; i++) {
@@ -48,11 +49,13 @@ export class ShipmentDetailsComponent implements OnInit {
   Fedex_Extralarge: boolean = false;
   Fedex_Small: boolean = false;
   Fedex_Tube: boolean = false;
+  getData: boolean = false;
 
   ngOnInit(): void {
     this.initializeForm();
     this.today =  this.datepipe.transform(this.currentDate, 'yyyy-MM-dd') || '' ;
     this.shipDateDefault();
+    this.getData = false;
   }
 
   initializeForm(): void {
@@ -197,8 +200,12 @@ export class ShipmentDetailsComponent implements OnInit {
   }
 
   calBtn(): void {
+    this.getData = false;
+    this.spinner.show();
     this.showCalFeatures = true;
     this.sharedService.rate(this.sharedService.fromAddress, this.sharedService.toAddress,  this.sharedService.shipDate, '1', '1').subscribe(data => {
+      this.getData = true;
+      this.spinner.hide();
       this.rateChartResponce = data;
       this.rateChartResponce?.rateReplyDetails[0].ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount;
       if (data.highestSeverity === 'SUCCESS' || data.highestSeverity === 'NOTE' || data.highestSeverity === 'WARNING') {
