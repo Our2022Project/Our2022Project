@@ -6,6 +6,7 @@ import { Address } from 'src/app/Models/Address';
 import { RateReply } from 'src/app/Models/RateReply';
 import { DatePipe } from '@angular/common';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { shipment } from 'src/app/Models/Shipment';
 
 @Component({
   selector: 'app-shipment-details',
@@ -50,6 +51,7 @@ export class ShipmentDetailsComponent implements OnInit {
   Fedex_Small: boolean = false;
   Fedex_Tube: boolean = false;
   getData: boolean = false;
+  shipment: shipment = new shipment();
 
   ngOnInit(): void {
     this.initializeForm();
@@ -197,6 +199,15 @@ export class ShipmentDetailsComponent implements OnInit {
     this.sharedService.paymentDetails = true;
     this.sharedService.summaryDetails = false;    
     this.sharedService.Validate =true;
+    this.mapShipDetails();
+    this.sharedService.shipment(this.shipment).subscribe(data => {
+
+    },
+      (error) =>{ 
+
+      }
+      );
+      
   }
 
   calBtn(): void {
@@ -241,23 +252,7 @@ export class ShipmentDetailsComponent implements OnInit {
     return !(!this.avaiableDate.find((x: { getTime: () => any; }) => x.getTime() == time)) && day !== 0;
   }
 
-  addressMapping(): void {
-    this.fromAddress.addressLine1 = this.shipmentForm.controls['FromAddress1'].value;
-    this.fromAddress.addressLine2 = this.shipmentForm.controls['FromAddress2'].value;
-    this.fromAddress.city = this.shipmentForm.controls['Fromcity'].value;
-    this.fromAddress.stateCode = this.shipmentForm.controls['Fromstate'].value;
-    this.fromAddress.zipcode = this.shipmentForm.controls['FromZIP'].value;
-    this.fromAddress.countryCode = "US";
-    this.toAddress.addressLine1 = this.shipmentForm.controls['ToAdd1'].value;
-    this.toAddress.addressLine2 = this.shipmentForm.controls['ToAdd2'].value;
-    this.toAddress.city = this.shipmentForm.controls['Tocity'].value;
-    this.toAddress.stateCode = this.shipmentForm.controls['Tostate'].value;
-    this.toAddress.zipcode = this.shipmentForm.controls['Tozip'].value;
-    this.toAddress.countryCode = "US";
-    this.sharedService.shipDate=this.shipmentForm.controls['shipDate'].value;
-    
-   
-  }
+  
   getMonthDate(servcieDate: any): string {
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -286,4 +281,9 @@ export class ShipmentDetailsComponent implements OnInit {
       this.sharedService.shipDate = this.today;
     }
   }
+
+   mapShipDetails():void{
+    this.shipment.shipDate = this.sharedService.shipDate;
+  
+   }
 }

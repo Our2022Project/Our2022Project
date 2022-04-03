@@ -12,5 +12,7 @@ export const environment = {
     addressDetalis: Backend_Base_URL + '/transaction',
     activateUser: Backend_Base_URL + '/activate-user',
     resetPassword: Backend_Base_URL + '/reset-password',
+    payment: Backend_Base_URL +'/payment',
+    shipment: Backend_Base_URL + '/shipment',
 };
 

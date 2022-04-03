@@ -5,6 +5,8 @@ import { environment } from "src/environments/environment";
 import { Address } from "../Models/Address";
 import { RegisterData } from "../Models/SignUp";
 import {OrderAdress } from "../Models/OrderAdress";
+import { Payment } from "../Models/Payment";
+import { shipment } from "../Models/Shipment";
 
 @Injectable()
 export class sharedService {
@@ -140,5 +142,13 @@ export class sharedService {
 
     resetPassword(newPassword: String, token: String): Observable<any> {
         return this.http.put(environment.resetPassword +'?token='+token, { newPassword: newPassword }, this.httpOptions);
+    }
+    
+    payment(Payment: Payment): Observable<any> {
+        return this.http.post(environment.payment, Payment, this.httpOptions);
+    }
+    
+    shipment(shipment: shipment): Observable<any> {
+        return this.http.post(environment.shipment, shipment, this.httpOptions);
     }
 }
