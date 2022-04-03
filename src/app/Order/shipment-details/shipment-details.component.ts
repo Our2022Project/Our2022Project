@@ -41,6 +41,13 @@ export class ShipmentDetailsComponent implements OnInit {
   amount: Number = 0 ;
   currentDate=new Date();
   today:string = '';
+  Fedex_Envelop: boolean = false;
+  Fedex_Large: boolean = false;
+  Fedex_Medium: boolean = false;
+  Fedex_Pak: boolean = false;
+  Fedex_Extralarge: boolean = false;
+  Fedex_Small: boolean = false;
+  Fedex_Tube: boolean = false;
 
   ngOnInit(): void {
     this.initializeForm();
@@ -79,7 +86,97 @@ export class ShipmentDetailsComponent implements OnInit {
     this.showCheck1 = false;
   }
 
-  showRowThree(): void {
+  FedexEnvelop(): void {
+    this.shipmentRow = false;
+    this.shipmentRowTwo = false;
+    this.shipmentRowThree = true;
+    this.Fedex_Envelop = true;
+    this.Fedex_Extralarge = false;
+    this.Fedex_Large = false;
+    this.Fedex_Medium = false;
+    this.Fedex_Pak = false;
+    this.Fedex_Small = false;
+    this.Fedex_Tube = false;
+  }
+
+  FedexExtralarge(): void {
+    this.shipmentRow = false;
+    this.shipmentRowTwo = false;
+    this.shipmentRowThree = true;
+    this.Fedex_Envelop = false;
+    this.Fedex_Extralarge = true;
+    this.Fedex_Large = false;
+    this.Fedex_Medium = false;
+    this.Fedex_Pak = false;
+    this.Fedex_Small = false;
+    this.Fedex_Tube = false;
+  }
+
+  FedexLarge(): void {
+    this.shipmentRow = false;
+    this.shipmentRowTwo = false;
+    this.shipmentRowThree = true;
+    this.Fedex_Envelop = false;
+    this.Fedex_Extralarge = false;
+    this.Fedex_Large = true;
+    this.Fedex_Medium = false;
+    this.Fedex_Pak = false;
+    this.Fedex_Small = false;
+    this.Fedex_Tube = false;
+  }
+
+  FedexMedium(): void {
+    this.shipmentRow = false;
+    this.shipmentRowTwo = false;
+    this.shipmentRowThree = true;
+    this.Fedex_Envelop = false;
+    this.Fedex_Extralarge = false;
+    this.Fedex_Large = false;
+    this.Fedex_Medium = true;
+    this.Fedex_Pak = false;
+    this.Fedex_Small = false;
+    this.Fedex_Tube = false;
+  }
+
+  FedexPak(): void {
+    this.shipmentRow = false;
+    this.shipmentRowTwo = false;
+    this.shipmentRowThree = true;
+    this.Fedex_Envelop = false;
+    this.Fedex_Extralarge = false;
+    this.Fedex_Large = false;
+    this.Fedex_Medium = false;
+    this.Fedex_Pak = true;
+    this.Fedex_Small = false;
+    this.Fedex_Tube = false;
+  }
+
+  FedexSmall(): void {
+    this.shipmentRow = false;
+    this.shipmentRowTwo = false;
+    this.shipmentRowThree = true;
+    this.Fedex_Envelop = false;
+    this.Fedex_Extralarge = false;
+    this.Fedex_Large = false;
+    this.Fedex_Medium = false;
+    this.Fedex_Pak = false;
+    this.Fedex_Small = true;
+    this.Fedex_Tube = false;
+  }
+
+  FedexTube(): void {
+    this.shipmentRow = false;
+    this.shipmentRowTwo = false;
+    this.shipmentRowThree = true;
+    this.Fedex_Envelop = false;
+    this.Fedex_Extralarge = false;
+    this.Fedex_Large = false;
+    this.Fedex_Medium = false;
+    this.Fedex_Pak = false;
+    this.Fedex_Small = false;
+    this.Fedex_Tube = true;
+  }
+  FedexEmpty(): void {
     this.shipmentRow = false;
     this.shipmentRowTwo = false;
     this.shipmentRowThree = true;

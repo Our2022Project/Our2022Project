@@ -74,14 +74,16 @@
                         </ion-col>
                         <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
                             <ion-row>
-                                <ion-col size-xl="4" size-lg="5" size-md="5" size-sm="4" size-xs="4" style="padding-top: 6px;">
+                                <ion-col size-xl="4" size-lg="5" size-md="5" size-sm="4" size-xs="4"
+                                    style="padding-top: 6px;">
                                     <ion-label>Package Weight</ion-label>
                                 </ion-col>
                                 <ion-col size-xl="3.5" size-lg="3.5" size-md="3.5" size-sm="3.5" size-xs="3.5"
                                     style="padding: 0 10px;">
-                                    <ion-input type="number"  readonly>&nbsp; 1</ion-input>
+                                    <ion-input type="number" readonly>&nbsp; 1</ion-input>
                                 </ion-col>
-                                <ion-col size-xl="1.5" size-lg="2" size-md="2" size-sm="2" size-xs="2" style="padding-top: 6px;">
+                                <ion-col size-xl="1.5" size-lg="2" size-md="2" size-sm="2" size-xs="2"
+                                    style="padding-top: 6px;">
                                     <ion-select interface="popover" value="lbs">
                                         <ion-select-option value="lbs" [disabled]="true">lbs</ion-select-option>
                                     </ion-select>
@@ -110,43 +112,48 @@
                         <ion-col class="paddingImg">
                             <ion-row>
                                 <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
-                                    <ion-img (click)="showRowThree()" src="./../../../assets/Fedex_Envelop.jpg">
+                                    <ion-img (click)="FedexEnvelop()" src="./../../../assets/Fedex_Envelop.jpg">
                                     </ion-img>
                                     <ion-label>Fedex Envelop</ion-label>
                                 </ion-col>
-                                <!-- <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
-                                    <ion-img (click)="showRowThree()" src="./../../../assets/img/delivery-box.png">
+                                <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
+                                    <ion-img (click)="FedexExtralarge()" src="./../../../assets/extralarge.jpg">
                                     </ion-img>
-                                    <ion-label>Courier 25kg Box</ion-label>
+                                    <ion-label>Fedex Extra Large Box</ion-label>
                                 </ion-col>
                                 <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
-                                    <ion-img (click)="showRowThree()" src="./../../../assets/img/delivery-box.png">
+                                    <ion-img (click)="FedexLarge()" src="./../../../assets/large.jpg">
                                     </ion-img>
-                                    <ion-label>Courier Box</ion-label>
+                                    <ion-label>Fedex Large Box</ion-label>
                                 </ion-col>
                                 <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
-                                    <ion-img (click)="showRowThree()" src="./../../../assets/img/delivery-box.png">
+                                    <ion-img (click)="FedexMedium()" src="./../../../assets/medium.jpg">
                                     </ion-img>
-                                    <ion-label>Courier Envelope</ion-label>
+                                    <ion-label>Fedex Medium Box</ion-label>
                                 </ion-col>
                                 <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
-                                    <ion-img (click)="showRowThree()" src="./../../../assets/img/delivery-box.png">
+                                    <ion-img (click)="FedexPak()" src="./../../../assets/pak.jpg">
                                     </ion-img>
-                                    <ion-label>Courier Pak</ion-label>
+                                    <ion-label>Fedex Pak</ion-label>
                                 </ion-col>
                                 <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
-                                    <ion-img (click)="showRowThree()" src="./../../../assets/img/delivery-box.png">
+                                    <ion-img (click)="FedexSmall()" src="./../../../assets/small.jpg">
                                     </ion-img>
-                                    <ion-label>Courier Tube</ion-label>
+                                    <ion-label>Fedex Small Box</ion-label>
                                 </ion-col>
                                 <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
-                                    <ion-img (click)="showRowThree()" src="./../../../assets/img/delivery-box.png">
+                                    <ion-img (click)="FedexTube()" src="./../../../assets/tube.jpg">
+                                    </ion-img>
+                                    <ion-label>Fedex Tube</ion-label>
+                                </ion-col>
+                                <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="4">
+                                    <ion-img src="./../../../assets/empty.png" style="cursor: default;">
                                     </ion-img>
                                     <ion-label>Your Packaging</ion-label><br>
                                     <ion-text class="imgText">Don't see a box size that fits? Ship Courier using
                                         your own
                                         packaging.</ion-text>
-                                </ion-col> -->
+                                </ion-col>
                             </ion-row>
                         </ion-col>
                     </ion-row>
@@ -155,18 +162,90 @@
             <!---->
             <ion-row class="marginPak" *ngIf="this.shipmentRowThree">
                 <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="4" size-xs="12" class="titleSecondCol">
-                    <ion-img src="./../../../assets/Fedex_Envelop.jpg"></ion-img>
+                    <ion-img src="./../../../assets/Fedex_Envelop.jpg" *ngIf="this.Fedex_Envelop"></ion-img>
+                    <ion-img src="./../../../assets/extralarge.jpg" *ngIf="this.Fedex_Extralarge"></ion-img>
+                    <ion-img src="./../../../assets/large.jpg" *ngIf="this.Fedex_Large"></ion-img>
+                    <ion-img src="./../../../assets/medium.jpg" *ngIf="this.Fedex_Medium"></ion-img>
+                    <ion-img src="./../../../assets/pak.jpg" *ngIf="this.Fedex_Pak"></ion-img>
+                    <ion-img src="./../../../assets/small.jpg" *ngIf="this.Fedex_Small"></ion-img>
+                    <ion-img src="./../../../assets/tube.jpg" *ngIf="this.Fedex_Tube"></ion-img>
                     <ion-label (click)="showRowTwo()">← Choose another package type</ion-label>
                 </ion-col>
                 <ion-col size-xl="8" size-lg="8" size-md="8" size-sm="8" size-xs="12">
-                    <ion-row class="mainLabel">
+                    <ion-row class="mainLabel" *ngIf="this.Fedex_Envelop">
                         <ion-col>
                             <ion-label>Fedex Envelop</ion-label>
                         </ion-col>
                     </ion-row>
-                    <ion-row>
+                    <ion-row *ngIf="this.Fedex_Envelop">
                         <ion-col class="marginList">
-                            <ion-text>Fedex Envelop: 15-13/16” x 12-15/16” x 10-3/16” </ion-text>
+                            <ion-text>Letter: 9-1/2” x 12-1/2”</ion-text><br>
+                            <ion-text>Legal: 9-1/2” x 15-1/2”</ion-text>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="mainLabel" *ngIf="this.Fedex_Extralarge">
+                        <ion-col>
+                            <ion-label>FedEx Extra Large Box</ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="this.Fedex_Extralarge">
+                        <ion-col class="marginList">
+                            <ion-text>X1: Cube-shaped: 11-7/8” x 10-13/16” x 11-1/16”</ion-text><br>
+                            <ion-text>X2: Rectangular-shaped: 15-3/4” x 14-3/16” x 6”</ion-text>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="mainLabel" *ngIf="this.Fedex_Large">
+                        <ion-col>
+                            <ion-label>FedEx Large Box</ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="this.Fedex_Large">
+                        <ion-col class="marginList">
+                            <ion-text>L1: Rectangular and shallow: 12-3/8” x 3” x 17-1/2”</ion-text><br>
+                            <ion-text>L2: Rectangular and deep: 8-3/4” x 7-3/4” x 11-5/16”</ion-text>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="mainLabel" *ngIf="this.Fedex_Medium">
+                        <ion-col>
+                            <ion-label>FedEx Medium Box</ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="this.Fedex_Medium">
+                        <ion-col class="marginList">
+                            <ion-text>M1: Rectangular and shallow: 11-1/2” x 2-3/8” x 13-1/4”</ion-text><br>
+                            <ion-text>M2: Rectangular and deep: 9” x 5” x 12”</ion-text>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="mainLabel" *ngIf="this.Fedex_Pak">
+                        <ion-col>
+                            <ion-label>FedEx Pak</ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="this.Fedex_Pak">
+                        <ion-col class="marginList">
+                            <ion-text>Small: 10-1/4” x 12-3/4”</ion-text><br>
+                            <ion-text>Large: 12” x 15-1/2”</ion-text>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="mainLabel" *ngIf="this.Fedex_Small">
+                        <ion-col>
+                            <ion-label>FedEx Small Box</ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="this.Fedex_Small">
+                        <ion-col class="marginList">
+                            <ion-text>S1: Rectangular and shallow: 10-7/8” x 1-1/2” x 12-3/8”</ion-text><br>
+                            <ion-text>S2: Rectangular and deep: 8-3/4” x 2-11/16” x 11-5/16”</ion-text>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="mainLabel" *ngIf="this.Fedex_Tube">
+                        <ion-col>
+                            <ion-label>FedEx Tube</ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="this.Fedex_Tube">
+                        <ion-col class="marginList">
+                            <ion-text>Tube: 6” x 6” x 38”</ion-text>
                         </ion-col>
                     </ion-row>
                     <ion-row>
@@ -209,10 +288,11 @@
                     </ion-row> -->
                     <ion-row style="margin: 10px 0;">
                         <ion-label class="shipDateLabel">Ship Date</ion-label>
-                        <ion-col >
+                        <ion-col>
                             <mat-form-field class="calFix" appearance="fill">
-                                <mat-label>Please select ship date.</mat-label> 
-                                <input  formControlName="shipDate" class="inputDate" [matDatepickerFilter]="shipDate" matInput [matDatepicker]="dp3" md-date-filter="onlyMonday" readonly>
+                                <mat-label>Please select ship date.</mat-label>
+                                <input formControlName="shipDate" class="inputDate" [matDatepickerFilter]="shipDate"
+                                    matInput [matDatepicker]="dp3" md-date-filter="onlyMonday" readonly>
                                 <mat-datepicker-toggle matSuffix [for]="dp3" class="calSize"></mat-datepicker-toggle>
                                 <mat-datepicker class="calSize" #dp3 readonly="true"></mat-datepicker>
                             </mat-form-field>
@@ -232,8 +312,10 @@
                                     </ion-col>
                                 </ion-row>
                                 <ion-row>
-                                    <ion-col size-xl="2.5" size-lg="2.5" size-md="2.5" size-sm="12" size-xs="12" class="deliveryColMargin">
-                                        <ion-row *ngFor="let service of this.rateChartResponce?.rateReplyDetails;let i = index">
+                                    <ion-col size-xl="2.5" size-lg="2.5" size-md="2.5" size-sm="12" size-xs="12"
+                                        class="deliveryColMargin">
+                                        <ion-row
+                                            *ngFor="let service of this.rateChartResponce?.rateReplyDetails;let i = index">
                                             <ion-col size="12">
                                                 <ion-row>
                                                     <ion-col class="deliveryDate">
@@ -243,9 +325,12 @@
                                                     </ion-col>
                                                 </ion-row>
                                             </ion-col>
-                                            <ion-col   *ngFor="let ratedShipmentDetail of service?.ratedShipmentDetails" size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+                                            <ion-col *ngFor="let ratedShipmentDetail of service?.ratedShipmentDetails"
+                                                size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
                                                 <ion-row>
-                                                    <ion-col  *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages" size-xl="12" size-lg="12" size-md="12"
+                                                    <ion-col
+                                                        *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages"
+                                                        size-xl="12" size-lg="12" size-md="12"
                                                         class="marginDelivery deliveryLabel">
                                                         <ion-label>${{
                                                             ratedPackage?.packageRateDetail?.netFedExCharge?.amount
@@ -253,17 +338,20 @@
                                                     </ion-col>
                                                     <ion-col size-xl="12" size-lg="12" size-md="12"
                                                         class="marginDelivery delLabel">
-                                                        <ion-label> by {{ getHoursMinute(service?.deliveryTimestamp) }}</ion-label>
+                                                        <ion-label> by {{ getHoursMinute(service?.deliveryTimestamp) }}
+                                                        </ion-label>
                                                     </ion-col>
                                                     <ion-col size-xl="12" size-lg="12" size-md="12"
                                                         class="marginDelivery deliveryText">
-                                                        <ion-text>{{ service?.serviceDescription?.names?.[0]?.value }}</ion-text>
+                                                        <ion-text>{{ service?.serviceDescription?.names?.[0]?.value }}
+                                                        </ion-text>
                                                     </ion-col>
                                                     <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12"
                                                         size-xs="12">
                                                         <ion-row>
                                                             <ion-col class="marginDelivery">
-                                                                <ion-button expand="block" (click)="goToPayment()" (click)="this.sharedService.show1=true">
+                                                                <ion-button expand="block" (click)="goToPayment()"
+                                                                    (click)="this.sharedService.show1=true">
                                                                     Select</ion-button>
                                                             </ion-col>
                                                         </ion-row>
@@ -272,14 +360,14 @@
                                             </ion-col>
                                         </ion-row>
                                     </ion-col>
-                                   
+
                                 </ion-row>
                             </ion-col>
                         </ion-col>
                     </ion-row>
                 </ion-col>
             </ion-row>
-           
+
         </form>
     </ion-col>
     <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
