@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { sharedService } from 'src/app/Service/sharedService.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { sharedService } from 'src/app/Service/sharedService.service';
 
 export class LoginComponent {
 
-  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) { }
+  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public spinner: NgxSpinnerService,) { }
   loginForm: any;
   fieldTextType: boolean = false;
 
@@ -34,27 +35,27 @@ export class LoginComponent {
   }
 
   goToDashboard(): void {
+    this.spinner.show();
     this.sharedService.userName = this.loginForm.controls['userName'].value;
     this.sharedService.login(this.loginForm.controls['userName'].value, this.loginForm.controls['password'].value).subscribe(data => {
-      if (data.accessToken === undefined) {
-        this.initializeForm();
-        this.sharedService.isValidToken = true;
-      } else {
-        this.sharedService.token = data.accessToken;
-        this.sharedService.isValidToken = false;
-        this.router.navigateByUrl('/dashboard');
-        sessionStorage.setItem("token", JSON.stringify(this.sharedService.token));
-        sessionStorage.setItem("userName", JSON.stringify(this.sharedService.userName));
-      }
+      this.spinner.hide();
+      this.sharedService.token = data.accessToken;
+      this.sharedService.isValidToken = false;
+      this.router.navigateByUrl('/dashboard');
+      sessionStorage.setItem("token", JSON.stringify(this.sharedService.token));
+      sessionStorage.setItem("userName", JSON.stringify(this.sharedService.userName));
     },
       (error) => {
+        this.spinner.hide();
+        this.initializeForm();
+        this.sharedService.isValidToken = true;
       });
   }
 
   user_register(): void {
     this.router.navigateByUrl('/signup');
   }
-  
+
   forgot(): void {
     this.router.navigateByUrl('/forgotPassword');
   }

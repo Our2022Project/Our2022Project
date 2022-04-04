@@ -86,6 +86,9 @@ export class RateTranistComponent implements OnInit {
         this.showRateUI = false;
         this.showError = true;
       }
+    },
+    (error) =>{
+      this.spinner.hide();
     });
   }
 

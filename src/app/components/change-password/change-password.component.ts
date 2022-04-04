@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
 import { ActivatedRoute, Router} from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-change-password',
@@ -10,7 +11,7 @@ import { ActivatedRoute, Router} from '@angular/router';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, public sharedService: sharedService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, public sharedService: sharedService, private router: Router, private route: ActivatedRoute, public spinner: NgxSpinnerService,) { }
   changeForm: any;
   fieldTextType: boolean = false;
   fieldType: boolean = false;
@@ -69,11 +70,13 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   resetPassword() : void {
-    this.sharedService.resetPassword(this.changeForm.controls['newPassword'].value, this.resetToken).subscribe(
-      data => {
-        this.router.navigateByUrl('/login');
+    this.spinner.show();
+    this.sharedService.resetPassword(this.changeForm.controls['newPassword'].value, this.resetToken).subscribe( data => {
+      this.spinner.hide();
+       this.router.navigateByUrl('/login');
       },
       error => {
+        this.spinner.hide();
         this.error = true;
         console.error(error?.error);
         console.error(error?.error.message); 

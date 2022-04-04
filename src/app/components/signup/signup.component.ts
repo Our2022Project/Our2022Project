@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
 import { RegisterData, userAddressRequestList } from 'src/app/Models/SignUp';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
 
 
 
-  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) { }
+  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public spinner: NgxSpinnerService,) { }
 
   SignupForm: any;
   fieldTextType: boolean = false;
@@ -57,8 +58,10 @@ export class SignupComponent implements OnInit {
   }
 
   goToLogin(): void { 
+    this.spinner.show();
     this.mappingData();
     this.sharedService.register(this.registerObj).subscribe(data => {
+      this.spinner.hide();
       this.sharedService.isRegistrationDone = false;
       this.sharedService.isUserAlreadyExsits = true;
       this.registerObj.roles = [];
@@ -66,6 +69,7 @@ export class SignupComponent implements OnInit {
       this.initializeForm();
     },
       (error) => {
+        this.spinner.hide();
         this.sharedService.isRegistrationDone = true;
         this.sharedService.isUserAlreadyExsits = false;
         this.router.navigateByUrl('/login');

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,  Router} from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
+import { NgxSpinnerService } from "ngx-spinner";
+
 @Component({
   selector: 'app-activate-user',
   templateUrl: './activate-user.component.html',
@@ -9,7 +11,7 @@ import { sharedService } from 'src/app/Service/sharedService.service';
 })
 export class ActivateUserComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, public sharedService: sharedService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, public sharedService: sharedService, public spinner: NgxSpinnerService,) { }
   activateToken: string = '';
   errorMessage: string = '';
   ngOnInit(): void {
@@ -24,11 +26,13 @@ export class ActivateUserComponent implements OnInit {
 
 
   activateUserLink(): void {
-    this.sharedService.activateUser(this.activateToken).subscribe(
-      data => {
+    this.spinner.show();
+    this.sharedService.activateUser(this.activateToken).subscribe( data => {
+      this.spinner.hide();
         this.router.navigateByUrl('/login');
       },
       error => {
+        this.spinner.hide();
         console.error(error); 
         this.errorMessage = error?.error.message || error?.error;
       }

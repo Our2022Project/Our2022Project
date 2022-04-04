@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-forgot-password',
@@ -10,7 +11,7 @@ import { sharedService } from 'src/app/Service/sharedService.service';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) { }
+  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public spinner: NgxSpinnerService,) { }
   forgotPassword: any;
   showTag: boolean = false;
 
@@ -26,8 +27,13 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   forgotPass(): void {
+    this.spinner.show();
     this.showTag = !this.showTag;
     this.sharedService.forgotPassword(this.forgotPassword.controls['email'].value).subscribe(data => {
+      this.spinner.hide();
+    },
+    (error) =>{
+      this.spinner.hide();
     });
     this.initializeForm();
   }

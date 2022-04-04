@@ -9,6 +9,7 @@
     text-align: center;
     padding: 15px 0;
 }
+
 .labelHeading {
     font-size: 17px;
     font-weight: bold;
@@ -20,7 +21,8 @@
     padding: 10px 10px 10px 0;
 }
 
-ion-input, select{
+ion-input,
+select {
     width: 100%;
     padding: 10px;
     margin: 10px 0px 0px 0px;
@@ -35,7 +37,7 @@ ion-input, select{
     outline: none;
 }
 
-.marginAuto{
+.marginAuto {
     margin: 0 auto;
 }
 
@@ -59,8 +61,8 @@ ion-input, select{
     color: red;
 }
 
-ion-button{
---background: #ff6200;
+ion-button {
+    --background: #ff6200;
 }
 
 ion-button[disabled] {
@@ -72,72 +74,74 @@ ion-button[disabled] {
     font-size: 17px;
 }
 
-.validButton{
+.validButton {
     font-size: 14px;
 }
 
 // rate-Transit-details start
-.showRateUi{
+.showRateUi {
     width: 80%;
     margin: 3% auto 0 auto;
 }
-.labelHeading{
+
+.labelHeading {
     font-weight: bold;
     padding: 0 0 10px 0;
 }
 
-.success{
+.success {
     color: green;
 }
 
-.date{
+.date {
     padding: 0 0 10px 0;
 }
 
-.price, .priceFirst{
+.price,
+.priceFirst {
     text-align: end;
 }
 
-.labelPrice{
+.labelPrice {
     margin: 10px 0;
 }
 
-.showRate{
+.showRate {
     border-top: 1px solid #e3e3e3;
     padding: 20px;
 }
 
-.dropButton{
+.dropButton {
     --background: none;
     color: black;
     margin: 0 10px;
 }
 
-.dropDownRate{
+.dropDownRate {
     display: none;
 }
 
-.responsive{
+.responsive {
     display: block;
 }
 
-.arrivesHeadIng{
+.arrivesHeadIng {
     text-align: center;
 }
 
-.calFix{
+.calFix {
     width: 100%;
     background-color: #f2f2f2;
     border-radius: 5px !important;
 }
 
-.inputDate{
+.inputDate {
     color: black;
 }
 
 // rate-Transit-details end
 
-.secondion-row{
+.secondion-row {
     display: none;
 }
 
@@ -145,23 +149,23 @@ ion-button[disabled] {
 ::ng-deep .mat-datepicker-content .mat-calendar {
     width: 200px !important;
     height: auto !important;
-    
+
 }
 
-::ng-deep .mat-form-field-wrapper{
+::ng-deep .mat-form-field-wrapper {
     padding-bottom: 0 !important;
 }
 
-::ng-deep .mat-form-field-infix{
+::ng-deep .mat-form-field-infix {
     padding: 0 !important;
 }
 
-::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex{
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
     padding: 0 10px !important;
 }
 
 
-::ng-deep .cdk-overlay-pane{
+::ng-deep .cdk-overlay-pane {
     left: 52% !important;
     left: calc((100vw - 40px) / 2) !important;
 
@@ -169,15 +173,17 @@ ion-button[disabled] {
 
 // // // 
 
-@media screen and (max-width: 767px){
-    .secondion-row{
+@media screen and (max-width: 767px) {
+    .secondion-row {
         display: block;
         margin-top: 3%;
     }
-    .priceFirst{
+
+    .priceFirst {
         display: none;
     }
-    .arrivesHeadIng{
+
+    .arrivesHeadIng {
         margin-bottom: 3%;
     }
 
@@ -185,10 +191,10 @@ ion-button[disabled] {
 
 @media screen and (max-width: 600px) {
 
-    .validButton{
+    .validButton {
         font-size: 10px;
     }
-    
+
 }
 
 ::ng-deep .mat-form-field-underline {
@@ -196,9 +202,9 @@ ion-button[disabled] {
 }
 
 @media screen and (max-width: 500px) {
-::ng-deep .cdk-overlay-pane{
-    left: 52% !important;
-    left: calc((100vw - 40px) / 3) !important;
+    ::ng-deep .cdk-overlay-pane {
+        left: 52% !important;
+        left: calc((100vw - 40px) / 3) !important;
 
-}
+    }
 }

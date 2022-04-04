@@ -22,7 +22,7 @@ export class ShipmentDetailsComponent implements OnInit {
       this.avaiableDate.push(new Date(todayDate.setDate(todayDate.getDate() + 1)));
     }
   }
-  
+
   avaiableDate: Date[] = [];
   shipmentForm: any;
   shipmentRowThree: boolean = false;
@@ -40,9 +40,9 @@ export class ShipmentDetailsComponent implements OnInit {
   errorMsg: string = '';
   resultFound: Boolean = true;
   sleactedDate: any;
-  amount: Number = 0 ;
-  currentDate=new Date();
-  today:string = '';
+  amount: Number = 0;
+  currentDate = new Date();
+  today: string = '';
   Fedex_Envelop: boolean = false;
   Fedex_Large: boolean = false;
   Fedex_Medium: boolean = false;
@@ -57,7 +57,7 @@ export class ShipmentDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
-    this.today =  this.datepipe.transform(this.currentDate, 'yyyy-MM-dd') || '' ;
+    this.today = this.datepipe.transform(this.currentDate, 'yyyy-MM-dd') || '';
     this.shipDateDefault();
     this.getData = false;
   }
@@ -74,7 +74,7 @@ export class ShipmentDetailsComponent implements OnInit {
       Tocity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       Tostate: ['', [Validators.required]],
       Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
-      shipDate: [this.sharedService.shipDate !== ' ' ?  this.sharedService.shipDate:this.today , [Validators.required]],
+      shipDate: [this.sharedService.shipDate !== ' ' ? this.sharedService.shipDate : this.today, [Validators.required]],
 
     });
   }
@@ -196,28 +196,29 @@ export class ShipmentDetailsComponent implements OnInit {
   }
 
   goToPayment(): void {
+    this.spinner.show();
     this.sharedService.addressDetails = false;
     this.sharedService.shipmentDetails = false;
     this.sharedService.paymentDetails = true;
-    this.sharedService.summaryDetails = false;    
-    this.sharedService.Validate =true;
+    this.sharedService.summaryDetails = false;
+    this.sharedService.Validate = true;
     this.mapShipDetails();
     this.sharedService.shipmentModel = this.shipment;
     this.sharedService.shipment(this.shipment).subscribe(data => {
-
+      this.spinner.hide();
     },
-      (error) =>{ 
-
+      (error) => {
+        this.spinner.hide();
       }
-      );
-      
+    );
+
   }
 
   calBtn(): void {
     this.getData = false;
     this.spinner.show();
     this.showCalFeatures = true;
-    this.sharedService.rate(this.sharedService.fromAddress, this.sharedService.toAddress,  this.sharedService.shipDate, '0.00', '1').subscribe(data => {
+    this.sharedService.rate(this.sharedService.fromAddress, this.sharedService.toAddress, this.sharedService.shipDate, '0.00', '1').subscribe(data => {
       this.getData = true;
       this.spinner.hide();
       this.rateChartResponce = data;
@@ -226,11 +227,11 @@ export class ShipmentDetailsComponent implements OnInit {
           this.showRateUI = true;
           this.showError = false;
           data.rateReplyDetails.sort(
-            (n1:any,n2:any)=>{
-               if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount>n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return -1;
-               if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount<n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return 1;
-               else return 0; 
-           });
+            (n1: any, n2: any) => {
+              if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount > n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return -1;
+              if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount < n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return 1;
+              else return 0;
+            });
           for (let i = 0; i < data.rateReplyDetails.length; i++) {
             this.drop[i] = false;
           }
@@ -244,7 +245,9 @@ export class ShipmentDetailsComponent implements OnInit {
         this.showRateUI = false;
         this.showError = true;
       }
-  
+    },
+    (error) =>{
+      this.spinner.hide();
     });
   }
 
@@ -254,11 +257,11 @@ export class ShipmentDetailsComponent implements OnInit {
     return !(!this.avaiableDate.find((x: { getTime: () => any; }) => x.getTime() == time)) && day !== 0;
   }
 
-  
+
   getMonthDate(servcieDate: any, index: number, service: any, ratedShipmentDetail?: any): string {
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     var date = new Date(servcieDate * 1000);
-    this.estimatedDeliveryDate = this.datepipe.transform(date, 'MM/dd/2022') || '' ;
+    this.estimatedDeliveryDate = this.datepipe.transform(date, 'MM/dd/2022') || '';
     this.service = service;
     this.sharedService.finalShipRate = ratedShipmentDetail?.ratedPackages[0]?.packageRateDetail?.netFedExCharge?.amount;
     return months[date.getMonth()] + " " + date.getDate();
@@ -279,17 +282,17 @@ export class ShipmentDetailsComponent implements OnInit {
     return formattedTime;
   }
 
-  shipDateDefault():void{
-    if(this.sharedService.shipDate === '') {
+  shipDateDefault(): void {
+    if (this.sharedService.shipDate === '') {
       this.sharedService.shipDate = this.today;
     }
   }
 
-   mapShipDetails():void{
-    let changeFormate = new Date(this.sharedService.shipDate);  
-    this.shipment.shipDate = this.datepipe.transform(changeFormate, 'MM/dd/YYYY') || '' ;
+  mapShipDetails(): void {
+    let changeFormate = new Date(this.sharedService.shipDate);
+    this.shipment.shipDate = this.datepipe.transform(changeFormate, 'MM/dd/YYYY') || '';
     this.shipment.estimatedDeliveryDate = this.estimatedDeliveryDate;
     this.shipment.service = this.service;
-  
-   }
+
+  }
 }

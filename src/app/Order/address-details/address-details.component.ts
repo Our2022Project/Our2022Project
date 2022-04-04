@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
 import { OrderAdress } from 'src/app/Models/OrderAdress';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-address-details',
@@ -11,7 +12,7 @@ import { OrderAdress } from 'src/app/Models/OrderAdress';
 })
 export class AddressDetailsComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) { }
+  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public spinner: NgxSpinnerService,) { }
   OrderAdress: OrderAdress = new OrderAdress();
   addressForm: any;
   validate: boolean = false;
@@ -79,6 +80,7 @@ export class AddressDetailsComponent implements OnInit {
 
 
   showShipment(): void {
+    this.spinner.show();
     this.sharedService.addyourName = this.addressForm.controls['yourName'].value;
     this.sharedService.yourCompany = this.addressForm.controls['fromCompany'].value;
     this.sharedService.fromAddress.addressLine1 = this.addressForm.controls['fromAddress'].value;
@@ -104,9 +106,10 @@ export class AddressDetailsComponent implements OnInit {
     this.mapAdressDetails();
     this.sharedService.OrderAdress = this.OrderAdress;
     this.sharedService.addressDetalis(this.OrderAdress).subscribe(data => {
-
+      this.spinner.hide();
     },
       (error) =>{ 
+        this.spinner.hide();
 
       }
 
