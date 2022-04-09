@@ -9,6 +9,9 @@
                 <ion-col size="12" *ngIf="this.sharedService.isUserAlreadyExsits">
                     <p class="error">User Already Exists</p>
                 </ion-col>
+                <ion-col size="12" *ngIf="errorMessage">
+                    <p class="error"> {{ errorMessage }} </p>
+                </ion-col>
             </ion-col>
             <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12"></ion-col>
         </ion-row>

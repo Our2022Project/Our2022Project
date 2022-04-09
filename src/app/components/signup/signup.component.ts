@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
 import { RegisterData, userAddressRequestList } from 'src/app/Models/SignUp';
 import { NgxSpinnerService } from "ngx-spinner";
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
@@ -21,7 +22,7 @@ export class SignupComponent implements OnInit {
   fieldType: boolean = false;
   registerObj = new RegisterData();
   registerAddressObj = new userAddressRequestList();
-
+  errorMessage?: string;
 
   ngOnInit(): void {
     this.registerObj.roles = [];
@@ -58,21 +59,40 @@ export class SignupComponent implements OnInit {
   }
 
   goToLogin(): void { 
+    this.sharedService.isUserAlreadyExsits = false; 
+    this.sharedService.isRegistrationDone = false;
+    this.errorMessage = '';
     this.spinner.show();
     this.mappingData();
     this.sharedService.register(this.registerObj).subscribe(data => {
       this.spinner.hide();
-      this.sharedService.isRegistrationDone = false;
-      this.sharedService.isUserAlreadyExsits = true;
       this.registerObj.roles = [];
       this.registerObj.userAddressRequestList = [];
-      this.initializeForm();
-    },
-      (error) => {
-        this.spinner.hide();
+      if (data?.status === 200 || data?.status === 201) {
         this.sharedService.isRegistrationDone = true;
-        this.sharedService.isUserAlreadyExsits = false;
         this.router.navigateByUrl('/login');
+      } else if (data?.status === 226) {
+        this.sharedService.isRegistrationDone = false;
+        this.sharedService.isUserAlreadyExsits = true;
+      } else {
+        this.sharedService.isRegistrationDone = false;
+        this.sharedService.isUserAlreadyExsits = false;
+        this.errorMessage = data?.message;
+      }
+      
+    },
+      (error: HttpErrorResponse) => { //todo why? new version no idea
+        this.spinner.hide();
+        if (error?.status === 200 || error?.status === 201) {
+          this.sharedService.isRegistrationDone = true;
+          this.router.navigateByUrl('/login');
+        } else {
+          console.error('error', error);
+          console.error('error', error?.message);
+          this.sharedService.isRegistrationDone = false;
+          this.sharedService.isUserAlreadyExsits = false; 
+          this.errorMessage = 'Server Error!';  
+        }  
       });
   }
 

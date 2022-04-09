@@ -20,7 +20,7 @@
                         <ion-text>Invalid Username/Password</ion-text>
                     </ion-col>
                     <ion-col size="12" *ngIf="this.sharedService.isRegistrationDone" class="success">
-                        <ion-text>User Registered Successfully</ion-text>
+                        <ion-text>User Registered Successfully! Please Check Email and Confirm!</ion-text>
                     </ion-col>
                 </ion-row>
             </ion-col>
@@ -36,7 +36,7 @@
                                 <ion-col size="12">
                                     <ion-label for="username">Username</ion-label>
                                     <ion-col size="12">
-                                        <ion-input id="username" autocomplete="off" placeholder="Enter your username"
+                                        <ion-input (keyup.enter)="isValidForm()"id="username" autocomplete="off" placeholder="Enter your username"
                                             type="text" name="username" formControlName="userName"></ion-input>
                                     </ion-col>
                                     <ion-col size="12" class="errorMsg"
@@ -59,7 +59,7 @@
                                         password?</a>
                                     <ion-col size="12">
                                         <ion-row>
-                                            <ion-input class="showPass" id="password" autocomplete="off"
+                                            <ion-input (keyup.enter)="isValidForm()" class="showPass" id="password" autocomplete="off"
                                                 placeholder="Enter your password"
                                                 [type]="fieldTextType ? 'text' : 'password'" name="password"
                                                 formControlName="password"></ion-input>
@@ -83,7 +83,7 @@
                                     </ion-col>
                                 </ion-col>
                             </ion-row>
-                            <ion-button [disabled]="!loginForm.valid" (click)="goToDashboard()">
+                            <ion-button (keyup.enter)="isValidForm()" [disabled]="!loginForm.valid" (click)="goToDashboard()">
                                 Log in
                             </ion-button>
                         </ion-col>

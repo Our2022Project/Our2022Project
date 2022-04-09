@@ -17,9 +17,7 @@ export class ActivateUserComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams
       .subscribe(params => {
-        console.log(params); 
         this.activateToken = params['activeUserToken'];
-        console.log(this.activateToken);
       }
     );
   }
@@ -31,10 +29,14 @@ export class ActivateUserComponent implements OnInit {
       this.spinner.hide();
         this.router.navigateByUrl('/login');
       },
-      error => {
+      (error)=> {
         this.spinner.hide();
-        console.error(error); 
-        this.errorMessage = error?.error.message || error?.error;
+        if (error?.status === 200 || error?.status === 201) {
+          this.router.navigateByUrl('/login');
+        } else {
+          console.error(error); 
+          this.errorMessage = error?.error.message || error?.error;
+        }
       }
       );
   }

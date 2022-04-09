@@ -260,7 +260,7 @@ export class ShipmentDetailsComponent implements OnInit {
 
   getMonthDate(servcieDate: any, index: number, service: any, ratedShipmentDetail?: any): string {
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var date = new Date(servcieDate * 1000);
+    var date = new Date(servcieDate);
     this.estimatedDeliveryDate = this.datepipe.transform(date, 'MM/dd/2022') || '';
     this.service = service;
     this.sharedService.finalShipRate = ratedShipmentDetail?.ratedPackages[0]?.packageRateDetail?.netFedExCharge?.amount;
@@ -268,7 +268,7 @@ export class ShipmentDetailsComponent implements OnInit {
   }
   getHoursMinute(servcieDate: any): string {
 
-    var date = new Date(servcieDate * 1000);
+    var date = new Date(servcieDate);
     // Hours part from the timestamp
     var hours = date.getHours();
     // Minutes part from the timestamp

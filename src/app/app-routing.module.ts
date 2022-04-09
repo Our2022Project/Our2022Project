@@ -15,6 +15,7 @@ import { ActivateUserComponent } from './components/activate-user/activate-user.
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 const routes: Routes = [  
+  { path: '', component: LoginComponent },  
   { path: 'login', component: LoginComponent },  
   { path: 'signup', component: SignupComponent },  
   { path: 'header', component: HeaderComponent }, 

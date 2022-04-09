@@ -27,7 +27,6 @@ export class ChangePasswordComponent implements OnInit {
       }
     );
     this.initializeForm();
-    console.error(this.changeForm);
   }
 
   initializeForm(): void {
@@ -77,10 +76,13 @@ export class ChangePasswordComponent implements OnInit {
       },
       error => {
         this.spinner.hide();
-        this.error = true;
-        console.error(error?.error);
-        console.error(error?.error.message); 
-        this.errorMessage = error?.error.message || error?.error;
+        if (error?.status === 200 || error?.status === 201) {
+          this.router.navigateByUrl('/login');
+        } else {
+          this.error = true;
+          console.error(error); 
+          this.errorMessage = error?.error.message || error?.error;
+        }
       }
       );
   }

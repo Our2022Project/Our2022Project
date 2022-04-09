@@ -60,4 +60,10 @@ export class LoginComponent {
     this.router.navigateByUrl('/forgotPassword');
   }
 
+  isValidForm(): void {
+    if(this.loginForm.valid) {
+      this.goToDashboard();
+    }
+  }
+
 }
