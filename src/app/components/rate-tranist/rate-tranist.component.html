@@ -154,20 +154,17 @@
                             <ion-col class="errorMsg"
                                 *ngIf="checkRateForm.controls['Tocity'].invalid  && (checkRateForm.controls['Tocity'].dirty || checkRateForm.controls['Tocity'].touched)"
                                 class="alert">
-                                <ion-col class="errorMsg" *ngIf="checkRateForm.controls['Tocity'].errors.required">This
-                                    is a
-                                    required Fields
+                                <ion-col class="errorMsg" *ngIf="checkRateForm.controls['Tocity'].errors.required">
+                                    This is a required Fields
                                 </ion-col>
-                                <ion-col class="errorMsg" *ngIf="checkRateForm.controls['Tocity'].errors.pattern">Only
-                                    Alphanumeric characters are allowed
-                                </ion-col>
+                                <ion-col class="errorMsg" *ngIf="checkRateForm.controls['Tocity'].errors.pattern">
+                                    Only Alphanumeric characters are allowed
+                                                                               </ion-col>
                                 <ion-col class="errorMsg" *ngIf="checkRateForm.controls['Tocity'].errors.minlength">
-                                    Minimum
-                                    3 alphabetical letters are Required
+                                    Minimum 3 alphabetical letters are Required
                                 </ion-col>
                                 <ion-col class="errorMsg" *ngIf="checkRateForm.controls['Tocity'].errors.maxlength">
-                                    Maximum
-                                    35 alphabetical characters Long Only
+                                    Maximum 35 alphabetical characters Long Only
                                 </ion-col>
                             </ion-col>
                         </ion-col>
@@ -210,6 +207,35 @@
                             </mat-form-field>
                         </ion-col>
                     </ion-row>
+                    <ion-row>
+                        <ion-col class="">
+                            <select formControlName="fedex" class="selectex">
+                                    <option value="FedexStandard">FedEx Standard</option>
+                                    <option value="FedExOneRate">FedEx One Rate</option>
+                                </select>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col class="">
+                            <select formControlName="Packaging" class="selectex">
+                                <option value="">Select Packaging</option>
+                                <option value="Packaging">Your Packaging</option>
+                                    <option value="FedexEnvelope">FedEx Envelope</option>
+                                    <option value="FedExtraLargeBox">FedEx Extra Large Box</option>
+                                    <option value="FedFedExLargeBox">FedEx  Large Box</option>
+                                    <option value="FedFedExMediumBox">FedEx  Medium Box</option>
+                                    <option value="FedFedExPak">FedEx Pak</option>
+                                    <option value="FedExFedExsmallBox">FedEx small Box</option>
+                                    <option value="FedExFedExTube">FedEx Tube</option>
+                                  </select>
+                                  <ion-col class="errorMsg"
+                                  *ngIf="checkRateForm.controls['Packaging'].invalid && (checkRateForm.controls['Packaging'].dirty || checkRateForm.controls['Packaging'].touched)">
+                                  <ion-col >
+                                      Please select your Packaging
+                                  </ion-col>
+                              </ion-col>
+                        </ion-col>
+                    </ion-row>
                     <ion-row class="firstButton">
                         <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="6">
                             <ion-button class="validButton" [disabled]="!checkRateForm.valid" (click)="checkRate()">
@@ -221,6 +247,7 @@
                     </ion-row>
                 </form>
             </ion-col>
+
             <ion-col size-xl="4" size-lg="4" size-md="3" size-sm="2" size-xs="2"></ion-col>
         </ion-row>
         <ion-row>

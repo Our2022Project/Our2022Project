@@ -71,7 +71,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  ship(): void {
-    this.router.navigateByUrl('/address-details');
-  }
+  // ship(): void {
+  //   this.router.navigateByUrl('/address-details');
+  // }
 }

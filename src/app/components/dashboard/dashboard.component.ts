@@ -24,11 +24,11 @@ export class DashboardComponent implements OnInit {
     this.sharedService.displaytrackSection = true;
   }
 
-  ship(): void {
-    this.sharedService.displayRateSection = false;
-    this.sharedService.displaytrackSection = false;
-    this.router.navigateByUrl('/address-details');
-  }
+  // ship(): void {
+  //   this.sharedService.displayRateSection = false;
+  //   this.sharedService.displaytrackSection = false;
+  //   this.router.navigateByUrl('/address-details');
+  // }
   location(): void {
     this.sharedService.displayRateSection = false;
     this.sharedService.displaytrackSection = false;

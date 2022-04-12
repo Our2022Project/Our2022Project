@@ -37,7 +37,6 @@ export class RateTranistComponent implements OnInit {
   ngOnInit(): void {
     this.initializeForm();
   }
-
   initializeForm(): void {
     this.checkRateForm = this.fb.group({
       FromAddress1: ['', [Validators.required, Validators.minLength(10)]],
@@ -51,6 +50,8 @@ export class RateTranistComponent implements OnInit {
       Tostate: ['', [Validators.required]],
       Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
       shipDate: ['', [Validators.required]],
+      fedex: ['FedexStandard'],
+      Packaging: ['', [Validators.required]],
     }
     );
   }
