@@ -204,51 +204,55 @@ export class ShipmentDetailsComponent implements OnInit {
     this.sharedService.Validate = true;
     this.mapShipDetails();
     this.sharedService.shipmentModel = this.shipment;
-    this.sharedService.shipment(this.shipment).subscribe(data => {
-      this.spinner.hide();
-    },
-      (error) => {
+    this.sharedService.shipment(this.shipment).subscribe({
+      next: (data: any) => {
+        this.spinner.hide();
+      },
+      error: (Error: any) => {
         this.spinner.hide();
       }
-    );
 
+    });
   }
 
   calBtn(): void {
     this.getData = false;
     this.spinner.show();
     this.showCalFeatures = true;
-    this.sharedService.rate(this.sharedService.fromAddress, this.sharedService.toAddress, this.sharedService.shipDate, '0.00', '1').subscribe(data => {
-      this.getData = true;
-      this.spinner.hide();
-      this.rateChartResponce = data;
-      if (data.highestSeverity === 'SUCCESS' || data.highestSeverity === 'NOTE' || data.highestSeverity === 'WARNING') {
-        if (data.rateReplyDetails.length) {
-          this.showRateUI = true;
-          this.showError = false;
-          data.rateReplyDetails.sort(
-            (n1: any, n2: any) => {
-              if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount > n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return -1;
-              if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount < n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return 1;
-              else return 0;
-            });
-          for (let i = 0; i < data.rateReplyDetails.length; i++) {
-            this.drop[i] = false;
+    this.sharedService.rate(this.sharedService.fromAddress, this.sharedService.toAddress, this.sharedService.shipDate, '0.00', '1').subscribe({
+      next: (data: any) => {
+        this.getData = true;
+        this.spinner.hide();
+        this.rateChartResponce = data;
+        if (data.highestSeverity === 'SUCCESS' || data.highestSeverity === 'NOTE' || data.highestSeverity === 'WARNING') {
+          if (data.rateReplyDetails.length) {
+            this.showRateUI = true;
+            this.showError = false;
+            data.rateReplyDetails.sort(
+              (n1: any, n2: any) => {
+                if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount > n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return -1;
+                if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount < n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return 1;
+                else return 0;
+              });
+            for (let i = 0; i < data.rateReplyDetails.length; i++) {
+              this.drop[i] = false;
+            }
+          } else {
+            this.errorMsg = data.notifications[0].message;
+            this.showRateUI = false;
+            this.showError = true;
           }
         } else {
           this.errorMsg = data.notifications[0].message;
           this.showRateUI = false;
           this.showError = true;
         }
-      } else {
-        this.errorMsg = data.notifications[0].message;
-        this.showRateUI = false;
-        this.showError = true;
+      },
+      error: (error: any) => {
+        this.spinner.hide();
       }
-    },
-    (error) =>{
-      this.spinner.hide();
     });
+
   }
 
   shipDate = (d: Date | null): boolean => {

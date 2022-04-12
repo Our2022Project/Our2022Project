@@ -17,10 +17,10 @@ export class RateTranistComponent implements OnInit {
   constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public spinner: NgxSpinnerService, public datepipe: DatePipe) {
     const todayDate = new Date(new Date().setHours(0, 0, 0, 0));
     this.avaiableDate.push(new Date(todayDate.setDate(todayDate.getDate())));
-    for(let i=0;i<7;i++) {
-    this.avaiableDate.push(new Date(todayDate.setDate(todayDate.getDate() + 1)));
+    for (let i = 0; i < 7; i++) {
+      this.avaiableDate.push(new Date(todayDate.setDate(todayDate.getDate() + 1)));
     }
-   }
+  }
 
   checkRateForm: any;
   showRateUI: Boolean = false;
@@ -33,6 +33,7 @@ export class RateTranistComponent implements OnInit {
   resultFound: Boolean = true;
   avaiableDate: Date[] = [];
   sleactedDate: any;
+  packageCheck: string = '';
 
   ngOnInit(): void {
     this.initializeForm();
@@ -60,36 +61,38 @@ export class RateTranistComponent implements OnInit {
     this.spinner.show();
     this.drop = [];
     this.addressMapping();
-    this.sharedService.rate(this.fromAddress, this.toAddress, this.sleactedDate, '0.00', '1').subscribe(data => {
-      this.spinner.hide();
-      this.resultFound = false;
-      this.rateChartResponce = data;
-      if (data.highestSeverity === 'SUCCESS' || data.highestSeverity === 'NOTE' || data.highestSeverity === 'WARNING') {
-        if (data.rateReplyDetails.length) {
-          this.showRateUI = true;
-          this.showError = false;
-          data.rateReplyDetails.sort(
-            (n1:any,n2:any)=>{
-               if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount>n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return -1;
-               if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount<n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return 1;
-               else return 0; 
-           });
-          for (let i = 0; i < data.rateReplyDetails.length; i++) {
-            this.drop[i] = false;
+    this.sharedService.rate(this.fromAddress, this.toAddress, this.sleactedDate, '0.00', '1').subscribe({
+      next: (data: any) => {
+        this.spinner.hide();
+        this.resultFound = false;
+        this.rateChartResponce = data;
+        if (data.highestSeverity === 'SUCCESS' || data.highestSeverity === 'NOTE' || data.highestSeverity === 'WARNING') {
+          if (data.rateReplyDetails.length) {
+            this.showRateUI = true;
+            this.showError = false;
+            data.rateReplyDetails.sort(
+              (n1: any, n2: any) => {
+                if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount > n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return -1;
+                if (n1.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount < n2.ratedShipmentDetails[0].shipmentRateDetail.totalNetCharge.amount) return 1;
+                else return 0;
+              });
+            for (let i = 0; i < data.rateReplyDetails.length; i++) {
+              this.drop[i] = false;
+            }
+          } else {
+            this.errorMsg = data.notifications[0].message;
+            this.showRateUI = false;
+            this.showError = true;
           }
         } else {
           this.errorMsg = data.notifications[0].message;
           this.showRateUI = false;
           this.showError = true;
         }
-      } else {
-        this.errorMsg = data.notifications[0].message;
-        this.showRateUI = false;
-        this.showError = true;
+      },
+      error: (err: Error) => {
+        this.spinner.hide();
       }
-    },
-    (error) =>{
-      this.spinner.hide();
     });
   }
 
@@ -117,10 +120,10 @@ export class RateTranistComponent implements OnInit {
     this.toAddress.stateCode = this.checkRateForm.controls['Tostate'].value;
     this.toAddress.zipcode = this.checkRateForm.controls['Tozip'].value;
     this.toAddress.countryCode = "US";
-    this.sharedService.fromAddress=this.fromAddress;
-    this.sharedService.toAddress=this.toAddress;
-    this.sleactedDate = this.datepipe.transform(this.checkRateForm.controls['shipDate'].value, 'yyyy-MM-dd') ||null;
-    this.sharedService.shipDate= this.sleactedDate;
+    this.sharedService.fromAddress = this.fromAddress;
+    this.sharedService.toAddress = this.toAddress;
+    this.sleactedDate = this.datepipe.transform(this.checkRateForm.controls['shipDate'].value, 'yyyy-MM-dd') || null;
+    this.sharedService.shipDate = this.sleactedDate;
   }
 
   clearField(): void {
@@ -148,7 +151,7 @@ export class RateTranistComponent implements OnInit {
 
   getHoursMinute(servcieDate: any): string {
 
-    var date = new Date(servcieDate );
+    var date = new Date(servcieDate);
     // Hours part from the timestamp
     var hours = date.getHours();
     // Minutes part from the timestamp
@@ -162,14 +165,18 @@ export class RateTranistComponent implements OnInit {
     return formattedTime;
   }
 
-  showOrderComponent(){
+  showOrderComponent() {
     this.router.navigateByUrl('/address-details');
   }
 
   shipDate = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();
-    const time=(d || new Date()).getTime();
-    return !(!this.avaiableDate.find((x: { getTime: () => any; })=>x.getTime()==time)) && day !==0;
+    const time = (d || new Date()).getTime();
+    return !(!this.avaiableDate.find((x: { getTime: () => any; }) => x.getTime() == time)) && day !== 0;
   }
-  
+
+  selectPackage(selectedPackage: any): void{
+    this.packageCheck = selectedPackage.target.value;
+  }
+
 } 

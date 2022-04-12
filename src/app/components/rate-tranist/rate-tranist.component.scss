@@ -37,10 +37,6 @@ select {
     outline: none;
 }
 
-.selectex{
-    margin: 0px 0px 10px 0px;
-}
-
 .marginAuto {
     margin: 0 auto;
 }
@@ -149,7 +145,6 @@ ion-button[disabled] {
     display: none;
 }
 
-// // //
 ::ng-deep .mat-datepicker-content .mat-calendar {
     width: 200px !important;
     height: auto !important;
@@ -175,7 +170,67 @@ ion-button[disabled] {
 
 }
 
-// // // 
+.mainLabel, .subLabel{
+    font-size: 10px;
+}
+
+.marginlabel{
+    background-color: #e3e3e3;
+    padding: 3px 5px;
+}
+
+.marginlabelSecond{
+    background-color: #e3e3e3;
+    padding: 8.3px;
+}
+
+.marginlabelThree{
+    background-color: #e3e3e3;
+    padding: 10px;
+}
+
+.marginSecondlabel{
+    background-color: #e3e3e3;
+    padding: 5px;
+}
+
+.colMarginFix{
+    margin-left: 5px;
+}
+
+.lbStyle{
+    background-color: #f2f2f2;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+@media screen and (max-width: 992px) {
+    .mainLabel{
+        font-size: 14px;
+    }
+    .subLabel{
+        font-size: 12px;
+    }
+
+    .marginSecondlabel{
+        background-color: #e3e3e3;
+        padding: 8px;
+    }
+
+    .colMarginFix{
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+
+    .marginlabel, .marginlabelThree, .marginlabelSecond{
+        padding: 8px;
+    }
+
+    .marginlabelThree{
+        margin-top: 10px;
+    }
+}
 
 @media screen and (max-width: 767px) {
     .secondion-row {
