@@ -18,18 +18,18 @@ export class PaymentDetailsComponent implements OnInit {
 
   initializeForm(): void {
     this.paymentForm = this.fb.group({
-      bill:['',Validators.required],
-      selectCard:['',Validators.required],
-      selectMonth:['',Validators.required],
-      selectYear:['',Validators.required],
-      creditCardNo:['',[Validators.required, Validators.pattern("[0-9]{16}(?<!000000)$")]],
-      cvvNo:['',[Validators.required, Validators.pattern("[0-9]{3}(?<!000)$")]],
-      middleName:[''],
-      firstName: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
-      lastName: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
-      companyName:['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
-      EmailId: ['',[Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
-      verifyEmail: ['',[Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
+      bill:[this.sharedService.payment1.billTo,Validators.required],
+      selectCard:[this.sharedService.payment1.creditCardType,Validators.required],
+      selectMonth:[this.sharedService.payselectMonth,Validators.required],
+      selectYear:[this.sharedService.payselectYear,Validators.required],
+      creditCardNo:[this.sharedService.payment1.creditCardNumber,[Validators.required, Validators.pattern("[0-9]{16}(?<!000000)$")]],
+      cvvNo:[this.sharedService.payment1.cvvNumber,[Validators.required, Validators.pattern("[0-9]{3}(?<!000)$")]],
+      middleName:[this.sharedService.payment1.middleName],
+      firstName: [ this.sharedService.payment1.firstName,[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      lastName: [ this.sharedService.payment1.lastName,[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      companyName:[ this.sharedService.payment1.company,[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      EmailId: [this.sharedService.payment1.email,[Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
+      verifyEmail: [this.sharedService.payment1.Verifyemail,[Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
     },{
       validators: this.MustMatch('EmailId', 'verifyEmail')
     });
@@ -44,6 +44,20 @@ export class PaymentDetailsComponent implements OnInit {
     this.sharedService.payselectMonth = this.paymentForm.controls['selectMonth'].value;
     this.sharedService.payselectYear = this.paymentForm.controls['selectYear'].value;  
     this.sharedService.paycreditCardNo = this.paymentForm.controls['creditCardNo'].value;
+    this.sharedService.payment1.billTo =this.paymentForm.controls['bill'].value;
+    this.sharedService.payment1.creditCardType = this.paymentForm.controls['selectCard'].value;
+    this.sharedService.payment1.creditCardNumber = this.paymentForm.controls['creditCardNo'].value;
+    this.sharedService.payment1.cvvNumber = this.paymentForm.controls['cvvNo'].value;
+    this.sharedService.payment1.middleName = this.paymentForm.controls['middleName'].value;
+    this.sharedService.payment1.firstName = this.paymentForm.controls['firstName'].value;
+    this.sharedService.payment1.lastName = this.paymentForm.controls['lastName'].value;
+    this.sharedService.payment1.company = this.paymentForm.controls['companyName'].value;
+    this.sharedService.payment1.email = this.paymentForm.controls['EmailId'].value;
+    this.sharedService.payment1.Verifyemail = this.paymentForm.controls['verifyEmail'].value;
+    
+    
+
+  
     
   }
 

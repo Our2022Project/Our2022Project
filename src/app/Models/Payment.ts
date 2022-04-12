@@ -13,6 +13,7 @@ export class Payment{
     company : string;
     email : string;
     isCreditAddSameAsShipAdd : boolean;
+    Verifyemail : string;
 
 
     constructor(){
@@ -29,6 +30,7 @@ export class Payment{
         this.company ='';
         this.email = '';
         this.isCreditAddSameAsShipAdd = true;
+        this.Verifyemail = '';
     }
 }
 
