@@ -37,19 +37,21 @@ export class LoginComponent {
   goToDashboard(): void {
     this.spinner.show();
     this.sharedService.userName = this.loginForm.controls['userName'].value;
-    this.sharedService.login(this.loginForm.controls['userName'].value, this.loginForm.controls['password'].value).subscribe(data => {
-      this.spinner.hide();
-      this.sharedService.token = data.accessToken;
-      this.sharedService.isValidToken = false;
-      this.router.navigateByUrl('/dashboard');
-      sessionStorage.setItem("token", JSON.stringify(this.sharedService.token));
-      sessionStorage.setItem("userName", JSON.stringify(this.sharedService.userName));
-    },
-      (error) => {
+    this.sharedService.login(this.loginForm.controls['userName'].value, this.loginForm.controls['password'].value).subscribe({
+      next: (data: any) => {
+        this.spinner.hide();
+        this.sharedService.token = data.accessToken;
+        this.sharedService.isValidToken = false;
+        this.router.navigateByUrl('/dashboard');
+        sessionStorage.setItem("token", JSON.stringify(this.sharedService.token));
+        sessionStorage.setItem("userName", JSON.stringify(this.sharedService.userName));
+      },
+      error: (err: Error) => {
         this.spinner.hide();
         this.initializeForm();
         this.sharedService.isValidToken = true;
-      });
+      },
+    });
   }
 
   user_register(): void {
@@ -61,7 +63,7 @@ export class LoginComponent {
   }
 
   isValidForm(): void {
-    if(this.loginForm.valid) {
+    if (this.loginForm.valid) {
       this.goToDashboard();
     }
   }

@@ -29,11 +29,13 @@ export class ForgotPasswordComponent implements OnInit {
   forgotPass(): void {
     this.spinner.show();
     this.showTag = !this.showTag;
-    this.sharedService.forgotPassword(this.forgotPassword.controls['email'].value).subscribe(data => {
-      this.spinner.hide();
-    },
-    (error) =>{
-      this.spinner.hide();
+    this.sharedService.forgotPassword(this.forgotPassword.controls['email'].value).subscribe({
+      next: (data: any) => {
+        this.spinner.hide();
+      },
+      error: (err: Error) => {
+        this.spinner.hide();
+      },
     });
     this.initializeForm();
   }

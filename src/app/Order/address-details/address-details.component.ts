@@ -105,16 +105,14 @@ export class AddressDetailsComponent implements OnInit {
     this.sharedService.summaryDetails = false;
     this.mapAdressDetails();
     this.sharedService.OrderAdress = this.OrderAdress;
-    this.sharedService.addressDetalis(this.OrderAdress).subscribe(data => {
-      this.spinner.hide();
-    },
-      (error) =>{ 
+    this.sharedService.addressDetalis(this.OrderAdress).subscribe({
+      next: (data: any) => {
         this.spinner.hide();
-
-      }
-
-      );
-    
+      },
+      error: (err: Error) => {
+        this.spinner.hide();
+      },
+    });
   }
 
   restrictNumeric(event: any): any {
@@ -140,7 +138,6 @@ export class AddressDetailsComponent implements OnInit {
     this.OrderAdress.recipientState = this.addressForm.controls['toState'].value;
     this.OrderAdress.recipientPhoneNumber = this.addressForm.controls['toPhone'].value;
     this.OrderAdress.recipientEmail = this.addressForm.controls['toEmail'].value;
-
-
   }
+  
 }
