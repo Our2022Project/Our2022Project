@@ -195,7 +195,7 @@ ion-button[disabled] {
 }
 
 .paddingFix{
-    padding: 10px 5px;
+    padding: 5px;
 }
 
 .inputBorderFix{
@@ -204,6 +204,11 @@ ion-button[disabled] {
 
 .borderRadiusFix{
     border-radius: 0px;
+}
+@media screen and (max-width: 1288px){
+    .paddingFix{
+        padding: 10px 5px;
+    }
 }
 
 @media screen and (max-width: 993px) {
