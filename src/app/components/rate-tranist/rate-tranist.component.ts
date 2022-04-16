@@ -6,6 +6,7 @@ import { Address } from 'src/app/Models/Address';
 import { RateReply } from 'src/app/Models/RateReply';
 import { NgxSpinnerService } from "ngx-spinner";
 import { DatePipe } from '@angular/common'
+import { RateRequest } from 'src/app/Models/RateRequest';
 
 @Component({
   selector: 'app-rate-tranist',
@@ -34,6 +35,7 @@ export class RateTranistComponent implements OnInit {
   avaiableDate: Date[] = [];
   sleactedDate: any;
   packageCheck: string = '';
+  rateRequest = new RateRequest
 
   ngOnInit(): void {
     this.initializeForm();
@@ -51,11 +53,12 @@ export class RateTranistComponent implements OnInit {
       Tostate: ['', [Validators.required]],
       Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
       shipDate: ['', [Validators.required]],
-      fedex: ['FedexStandard'],
-      Packaging: ['FedexEnvelope'],
-      weightPerPackage: ['1', [Validators.required, Validators.pattern("([1-9]|1[0])")]],
-      noOfPackages: ['1', [Validators.required, Validators.pattern("(1)")]],
-      noPackages: ['1', [Validators.required,  Validators.pattern("([1-9]|1[0-9]|20|2[0-9]|30|3[0-9]25)")]],
+      service: ['FedexStandard'],
+      packaging: ['FedexEnvelope'],
+      weightForNonOwnPackage: ['1', [Validators.required, Validators.pattern("([1-9]|1[0])")]],
+      weightForOwnPackage: ['1', [Validators.required, Validators.pattern("([1-9]|1[0])")]],
+      noOfNonOwnPackages: ['1', [Validators.required, Validators.pattern("(1)")]],
+      noOwnPackages: ['1', [Validators.required,  Validators.pattern("([1-9]|1[0-9]|20|2[0-5]|25)")]],
       length: ['', [Validators.pattern("^(?:[1-9]|0[1-9]|10|[1-9][0-9]|1[01][0-9])$")]],
       width: ['', [Validators.pattern("([1-9]|1[0-9]|20|2[0-9]|30|3[0-9]|40|4[0-9]|50|5[0-9]|60|6[0-9]|70|7[0-9]|80)")]], 
       height: ['', [Validators.pattern("([1-9]|1[0-9]|20|2[0-9]|30|3[0-9]|40|4[0-9]|50|5[0-9]|60|6[0-9]|70)")]],
@@ -67,7 +70,7 @@ export class RateTranistComponent implements OnInit {
     this.spinner.show();
     this.drop = [];
     this.addressMapping();
-    this.sharedService.rate(this.fromAddress, this.toAddress, this.sleactedDate, '0.00', '1').subscribe({
+    this.sharedService.rate(this.rateRequest).subscribe({
       next: (data: any) => {
         this.spinner.hide();
         this.resultFound = false;
@@ -114,22 +117,32 @@ export class RateTranistComponent implements OnInit {
   }
 
   addressMapping(): void {
-    this.fromAddress.addressLine1 = this.checkRateForm.controls['FromAddress1'].value;
-    this.fromAddress.addressLine2 = this.checkRateForm.controls['FromAddress2'].value;
-    this.fromAddress.city = this.checkRateForm.controls['Fromcity'].value;
-    this.fromAddress.stateCode = this.checkRateForm.controls['Fromstate'].value;
-    this.fromAddress.zipcode = this.checkRateForm.controls['FromZIP'].value;
-    this.fromAddress.countryCode = "US";
-    this.toAddress.addressLine1 = this.checkRateForm.controls['ToAdd1'].value;
-    this.toAddress.addressLine2 = this.checkRateForm.controls['ToAdd2'].value;
-    this.toAddress.city = this.checkRateForm.controls['Tocity'].value;
-    this.toAddress.stateCode = this.checkRateForm.controls['Tostate'].value;
-    this.toAddress.zipcode = this.checkRateForm.controls['Tozip'].value;
-    this.toAddress.countryCode = "US";
+    this.rateRequest.fromAddress.addressLine1 = this.checkRateForm.controls['FromAddress1'].value;
+    this.rateRequest.fromAddress.addressLine2 = this.checkRateForm.controls['FromAddress2'].value;
+    this.rateRequest.fromAddress.city = this.checkRateForm.controls['Fromcity'].value;
+    this.rateRequest.fromAddress.stateCode = this.checkRateForm.controls['Fromstate'].value;
+    this.rateRequest.fromAddress.zipcode = this.checkRateForm.controls['FromZIP'].value;
+    this.rateRequest.fromAddress.countryCode = "US";
+    this.rateRequest.toAddress.addressLine1 = this.checkRateForm.controls['ToAdd1'].value;
+    this.rateRequest.toAddress.addressLine2 = this.checkRateForm.controls['ToAdd2'].value;
+    this.rateRequest.toAddress.city = this.checkRateForm.controls['Tocity'].value;
+    this.rateRequest.toAddress.stateCode = this.checkRateForm.controls['Tostate'].value;
+    this.rateRequest.toAddress.zipcode = this.checkRateForm.controls['Tozip'].value;
+    this.rateRequest.toAddress.countryCode = "US";
     this.sharedService.fromAddress = this.fromAddress;
     this.sharedService.toAddress = this.toAddress;
-    this.sleactedDate = this.datepipe.transform(this.checkRateForm.controls['shipDate'].value, 'yyyy-MM-dd') || null;
     this.sharedService.shipDate = this.sleactedDate;
+    this.rateRequest.shipDate = this.datepipe.transform(this.checkRateForm.controls['shipDate'].value, 'yyyy-MM-dd') || null;
+    this.rateRequest.service = this.checkRateForm.controls['service'].value;
+    this.rateRequest.packaging = this.checkRateForm.controls['packaging'].value;
+    if (this.rateRequest.packaging === 'OwnPackaging') {
+      this.rateRequest.packageWeight = this.checkRateForm.controls['weightForOwnPackage'].value;
+      this.rateRequest.noOfPackages = this.checkRateForm.controls['noOwnPackages'].value;
+      this.rateRequest.dimension =  this.checkRateForm.controls['length'].value + " " + this.checkRateForm.controls['width'].value + " " + this.checkRateForm.controls['height'].value;
+    } else {
+      this.rateRequest.packageWeight = this.checkRateForm.controls['weightForNonOwnPackage'].value;
+      this.rateRequest.noOfPackages = this.checkRateForm.controls['noOfNonOwnPackages'].value;
+    }
   }
 
   clearField(): void {

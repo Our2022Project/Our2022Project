@@ -194,7 +194,7 @@ ion-button[disabled] {
 }
 
 .paddinglabel{
-    padding: 11px 5px;
+    padding: 5px;
 }
 
 .lbStyle{
@@ -210,6 +210,9 @@ ion-button[disabled] {
     }
     .subLabel{
         font-size: 12px;
+    }
+    .paddinglabel{
+        padding:  11px 5px;
     }
 
     .marginSecondlabel{

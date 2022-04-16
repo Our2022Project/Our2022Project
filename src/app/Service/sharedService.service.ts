@@ -7,6 +7,7 @@ import { RegisterData } from "../Models/SignUp";
 import {OrderAdress } from "../Models/OrderAdress";
 import { Payment } from "../Models/Payment";
 import { shipment } from "../Models/Shipment";
+import { RateRequest } from "../Models/RateRequest";
 
 @Injectable()
 export class sharedService {
@@ -133,8 +134,8 @@ export class sharedService {
         return this.http.post(environment.forgotPassword, { userEmail: emailId }, this.httpOptions);
     }
 
-    rate(fromAddress: Address, toAddress: Address, shipDate: string, declaredValue: string, packageWeight: string, ): Observable<any> {
-        return this.http.post(environment.rate, { fromAddress: fromAddress, toAddress: toAddress, shipDate: shipDate, declaredValue: declaredValue, packageWeight: packageWeight }, this.httpOptions);
+    rate(rateRequest : RateRequest ): Observable<any> {
+        return this.http.post(environment.rate, rateRequest, this.httpOptions);
     }
     addressDetalis(OrderAdress: OrderAdress): Observable<any> {
         return this.http.post(environment.addressDetalis,OrderAdress, this.httpOptions);

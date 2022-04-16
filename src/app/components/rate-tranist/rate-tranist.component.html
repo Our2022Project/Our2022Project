@@ -209,7 +209,7 @@
                     </ion-row>
                     <ion-row>
                         <ion-col class="">
-                            <select formControlName="fedex" class="selectex">
+                            <select formControlName="service" class="selectex">
                                 <option value="FedexStandard">FedEx Standard</option>
                                 <option value="FedExOneRate">FedEx One Rate</option>
                             </select>
@@ -217,19 +217,19 @@
                     </ion-row>
                     <ion-row>
                         <ion-col class="labelPrice">
-                            <select formControlName="Packaging" (change)="selectPackage($event)">
-                                <option value="Packaging">Your Packaging</option>
+                            <select formControlName="packaging" (change)="selectPackage($event)">
+                                <option value="OwnPackaging">Your Packaging</option>
                                 <option value="FedexEnvelope">FedEx Envelope</option>
                                 <option value="FedExtraLargeBox">FedEx Extra Large Box</option>
-                                <option value="FedFedExLargeBox">FedEx Large Box</option>
-                                <option value="FedFedExMediumBox">FedEx Medium Box</option>
-                                <option value="FedFedExPak">FedEx Pak</option>
-                                <option value="FedExFedExsmallBox">FedEx small Box</option>
-                                <option value="FedExFedExTube">FedEx Tube</option>
+                                <option value="FedExLargeBox">FedEx Large Box</option>
+                                <option value="FedExMediumBox">FedEx Medium Box</option>
+                                <option value="FedExPak">FedEx Pak</option>
+                                <option value="FedExsmallBox">FedEx small Box</option>
+                                <option value="FedExTube">FedEx Tube</option>
                             </select>
                         </ion-col>
                     </ion-row>
-                    <ion-row style="margin-bottom: 10px;" *ngIf="this.packageCheck !== 'Packaging'">
+                    <ion-row style="margin-bottom: 10px;" *ngIf="this.packageCheck !== 'OwnPackaging'">
                         <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12">
                             <ion-row class="marginlabel">
                                 <ion-row>
@@ -239,13 +239,13 @@
                                     <ion-label class="subLabel">Max. 1</ion-label>
                                 </ion-col>
                             </ion-row>
-                            <ion-input value="1" (keypress)="restrictNumeric($event)" formControlName="noOfPackages" maxlength="1"></ion-input>
+                            <ion-input (keypress)="restrictNumeric($event)" formControlName="noOfNonOwnPackages" maxlength="1"></ion-input>
                             <ion-row> <ion-col class="errorMsg"
-                                *ngIf="checkRateForm.controls['noOfPackages'].invalid && (checkRateForm.controls['noOfPackages'].dirty || checkRateForm.controls['noOfPackages'].touched)">
-                                <ion-col *ngIf="checkRateForm.controls['noOfPackages'].errors.required">
+                                *ngIf="checkRateForm.controls['noOfNonOwnPackages'].invalid && (checkRateForm.controls['noOfNonOwnPackages'].dirty || checkRateForm.controls['noOfNonOwnPackages'].touched)">
+                                <ion-col *ngIf="checkRateForm.controls['noOfNonOwnPackages'].errors.required">
                                    <ion-col class="errorMsg">This is a required Fields</ion-col>
                                 </ion-col>
-                                <ion-col class="errorMsg" *ngIf="checkRateForm.controls['noOfPackages'].errors.pattern">
+                                <ion-col class="errorMsg" *ngIf="checkRateForm.controls['noOfNonOwnPackages'].errors.pattern">
                                     Packages only 1
                                 </ion-col>
                             </ion-col>
@@ -262,35 +262,35 @@
                             </ion-row>
                             <ion-row>
                                 <ion-input style="border-radius: 5px 0px 0px 5px !important;" 
-                                    formControlName="weightPerPackage" (keypress)="restrictNumeric($event)" 
+                                    formControlName="weightForNonOwnPackage" (keypress)="restrictNumeric($event)" 
                                     maxlength="2"></ion-input>
                                 <ion-label class="lbStyle">lb</ion-label>
                             </ion-row>
                             <ion-col class="errorMsg"
-                                *ngIf="checkRateForm.controls['weightPerPackage'].invalid && (checkRateForm.controls['weightPerPackage'].dirty || checkRateForm.controls['weightPerPackage'].touched)">
-                                <ion-col *ngIf="checkRateForm.controls['weightPerPackage'].errors.required">
+                                *ngIf="checkRateForm.controls['weightForNonOwnPackage'].invalid && (checkRateForm.controls['weightForNonOwnPackage'].dirty || checkRateForm.controls['weightForNonOwnPackage'].touched)">
+                                <ion-col *ngIf="checkRateForm.controls['weightForNonOwnPackage'].errors.required">
                                     <ion-col class="errorMsg">This is a required Fields</ion-col>
                                 </ion-col>
-                                <ion-col class="errorMsg" *ngIf="checkRateForm.controls['weightPerPackage'].errors.pattern">
+                                <ion-col class="errorMsg" *ngIf="checkRateForm.controls['weightForNonOwnPackage'].errors.pattern">
                                     Max.weght only 10
                                 </ion-col>
                             </ion-col>
                         </ion-col>
                     </ion-row>
-                    <ion-row style="margin-bottom: 10px;" *ngIf="this.packageCheck === 'Packaging'">
+                    <ion-row style="margin-bottom: 10px;" *ngIf="this.packageCheck === 'OwnPackaging'">
                         <ion-col size-xl="2.5" size-lg="2.5" size-md="12" size-sm="12" size-xs="12">
                             <ion-row class="marginSecondlabel">
                                     <ion-label class="mainLabel">NO. OF PACKAGES</ion-label>
                                 <ion-col size="12">
                                     <ion-label class="subLabel">Max. 25</ion-label></ion-col>
                             </ion-row>
-                            <ion-input value="1" (keypress)="restrictNumeric($event)" formControlName="noPackages" maxlength="2"></ion-input>
+                            <ion-input (keypress)="restrictNumeric($event)" formControlName="noOwnPackages" maxlength="2"></ion-input>
                         <ion-col class="errorMsg"
-                        *ngIf="checkRateForm.controls['noPackages'].invalid && (checkRateForm.controls['noPackages'].dirty || checkRateForm.controls['noPackages'].touched)">
-                        <ion-col *ngIf="checkRateForm.controls['noPackages'].errors.required">
+                        *ngIf="checkRateForm.controls['noOwnPackages'].invalid && (checkRateForm.controls['noOwnPackages'].dirty || checkRateForm.controls['noOwnPackages'].touched)">
+                        <ion-col *ngIf="checkRateForm.controls['noOwnPackages'].errors.required">
                           <ion-col class="errorMsg">This is a required Fields</ion-col>
                         </ion-col>
-                        <ion-col span class="errorMsg" *ngIf="checkRateForm.controls['noPackages'].errors.pattern">
+                        <ion-col span class="errorMsg" *ngIf="checkRateForm.controls['noOwnPackages'].errors.pattern">
                              Packages only 25
                         </ion-col>
                     </ion-col>
@@ -301,14 +301,14 @@
                                 <ion-col size="12">
                                     <ion-label class="subLabel">Max. weight 10 lb.</ion-label></ion-col>
                             </ion-row>
-                                <ion-input style="border-radius: 5px 0px 0px 5px !important;" value="1"
-                                    formControlName="weightPerPackage" (keypress)="restrictNumeric($event)" maxlength="2"></ion-input>
+                                <ion-input style="border-radius: 5px 0px 0px 5px !important;"
+                                    formControlName="weightForOwnPackage" (keypress)="restrictNumeric($event)" maxlength="2"></ion-input>
                                 <ion-col class="errorMsg"
-                                *ngIf="checkRateForm.controls['weightPerPackage'].invalid && (checkRateForm.controls['weightPerPackage'].dirty || checkRateForm.controls['weightPerPackage'].touched)">
-                                <ion-col *ngIf="checkRateForm.controls['weightPerPackage'].errors.required">
+                                *ngIf="checkRateForm.controls['weightForOwnPackage'].invalid && (checkRateForm.controls['weightForOwnPackage'].dirty || checkRateForm.controls['weightForOwnPackage'].touched)">
+                                <ion-col *ngIf="checkRateForm.controls['weightForOwnPackage'].errors.required">
                                     <ion-col class="errorMsg">This is a required Fields</ion-col>
                                 </ion-col>
-                                <ion-col class="errorMsg"*ngIf="checkRateForm.controls['weightPerPackage'].errors.pattern">
+                                <ion-col class="errorMsg"*ngIf="checkRateForm.controls['weightForOwnPackage'].errors.pattern">
                                     Max.weght only 10
                                 </ion-col>
                             </ion-col>
