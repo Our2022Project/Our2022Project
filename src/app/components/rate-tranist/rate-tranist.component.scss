@@ -179,11 +179,6 @@ ion-button[disabled] {
     padding: 3px 5px;
 }
 
-.marginlabelSecond{
-    background-color: #e3e3e3;
-    padding: 3px 5px
-}
-
 .marginlabelThree{
     background-color: #e3e3e3;
     padding: 5px;
@@ -196,6 +191,10 @@ ion-button[disabled] {
 
 .colMarginFix{
     margin-left: 5px;
+}
+
+.paddinglabel{
+    padding: 11px 5px;
 }
 
 .lbStyle{
@@ -223,13 +222,10 @@ ion-button[disabled] {
         margin-top: 10px;
     }
 
-    .marginlabel, .marginlabelThree, .marginlabelSecond{
+    .marginlabel, .marginlabelSecond{
         padding: 8px;
     }
 
-    .marginlabelThree{
-        margin-top: 10px;
-    }
 }
 
 @media screen and (max-width: 767px) {
@@ -266,4 +262,5 @@ ion-button[disabled] {
         left: calc((100vw - 40px) / 3) !important;
 
     }
+
 }
