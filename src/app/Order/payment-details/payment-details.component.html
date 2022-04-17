@@ -21,15 +21,14 @@
                             <ion-label>Bill to</ion-label>
                         </ion-col>
                         <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
-                            
-                            <ion-select interface="popover" formControlName="bill"
-                            (change)="selectchangehandler($event)">
-                            <ion-select-option value="">Please Select Card</ion-select-option>
-                            <ion-select-option> Credit Card </ion-select-option>
-                            <ion-select-option>Debit Card</ion-select-option>
-                            
-                        </ion-select>
-                        <ion-col class="errorMsg"
+
+                            <ion-select interface="popover" formControlName="bill">
+                                <ion-select-option value="">Please Select Card</ion-select-option>
+                                <ion-select-option> Credit Card </ion-select-option>
+                                <ion-select-option>Debit Card</ion-select-option>
+
+                            </ion-select>
+                            <ion-col class="errorMsg"
                                 *ngIf="paymentForm.controls['bill'].invalid && (paymentForm.controls['bill'].dirty || paymentForm.controls['bill'].touched)"
                                 class="alert">
                                 <ion-col class="errorMsg" *ngIf="paymentForm.controls['bill'].errors.required">
@@ -38,7 +37,6 @@
                                 </ion-col>
 
                             </ion-col>
-                            
                         </ion-col>
                     </ion-row>
                     <ion-row class="margin">
@@ -46,8 +44,7 @@
                             <ion-label>Credit card types</ion-label>
                         </ion-col>
                         <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
-                            <ion-select interface="popover" formControlName="selectCard"
-                                (change)="selectchangehandler($event)">
+                            <ion-select interface="popover" formControlName="selectCard">
                                 <ion-select-option value="">Please Select Card Company</ion-select-option>
                                 <ion-select-option>American Express</ion-select-option>
                                 <ion-select-option>Diners Club</ion-select-option>
@@ -107,8 +104,7 @@
                             <ion-label>Expiration date</ion-label>
                         </ion-col>
                         <ion-col class="date" size-xl="2.4" size-lg="2.4" size-md="2.4" size-sm="12" size-xs="12">
-                            <ion-select interface="popover" formControlName="selectMonth"
-                                (change)="selectchangehandler($event)">
+                            <ion-select interface="popover" formControlName="selectMonth">
                                 <ion-select-option value="">Month</ion-select-option>
                                 <ion-select-option>01</ion-select-option>
                                 <ion-select-option>02</ion-select-option>
@@ -130,12 +126,10 @@
                                     This is
                                     a required Fields
                                 </ion-col>
-
                             </ion-col>
                         </ion-col>
                         <ion-col size-xl="2.4" size-lg="2.4" size-md="2.4" size-sm="12" size-xs="12">
-                            <ion-select interface="popover" formControlName="selectYear"
-                                (change)="selectchangehandler($event)">
+                            <ion-select interface="popover" formControlName="selectYear">
                                 <ion-select-option value="">Year</ion-select-option>
                                 <ion-select-option>2022</ion-select-option>
                                 <ion-select-option>2023</ion-select-option>
@@ -168,27 +162,27 @@
                         <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
                             <ion-input formControlName="firstName" placeholder="Enter your First Name"></ion-input>
                             <ion-col size="12" class="errorMsg"
-                            *ngIf="paymentForm.controls['firstName'].invalid && (paymentForm.controls['firstName'].dirty || paymentForm.controls['firstName'].touched)">
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="paymentForm.controls['firstName'].errors.required">This is a
-                                required Fields
-                            </ion-col>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="paymentForm.controls['firstName'].errors.pattern">
-                                Only
-                                Alphanumeric characters are allowed
-                            </ion-col>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="paymentForm.controls['firstName'].errors.maxlength">Maximum
-                                20 alphabetical characters Long Only
-                            </ion-col>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="paymentForm.controls['firstName'].errors.minlength">Minimum
-                                3 alphabetical letters are Required
+                                *ngIf="paymentForm.controls['firstName'].invalid && (paymentForm.controls['firstName'].dirty || paymentForm.controls['firstName'].touched)">
+                                <ion-col size="12" class="errorMsg"
+                                    *ngIf="paymentForm.controls['firstName'].errors.required">This is a
+                                    required Fields
+                                </ion-col>
+                                <ion-col size="12" class="errorMsg"
+                                    *ngIf="paymentForm.controls['firstName'].errors.pattern">
+                                    Only
+                                    Alphanumeric characters are allowed
+                                </ion-col>
+                                <ion-col size="12" class="errorMsg"
+                                    *ngIf="paymentForm.controls['firstName'].errors.maxlength">Maximum
+                                    20 alphabetical characters Long Only
+                                </ion-col>
+                                <ion-col size="12" class="errorMsg"
+                                    *ngIf="paymentForm.controls['firstName'].errors.minlength">Minimum
+                                    3 alphabetical letters are Required
+                                </ion-col>
                             </ion-col>
                         </ion-col>
-                        </ion-col>
-                       
+
                     </ion-row>
                     <ion-row class="margin">
                         <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
@@ -233,25 +227,25 @@
                         <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
                             <ion-input placeholder="Enter your company name " formControlName="companyName"></ion-input>
                             <ion-col size="12" class="errorMsg"
-                            *ngIf="paymentForm.controls['companyName'].invalid && (paymentForm.controls['companyName'].dirty || paymentForm.controls['companyName'].touched)">
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="paymentForm.controls['companyName'].errors.required">This is a
-                                required Fields
+                                *ngIf="paymentForm.controls['companyName'].invalid && (paymentForm.controls['companyName'].dirty || paymentForm.controls['companyName'].touched)">
+                                <ion-col size="12" class="errorMsg"
+                                    *ngIf="paymentForm.controls['companyName'].errors.required">This is a
+                                    required Fields
+                                </ion-col>
+                                <ion-col size="12" class="errorMsg"
+                                    *ngIf="paymentForm.controls['companyName'].errors.pattern">
+                                    Only
+                                    Alphanumeric characters are allowed
+                                </ion-col>
+                                <ion-col size="12" class="errorMsg"
+                                    *ngIf="paymentForm.controls['companyName'].errors.maxlength">Maximum
+                                    20 alphabetical characters Long Only
+                                </ion-col>
+                                <ion-col size="12" class="errorMsg"
+                                    *ngIf="paymentForm.controls['companyName'].errors.minlength">Minimum
+                                    3 alphabetical letters are Required
+                                </ion-col>
                             </ion-col>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="paymentForm.controls['companyName'].errors.pattern">
-                                Only
-                                Alphanumeric characters are allowed
-                            </ion-col>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="paymentForm.controls['companyName'].errors.maxlength">Maximum
-                                20 alphabetical characters Long Only
-                            </ion-col>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="paymentForm.controls['companyName'].errors.minlength">Minimum
-                                3 alphabetical letters are Required
-                            </ion-col>
-                        </ion-col>
                         </ion-col>
                     </ion-row>
                     <ion-row class="margin">
@@ -261,15 +255,15 @@
                         <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
                             <ion-input placeholder="Enter your email address" formControlName="EmailId"></ion-input>
                             <ion-col size="12" class="errorMsg"
-                            *ngIf="paymentForm.controls['EmailId'].invalid && (paymentForm.controls['EmailId'].dirty || paymentForm.controls['EmailId'].touched)">
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="paymentForm.controls['EmailId'].errors.required">
-                                Please Enter email address
+                                *ngIf="paymentForm.controls['EmailId'].invalid && (paymentForm.controls['EmailId'].dirty || paymentForm.controls['EmailId'].touched)">
+                                <ion-col size="12" class="errorMsg"
+                                    *ngIf="paymentForm.controls['EmailId'].errors.required">
+                                    Please Enter email address
+                                </ion-col>
+                                <ion-col size="12" class="errorMsg"
+                                    *ngIf="paymentForm.controls['EmailId'].errors.pattern">
+                                    Invaild Email Address</ion-col>
                             </ion-col>
-                            <ion-col size="12" class="errorMsg"
-                                *ngIf="paymentForm.controls['EmailId'].errors.pattern">
-                                Invaild Email Address</ion-col>
-                        </ion-col>
                         </ion-col>
                     </ion-row>
                     <ion-row class="margin">
@@ -277,27 +271,30 @@
                             <ion-label>Verify email</ion-label>
                         </ion-col>
                         <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
-                           
+
                             <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
-                                <ion-input placeholder="Re-enter your Email address" formControlName="verifyEmail"></ion-input>
+                                <ion-input placeholder="Re-enter your Email address" formControlName="verifyEmail">
+                                </ion-input>
                                 <ion-col size="12" class="errorMsg"
-                                *ngIf="paymentForm.controls['verifyEmail'].invalid && (paymentForm.controls['verifyEmail'].dirty || paymentForm.controls['verifyEmail'].touched)">
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="paymentForm.controls['verifyEmail'].errors.required">
-                                    Please Enter email address
-                                </ion-col>
-                                <ion-col size="12" class="errorMsg"
-                                    *ngIf="paymentForm.controls['verifyEmail'].errors.pattern">
-                                    Invaild Email Address</ion-col>
-                                    <ion-col class="errorMsg" *ngIf="paymentForm.controls['verifyEmail'].errors.MustMatch">
+                                    *ngIf="paymentForm.controls['verifyEmail'].invalid && (paymentForm.controls['verifyEmail'].dirty || paymentForm.controls['verifyEmail'].touched)">
+                                    <ion-col size="12" class="errorMsg"
+                                        *ngIf="paymentForm.controls['verifyEmail'].errors.required">
+                                        Please Enter email address
+                                    </ion-col>
+                                    <ion-col size="12" class="errorMsg"
+                                        *ngIf="paymentForm.controls['verifyEmail'].errors.pattern">
+                                        Invaild Email Address</ion-col>
+                                    <ion-col class="errorMsg"
+                                        *ngIf="paymentForm.controls['verifyEmail'].errors.MustMatch">
                                         Email is Not Matched
                                     </ion-col>
-                            </ion-col>
+                                </ion-col>
                             </ion-col>
                         </ion-col>
                     </ion-row>
                     <ion-row class="margin">
-                        <ion-col size-xl=".3" size-lg=".5" size-md=".5" size-sm=".5" size-xs="1" style="padding-top: 1px;">
+                        <ion-col size-xl=".3" size-lg=".5" size-md=".5" size-sm=".5" size-xs="1"
+                            style="padding-top: 1px;">
                             <ion-checkbox></ion-checkbox>
                         </ion-col>
                         <ion-col>
@@ -318,7 +315,8 @@
                     </ion-row>
                     <ion-row class="margin">
                         <ion-col class="button">
-                            <ion-button  [disabled]="!paymentForm.valid" (click)="showSummary()" (click)="this.sharedService.show2=true">Continue</ion-button>
+                            <ion-button [disabled]="!paymentForm.valid" (click)="showSummary()"
+                                (click)="this.sharedService.show2=true">Continue</ion-button>
                         </ion-col>
                     </ion-row>
                 </ion-col>

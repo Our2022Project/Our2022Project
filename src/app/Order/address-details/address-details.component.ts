@@ -23,7 +23,6 @@ export class AddressDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.initializeForm();
     this.sharedService.addressDetails = true;
-    this.sharedService.shipmentDetails = false;
     this.sharedService.paymentDetails = false;
     this.sharedService.summaryDetails = false;
   }
@@ -33,21 +32,21 @@ export class AddressDetailsComponent implements OnInit {
       yourName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       fromCompany: [''],
       fromCountry: [''],
-      fromAddress: [this.sharedService.fromAddress.addressLine1, [Validators.required]],
-      fromAddress2: [this.sharedService.fromAddress.addressLine2],
-      fromZip: [this.sharedService.fromAddress.zipcode, [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
-      fromCity: [this.sharedService.fromAddress.city, [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
-      fromState: [this.sharedService.fromAddress.stateCode, [Validators.required]],
+      fromAddress: [this.sharedService.rateRequest.fromAddress.addressLine1, [Validators.required]],
+      fromAddress2: [this.sharedService.rateRequest.fromAddress.addressLine2],
+      fromZip: [this.sharedService.rateRequest.fromAddress.zipcode, [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
+      fromCity: [this.sharedService.rateRequest.fromAddress.city, [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      fromState: [this.sharedService.rateRequest.fromAddress.stateCode, [Validators.required]],
       fromPhone: ['', [Validators.required, Validators.pattern("[0-9]{10}(?<!00000)$")]],
       fromEmail: ['', [Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
       toRecipient: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       toCompany: [''],
       toCountry: [''],
-      toAddress: [this.sharedService.toAddress.addressLine1, [Validators.required]],
-      toAddress2: [this.sharedService.toAddress.addressLine2],
-      toState: [this.sharedService.toAddress.stateCode, [Validators.required]],
-      toZip: [this.sharedService.toAddress.zipcode, [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
-      toCity: [this.sharedService.toAddress.city, [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      toAddress: [this.sharedService.rateRequest.toAddress.addressLine1, [Validators.required]],
+      toAddress2: [this.sharedService.rateRequest.toAddress.addressLine2],
+      toState: [this.sharedService.rateRequest.toAddress.stateCode, [Validators.required]],
+      toZip: [this.sharedService.rateRequest.toAddress.zipcode, [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
+      toCity: [this.sharedService.rateRequest.toAddress.city, [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       toPhone: ['', [Validators.required, Validators.pattern("[0-9]{10}(?<!00000)$")]],
       toEmail: ['', [Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
 
@@ -56,55 +55,20 @@ export class AddressDetailsComponent implements OnInit {
 
   editAddress(): void {
     this.sharedService.addressDetails = true;
-    this.sharedService.shipmentDetails = false;
-    this.sharedService.paymentDetails = false;
-    this.sharedService.summaryDetails = false;
-  }
-
-  editShipment(): void {
-    this.sharedService.addressDetails = false;
-    // this.sharedService.shipmentDetails = true;
     this.sharedService.paymentDetails = false;
     this.sharedService.summaryDetails = false;
   }
 
   editPayment(): void {
     this.sharedService.addressDetails = false;
-    // this.sharedService.shipmentDetails = false;
     this.sharedService.paymentDetails = true;
     this.sharedService.summaryDetails = false;
   }
 
-  // editSummary(): void {
-  //   this.sharedService.addressDetails = false;
-  //   this.sharedService.shipmentDetails = false;
-  //   this.sharedService.paymentDetails = false;
-  //   this.sharedService.summaryDetails = true;
-  // }
-
-
   showShipment(): void {
     this.spinner.show();
-    this.sharedService.addyourName = this.addressForm.controls['yourName'].value;
-    this.sharedService.yourCompany = this.addressForm.controls['fromCompany'].value;
-    this.sharedService.fromAddress.addressLine1 = this.addressForm.controls['fromAddress'].value;
-    this.sharedService.fromAddress.addressLine2 = this.addressForm.controls['fromAddress2'].value;
-    this.sharedService.fromAddress.city = this.addressForm.controls['fromCity'].value;
-    this.sharedService.fromAddress.stateCode = this.addressForm.controls['fromState'].value;
-    this.sharedService.fromAddress.zipcode = this.addressForm.controls['fromZip'].value;
-    this.sharedService.addfromPhone = this.addressForm.controls['fromPhone'].value;
-    this.sharedService.addfromEmail = this.addressForm.controls['fromEmail'].value;
-    this.sharedService.addtoRecipient = this.addressForm.controls['toRecipient'].value;
-    this.sharedService.toCompany = this.addressForm.controls['toCompany'].value;
-    this.sharedService.toAddress.addressLine1 = this.addressForm.controls['toAddress'].value;
-    this.sharedService.toAddress.addressLine2 = this.addressForm.controls['toAddress2'].value;
-    this.sharedService.toAddress.city = this.addressForm.controls['toCity'].value;
-    this.sharedService.toAddress.stateCode = this.addressForm.controls['toState'].value;
-    this.sharedService.toAddress.zipcode = this.addressForm.controls['toZip'].value;
-    this.sharedService.addtoPhone = this.addressForm.controls['toPhone'].value;
-    this.sharedService.addtoEmail = this.addressForm.controls['toEmail'].value;
+    this.mapRateAddress();
     this.sharedService.addressDetails = false;
-    // this.sharedService.shipmentDetails = true;
     this.sharedService.paymentDetails = true;
     this.sharedService.summaryDetails = false;
     this.mapAdressDetails();
@@ -155,9 +119,22 @@ export class AddressDetailsComponent implements OnInit {
   }
 
   mapShipDetails(): void {
-    this.shipment.shipDate =  this.datepipe.transform(this.sharedService.rateRequest.shipDate,'MM/dd/YYYY') || '';
+    this.shipment.shipDate = this.datepipe.transform(this.sharedService.rateRequest.shipDate, 'MM/dd/YYYY') || '';
     this.shipment.service = this.sharedService.rateRequest.service;
     this.shipment.packageWeight = this.sharedService.rateRequest.packageWeight;
     this.shipment.estimatedDeliveryDate = this.sharedService.estimatedDeliveryDate;
+  }
+
+  mapRateAddress(): void {
+    this.sharedService.rateRequest.fromAddress.addressLine1 = this.addressForm.controls['fromAddress'].value;
+    this.sharedService.rateRequest.fromAddress.addressLine2 = this.addressForm.controls['fromAddress2'].value;
+    this.sharedService.rateRequest.fromAddress.city = this.addressForm.controls['fromCity'].value;
+    this.sharedService.rateRequest.fromAddress.stateCode = this.addressForm.controls['fromState'].value;
+    this.sharedService.rateRequest.fromAddress.zipcode = this.addressForm.controls['fromZip'].value;
+    this.sharedService.rateRequest.toAddress.addressLine1 = this.addressForm.controls['toAddress'].value;
+    this.sharedService.rateRequest.toAddress.addressLine2 = this.addressForm.controls['toAddress2'].value;
+    this.sharedService.rateRequest.toAddress.city = this.addressForm.controls['toCity'].value;
+    this.sharedService.rateRequest.toAddress.stateCode = this.addressForm.controls['toState'].value;
+    this.sharedService.rateRequest.toAddress.zipcode = this.addressForm.controls['toZip'].value;
   }
 }

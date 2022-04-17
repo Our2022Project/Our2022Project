@@ -14,7 +14,6 @@ export class sharedService {
     show2: boolean = false;
     show1: boolean = false;
     show: boolean = false;
-    [x: string]: any;
     isValidToken: boolean = false;
     isRegistrationDone: boolean = false;
     isUserAlreadyExsits: boolean = false;
@@ -25,36 +24,20 @@ export class sharedService {
     isLoginTrue: boolean = false;
     loginOrSignup: string = 'Sign Up';
     addressDetails: boolean = true;
-    shipmentDetails: boolean = false;
     paymentDetails: boolean = false;
     summaryDetails: boolean = false;
     Validate: boolean = false;
-    fromAddress = new Address();
-    toAddress = new Address();
-    addyourName:string='';
-    addfromPhone:string='';
-    addfromState:string='';
-    addfromEmail:string='';
-    addfromAddress:string='';
-    addfromCity:string='';
-    addtoRecipient:string=';'
-    addtoPhone:string='';
-    addtoState:string='';
-    addtoEmail:string='';
-    addtoAddress:string='';
-    addtoCity:string='';
     avaiableDate:string='';
     payselectMonth:String='';
     payselectYear:string='';
     paycreditCardNo:string='';
-    yourCompany:string='';
-    toCompany:string='';
     OrderAdress: OrderAdress = new OrderAdress();
     finalShipRate:string='';
     shipmentModel: shipment = new shipment();
     payment1 = new Payment();
     rateRequest = new RateRequest;
     estimatedDeliveryDate: string = '';
+   
 
     usstateName = [{ name: 'Alabama (AL)', id: 'AL' },
     { name: 'Alaska (AK)', id: 'AK' },

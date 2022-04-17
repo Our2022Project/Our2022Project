@@ -134,8 +134,8 @@ export class RateTranistComponent implements OnInit {
     if (this.rateRequest.packaging === 'OwnPackaging') {
       this.rateRequest.packageWeight = this.checkRateForm.controls['weightForOwnPackage'].value;
       this.rateRequest.noOfPackages = this.checkRateForm.controls['noOwnPackages'].value;
-      if (this.checkRateForm.controls['length'].value !== '' && this.checkRateForm.controls['width'].value !== '' && this.checkRateForm.controls['width'].value !== '') {
-        this.rateRequest.dimension = this.checkRateForm.controls['length'].value + " " + this.checkRateForm.controls['width'].value + " " + this.checkRateForm.controls['width'].value;
+      if (this.checkRateForm.controls['length'].value !== '' && this.checkRateForm.controls['width'].value !== '' && this.checkRateForm.controls['height'].value !== '') {
+        this.rateRequest.dimension = this.checkRateForm.controls['length'].value + " " + this.checkRateForm.controls['width'].value + " " + this.checkRateForm.controls['height'].value;
       }
     } else {
       this.rateRequest.packageWeight = this.checkRateForm.controls['weightForNonOwnPackage'].value;
@@ -183,8 +183,8 @@ export class RateTranistComponent implements OnInit {
     return formattedTime;
   }
 
-  showOrderComponent() {
-    this.sharedService.estimatedDeliveryDate = this.estimatedDeliveryDate; 
+  showOrderComponent(): void {
+    this.sharedService.estimatedDeliveryDate = this.estimatedDeliveryDate;
     this.router.navigateByUrl('/address-details');
   }
 

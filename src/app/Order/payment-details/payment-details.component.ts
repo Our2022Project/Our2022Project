@@ -12,19 +12,20 @@ export class PaymentDetailsComponent implements OnInit {
   constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService) { }
   
   paymentForm: any;
+
   ngOnInit(): void {
     this.initializeForm();
   }
 
   initializeForm(): void {
     this.paymentForm = this.fb.group({
-      bill:[ this.sharedService.payment1.billTo,Validators.required],
-      selectCard:[this.sharedService.payment1.creditCardType,Validators.required],
-      selectMonth:[this.sharedService.payselectMonth,Validators.required],
-      selectYear:[this.sharedService.payselectYear,Validators.required],
-      creditCardNo:[this.sharedService.payment1.creditCardNumber,[Validators.required, Validators.pattern("[0-9]{16}(?<!000000)$")]],
-      cvvNo:[this.sharedService.payment1.cvvNumber,[Validators.required, Validators.pattern("[0-9]{3}(?<!000)$")]],
-      middleName:[this.sharedService.payment1.middleName],
+      bill: [ this.sharedService.payment1.billTo,Validators.required],
+      selectCard: [this.sharedService.payment1.creditCardType,Validators.required],
+      selectMonth: [this.sharedService.payselectMonth,Validators.required],
+      selectYear: [this.sharedService.payselectYear,Validators.required],
+      creditCardNo: [this.sharedService.payment1.creditCardNumber,[Validators.required, Validators.pattern("[0-9]{16}(?<!000000)$")]],
+      cvvNo: [this.sharedService.payment1.cvvNumber,[Validators.required, Validators.pattern("[0-9]{3}(?<!000)$")]],
+      middleName: [this.sharedService.payment1.middleName],
       firstName: [ this.sharedService.payment1.firstName,[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       lastName: [ this.sharedService.payment1.lastName,[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       companyName:[ this.sharedService.payment1.company,[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
@@ -33,12 +34,10 @@ export class PaymentDetailsComponent implements OnInit {
     },{
       validators: this.MustMatch('EmailId', 'verifyEmail')
     });
-    
   }
 
   showSummary(): void{
     this.sharedService.addressDetails = false;
-    this.sharedService.shipmentDetails = false;
     this.sharedService.paymentDetails = false;
     this.sharedService.summaryDetails = true;
     this.sharedService.payselectMonth = this.paymentForm.controls['selectMonth'].value;
@@ -54,18 +53,7 @@ export class PaymentDetailsComponent implements OnInit {
     this.sharedService.payment1.company = this.paymentForm.controls['companyName'].value;
     this.sharedService.payment1.email = this.paymentForm.controls['EmailId'].value;
     this.sharedService.payment1.Verifyemail = this.paymentForm.controls['verifyEmail'].value;
-    
-    
-
-  
-    
   }
-
-
-
-  
-  selectchangehandler(event: any) {
-    }
 
   restrictNumeric(event: any): any {
     return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57;
@@ -85,6 +73,5 @@ export class PaymentDetailsComponent implements OnInit {
         matchingControl.setErrors(null);
       }
     }
-
   }
 }
