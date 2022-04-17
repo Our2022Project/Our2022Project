@@ -229,9 +229,6 @@
                             </select>
                         </ion-col>
                     </ion-row>
-
-                    <!--/////////////////////////////////-->
-
                     <ion-row style="margin-bottom: 10px;" *ngIf="this.packageCheck !== 'OwnPackaging'">
                         <ion-col size-xl="3" size-lg="4" size-md="12" size-sm="12" size-xs="12">
                             <ion-row class="labelRow">
@@ -263,8 +260,8 @@
                                 </ion-col>
                             </ion-row>
                             <ion-row>
-                                <ion-input formControlName="weightForNonOwnPackage" (keypress)="restrictNumeric($event)" class="inputBorderFix"
-                                    maxlength="2"></ion-input>
+                                <ion-input formControlName="weightForNonOwnPackage" (keypress)="restrictNumeric($event)"
+                                    class="inputBorderFix" maxlength="2"></ion-input>
                                 <ion-label class="sideLable">lb</ion-label>
                             </ion-row>
                             <ion-col class="errorMsg"
@@ -279,9 +276,6 @@
                             </ion-col>
                         </ion-col>
                     </ion-row>
-
-                    <!--/////////////////////////////////-->
-
                     <ion-row style="margin-bottom: 10px;" *ngIf="this.packageCheck === 'OwnPackaging'">
                         <ion-col size-xl="2.5" size-lg="2.5" size-md="12" size-sm="12" size-xs="12">
                             <ion-row class="labelRow">
@@ -311,8 +305,8 @@
                                 </ion-col>
                             </ion-row>
                             <ion-row>
-                                <ion-input class="inputBorderFix" formControlName="weightForOwnPackage" (keypress)="restrictNumeric($event)"
-                                    maxlength="2"></ion-input>
+                                <ion-input class="inputBorderFix" formControlName="weightForOwnPackage"
+                                    (keypress)="restrictNumeric($event)" maxlength="2"></ion-input>
                                 <ion-label class="sideLable">lb</ion-label>
                             </ion-row>
                             <ion-col class="errorMsg"
@@ -334,13 +328,15 @@
                                 </ion-col>
                             </ion-row>
                             <ion-row>
-                                <ion-input formControlName="length" (keypress)="restrictNumeric($event)" class="inputBorderFix"
-                                    maxlength="3"></ion-input>
+                                <ion-input formControlName="length" (keypress)="restrictNumeric($event)"
+                                    class="inputBorderFix" maxlength="3"></ion-input>
                                 <ion-label class="sideLable borderRadiusFix">x</ion-label>
-                                <ion-input formControlName="width" (keypress)="restrictNumeric($event)" class="inputBorderFix borderRadiusFix" maxlength="2">
+                                <ion-input formControlName="width" (keypress)="restrictNumeric($event)"
+                                    class="inputBorderFix borderRadiusFix" maxlength="2">
                                 </ion-input>
                                 <ion-label class="sideLable borderRadiusFix">x</ion-label>
-                                <ion-input formControlName="height" (keypress)="restrictNumeric($event)" class="inputBorderFix borderRadiusFix" maxlength="2">
+                                <ion-input formControlName="height" (keypress)="restrictNumeric($event)"
+                                    class="inputBorderFix borderRadiusFix" maxlength="2">
                                 </ion-input>
                                 <ion-label class="sideLable">in</ion-label>
                             </ion-row>
@@ -354,10 +350,6 @@
                             </ion-col>
                         </ion-col>
                     </ion-row>
-
-                    <!--/////////////////////////////////-->
-
-
                     <ion-row class="firstButton">
                         <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="6">
                             <ion-button class="validButton" [disabled]="!checkRateForm.valid" (click)="checkRate()">
@@ -378,9 +370,6 @@
                 {{ this.errorMsg }}
             </ion-col>
         </ion-row>
-
-        <!-- show rate part start here -->
-
         <ion-row *ngIf="showRateUI" class="showRateUi">
             <ion-col>
                 <ion-row *ngFor="let service of this.rateChartResponce?.rateReplyDetails;let i = index">
@@ -396,7 +385,8 @@
                                 <ion-row>
                                     <ion-col class="date">
                                         <ion-label>{{ service?.deliveryDayOfWeek }}, {{
-                                            getMonthDate(service?.deliveryTimestamp)
+                                            getMonthDate(service?.deliveryTimestamp,i,
+                                            service?.serviceDescription?.names?.[0]?.value)
                                             }}</ion-label>
                                     </ion-col>
                                 </ion-row>
@@ -447,7 +437,6 @@
                                         </ion-row>
                                         <ion-row>
                                             <ion-col>
-                                                <!-- <dd> {{ ratedPackage?.packageRateDetail?.rateType}}</dd -->
                                                 <ion-label>{{ service?.serviceDescription?.names?.[0]?.value }}
                                                 </ion-label>
                                             </ion-col>
@@ -514,7 +503,9 @@
                                     <ion-col class="DeliverMain"
                                         *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages">
                                         <ion-col>
-                                            <ion-button (click)="showOrderComponent()" class="priceBtn">${{
+                                            <ion-button
+                                                (click)="showOrderComponent(); getMonthDate(service?.deliveryTimestamp,i, service?.serviceDescription?.names?.[0]?.value, ratedShipmentDetail);"
+                                                class="priceBtn">${{
                                                 ratedPackage?.packageRateDetail?.netFedExCharge?.amount
                                                 }}</ion-button>
                                         </ion-col>

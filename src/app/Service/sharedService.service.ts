@@ -54,6 +54,8 @@ export class sharedService {
     finalShipRate:string='';
     shipmentModel: shipment = new shipment();
     payment1 = new Payment();
+    rateRequest = new RateRequest;
+    estimatedDeliveryDate: string = '';
 
     usstateName = [{ name: 'Alabama (AL)', id: 'AL' },
     { name: 'Alaska (AK)', id: 'AK' },

@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
 import { OrderAdress } from 'src/app/Models/OrderAdress';
 import { NgxSpinnerService } from "ngx-spinner";
+import { shipment } from 'src/app/Models/Shipment';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-address-details',
@@ -12,10 +14,12 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class AddressDetailsComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public spinner: NgxSpinnerService,) { }
+  constructor(private router: Router, private fb: FormBuilder, public sharedService: sharedService, public spinner: NgxSpinnerService, public datepipe: DatePipe) { }
   OrderAdress: OrderAdress = new OrderAdress();
   addressForm: any;
   validate: boolean = false;
+  shipment: shipment = new shipment();
+
   ngOnInit(): void {
     this.initializeForm();
     this.sharedService.addressDetails = true;
@@ -107,7 +111,17 @@ export class AddressDetailsComponent implements OnInit {
     this.sharedService.OrderAdress = this.OrderAdress;
     this.sharedService.addressDetalis(this.OrderAdress).subscribe({
       next: (data: any) => {
-        this.spinner.hide();
+        this.mapShipDetails()
+        this.shipment.transactionId = data.transactionId;
+        this.sharedService.shipment(this.shipment).subscribe({
+          next: (data: any) => {
+            this.spinner.hide();
+          },
+          error: (Error: any) => {
+            this.spinner.hide();
+          }
+
+        });
       },
       error: (err: Error) => {
         this.spinner.hide();
@@ -139,5 +153,11 @@ export class AddressDetailsComponent implements OnInit {
     this.OrderAdress.recipientPhoneNumber = this.addressForm.controls['toPhone'].value;
     this.OrderAdress.recipientEmail = this.addressForm.controls['toEmail'].value;
   }
-  
+
+  mapShipDetails(): void {
+    this.shipment.shipDate = this.sharedService.rateRequest.shipDate;
+    this.shipment.service = this.sharedService.rateRequest.service;
+    this.shipment.packageWeight = this.sharedService.rateRequest.packageWeight;
+    this.shipment.estimatedDeliveryDate = this.sharedService.estimatedDeliveryDate;
+  }
 }

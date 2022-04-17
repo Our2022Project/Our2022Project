@@ -35,9 +35,12 @@ export class RateTranistComponent implements OnInit {
   avaiableDate: Date[] = [];
   sleactedDate: any;
   packageCheck: string = '';
-  rateRequest = new RateRequest
+  rateRequest = new RateRequest;
+  selectedDate: any;
+  estimatedDeliveryDate: string = '';
 
   ngOnInit(): void {
+    this.setDefaultDate();
     this.initializeForm();
   }
   initializeForm(): void {
@@ -52,15 +55,15 @@ export class RateTranistComponent implements OnInit {
       Tocity: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       Tostate: ['', [Validators.required]],
       Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
-      shipDate: ['', [Validators.required]],
+      shipDate: [this.selectedDate],
       service: ['FedexStandard'],
       packaging: ['FedexEnvelope'],
       weightForNonOwnPackage: ['1', [Validators.required, Validators.pattern("([1-9]|1[0])")]],
       weightForOwnPackage: ['1', [Validators.required, Validators.pattern("([1-9]|1[0])")]],
       noOfNonOwnPackages: ['1', [Validators.required, Validators.pattern("(1)")]],
-      noOwnPackages: ['1', [Validators.required,  Validators.pattern("([1-9]|1[0-9]|20|2[0-5]|25)")]],
+      noOwnPackages: ['1', [Validators.required, Validators.pattern("([1-9]|1[0-9]|20|2[0-5]|25)")]],
       length: ['', [Validators.pattern("^(?:[1-9]|0[1-9]|10|[1-9][0-9]|1[01][0-9])$")]],
-      width: ['', [Validators.pattern("([1-9]|1[0-9]|20|2[0-9]|30|3[0-9]|40|4[0-9]|50|5[0-9]|60|6[0-9]|70|7[0-9]|80)")]], 
+      width: ['', [Validators.pattern("([1-9]|1[0-9]|20|2[0-9]|30|3[0-9]|40|4[0-9]|50|5[0-9]|60|6[0-9]|70|7[0-9]|80)")]],
       height: ['', [Validators.pattern("([1-9]|1[0-9]|20|2[0-9]|30|3[0-9]|40|4[0-9]|50|5[0-9]|60|6[0-9]|70)")]],
     }
     );
@@ -131,18 +134,20 @@ export class RateTranistComponent implements OnInit {
     this.rateRequest.toAddress.countryCode = "US";
     this.sharedService.fromAddress = this.fromAddress;
     this.sharedService.toAddress = this.toAddress;
-    this.sharedService.shipDate = this.sleactedDate;
     this.rateRequest.shipDate = this.datepipe.transform(this.checkRateForm.controls['shipDate'].value, 'yyyy-MM-dd') || null;
     this.rateRequest.service = this.checkRateForm.controls['service'].value;
     this.rateRequest.packaging = this.checkRateForm.controls['packaging'].value;
     if (this.rateRequest.packaging === 'OwnPackaging') {
       this.rateRequest.packageWeight = this.checkRateForm.controls['weightForOwnPackage'].value;
       this.rateRequest.noOfPackages = this.checkRateForm.controls['noOwnPackages'].value;
-      this.rateRequest.dimension =  this.checkRateForm.controls['length'].value + " " + this.checkRateForm.controls['width'].value + " " + this.checkRateForm.controls['height'].value;
+      if (this.checkRateForm.controls['length'].value !== '' && this.checkRateForm.controls['width'].value !== '' && this.checkRateForm.controls['width'].value !== '') {
+        this.rateRequest.dimension = this.checkRateForm.controls['length'].value + " " + this.checkRateForm.controls['width'].value + " " + this.checkRateForm.controls['width'].value;
+      }
     } else {
       this.rateRequest.packageWeight = this.checkRateForm.controls['weightForNonOwnPackage'].value;
       this.rateRequest.noOfPackages = this.checkRateForm.controls['noOfNonOwnPackages'].value;
     }
+    this.sharedService.rateRequest = this.rateRequest;
   }
 
   clearField(): void {
@@ -160,11 +165,10 @@ export class RateTranistComponent implements OnInit {
     return arrivesOn;
   }
 
-  getMonthDate(servcieDate: any): string {
+  getMonthDate(servcieDate: any, index: number, service: any, ratedShipmentDetail?: any): string {
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
     var date = new Date(servcieDate);
-
+    this.estimatedDeliveryDate = this.datepipe.transform(date, 'MM/dd/2022') || '';
     return months[date.getMonth()] + " " + date.getDate();
   }
 
@@ -185,6 +189,7 @@ export class RateTranistComponent implements OnInit {
   }
 
   showOrderComponent() {
+    this.estimatedDeliveryDate = this.sharedService.estimatedDeliveryDate;
     this.router.navigateByUrl('/address-details');
   }
 
@@ -194,8 +199,15 @@ export class RateTranistComponent implements OnInit {
     return !(!this.avaiableDate.find((x: { getTime: () => any; }) => x.getTime() == time)) && day !== 0;
   }
 
-  selectPackage(selectedPackage: any): void{
+  selectPackage(selectedPackage: any): void {
     this.packageCheck = selectedPackage.target.value;
+  }
+
+  setDefaultDate(): void {
+    this.selectedDate = new Date(new Date().setHours(0, 0, 0, 0));
+    if (this.selectedDate.getDay() === 0) {
+      this.selectedDate = new Date(this.selectedDate.setDate(this.selectedDate.getDate() + 1));
+    }
   }
 
 } 
