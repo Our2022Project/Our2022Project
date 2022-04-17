@@ -14,7 +14,7 @@ export class SummaryDetailsComponent implements OnInit {
   shipDate:string = '';
 
   ngOnInit(): void {
-    let changeFormate = new Date(this.sharedService.shipDate);  
+    let changeFormate = new Date(this.sharedService.rateRequest.shipDate);  
     this.shipDate = this.datepipe.transform(changeFormate, 'MM/dd/YYYY') || '' ;
   }
 

@@ -63,24 +63,24 @@ export class AddressDetailsComponent implements OnInit {
 
   editShipment(): void {
     this.sharedService.addressDetails = false;
-    this.sharedService.shipmentDetails = true;
+    // this.sharedService.shipmentDetails = true;
     this.sharedService.paymentDetails = false;
     this.sharedService.summaryDetails = false;
   }
 
   editPayment(): void {
     this.sharedService.addressDetails = false;
-    this.sharedService.shipmentDetails = false;
+    // this.sharedService.shipmentDetails = false;
     this.sharedService.paymentDetails = true;
     this.sharedService.summaryDetails = false;
   }
 
-  editSummary(): void {
-    this.sharedService.addressDetails = false;
-    this.sharedService.shipmentDetails = false;
-    this.sharedService.paymentDetails = false;
-    this.sharedService.summaryDetails = true;
-  }
+  // editSummary(): void {
+  //   this.sharedService.addressDetails = false;
+  //   this.sharedService.shipmentDetails = false;
+  //   this.sharedService.paymentDetails = false;
+  //   this.sharedService.summaryDetails = true;
+  // }
 
 
   showShipment(): void {
@@ -104,8 +104,8 @@ export class AddressDetailsComponent implements OnInit {
     this.sharedService.addtoPhone = this.addressForm.controls['toPhone'].value;
     this.sharedService.addtoEmail = this.addressForm.controls['toEmail'].value;
     this.sharedService.addressDetails = false;
-    this.sharedService.shipmentDetails = true;
-    this.sharedService.paymentDetails = false;
+    // this.sharedService.shipmentDetails = true;
+    this.sharedService.paymentDetails = true;
     this.sharedService.summaryDetails = false;
     this.mapAdressDetails();
     this.sharedService.OrderAdress = this.OrderAdress;
@@ -155,7 +155,7 @@ export class AddressDetailsComponent implements OnInit {
   }
 
   mapShipDetails(): void {
-    this.shipment.shipDate = this.sharedService.rateRequest.shipDate;
+    this.shipment.shipDate =  this.datepipe.transform(this.sharedService.rateRequest.shipDate,'MM/dd/YYYY') || '';
     this.shipment.service = this.sharedService.rateRequest.service;
     this.shipment.packageWeight = this.sharedService.rateRequest.packageWeight;
     this.shipment.estimatedDeliveryDate = this.sharedService.estimatedDeliveryDate;

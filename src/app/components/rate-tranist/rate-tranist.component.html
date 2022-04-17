@@ -34,21 +34,21 @@
                         <ion-row class="result" style="margin: 2% 3% 0 3%;">
                             <ion-col>
                                 <ion-label class="labelHeading">From :</ion-label>
-                                <ion-label> {{this.fromAddress.addressLine1 + ","}} </ion-label>
-                                <ion-label *ngIf="this.fromAddress.addressLine2 !='' "> {{this.fromAddress.addressLine2
+                                <ion-label> {{this.rateRequest.fromAddress.addressLine1 + ","}} </ion-label>
+                                <ion-label *ngIf="this.rateRequest.fromAddress.addressLine2 !='' "> {{this.rateRequest.fromAddress.addressLine2
                                     + ","}} </ion-label>
-                                <ion-label> {{this.fromAddress.city + ", " + this.fromAddress.stateCode + ", " +
-                                    this.fromAddress.zipcode + ", " + this.fromAddress.countryCode +"." }} </ion-label>
+                                <ion-label> {{this.rateRequest.fromAddress.city + ", " + this.rateRequest.fromAddress.stateCode + ", " +
+                                    this.rateRequest.fromAddress.zipcode + ", " + this.rateRequest.fromAddress.countryCode +"." }} </ion-label>
                             </ion-col>
                         </ion-row>
                         <ion-row class="result" style="margin: 2% 3% 0 3%;">
                             <ion-col>
                                 <ion-label class="labelHeading">To : </ion-label>
-                                <ion-label> {{this.toAddress.addressLine1 + ","}} </ion-label>
-                                <ion-label *ngIf="this.toAddress.addressLine2 !='' "> {{this.toAddress.addressLine2 +
+                                <ion-label> {{this.rateRequest.toAddress.addressLine1 + ","}} </ion-label>
+                                <ion-label *ngIf="this.rateRequest.toAddress.addressLine2 !='' "> {{this.rateRequest.toAddress.addressLine2 +
                                     ","}} </ion-label>
-                                <ion-label> {{this.toAddress.city + ", " + this.toAddress.stateCode + ", " +
-                                    this.toAddress.zipcode + ", " + this.toAddress.countryCode +"." }} </ion-label>
+                                <ion-label> {{this.rateRequest.toAddress.city + ", " + this.rateRequest.toAddress.stateCode + ", " +
+                                    this.rateRequest.toAddress.zipcode + ", " + this.rateRequest.toAddress.countryCode +"." }} </ion-label>
                             </ion-col>
                         </ion-row>
                     </ion-col>
@@ -410,7 +410,7 @@
                                                     <ion-col class="priceFirst"
                                                         *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages">
                                                         <ion-col>
-                                                            <ion-button (click)="showOrderComponent()" class="priceBtn">
+                                                            <ion-button (click)="getMonthDate(service?.deliveryTimestamp,i, service?.serviceDescription?.names?.[0]?.value, ratedShipmentDetail); showOrderComponent();" class="priceBtn">
                                                                 ${{
                                                                 ratedPackage?.packageRateDetail?.netFedExCharge?.amount
                                                                 }}</ion-button>
@@ -504,7 +504,7 @@
                                         *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages">
                                         <ion-col>
                                             <ion-button
-                                                (click)="showOrderComponent(); getMonthDate(service?.deliveryTimestamp,i, service?.serviceDescription?.names?.[0]?.value, ratedShipmentDetail);"
+                                                (click)="getMonthDate(service?.deliveryTimestamp,i, service?.serviceDescription?.names?.[0]?.value, ratedShipmentDetail); showOrderComponent();"
                                                 class="priceBtn">${{
                                                 ratedPackage?.packageRateDetail?.netFedExCharge?.amount
                                                 }}</ion-button>

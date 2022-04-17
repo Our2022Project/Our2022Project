@@ -15,7 +15,6 @@ export class sharedService {
     show1: boolean = false;
     show: boolean = false;
     [x: string]: any;
-    shipDate: string = '';
     isValidToken: boolean = false;
     isRegistrationDone: boolean = false;
     isUserAlreadyExsits: boolean = false;

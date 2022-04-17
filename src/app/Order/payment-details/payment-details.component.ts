@@ -18,7 +18,7 @@ export class PaymentDetailsComponent implements OnInit {
 
   initializeForm(): void {
     this.paymentForm = this.fb.group({
-      bill:[this.sharedService.payment1.billTo,Validators.required],
+      bill:[ this.sharedService.payment1.billTo,Validators.required],
       selectCard:[this.sharedService.payment1.creditCardType,Validators.required],
       selectMonth:[this.sharedService.payselectMonth,Validators.required],
       selectYear:[this.sharedService.payselectYear,Validators.required],

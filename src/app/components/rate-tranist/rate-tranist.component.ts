@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
-import { Address } from 'src/app/Models/Address';
 import { RateReply } from 'src/app/Models/RateReply';
 import { NgxSpinnerService } from "ngx-spinner";
 import { DatePipe } from '@angular/common'
@@ -26,8 +25,6 @@ export class RateTranistComponent implements OnInit {
   checkRateForm: any;
   showRateUI: Boolean = false;
   showError: Boolean = false;
-  fromAddress = new Address();
-  toAddress = new Address();
   rateChartResponce?: RateReply;
   drop: boolean[] = [];
   errorMsg: string = '';
@@ -113,7 +110,6 @@ export class RateTranistComponent implements OnInit {
   }
 
   searchNewLocation(): void {
-    //this.initializeForm();
     this.resultFound = true;
     this.showRateUI = false;
     this.showError = false;
@@ -132,8 +128,6 @@ export class RateTranistComponent implements OnInit {
     this.rateRequest.toAddress.stateCode = this.checkRateForm.controls['Tostate'].value;
     this.rateRequest.toAddress.zipcode = this.checkRateForm.controls['Tozip'].value;
     this.rateRequest.toAddress.countryCode = "US";
-    this.sharedService.fromAddress = this.fromAddress;
-    this.sharedService.toAddress = this.toAddress;
     this.rateRequest.shipDate = this.datepipe.transform(this.checkRateForm.controls['shipDate'].value, 'yyyy-MM-dd') || null;
     this.rateRequest.service = this.checkRateForm.controls['service'].value;
     this.rateRequest.packaging = this.checkRateForm.controls['packaging'].value;
@@ -169,6 +163,7 @@ export class RateTranistComponent implements OnInit {
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     var date = new Date(servcieDate);
     this.estimatedDeliveryDate = this.datepipe.transform(date, 'MM/dd/2022') || '';
+    this.sharedService.finalShipRate = ratedShipmentDetail?.ratedPackages[0]?.packageRateDetail?.netFedExCharge?.amount;
     return months[date.getMonth()] + " " + date.getDate();
   }
 
@@ -189,7 +184,7 @@ export class RateTranistComponent implements OnInit {
   }
 
   showOrderComponent() {
-    this.estimatedDeliveryDate = this.sharedService.estimatedDeliveryDate;
+    this.sharedService.estimatedDeliveryDate = this.estimatedDeliveryDate; 
     this.router.navigateByUrl('/address-details');
   }
 
