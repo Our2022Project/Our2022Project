@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
-import { RateReply } from 'src/app/Models/RateReply';
+import { RateReply } from 'src/app/models/rate-reply';
 import { NgxSpinnerService } from "ngx-spinner";
 import { DatePipe } from '@angular/common'
-import { RateRequest } from 'src/app/Models/RateRequest';
+import { RateRequest } from 'src/app/models/rate-request';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-rate-tranist',
@@ -53,8 +54,8 @@ export class RateTranistComponent implements OnInit {
       Tostate: ['', [Validators.required]],
       Tozip: ['', [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
       shipDate: [this.selectedDate],
-      service: ['FedexStandard'],
-      packaging: ['FedexEnvelope'],
+      service: ['Fedex Standard'],
+      packaging: ['FEDEX_ENVELOPE'],
       weightForNonOwnPackage: ['1', [Validators.required, Validators.pattern("([1-9]|1[0])")]],
       weightForOwnPackage: ['1', [Validators.required, Validators.pattern("([1-9]|1[0])")]],
       noOfNonOwnPackages: ['1', [Validators.required, Validators.pattern("(1)")]],
@@ -70,8 +71,10 @@ export class RateTranistComponent implements OnInit {
     this.spinner.show();
     this.drop = [];
     this.addressMapping();
+    this.errorMsg = '';
     this.sharedService.rate(this.rateRequest).subscribe({
       next: (data: any) => {
+        console.warn('success...');
         this.spinner.hide();
         this.resultFound = false;
         this.rateChartResponce = data;
@@ -99,8 +102,11 @@ export class RateTranistComponent implements OnInit {
           this.showError = true;
         }
       },
-      error: (err: Error) => {
+      error: (error: HttpErrorResponse) => {
+        console.error('Rate Lookup error', error);
         this.spinner.hide();
+        this.showError = true;
+        this.errorMsg = error?.error.message;  
       }
     });
   }
@@ -129,13 +135,13 @@ export class RateTranistComponent implements OnInit {
     this.rateRequest.toAddress.zipcode = this.checkRateForm.controls['Tozip'].value;
     this.rateRequest.toAddress.countryCode = "US";
     this.rateRequest.shipDate = this.datepipe.transform(this.checkRateForm.controls['shipDate'].value, 'yyyy-MM-dd') || null;
-    this.rateRequest.service = this.checkRateForm.controls['service'].value;
-    this.rateRequest.packaging = this.checkRateForm.controls['packaging'].value;
-    if (this.rateRequest.packaging === 'OwnPackaging') {
+    this.rateRequest.serviceType = this.checkRateForm.controls['service'].value;
+    this.rateRequest.packageType = this.checkRateForm.controls['packaging'].value;
+    if (this.rateRequest.packageType === 'YOUR_PACKAGING') {
       this.rateRequest.packageWeight = this.checkRateForm.controls['weightForOwnPackage'].value;
       this.rateRequest.noOfPackages = this.checkRateForm.controls['noOwnPackages'].value;
       if (this.checkRateForm.controls['length'].value !== '' && this.checkRateForm.controls['width'].value !== '' && this.checkRateForm.controls['height'].value !== '') {
-        this.rateRequest.dimension = this.checkRateForm.controls['length'].value + " " + this.checkRateForm.controls['width'].value + " " + this.checkRateForm.controls['height'].value;
+        this.rateRequest.dimension = this.checkRateForm.controls['length'].value + "-" + this.checkRateForm.controls['width'].value + "-" + this.checkRateForm.controls['height'].value;
       }
     } else {
       this.rateRequest.packageWeight = this.checkRateForm.controls['weightForNonOwnPackage'].value;
@@ -162,7 +168,7 @@ export class RateTranistComponent implements OnInit {
   getMonthDate(servcieDate: any, index: number, service: any, ratedShipmentDetail?: any): string {
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     var date = new Date(servcieDate);
-    this.estimatedDeliveryDate = this.datepipe.transform(date, 'MM/dd/2022') || '';
+    this.estimatedDeliveryDate = date.toString(); //this.datepipe.transform(date, 'MM/dd/yyyy') || '';
     this.sharedService.finalShipRate = ratedShipmentDetail?.ratedPackages[0]?.packageRateDetail?.netFedExCharge?.amount;
     return months[date.getMonth()] + " " + date.getDate();
   }
@@ -183,8 +189,9 @@ export class RateTranistComponent implements OnInit {
     return formattedTime;
   }
 
-  showOrderComponent(): void {
+  showOrderComponent(serviceType?: string): void {
     this.sharedService.estimatedDeliveryDate = this.estimatedDeliveryDate;
+    this.sharedService.selectedServiceType = serviceType || '';
     this.router.navigateByUrl('/address-details');
   }
 

@@ -2,12 +2,12 @@ import { HttpClient, HttpHeaderResponse, HttpHeaders } from "@angular/common/htt
 import { Injectable, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { Address } from "../Models/Address";
-import { RegisterData } from "../Models/SignUp";
-import {OrderAdress } from "../Models/OrderAdress";
-import { Payment } from "../Models/Payment";
-import { shipment } from "../Models/Shipment";
-import { RateRequest } from "../Models/RateRequest";
+import { CommonAddressRequest } from "../models/common-address-request";
+import { OrderAdress } from "../models/order-adress";
+import { Payment } from "../models/Payment";
+import { RateRequest } from "../models/rate-request";
+import { shipment } from "../models/Shipment";
+import { RegisterData } from "../models/sign-up";
 
 @Injectable()
 export class sharedService {
@@ -37,7 +37,7 @@ export class sharedService {
     payment1 = new Payment();
     rateRequest = new RateRequest;
     estimatedDeliveryDate: string = '';
-   
+    selectedServiceType: string = '';
 
     usstateName = [{ name: 'Alabama (AL)', id: 'AL' },
     { name: 'Alaska (AK)', id: 'AK' },
@@ -96,9 +96,18 @@ export class sharedService {
     { name: 'Wisconsin (WI)', id: 'WI' },
     { name: 'Wyoming (WY)', id: 'WY' }
     ];
+    
     httpOptions = {
         headers: new HttpHeaders({
             'Content-Type': 'application/json',
+        })
+    };
+
+
+    httpOptionsPdf = {
+        headers: new HttpHeaders({
+            //'Content-Type': 'application/json',
+             responseType: 'blob' as 'json'
         })
     };
 
@@ -139,5 +148,9 @@ export class sharedService {
     
     shipment(shipment: shipment): Observable<any> {
         return this.http.post(environment.shipment, shipment, this.httpOptions);
+    }
+
+    processShipment(processShipmentRequest: CommonAddressRequest): Observable<any> {
+        return this.http.post(environment.processShipment, processShipmentRequest, this.httpOptionsPdf);
     }
 }

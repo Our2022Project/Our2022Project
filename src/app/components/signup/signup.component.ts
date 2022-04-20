@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
-import { RegisterData, userAddressRequestList } from 'src/app/Models/SignUp';
+import { RegisterData, userAddressRequestList } from 'src/app/models/sign-up';
 import { NgxSpinnerService } from "ngx-spinner";
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -83,15 +83,15 @@ export class SignupComponent implements OnInit {
     },
       (error: HttpErrorResponse) => { //todo why? new version no idea
         this.spinner.hide();
+        console.error('error at signup ', error);
+        console.error('error at signup ', error?.error.message);
         if (error?.status === 200 || error?.status === 201) {
           this.sharedService.isRegistrationDone = true;
           this.router.navigateByUrl('/login');
         } else {
-          console.error('error', error);
-          console.error('error', error?.message);
           this.sharedService.isRegistrationDone = false;
           this.sharedService.isUserAlreadyExsits = false; 
-          this.errorMessage = 'Server Error!';  
+          this.errorMessage = 'Server Error!' + error?.error.message;  
         }  
       });
   }

@@ -13,23 +13,24 @@ import { PaymentDetailsComponent } from './Order/payment-details/payment-details
 import { SummaryDetailsComponent } from './Order/summary-details/summary-details.component';
 import { ActivateUserComponent } from './components/activate-user/activate-user.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { AuthGuard } from './_helper/auth-guard';
+import { BasicGuard } from './_helper/basic-guard';
 
 const routes: Routes = [  
-  { path: '', component: LoginComponent },  
-  { path: 'login', component: LoginComponent },  
-  { path: 'signup', component: SignupComponent },  
-  { path: 'header', component: HeaderComponent }, 
-  { path: 'dashboard', component: DashboardComponent }, 
+  { path: '', component: LoginComponent, canActivate: [BasicGuard] },   
+  { path: 'login', component: LoginComponent, canActivate: [BasicGuard] },  
+  { path: 'signup', component: SignupComponent, canActivate: [BasicGuard] },  
+  { path: 'header', component: HeaderComponent, canActivate: [BasicGuard] }, 
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]}, 
   { path: 'footer', component: FooterComponent },
-  { path: 'rate-transit', component: RateTranistComponent }, 
-  { path: 'forgotPassword', component: ForgotPasswordComponent},
-  { path: 'address-details', component: AddressDetailsComponent},
-  { path: 'shipment-details', component: ShipmentDetailsComponent},
-  { path: 'payment-details', component: PaymentDetailsComponent},
-  { path: 'summary-details', component: SummaryDetailsComponent},
-  { path: 'summary-details', component: SummaryDetailsComponent},
-  { path: 'activate-user', component: ActivateUserComponent},
-  { path: 'reset-password', component: ChangePasswordComponent}
+  { path: 'rate-transit', component: RateTranistComponent, canActivate: [AuthGuard] }, 
+  { path: 'forgotPassword', component: ForgotPasswordComponent, canActivate: [BasicGuard]},
+  { path: 'address-details', component: AddressDetailsComponent, canActivate: [AuthGuard]},
+  { path: 'shipment-details', component: ShipmentDetailsComponent, canActivate: [AuthGuard]},
+  { path: 'payment-details', component: PaymentDetailsComponent, canActivate: [AuthGuard]},
+  { path: 'summary-details', component: SummaryDetailsComponent, canActivate: [AuthGuard]},
+  { path: 'activate-user', component: ActivateUserComponent, canActivate: [BasicGuard]},
+  { path: 'reset-password', component: ChangePasswordComponent, canActivate: [BasicGuard]}
 
 ];
 

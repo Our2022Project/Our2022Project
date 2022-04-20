@@ -28,7 +28,7 @@ export class PaymentDetailsComponent implements OnInit {
       middleName: [this.sharedService.payment1.middleName],
       firstName: [ this.sharedService.payment1.firstName,[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       lastName: [ this.sharedService.payment1.lastName,[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
-      companyName:[ this.sharedService.payment1.company,[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      companyName:[ this.sharedService.payment1.company,[Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       EmailId: [this.sharedService.payment1.email,[Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
       verifyEmail: [this.sharedService.payment1.Verifyemail,[Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
     },{

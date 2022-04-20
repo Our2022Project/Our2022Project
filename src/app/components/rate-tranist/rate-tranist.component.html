@@ -210,22 +210,23 @@
                     <ion-row>
                         <ion-col class="">
                             <select formControlName="service" class="selectex">
-                                <option value="FedexStandard">FedEx Standard</option>
-                                <option value="FedExOneRate">FedEx One Rate</option>
+                                <option value="Fedex Standard">FedEx Standard</option>
+                                <option value="FedEx One Rate">FedEx One Rate</option>
                             </select>
                         </ion-col>
                     </ion-row>
+                  
                     <ion-row>
                         <ion-col class="labelPrice">
                             <select formControlName="packaging" (change)="selectPackage($event)">
-                                <option value="OwnPackaging">Your Packaging</option>
-                                <option value="FedexEnvelope">FedEx Envelope</option>
-                                <option value="FedExtraLargeBox">FedEx Extra Large Box</option>
-                                <option value="FedExLargeBox">FedEx Large Box</option>
-                                <option value="FedExMediumBox">FedEx Medium Box</option>
-                                <option value="FedExPak">FedEx Pak</option>
-                                <option value="FedExsmallBox">FedEx small Box</option>
-                                <option value="FedExTube">FedEx Tube</option>
+                                <option value="FEDEX_ENVELOPE">FedEx Envelope</option>
+                                <option value="FEDEX_EXTRA_LARGE_BOX">FedEx Extra Large Box</option>
+                                <option value="FEDEX_LARGE_BOX">FedEx Large Box</option>
+                                <option value="FEDEX_MEDIUM_BOX">FedEx Medium Box</option>
+                                <option value="FEDEX_PAK">FedEx Pak</option>
+                                <option value="FEDEX_SMALL_BOX">FedEx Small Box</option>
+                                <option value="FEDEX_TUBE">FedEx Tube</option>
+                                <option value="YOUR_PACKAGING" *ngIf="this.checkRateForm.controls['service'].value === 'Fedex Standard'">Your Packaging</option>
                             </select>
                         </ion-col>
                     </ion-row>
@@ -410,7 +411,7 @@
                                                     <ion-col class="priceFirst"
                                                         *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages">
                                                         <ion-col>
-                                                            <ion-button (click)="getMonthDate(service?.deliveryTimestamp,i, service?.serviceDescription?.names?.[0]?.value, ratedShipmentDetail); showOrderComponent();" class="priceBtn">
+                                                            <ion-button (click)="getMonthDate(service?.deliveryTimestamp,i, service?.serviceDescription?.names?.[0]?.value, ratedShipmentDetail); showOrderComponent(service?.serviceType);" class="priceBtn">
                                                                 ${{
                                                                 ratedPackage?.packageRateDetail?.netFedExCharge?.amount
                                                                 }}</ion-button>
@@ -504,7 +505,7 @@
                                         *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages">
                                         <ion-col>
                                             <ion-button
-                                                (click)="getMonthDate(service?.deliveryTimestamp,i, service?.serviceDescription?.names?.[0]?.value, ratedShipmentDetail); showOrderComponent();"
+                                                (click)="getMonthDate(service?.deliveryTimestamp,i, service?.serviceDescription?.names?.[0]?.value, ratedShipmentDetail); showOrderComponent(service?.serviceType);"
                                                 class="priceBtn">${{
                                                 ratedPackage?.packageRateDetail?.netFedExCharge?.amount
                                                 }}</ion-button>

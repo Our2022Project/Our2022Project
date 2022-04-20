@@ -1,3 +1,4 @@
+import { Contact } from './Contact';
 export class Address {
 
     addressLine1: string;
@@ -6,7 +7,7 @@ export class Address {
     stateCode: string;
     zipcode: string;
     countryCode: string;
-
+    contactRequest: Contact;
     constructor() {
         this.addressLine1 = '';
         this.addressLine2 = '';
@@ -14,6 +15,7 @@ export class Address {
         this.stateCode = '';
         this.zipcode = '';
         this.countryCode = 'US';
+        this.contactRequest = new Contact();
     }
 
 }

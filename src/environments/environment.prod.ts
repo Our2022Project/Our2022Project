@@ -1,4 +1,4 @@
-const Backend_Base_URL = 'http://ec2-52-2-35-11.compute-1.amazonaws.com:8080';
+const Backend_Base_URL = 'http://ec2-100-24-53-190.compute-1.amazonaws.com:8080';
 
 
 export const environment = {
@@ -14,5 +14,6 @@ export const environment = {
     resetPassword: Backend_Base_URL + '/reset-password',
     payment: Backend_Base_URL +'/payment',
     shipment: Backend_Base_URL + '/shipment',
+    processShipment: Backend_Base_URL + '/api/ship/process-shipment'
 };
 

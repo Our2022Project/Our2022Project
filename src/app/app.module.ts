@@ -26,6 +26,7 @@ import {MaterialExampleModule} from '../material.module';
 import { DatePipe } from '@angular/common';
 import { ActivateUserComponent } from './components/activate-user/activate-user.component';
 import { Routes, RouterModule } from '@angular/router';
+import { ErrorInterceptor } from './_helper/error-interceptor';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { Routes, RouterModule } from '@angular/router';
       useClass:AuthInterceptor,
       multi:true
     },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     sharedService, DatePipe],
   bootstrap: [AppComponent]
 })

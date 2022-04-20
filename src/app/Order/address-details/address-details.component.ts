@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { sharedService } from 'src/app/Service/sharedService.service';
-import { OrderAdress } from 'src/app/Models/OrderAdress';
+import { OrderAdress } from 'src/app/models/order-adress';
 import { NgxSpinnerService } from "ngx-spinner";
-import { shipment } from 'src/app/Models/Shipment';
 import { DatePipe } from '@angular/common';
+import { shipment } from 'src/app/models/Shipment';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-address-details',
@@ -79,16 +80,21 @@ export class AddressDetailsComponent implements OnInit {
         this.shipment.transactionId = data.transactionId;
         this.sharedService.shipment(this.shipment).subscribe({
           next: (data: any) => {
+            this.shipment.shipmentDetailId = data.shipmentDetailId;
             this.spinner.hide();
           },
-          error: (Error: any) => {
+          error: (error: HttpErrorResponse) => {
             this.spinner.hide();
+            console.error('error at shipment details ', error);
+            console.error('error at shipment details ', error?.error.message);
           }
 
         });
       },
-      error: (err: Error) => {
+      error: (error: HttpErrorResponse) => {
         this.spinner.hide();
+        console.error('error at address details ', error);
+        console.error('error at address details ', error?.error.message);
       },
     });
   }
@@ -98,6 +104,7 @@ export class AddressDetailsComponent implements OnInit {
   }
 
   mapAdressDetails(): void {
+    this.OrderAdress.transactionId = this.shipment.transactionId ? this.shipment.transactionId : '';
     this.OrderAdress.fromName = this.addressForm.controls['yourName'].value;
     this.OrderAdress.fromCompany = this.addressForm.controls['fromCompany'].value;
     this.OrderAdress.fromAddressLine1 = this.addressForm.controls['fromAddress'].value;
@@ -120,9 +127,12 @@ export class AddressDetailsComponent implements OnInit {
 
   mapShipDetails(): void {
     this.shipment.shipDate = this.datepipe.transform(this.sharedService.rateRequest.shipDate, 'MM/dd/YYYY') || '';
-    this.shipment.service = this.sharedService.rateRequest.service;
     this.shipment.packageWeight = this.sharedService.rateRequest.packageWeight;
-    this.shipment.estimatedDeliveryDate = this.sharedService.estimatedDeliveryDate;
+    this.shipment.estimatedDeliveryDate = this.datepipe.transform(this.sharedService.estimatedDeliveryDate, 'MM/dd/YYYY') || '';
+    this.shipment.shipmentDetailId = this.shipment.shipmentDetailId ? this.shipment.shipmentDetailId : '';
+    this.shipment.pricingOption =  this.sharedService.rateRequest.serviceType;
+    this.shipment.service = this.sharedService.selectedServiceType;
+    this.shipment.packageType = this.sharedService.rateRequest.packageType;
   }
 
   mapRateAddress(): void {

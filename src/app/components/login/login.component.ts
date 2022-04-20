@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { sharedService } from 'src/app/Service/sharedService.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -43,13 +44,15 @@ export class LoginComponent {
         this.sharedService.token = data.accessToken;
         this.sharedService.isValidToken = false;
         this.router.navigateByUrl('/dashboard');
-        sessionStorage.setItem("token", JSON.stringify(this.sharedService.token));
-        sessionStorage.setItem("userName", JSON.stringify(this.sharedService.userName));
+        sessionStorage.setItem("token", this.sharedService.token);
+        sessionStorage.setItem("userName", this.sharedService.userName);
       },
-      error: (err: Error) => {
+      error: (error: HttpErrorResponse) => {
         this.spinner.hide();
-        this.initializeForm();
+        //this.initializeForm();
         this.sharedService.isValidToken = true;
+        console.error('error at login ', error);
+        console.error('error at login ', error?.error.message);
       },
     });
   }

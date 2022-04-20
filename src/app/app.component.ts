@@ -21,6 +21,10 @@ export class AppComponent {
   }
   
   ngOnInit(): void {
+    
+  }
+
+  ngOnInit_V1(): void {
     this.route.queryParams
       .subscribe(params => {
         this.activatePage = params['activeUserToken'];

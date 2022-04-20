@@ -22,9 +22,11 @@ export class HeaderComponent implements OnInit {
   }
 
   goToLogin(): void {
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("userName");
-    window.location.reload();
+    sessionStorage.clear();
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('userName');
+    this.sharedService.token = ''; 
+    this.router.navigateByUrl('/login');
   }
 
   search(): void {

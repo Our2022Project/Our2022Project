@@ -84,14 +84,21 @@
                         <ion-row>
                             <ion-col class="cardInfo">
                                 <ion-label>Pricing option : </ion-label>
-                                <ion-text class="cardInfoDetails"> {{ this.sharedService.shipmentModel.pricingOption }}
+                                <ion-text class="cardInfoDetails"> {{ this.sharedService.rateRequest.serviceType  }}
                                 </ion-text>
                             </ion-col>
                         </ion-row>
                         <ion-row>
                             <ion-col class="cardInfo">
-                                <ion-label>Service : </ion-label>
-                                <ion-text class="cardInfoDetails"> {{ this.sharedService.rateRequest.service }}
+                                <ion-label>ServiceType : </ion-label>
+                                <ion-text class="cardInfoDetails"> {{ this.sharedService.selectedServiceType }}
+                                </ion-text>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col class="cardInfo">
+                                <ion-label>PackageType : </ion-label>
+                                <ion-text class="cardInfoDetails"> {{ this.sharedService.rateRequest.packageType  }}
                                 </ion-text>
                             </ion-col>
                         </ion-row>
@@ -105,8 +112,10 @@
                         <ion-row>
                             <ion-col class="cardInfo">
                                 <ion-label>Special services : </ion-label>
-                                <ion-text class="cardInfoDetails"> {{ this.sharedService.shipmentModel.specialServices
-                                    }}</ion-text>
+                                <ion-text class="cardInfoDetails"> None Specified</ion-text>
+                               <!--
+                                    <ion-text class="cardInfoDetails"> {{ this.sharedService.shipmentModel.specialServices }} </ion-text>
+                                -->
                             </ion-col>
                         </ion-row>
                     </ion-col>
@@ -148,6 +157,12 @@
                         <ion-label style="font-size: 18px;">Email a copy of my shipping label</ion-label>
                     </ion-col>
                 </ion-row>
+                <ion-row>
+                    <ion-col *ngIf="showError" class="alignCenter" size-xl="12" size-lg="12" size-md="12" size-sm="12"
+                        size-xs="12">
+                        {{ this.errorMsg }}
+                    </ion-col>
+                </ion-row>
                 <ion-row class="lastSec">
                     <ion-col>
                         <ion-row>
@@ -159,9 +174,10 @@
                                     demo terms of shipping in the applicable <a href="#">Service Guide</a> .</ion-text>
                             </ion-col>
                             <ion-col class="alignEnd" size-xl="1.5" size-lg="2" size-md="2" size-sm="2" size-xs="12">
-                                <ion-button class="button">Ship</ion-button>
+                                <ion-button class="button" (click)="processShipment()">Ship</ion-button>
                             </ion-col>
                         </ion-row>
+                        
                     </ion-col>
                 </ion-row>
             </ion-col>

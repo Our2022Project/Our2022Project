@@ -87,7 +87,7 @@
                                                     <ion-label>Country/Location</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input formControlName="fromCountry" value="Readonly" readonly>
+                                                    <ion-input formControlName="fromCountry" value="Readonly" readonly [disabled]=true>
                                                         &nbsp; United States</ion-input>
                                                 </ion-col>
                                             </ion-row>
@@ -97,7 +97,7 @@
                                                     <ion-label>Address</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input type="text" formControlName="fromAddress"
+                                                    <ion-input type="text" formControlName="fromAddress" [disabled]=true
                                                         placeholder="Street address" style="margin-bottom: 10px;">
                                                     </ion-input>
                                                     <ion-col class="errorMsg"
@@ -113,18 +113,18 @@
                                                             Address contains atleast 10 characters
                                                         </ion-col>
                                                     </ion-col>
-                                                    <ion-input type="text" formControlName="fromAddress2"
+                                                    <ion-input type="text" formControlName="fromAddress2" [disabled]=true
                                                         placeholder="Apt, Floor, Suite, etc. (optional)">
                                                     </ion-input>
                                                 </ion-col>
                                             </ion-row>
                                             <ion-row class="tag">
-                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12"
+                                                <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12" 
                                                     class="inputTagPadding">
                                                     <ion-label>Zip</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input (keypress)="restrictNumeric($event)"
+                                                    <ion-input (keypress)="restrictNumeric($event)" [disabled]=true
                                                         oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                                         maxlength="5" formControlName="fromZip"
                                                         placeholder="Enter Your Zip code"></ion-input>
@@ -149,7 +149,7 @@
                                                     <ion-label>City</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input formControlName="fromCity"
+                                                    <ion-input formControlName="fromCity" [disabled]=true
                                                         placeholder="Enter Your City Name" type="text"></ion-input>
                                                     <ion-col size="12" class="errorMsg"
                                                         *ngIf="addressForm.controls['fromCity'].invalid && (addressForm.controls['fromCity'].dirty || addressForm.controls['fromCity'].touched)">
@@ -186,9 +186,9 @@
                                                     <ion-label>State</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <select interface="popover" formControlName="fromState">
+                                                    <select interface="popover" formControlName="fromState" [disabled]=true>
                                                         <option value="">Select state</option>
-                                                        <option *ngFor="let stateName of this.sharedService.usstateName"
+                                                        <option *ngFor="let stateName of this.sharedService.usstateName" [disabled]=true
                                                             [value]="stateName.id">{{stateName.name}}</option>
                                                     </select>
                                                     <ion-col class="errorMsg"
@@ -306,7 +306,7 @@
                                                     <ion-label>Country/Location</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input formControlName="toCountry" value="Readonly" readonly>
+                                                    <ion-input formControlName="toCountry" value="Readonly" readonly [disabled]=true>
                                                         &nbsp; United States</ion-input>
 
                                                 </ion-col>
@@ -317,7 +317,7 @@
                                                     <ion-label>Address</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input formControlName="toAddress" type="text"
+                                                    <ion-input formControlName="toAddress" type="text" [disabled]=true
                                                         placeholder="Street address" style="margin-bottom: 10px;">
                                                     </ion-input>
                                                     <ion-col class="errorMsg"
@@ -332,7 +332,7 @@
                                                             Address contains atleast 10 characters
                                                         </ion-col>
                                                     </ion-col>
-                                                    <ion-input type="text" formControlName="toAddress2"
+                                                    <ion-input type="text" formControlName="toAddress2" [disabled]=true
                                                         placeholder="Apt, Floor, Suite, etc. (optional)">
                                                     </ion-input>
                                                 </ion-col>
@@ -343,7 +343,7 @@
                                                     <ion-label>Zip</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input (keypress)="restrictNumeric($event)"
+                                                    <ion-input (keypress)="restrictNumeric($event)" [disabled]=true
                                                         oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                                         maxlength="5" formControlName="toZip"
                                                         placeholder="Enter your Zip code"></ion-input>
@@ -366,7 +366,7 @@
                                                     <ion-label>City</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <ion-input formControlName="toCity"
+                                                    <ion-input formControlName="toCity" [disabled]=true
                                                         placeholder="Enter Your City Name" type="text"></ion-input>
                                                     <ion-col size="12" class="errorMsg"
                                                         *ngIf="addressForm.controls['toCity'].invalid && (addressForm.controls['toCity'].dirty || addressForm.controls['toCity'].touched)">
@@ -402,9 +402,9 @@
                                                     <ion-label>State</ion-label>
                                                 </ion-col>
                                                 <ion-col>
-                                                    <select formControlName="toState" interface="popover">
+                                                    <select formControlName="toState" interface="popover" [disabled]=true>
                                                         <option value="">Select state</option>
-                                                        <option *ngFor="let stateName of this.sharedService.usstateName"
+                                                        <option *ngFor="let stateName of this.sharedService.usstateName" [disabled]=true
                                                             [value]="stateName.id">{{stateName.name}}</option>
                                                     </select>
                                                     <ion-col class="errorMsg"
@@ -534,7 +534,7 @@
             </ion-col>
             <ion-col size-xl="1.5" size-lg="1.5" size-md=".5" size-sm="12" size-xs="12"></ion-col>
         </ion-row>
-        <app-summary-details *ngIf="this.sharedService.summaryDetails"></app-summary-details>
+        <app-summary-details [shipment]="shipment" *ngIf="this.sharedService.summaryDetails"></app-summary-details>
     </ion-col>
 </ion-row>
 <!-- Summary details ends here -->
