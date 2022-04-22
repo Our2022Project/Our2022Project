@@ -1,4 +1,4 @@
-import { Contact } from './Contact';
+import { Contact } from '../models/Contact';
 export class Address {
 
     addressLine1: string;

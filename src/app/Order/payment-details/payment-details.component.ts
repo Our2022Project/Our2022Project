@@ -31,6 +31,11 @@ export class PaymentDetailsComponent implements OnInit {
       companyName:[ this.sharedService.payment1.company,[Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       EmailId: [this.sharedService.payment1.email,[Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
       verifyEmail: [this.sharedService.payment1.Verifyemail,[Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
+      address1: [this.sharedService.rateRequest.fromAddress.addressLine1, [Validators.required, Validators.minLength(10)]],
+      address2: [this.sharedService.rateRequest.fromAddress.addressLine2],
+      city: [this.sharedService.rateRequest.fromAddress.city, [Validators.required, Validators.minLength(3), Validators.maxLength(35), Validators.pattern('^[a-zA-Z +\\-\']+')]],
+      state: [this.sharedService.rateRequest.fromAddress.stateCode, [Validators.required]],
+      zip: [this.sharedService.rateRequest.fromAddress.zipcode, [Validators.required, Validators.pattern("[0-9]{5}(?<!00000)$")]],
     },{
       validators: this.MustMatch('EmailId', 'verifyEmail')
     });

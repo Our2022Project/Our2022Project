@@ -292,6 +292,109 @@
                             </ion-col>
                         </ion-col>
                     </ion-row>
+                    <!---->
+                    <ion-row class="margin">
+                        <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                            <ion-label>Address</ion-label>
+                        </ion-col>
+                        <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                            <ion-input type="text" placeholder="Enter your address 1" name="Address" autocomplete="off"
+                                formControlName="address1"></ion-input>
+                            <ion-col class="errorMsg"
+                                *ngIf="paymentForm.controls['address1'].invalid && (paymentForm.controls['address1'].dirty || paymentForm.controls['address1'].touched)"
+                                class="alert">
+                                <ion-col class="errorMsg"
+                                    *ngIf="paymentForm.controls['address1'].errors.required">
+                                    This is
+                                    a required Fields
+                                </ion-col>
+                                <ion-col class="errorMsg"
+                                    *ngIf="paymentForm.controls['address1'].errors.minlength">
+                                    Address contains atleast 10 characters
+                                </ion-col>
+                            </ion-col>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class="margin">
+                        <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                        </ion-col>
+                        <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                            <ion-input type="text" placeholder="Address 2 (Optional)" name="Address2" autocomplete="off"
+                                formControlName="address2"></ion-input>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class="margin">
+                        <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                            <ion-label>City</ion-label>
+                        </ion-col>
+                        <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                            <ion-input type="text" placeholder="Enter your city" name="City" formControlName="city">
+                            </ion-input>
+                            <ion-col class="errorMsg"
+                                *ngIf="paymentForm.controls['city'].invalid && (paymentForm.controls['city'].dirty || paymentForm.controls['city'].touched)"
+                                class="alert">
+                                <ion-col class="errorMsg" *ngIf="paymentForm.controls['city'].errors.required">
+                                    This is a required Fields
+                                </ion-col>
+                                <ion-col class="errorMsg" *ngIf="paymentForm.controls['city'].errors.pattern">Only
+                                    Alphanumeric characters are allowed
+                                </ion-col>
+                                <ion-col class="errorMsg" *ngIf="paymentForm.controls['city'].errors.minlength">
+                                    Minimum 3 alphabetical letters are Required
+                                </ion-col>
+                                <ion-col class="errorMsg" *ngIf="paymentForm.controls['city'].errors.maxlength">
+                                    Maximum 35 alphabetical characters Long Only
+                                </ion-col>
+                            </ion-col>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class="margin">
+                        <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                            <ion-label>State</ion-label>
+                        </ion-col>
+                        <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                            <select interface="popover" formControlName="state">
+                                <option value="">Select State</option>
+                                <option *ngFor="let stateName of this.sharedService.usstateName" [value]="stateName.id">
+                                    {{stateName.name}}</option>
+                            </select>
+                            <ion-col class="errorMsg"
+                                *ngIf="paymentForm.controls['state'].invalid && (paymentForm.controls['state'].dirty || paymentForm.controls['state'].touched)">
+                                <ion-col *ngIf="paymentForm.controls['state'].errors.required">
+                                    Please select your state
+                                </ion-col>
+                            </ion-col>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class="margin">
+                        <ion-col class="labelMargin" size-xl="3" size-lg="3" size-md="3" size-sm="12" size-xs="12">
+                            <ion-label>Zip/Postal Code</ion-label>
+                        </ion-col>
+                        <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+                            <ion-input (keypress)="restrictNumeric($event)" type="tel"
+                                placeholder="Enter your zip/postal" name="ZIP" autocomplete="off"
+                                formControlName="zip"
+                                oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                maxlength="5"></ion-input>
+                            <ion-col class="errorMsg"
+                                *ngIf="paymentForm.controls['zip'].invalid && (paymentForm.controls['zip'].dirty || paymentForm.controls['zip'].touched)">
+                                <ion-col class="errorMsg" *ngIf="paymentForm.controls['zip'].errors.required">This
+                                    is
+                                    a
+                                    required Fields
+                                </ion-col>
+                                <ion-col *ngIf="paymentForm.controls['FromZIP'].errors.pattern">Invaild ZIP
+                                </ion-col>
+                            </ion-col>
+                        </ion-col>
+                    </ion-row>
+                    <!---->
+
+
                     <ion-row class="margin">
                         <ion-col size-xl=".3" size-lg=".5" size-md=".5" size-sm=".5" size-xs="1"
                             style="padding-top: 1px;">
