@@ -42,12 +42,12 @@ export class PaymentDetailsComponent implements OnInit {
 
   initializeForm(): void {
     this.paymentForm = this.fb.group({
-      bill: [this.sharedService.Payment.billTo, Validators.required],
-      selectCard: [this.sharedService.Payment.creditCardType, Validators.required],
-      selectMonth: [this.sharedService.payselectMonth, Validators.required],
-      selectYear: [this.sharedService.payselectYear, Validators.required],
-      creditCardNo: [this.sharedService.Payment.creditCardNumber, [Validators.required, Validators.pattern("[0-9]{16}(?<!000000)$")]],
-      cvvNo: [this.sharedService.Payment.cvvNumber, [Validators.required, Validators.pattern("[0-9]{3}(?<!000)$")]],
+      bill: ['', Validators.required],
+      selectCard: ['', Validators.required],
+      selectMonth: ['', Validators.required],
+      selectYear: ['', Validators.required],
+      creditCardNo: ['', [Validators.required, Validators.pattern("[0-9]{16}(?<!000000)$")]],
+      cvvNo: ['', [Validators.required, Validators.pattern("[0-9]{3}(?<!000)$")]],
       middleName: [this.Payment.middleName],
       firstName: [this.sharedService.Payment.firstName, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
       lastName: [this.sharedService.Payment.lastName, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z +\\-\']+')]],
@@ -122,6 +122,8 @@ export class PaymentDetailsComponent implements OnInit {
     this.Payment.paymentAddressRequest.state = this.paymentForm.controls['state'].value;
     this.Payment.paymentAddressRequest.zipCode = this.paymentForm.controls['zip'].value;
     this.Payment.paymentAddressRequest.phone = this.sharedService.OrderAdress.fromPhoneNumber;
-    this.Payment.transactionId = this.sharedService.OrderAdress.transactionId;
+    this.Payment.transactionId =  this.sharedService.transaction;
+    this.sharedService.Payment = this.Payment;
   }
+
 }

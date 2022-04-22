@@ -38,6 +38,7 @@ export class sharedService {
     rateRequest = new RateRequest;
     estimatedDeliveryDate: string = '';
     selectedServiceType: string = '';
+    transaction:string ='';
 
     usstateName = [{ name: 'Alabama (AL)', id: 'AL' },
     { name: 'Alaska (AK)', id: 'AK' },

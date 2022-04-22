@@ -78,6 +78,7 @@ export class AddressDetailsComponent implements OnInit {
       next: (data: any) => {
         this.mapShipDetails()
         this.shipment.transactionId = data.transactionId;
+        this.sharedService.transaction = data.transactionId;
         this.sharedService.shipment(this.shipment).subscribe({
           next: (data: any) => {
             this.shipment.shipmentDetailId = data.shipmentDetailId;
