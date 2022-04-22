@@ -1,67 +1,61 @@
-export class Payment{
-    [x: string]: any;
+export class Payment {
 
-    billTo : string;
-    creditCardType : string;
-    creditCardNumber : string;
-    cvvNumber : string;
-    expirationMonth : string;
-    expirationYear : string;
-    firstName : string;
-    middleName : string;
-    lastName : string;
-    company : string;
-    email : string;
-    isCreditAddSameAsShipAdd : boolean;
-    Verifyemail : string;
+    billTo: string;
+    creditCardType: string;
+    creditCardNumber: string;
+    cvvNumber: string;
+    expirationMonth: string;
+    expirationYear: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    company: string;
+    email: string;
+    isCreditAddSameAsShipAdd: boolean;
+    Verifyemail: string;
+    transactionId: string;
+    paymentAddressRequest = new PaymentAddressRequest();
 
 
-    constructor(){
-
+    constructor() {
         this.billTo = '';
-        this.creditCardType ='';
+        this.creditCardType = '';
         this.creditCardNumber = '';
-        this.cvvNumber ='';
+        this.cvvNumber = '';
         this.expirationMonth = '';
-        this.expirationYear ='';
+        this.expirationYear = '';
         this.firstName = '';
-        this.middleName ='';
+        this.middleName = '';
         this.lastName = '';
-        this.company ='';
+        this.company = '';
         this.email = '';
         this.isCreditAddSameAsShipAdd = true;
         this.Verifyemail = '';
+        this.transactionId = '';
     }
 }
 
-export class PaymentAddressRequest{
+export class PaymentAddressRequest {
 
-    country : string;
-    addressLine1 : string;
-    addressLine2 : string;
-    city : string;
-    state : string;
-    zipCode : string;
-    phone : string;
-    extension : string;
-    transactionId: string;
-    
-
-constructor(){
+    country: string;
+    addressLine1: string;
+    addressLine2: string;
+    city: string;
+    state: string;
+    zipCode: string;
+    phone: string;
+    extension: string;
 
 
-    this.country = 'US';
-    this.addressLine1 ='';
-    this.addressLine2 = '';
-    this.city ='';
-    this.state = '';
-    this.zipCode ='';
-    this.phone = '';
-    this.extension ='';
-    this.transactionId ='0';
-    
-}
+    constructor() {
 
-
-
+        this.country = 'US';
+        this.addressLine1 = '';
+        this.addressLine2 = '';
+        this.city = '';
+        this.state = '';
+        this.zipCode = '';
+        this.phone = '';
+        this.extension = '+1';
+    }
 }

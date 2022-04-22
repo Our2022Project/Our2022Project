@@ -34,7 +34,7 @@ export class sharedService {
     OrderAdress: OrderAdress = new OrderAdress();
     finalShipRate:string='';
     shipmentModel: shipment = new shipment();
-    payment1 = new Payment();
+    Payment = new Payment();
     rateRequest = new RateRequest;
     estimatedDeliveryDate: string = '';
     selectedServiceType: string = '';

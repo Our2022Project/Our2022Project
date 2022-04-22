@@ -303,13 +303,11 @@
                             <ion-col class="errorMsg"
                                 *ngIf="paymentForm.controls['address1'].invalid && (paymentForm.controls['address1'].dirty || paymentForm.controls['address1'].touched)"
                                 class="alert">
-                                <ion-col class="errorMsg"
-                                    *ngIf="paymentForm.controls['address1'].errors.required">
+                                <ion-col class="errorMsg" *ngIf="paymentForm.controls['address1'].errors.required">
                                     This is
                                     a required Fields
                                 </ion-col>
-                                <ion-col class="errorMsg"
-                                    *ngIf="paymentForm.controls['address1'].errors.minlength">
+                                <ion-col class="errorMsg" *ngIf="paymentForm.controls['address1'].errors.minlength">
                                     Address contains atleast 10 characters
                                 </ion-col>
                             </ion-col>
@@ -376,8 +374,7 @@
                         </ion-col>
                         <ion-col size-xl="5" size-lg="5" size-md="5" size-sm="12" size-xs="12">
                             <ion-input (keypress)="restrictNumeric($event)" type="tel"
-                                placeholder="Enter your zip/postal" name="ZIP" autocomplete="off"
-                                formControlName="zip"
+                                placeholder="Enter your zip/postal" name="ZIP" autocomplete="off" formControlName="zip"
                                 oninput=" if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                 maxlength="5"></ion-input>
                             <ion-col class="errorMsg"
@@ -387,7 +384,7 @@
                                     a
                                     required Fields
                                 </ion-col>
-                                <ion-col *ngIf="paymentForm.controls['FromZIP'].errors.pattern">Invaild ZIP
+                                <ion-col *ngIf="paymentForm.controls['zip'].errors.pattern">Invaild ZIP
                                 </ion-col>
                             </ion-col>
                         </ion-col>
@@ -398,7 +395,7 @@
                     <ion-row class="margin">
                         <ion-col size-xl=".3" size-lg=".5" size-md=".5" size-sm=".5" size-xs="1"
                             style="padding-top: 1px;">
-                            <ion-checkbox></ion-checkbox>
+                            <ion-checkbox formControlName="sameAddress"></ion-checkbox>
                         </ion-col>
                         <ion-col>
                             <ion-label>My credit card address is the same as my ship From address.</ion-label>
