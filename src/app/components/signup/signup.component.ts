@@ -104,14 +104,14 @@ export class SignupComponent implements OnInit {
     this.registerObj.lastName = this.SignupForm.controls['lastName'].value;
     this.registerObj.emailId = this.SignupForm.controls['emailId'].value;
     this.registerObj.phoneNumber = this.SignupForm.controls['phoneNumber'].value;
-    this.registerObj.roles.push("admin");
+    this.registerObj.roles[0] = "admin";
     this.registerAddressObj.addressLine1 = this.SignupForm.controls['addressLine1'].value;
     this.registerAddressObj.city = this.SignupForm.controls['city'].value;
     this.registerAddressObj.state = this.SignupForm.controls['state'].value;
     this.registerAddressObj.zipCode = this.SignupForm.controls['zipCode'].value;
     this.registerAddressObj.country = "US";
     this.registerAddressObj.addressType = 'Home';
-    this.registerObj.userAddressRequestList.push(this.registerAddressObj);
+    this.registerObj.userAddressRequestList[0] = this.registerAddressObj;
   }
   
 
