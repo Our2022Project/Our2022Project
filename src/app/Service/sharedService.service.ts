@@ -106,8 +106,8 @@ export class sharedService {
 
     httpOptionsPdf = {
         headers: new HttpHeaders({
-            //'Content-Type': 'application/json',
-             responseType: 'blob' as 'json'
+            'Content-Type': 'application/json',
+             responseType: 'blob'
         })
     };
 

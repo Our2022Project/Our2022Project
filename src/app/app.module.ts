@@ -62,7 +62,7 @@ import { ErrorInterceptor } from './_helper/error-interceptor';
       useClass:AuthInterceptor,
       multi:true
     },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    //{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     sharedService, DatePipe],
   bootstrap: [AppComponent]
 })

@@ -48,10 +48,30 @@ export class SummaryDetailsComponent implements OnInit {
         a.click();
       },error: (error: Error) => {
         this.spinner.hide();
-        this.showError = true;
-        console.error('######################### \n Error occured while processing shipment', error?.message);
-        console.error('Error occured while processing shipment', error);
-        this.errorMsg = error?.message || error?.name;
+        if (error instanceof HttpErrorResponse) {
+         if (error.status === 200) {
+            var file = new Blob([error?.error.text], { type: 'application/pdf' })
+            var fileURL = URL.createObjectURL(file);
+            // if you want to open PDF in new tab
+            window.open(fileURL); 
+            var a         = document.createElement('a');
+            a.href        = fileURL; 
+            a.target      = '_blank';
+            a.download    = 'ship-outbound-label.pdf';
+            document.body.appendChild(a);
+            a.click();
+         } else {
+          this.showError = true;
+         // console.error('Error occured while processing shipment', error?.message);
+          console.error('Error occured while processing shipment', error);
+          this.errorMsg = error?.message || error?.name;
+         }
+        } else {
+          this.showError = true;
+         // console.error('Error occured while processing shipment', error?.message);
+          console.error('Error occured while processing shipment', error);
+          this.errorMsg = error?.message || error?.name;
+        }
       }
     }
     );
