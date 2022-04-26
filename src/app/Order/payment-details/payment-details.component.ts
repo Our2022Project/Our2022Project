@@ -22,6 +22,7 @@ export class PaymentDetailsComponent implements OnInit {
     this.initializeForm();
     this.paymentForm.controls['sameAddress'].valueChanges.subscribe(
       (selectedValue: any) => {
+        this.spinner.hide();
         if (selectedValue) {
           this.paymentForm.controls['address1'].setValue(this.sharedService.rateRequest.fromAddress.addressLine1);
           this.paymentForm.controls['address2'].setValue(this.sharedService.rateRequest.fromAddress.addressLine2);

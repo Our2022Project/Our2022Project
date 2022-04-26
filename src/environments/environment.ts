@@ -1,4 +1,4 @@
-const Backend_Base_URL = 'http://ec2-100-24-53-190.compute-1.amazonaws.com:8080'; 
+const Backend_Base_URL = 'http://ec2-34-228-244-188.compute-1.amazonaws.com:8080'; 
 
 
 export const environment = {

@@ -5,6 +5,7 @@ import { CommonAddressRequest } from 'src/app/models/common-address-request';
 import { shipment } from 'src/app/models/Shipment';
 import { sharedService } from 'src/app/Service/sharedService.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-summary-details',
@@ -13,7 +14,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class SummaryDetailsComponent implements OnInit {
 
-  constructor( public sharedService: sharedService, public datepipe: DatePipe, public spinner: NgxSpinnerService) { }
+  constructor( private router: Router,public sharedService: sharedService, public datepipe: DatePipe, public spinner: NgxSpinnerService) { }
 
   processShipmentRequest: CommonAddressRequest = new CommonAddressRequest();
   shipDate:string = '';
@@ -46,6 +47,7 @@ export class SummaryDetailsComponent implements OnInit {
         a.download    = 'ship-outbound-label.pdf';
         document.body.appendChild(a);
         a.click();
+        this.gotoDashboard();
       },error: (error: Error) => {
         this.spinner.hide();
         if (error instanceof HttpErrorResponse) {
@@ -60,6 +62,7 @@ export class SummaryDetailsComponent implements OnInit {
             a.download    = 'ship-outbound-label.pdf';
             document.body.appendChild(a);
             a.click();
+            this.gotoDashboard();
          } else {
           this.showError = true;
          // console.error('Error occured while processing shipment', error?.message);
@@ -103,5 +106,10 @@ export class SummaryDetailsComponent implements OnInit {
     this.processShipmentRequest.toAddress.contactRequest.phoneNumber = this.sharedService.OrderAdress.recipientPhoneNumber;
     this.processShipmentRequest.serviceType = this.sharedService.selectedServiceType;
     this.processShipmentRequest.packageType = this.sharedService.rateRequest.packageType;
+  }
+
+  gotoDashboard() : void {
+    //will do later
+    //this.router.navigateByUrl('/dashboard');
   }
 }

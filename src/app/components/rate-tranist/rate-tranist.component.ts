@@ -183,8 +183,10 @@ export class RateTranistComponent implements OnInit {
     // Seconds part from the timestamp
     var seconds = "0" + date.getSeconds();
 
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+
     // Will display time in 10:30:23 format
-    var formattedTime = hours + ':' + minutes.substr(-2);
+    var formattedTime = hours + ':' + minutes.substr(-2) + ' '+ ampm;
 
     return formattedTime;
   }

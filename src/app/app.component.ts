@@ -23,27 +23,5 @@ export class AppComponent {
   ngOnInit(): void {
     
   }
-
-  ngOnInit_V1(): void {
-    this.route.queryParams
-      .subscribe(params => {
-        this.activatePage = params['activeUserToken'];
-        this.resetPage = params['token'];
-      }
-    );
-
-    if (sessionStorage.getItem("token") === null && this.activatePage === null && this.resetPage === null) {
-      this.router.navigateByUrl('/login');
-    } else if (this.activatePage) {
-      this.router.navigateByUrl('/activate-user');
-    } else if (this.activatePage) {
-      this.router.navigateByUrl('/reset-password');
-    } else {
-      this.sharedService.token = JSON.parse(sessionStorage.getItem("token") || "");
-      this.sharedService.userName = JSON.parse(sessionStorage.getItem("userName") || "");
-      this.router.navigateByUrl('/dashboard');
-
-    }
-  }
   
 }
