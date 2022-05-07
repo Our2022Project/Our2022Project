@@ -29,6 +29,7 @@ export class SummaryDetailsComponent implements OnInit {
 
   processShipment(): void {
     this.spinner.show();
+    this.showError = false;
     this.createProcessShipmentRequest();
     this.sharedService.processShipment(this.processShipmentRequest).subscribe({
       next: (data: any) => {
@@ -52,6 +53,7 @@ export class SummaryDetailsComponent implements OnInit {
         this.spinner.hide();
         if (error instanceof HttpErrorResponse) {
          if (error.status === 200) {
+          console.error('success block .. buty it should not', error);
             var file = new Blob([error?.error.text], { type: 'application/pdf' })
             var fileURL = URL.createObjectURL(file);
             // if you want to open PDF in new tab

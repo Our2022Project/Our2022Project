@@ -1,5 +1,5 @@
-import { HttpClient, HttpHeaderResponse, HttpHeaders } from "@angular/common/http";
-import { Injectable, OnInit } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable,  } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { CommonAddressRequest } from "../models/common-address-request";
@@ -101,14 +101,19 @@ export class sharedService {
     httpOptions = {
         headers: new HttpHeaders({
             'Content-Type': 'application/json',
+            responseType : 'json',
+            observe: 'events',
+            reportProgress: 'true',
         })
     };
 
 
     httpOptionsPdf = {
         headers: new HttpHeaders({
-            'Content-Type': 'application/json',
-             responseType: 'blob'
+            'Content-Type':  'application/json',
+            responseType : 'blob',
+            observe: 'events',
+            reportProgress: 'true',
         })
     };
 
