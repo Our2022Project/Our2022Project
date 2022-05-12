@@ -35,20 +35,26 @@
                             <ion-col>
                                 <ion-label class="labelHeading">From :</ion-label>
                                 <ion-label> {{this.rateRequest.fromAddress.addressLine1 + ","}} </ion-label>
-                                <ion-label *ngIf="this.rateRequest.fromAddress.addressLine2 !='' "> {{this.rateRequest.fromAddress.addressLine2
+                                <ion-label *ngIf="this.rateRequest.fromAddress.addressLine2 !='' ">
+                                    {{this.rateRequest.fromAddress.addressLine2
                                     + ","}} </ion-label>
-                                <ion-label> {{this.rateRequest.fromAddress.city + ", " + this.rateRequest.fromAddress.stateCode + ", " +
-                                    this.rateRequest.fromAddress.zipcode + ", " + this.rateRequest.fromAddress.countryCode +"." }} </ion-label>
+                                <ion-label> {{this.rateRequest.fromAddress.city + ", " +
+                                    this.rateRequest.fromAddress.stateCode + ", " +
+                                    this.rateRequest.fromAddress.zipcode + ", " +
+                                    this.rateRequest.fromAddress.countryCode +"." }} </ion-label>
                             </ion-col>
                         </ion-row>
                         <ion-row class="result" style="margin: 2% 3% 0 3%;">
                             <ion-col>
                                 <ion-label class="labelHeading">To : </ion-label>
                                 <ion-label> {{this.rateRequest.toAddress.addressLine1 + ","}} </ion-label>
-                                <ion-label *ngIf="this.rateRequest.toAddress.addressLine2 !='' "> {{this.rateRequest.toAddress.addressLine2 +
+                                <ion-label *ngIf="this.rateRequest.toAddress.addressLine2 !='' ">
+                                    {{this.rateRequest.toAddress.addressLine2 +
                                     ","}} </ion-label>
-                                <ion-label> {{this.rateRequest.toAddress.city + ", " + this.rateRequest.toAddress.stateCode + ", " +
-                                    this.rateRequest.toAddress.zipcode + ", " + this.rateRequest.toAddress.countryCode +"." }} </ion-label>
+                                <ion-label> {{this.rateRequest.toAddress.city + ", " +
+                                    this.rateRequest.toAddress.stateCode + ", " +
+                                    this.rateRequest.toAddress.zipcode + ", " + this.rateRequest.toAddress.countryCode
+                                    +"." }} </ion-label>
                             </ion-col>
                         </ion-row>
                     </ion-col>
@@ -215,7 +221,7 @@
                             </select>
                         </ion-col>
                     </ion-row>
-                  
+
                     <ion-row>
                         <ion-col class="labelPrice">
                             <select formControlName="packaging" (change)="selectPackage($event)">
@@ -226,7 +232,9 @@
                                 <option value="FEDEX_MEDIUM_BOX">FedEx Medium Box</option>
                                 <option value="FEDEX_SMALL_BOX">FedEx Small Box</option>
                                 <option value="FEDEX_TUBE">FedEx Tube</option>
-                                <option value="YOUR_PACKAGING" *ngIf="this.checkRateForm.controls['service'].value === 'Fedex Standard'">Your Packaging</option>
+                                <option value="YOUR_PACKAGING"
+                                    *ngIf="this.checkRateForm.controls['service'].value === 'Fedex Standard'">Your
+                                    Packaging</option>
                             </select>
                         </ion-col>
                     </ion-row>
@@ -238,7 +246,7 @@
                                     <ion-label class="subLabel">Max. 1</ion-label>
                                 </ion-col>
                             </ion-row>
-                            <ion-input (keypress)="restrictNumeric($event)" formControlName="noOfNonOwnPackages"
+                            <ion-input (keypress)="decimalFilter($event)" formControlName="noOfNonOwnPackages"
                                 maxlength="1"></ion-input>
                             <ion-row>
                                 <ion-col class="errorMsg"
@@ -261,8 +269,8 @@
                                 </ion-col>
                             </ion-row>
                             <ion-row>
-                                <ion-input formControlName="weightForNonOwnPackage" (keypress)="restrictNumeric($event)"
-                                    class="inputBorderFix" maxlength="2"></ion-input>
+                                <ion-input formControlName="weightForNonOwnPackage" (keypress)="decimalFilter($event)"
+                                    class="inputBorderFix" type="text"></ion-input>
                                 <ion-label class="sideLable">lb</ion-label>
                             </ion-row>
                             <ion-col class="errorMsg"
@@ -307,7 +315,7 @@
                             </ion-row>
                             <ion-row>
                                 <ion-input class="inputBorderFix" formControlName="weightForOwnPackage"
-                                    (keypress)="restrictNumeric($event)" maxlength="2"></ion-input>
+                                    (keypress)="decimalFilter($event)" type="text"></ion-input>
                                 <ion-label class="sideLable">lb</ion-label>
                             </ion-row>
                             <ion-col class="errorMsg"
@@ -349,6 +357,21 @@
                                     Maximum limit 119 X 80 X height 70
                                 </ion-col>
                             </ion-col>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-label style="font-size: 18px;">Declared Value</ion-label>
+                            <ion-input type="text" (keypress)="decimalFilter($event)" formControlName="declaredValue">
+                            </ion-input>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="marginSet">
+                        <ion-col size-xl="1" size-lg="1" size-md="1" size-sm="12" size-xs="12">
+                            <ion-checkbox formControlName="isResidential"></ion-checkbox>
+                        </ion-col>
+                        <ion-col size-xl="3" size-lg="3" size-md="12" size-sm="12" size-xs="12">
+                            <ion-label style="font-size: 18px;">Residential</ion-label>
                         </ion-col>
                     </ion-row>
                     <ion-row class="firstButton">
@@ -411,7 +434,9 @@
                                                     <ion-col class="priceFirst"
                                                         *ngFor="let ratedPackage of ratedShipmentDetail?.ratedPackages">
                                                         <ion-col>
-                                                            <ion-button (click)="getMonthDate(service?.deliveryTimestamp,i, service?.serviceDescription?.names?.[0]?.value, ratedShipmentDetail); showOrderComponent(service?.serviceType);" class="priceBtn">
+                                                            <ion-button
+                                                                (click)="getMonthDate(service?.deliveryTimestamp,i, service?.serviceDescription?.names?.[0]?.value, ratedShipmentDetail); showOrderComponent(service?.serviceType);"
+                                                                class="priceBtn">
                                                                 ${{
                                                                 ratedPackage?.packageRateDetail?.netFedExCharge?.amount
                                                                 }}</ion-button>

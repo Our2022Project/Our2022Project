@@ -63,6 +63,8 @@ export class RateTranistComponent implements OnInit {
       length: ['', [Validators.pattern("^(?:[1-9]|0[1-9]|10|[1-9][0-9]|1[01][0-9])$")]],
       width: ['', [Validators.pattern("([1-9]|1[0-9]|20|2[0-9]|30|3[0-9]|40|4[0-9]|50|5[0-9]|60|6[0-9]|70|7[0-9]|80)")]],
       height: ['', [Validators.pattern("([1-9]|1[0-9]|20|2[0-9]|30|3[0-9]|40|4[0-9]|50|5[0-9]|60|6[0-9]|70)")]],
+      declaredValue: ['1', [Validators.required, Validators.pattern("([1-9]|1[0-9]|20|2[0-5]|25)")]],
+      isResidential: [false],
     }
     );
   }
@@ -147,6 +149,8 @@ export class RateTranistComponent implements OnInit {
       this.rateRequest.packageWeight = this.checkRateForm.controls['weightForNonOwnPackage'].value;
       this.rateRequest.noOfPackages = this.checkRateForm.controls['noOfNonOwnPackages'].value;
     }
+    this.rateRequest.declaredValue = this.checkRateForm.controls['declaredValue'].value;
+    this.rateRequest.isResidential = this.checkRateForm.controls['isResidential'].value;
     this.sharedService.rateRequest = this.rateRequest;
   }
 
@@ -200,7 +204,7 @@ export class RateTranistComponent implements OnInit {
   shipDate = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();
     const time = (d || new Date()).getTime();
-    return !(!this.avaiableDate.find((x: { getTime: () => any; }) => x.getTime() == time)) && day !== 0;
+    return !(!this.avaiableDate.find((x: { getTime: () => any; }) => x.getTime() == time));
   }
 
   selectPackage(selectedPackage: any): void {
@@ -213,5 +217,13 @@ export class RateTranistComponent implements OnInit {
       this.selectedDate = new Date(this.selectedDate.setDate(this.selectedDate.getDate() + 1));
     }
   }
+
+  decimalFilter(event: any) {
+    const reg = /^-?\d*(\.\d{0,2})?$/;
+    let input = event.target.value + String.fromCharCode(event.charCode);
+    if (!reg.test(input)) {
+        event.preventDefault();
+    }
+ }
 
 } 

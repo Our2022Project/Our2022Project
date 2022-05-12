@@ -11,13 +11,15 @@ export class RateRequest {
     packageType: string;
     noOfPackages: string;
     dimension?: string;
+    isResidential: boolean;
 
     constructor() {
         this.shipDate = '';
-        this.declaredValue = '0.00';
+        this.declaredValue = '';
         this.packageWeight = '';
         this.serviceType = '';
         this.packageType = '';
         this.noOfPackages = '';
+        this.isResidential = false;
     }
 }
